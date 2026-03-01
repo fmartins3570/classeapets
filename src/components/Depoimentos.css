@@ -1,0 +1,93 @@
+/* Depoimentos — título vermelho, cards cinza claro, nome laranja, estrelas */
+
+.depoimentos {
+  padding: 4rem 1.5rem;
+  background-color: var(--color-bg-section-alt);
+}
+
+.depoimentos__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.depoimentos__title {
+  margin-bottom: 0.5rem;
+}
+
+.depoimentos__subtitle {
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-preto);
+  margin: 0 0 1rem 0;
+}
+
+.depoimentos__intro {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+  color: var(--color-texto);
+  line-height: 1.6;
+}
+
+.depoimentos__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.depoimentos__card {
+  background-color: var(--color-cinza-claro);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--color-cinza-medio);
+}
+
+.depoimentos__avatar {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-branco);
+  margin-bottom: 0.75rem;
+}
+
+.depoimentos__avatar--laranja {
+  background-color: var(--color-laranja);
+}
+
+.depoimentos__avatar--turquesa {
+  background-color: var(--color-turquesa);
+}
+
+.depoimentos__stars {
+  color: var(--color-destaque-secundario);
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+}
+
+.depoimentos__card-text {
+  margin: 0 0 1rem 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--color-texto);
+}
+
+.depoimentos__card-author {
+  display: flex;
+  flex-direction: column;
+}
+
+.depoimentos__nome {
+  font-weight: 600;
+  color: var(--color-destaque-secundario);
+}
+
+.depoimentos__tutor-de {
+  font-size: 0.875rem;
+  color: var(--color-texto);
+}

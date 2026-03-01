@@ -1,0 +1,71 @@
+/* Métodos — título vermelho, cards com checkmarks turquesa, SAIBA MAIS turquesa */
+
+.metodos {
+  padding: 4rem 1.5rem;
+  background-color: var(--color-bg-section-alt);
+}
+
+.metodos__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.metodos__title {
+  margin-bottom: 1rem;
+}
+
+.metodos__intro {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 2rem auto;
+  color: var(--color-texto);
+  line-height: 1.6;
+}
+
+.metodos__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.metodos__card {
+  background-color: var(--color-branco);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--color-cinza-medio);
+}
+
+.metodos__card-title {
+  font-size: 1.1rem;
+  margin: 0 0 1rem 0;
+  color: var(--color-preto);
+}
+
+.metodos__list {
+  list-style: none;
+  margin: 0 0 1rem 0;
+  padding: 0;
+}
+
+.metodos__list li {
+  margin-bottom: 0.5rem;
+  padding-left: 0;
+  line-height: 1.4;
+  font-size: 0.95rem;
+}
+
+.metodos__check {
+  color: var(--color-turquesa);
+  font-weight: bold;
+  margin-right: 0.35rem;
+}
+
+.metodos__cta {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.metodos__cta:hover {
+  text-decoration: none;
+}

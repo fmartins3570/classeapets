@@ -1,0 +1,66 @@
+/* Cursos detalhada — bloco presencial turquesa, bloco digital vermelho */
+
+.cursos-detalhe {
+  padding: 4rem 1.5rem;
+}
+
+.cursos-detalhe__inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  gap: 2rem;
+}
+
+.cursos-detalhe__bloco {
+  padding: 2rem;
+  border-radius: 8px;
+  color: var(--color-branco);
+}
+
+.cursos-detalhe__bloco--presencial {
+  background-color: var(--color-turquesa);
+}
+
+.cursos-detalhe__bloco--digital {
+  background-color: var(--color-vermelho);
+}
+
+.cursos-detalhe__bloco-title {
+  color: var(--color-branco);
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+}
+
+.cursos-detalhe__bloco-desc {
+  margin: 0 0 1rem 0;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+.cursos-detalhe__list {
+  margin: 0 0 1.5rem 0;
+  padding-left: 1.25rem;
+  line-height: 1.6;
+}
+
+.cursos-detalhe__list li {
+  margin-bottom: 0.5rem;
+}
+
+.cursos-detalhe__cta {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--color-branco);
+  background-color: var(--color-turquesa);
+  border: 2px solid var(--color-turquesa);
+}
+
+.cursos-detalhe__cta:hover {
+  text-decoration: none;
+  background-color: var(--color-branco);
+  color: var(--color-turquesa);
+}
+
+.cursos-detalhe__bloco--digital .cursos-detalhe__cta:hover {
+  color: var(--color-vermelho);
+}

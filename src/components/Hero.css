@@ -1,0 +1,50 @@
+/* Hero — fundo cinza claro, título preto, subtítulo laranja, CTA turquesa */
+
+.hero {
+  background-color: var(--color-bg-section-alt);
+  padding: 4rem 1.5rem;
+}
+
+.hero__inner {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero__title {
+  font-size: 2.25rem;
+  color: var(--color-preto);
+  margin: 0 0 0.5rem 0;
+}
+
+.hero__subtitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-destaque-secundario);
+  margin: 0 0 1.5rem 0;
+}
+
+.hero__text {
+  color: var(--color-texto);
+  margin: 0 0 2rem 0;
+  line-height: 1.6;
+}
+
+.hero__cta {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.hero__cta:hover {
+  text-decoration: none;
+}
+
+@media (max-width: 600px) {
+  .hero__title {
+    font-size: 1.75rem;
+  }
+
+  .hero__subtitle {
+    font-size: 1.25rem;
+  }
+}

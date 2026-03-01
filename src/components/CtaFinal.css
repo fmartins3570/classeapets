@@ -1,0 +1,31 @@
+/* CTA Final — fundo cinza claro, título vermelho, botão turquesa */
+
+.cta-final {
+  padding: 4rem 1.5rem;
+  background-color: var(--color-bg-section-alt);
+}
+
+.cta-final__inner {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.cta-final__title {
+  margin-bottom: 1rem;
+}
+
+.cta-final__text {
+  margin: 0 0 1.5rem 0;
+  line-height: 1.6;
+  color: var(--color-texto);
+}
+
+.cta-final__btn {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.cta-final__btn:hover {
+  text-decoration: none;
+}

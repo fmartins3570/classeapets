@@ -1,0 +1,32 @@
+/* Stats — números laranja, labels preto */
+
+.stats {
+  padding: 3rem 1.5rem;
+  background-color: var(--color-branco);
+}
+
+.stats__inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+
+.stats__card {
+  text-align: center;
+}
+
+.stats__number {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-destaque-secundario);
+  margin-bottom: 0.25rem;
+}
+
+.stats__label {
+  font-size: 0.95rem;
+  color: var(--color-texto);
+}

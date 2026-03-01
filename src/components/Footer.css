@@ -1,0 +1,68 @@
+/* Footer — fundo turquesa, texto branco */
+
+.footer {
+  background-color: var(--color-turquesa);
+  color: var(--color-branco);
+  padding: 2rem 1.5rem;
+  margin-top: 0;
+}
+
+.footer__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+}
+
+.footer__logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.footer__logo-a {
+  color: var(--color-branco);
+}
+
+.footer__logo-b {
+  color: var(--color-vermelho);
+}
+
+.footer__heading {
+  margin: 0 0 0.75rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-branco);
+}
+
+.footer__links ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer__links li {
+  margin-bottom: 0.5rem;
+}
+
+.footer__links a {
+  color: var(--color-branco);
+}
+
+.footer__links a:hover {
+  text-decoration: underline;
+}
+
+.footer__copy {
+  margin: 0;
+  font-size: 0.875rem;
+  opacity: 0.95;
+}
+
+@media (max-width: 768px) {
+  .footer__inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}

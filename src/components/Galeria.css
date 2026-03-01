@@ -1,0 +1,69 @@
+/* Galeria — título vermelho, filtros laranja, grid de imagens */
+
+.galeria {
+  padding: 4rem 1.5rem;
+  background-color: var(--color-branco);
+}
+
+.galeria__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.galeria__title {
+  margin-bottom: 0.5rem;
+}
+
+.galeria__subtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--color-cinza-subtitulo);
+  margin: 0 0 1.5rem 0;
+}
+
+.galeria__filtros {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.galeria__filtro {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-destaque-secundario);
+  background: transparent;
+  border: 2px solid var(--color-destaque-secundario);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.galeria__filtro:hover {
+  background-color: var(--color-destaque-secundario);
+  color: var(--color-branco);
+}
+
+.galeria__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.galeria__item {
+  aspect-ratio: 1;
+}
+
+.galeria__placeholder {
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-cinza-claro);
+  border: 1px solid var(--color-cinza-medio);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  color: var(--color-texto);
+}

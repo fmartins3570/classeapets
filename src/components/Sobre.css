@@ -1,0 +1,55 @@
+/* Sobre — título vermelho, vídeo placeholder, texto, CTA turquesa */
+
+.sobre {
+  padding: 4rem 1.5rem;
+  background-color: var(--color-branco);
+}
+
+.sobre__inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.sobre__title {
+  margin-bottom: 2rem;
+}
+
+.sobre__content {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.sobre__video-placeholder {
+  aspect-ratio: 16/9;
+  background-color: var(--color-preto);
+  color: var(--color-branco);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.sobre__text p {
+  margin: 0 0 1rem 0;
+  line-height: 1.6;
+  color: var(--color-texto);
+}
+
+.sobre__cta {
+  display: inline-block;
+  margin-top: 1rem;
+  text-decoration: none;
+}
+
+.sobre__cta:hover {
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .sobre__content {
+    grid-template-columns: 1fr;
+  }
+}

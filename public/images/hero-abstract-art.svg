@@ -1,0 +1,36 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="30" y1="40" x2="1090" y2="860" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#D5F9FF"/>
+      <stop offset="0.55" stop-color="#FFF3E0"/>
+      <stop offset="1" stop-color="#FEE7E5"/>
+    </linearGradient>
+    <linearGradient id="aquaFlow" x1="190" y1="130" x2="930" y2="710" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2EDEF0"/>
+      <stop offset="1" stop-color="#78D4FF"/>
+    </linearGradient>
+    <linearGradient id="warmFlow" x1="760" y1="220" x2="340" y2="760" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F90600"/>
+      <stop offset="1" stop-color="#F5B347"/>
+    </linearGradient>
+    <linearGradient id="inkLine" x1="210" y1="705" x2="940" y2="345" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0A1118"/>
+      <stop offset="1" stop-color="#202A34"/>
+    </linearGradient>
+    <filter id="softBlur" x="-120" y="-120" width="1440" height="1140" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="20"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="900" rx="64" fill="url(#bgGradient)"/>
+  <g opacity="0.9" filter="url(#softBlur)">
+    <path d="M120 520C190 340 420 180 640 230C860 280 1000 470 1015 600C1030 730 905 840 710 830C515 820 50 700 120 520Z" fill="url(#aquaFlow)"/>
+    <path d="M890 160C1020 210 1115 350 1090 470C1065 590 930 670 785 645C640 620 555 500 580 380C605 260 760 110 890 160Z" fill="url(#warmFlow)"/>
+  </g>
+  <path d="M218 677C305 612 430 583 544 604C662 626 749 696 868 706C949 713 1012 697 1060 670" stroke="url(#inkLine)" stroke-width="20" stroke-linecap="round"/>
+  <path d="M248 259C337 207 463 195 568 228C675 261 744 331 847 357C922 377 981 369 1038 339" stroke="#F8FCFF" stroke-opacity="0.85" stroke-width="16" stroke-linecap="round"/>
+  <circle cx="312" cy="260" r="26" fill="#F90600"/>
+  <circle cx="896" cy="548" r="22" fill="#FFFFFF" fill-opacity="0.9"/>
+  <circle cx="753" cy="176" r="16" fill="#2EDEF0"/>
+  <circle cx="1015" cy="270" r="13" fill="#F5B347"/>
+  <rect x="140" y="145" width="250" height="250" rx="125" fill="#FFFFFF" fill-opacity="0.18"/>
+</svg>

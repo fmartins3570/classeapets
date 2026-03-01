@@ -1,0 +1,23 @@
+/* App — layout single-page */
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  padding: 0.5rem 1rem;
+  background: var(--color-preto);
+  color: var(--color-branco);
+  font-weight: 500;
+  z-index: 1000;
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: 1rem;
+  outline: 2px solid var(--color-turquesa);
+  outline-offset: 2px;
+}
+
+main {
+  padding: 0;
+}
