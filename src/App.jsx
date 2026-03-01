@@ -103,7 +103,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={homeContent} />
-      <Route path="/landing" element={<LandingPage />} />
+      <Route path="/curso-adestramento-classeapets-presencial" element={<LandingPage />} />
     </Routes>
   )
 }

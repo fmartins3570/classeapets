@@ -1,11 +1,29 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
+import { resolve } from 'path'
+import { copyFileSync, mkdirSync } from 'fs'
 
 // https://vite.dev/config/
 export default defineConfig({
   base: globalThis.process?.env?.VITE_PUBLIC_BASE || '/',
-  plugins: [react(), tailwindcss()],
+  plugins: [
+    react(),
+    tailwindcss(),
+    {
+      name: 'spa-routes',
+      closeBundle() {
+        // Copy index.html to SPA sub-routes so static hosts serve them correctly
+        const dist = resolve(__dirname, 'dist')
+        const routes = ['curso-adestramento-classeapets-presencial']
+        for (const route of routes) {
+          const dir = resolve(dist, route)
+          mkdirSync(dir, { recursive: true })
+          copyFileSync(resolve(dist, 'index.html'), resolve(dir, 'index.html'))
+        }
+      },
+    },
+  ],
   build: {
     cssCodeSplit: true,
     rollupOptions: {
