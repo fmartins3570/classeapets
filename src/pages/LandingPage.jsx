@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import {
-  AlertTriangle,
   Heart,
   GraduationCap,
   Briefcase,
@@ -9,80 +8,183 @@ import {
   Clock,
   Calendar,
   ChevronDown,
+  Shield,
+  Zap,
+  Users,
 } from 'lucide-react'
 import LandingHeader from '../components/LandingHeader'
+import useScrollReveal from '../hooks/useScrollReveal'
+
+/* ─────────────────── HERO ─────────────────── */
 
 function HeroSection() {
   return (
-    <section id="hero" className="relative bg-gray-50 overflow-hidden">
-      <div className="absolute inset-0 bg-linear-to-br from-gray-100/80 to-gray-50/80" aria-hidden />
-      <div className="relative max-w-4xl mx-auto px-6 py-20 md:py-32 text-center">
-        <span className="inline-block bg-red-100 text-red-600 text-sm font-semibold px-3 py-1 rounded-full mb-6">
-          Turma Presencial em São Paulo
-        </span>
-        <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
-          Transforme sua paixão por cães em uma carreira altamente lucrativa.
-        </h1>
-        <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8">
-          Aprenda do zero o método validado para educar cães, conquistar clientes e faturar no
-          mercado pet — mesmo que você não tenha experiência prévia.
-        </p>
-        <p className="flex items-center justify-center gap-2 text-red-500 font-semibold mb-10">
-          <AlertTriangle className="w-5 h-5 shrink-0" aria-hidden />
-          Apenas 15 vagas disponíveis para a próxima turma.
-        </p>
-        <a
-          href="#checkout"
-          className="inline-flex items-center justify-center w-full md:w-fit bg-[#00BCD4] text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:-translate-y-1 transition-transform"
-        >
-          Quero garantir minha vaga agora
-        </a>
+    <section
+      id="hero"
+      className="relative overflow-hidden px-4 pb-12 pt-24 sm:px-8 sm:pb-16 sm:pt-32 md:min-h-screen md:pb-24 lg:pt-36"
+      style={{ background: 'var(--gradient-hero)' }}
+    >
+      {/* Ambient glows */}
+      <div
+        className="pointer-events-none absolute left-[-20%] top-[8%] h-[300px] w-[300px] rounded-full opacity-15 blur-[100px] sm:left-[-12%] sm:h-[550px] sm:w-[550px] sm:blur-[140px]"
+        style={{ background: 'radial-gradient(circle, rgba(46,222,240,0.3), transparent 70%)' }}
+        aria-hidden
+      />
+
+      {/* Grid */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.02]"
+        style={{
+          backgroundImage:
+            'linear-gradient(rgba(46,222,240,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(46,222,240,0.4) 1px, transparent 1px)',
+          backgroundSize: '48px 48px',
+        }}
+        aria-hidden
+      />
+
+      <div className="relative mx-auto grid max-w-[1200px] grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-12 lg:gap-16">
+        {/* Left — Text */}
+        <div className="text-center md:text-left">
+          {/* Urgency badge */}
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[var(--color-vermelho)]/20 bg-[var(--color-vermelho)]/6 px-3.5 py-2 sm:mb-8 sm:gap-2.5 sm:px-5 sm:py-2.5">
+            <span className="relative flex h-2 w-2 shrink-0">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--color-vermelho)] opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--color-vermelho)]" />
+            </span>
+            <span className="text-[0.72rem] font-semibold leading-tight text-[var(--color-vermelho)] sm:text-[0.82rem]">
+              Turma Presencial em SP — Apenas 15 vagas
+            </span>
+          </div>
+
+          <h1 className="mb-5 !text-[1.8rem] !leading-[1.12] !text-white sm:mb-6 sm:!text-[2.5rem] md:!text-[2.6rem] lg:!text-[3.2rem]">
+            Transforme sua paixao por caes em uma{' '}
+            <span
+              className="bg-clip-text text-transparent"
+              style={{ backgroundImage: 'var(--gradient-cyan)' }}
+            >
+              carreira altamente lucrativa.
+            </span>
+          </h1>
+
+          <p className="mx-auto mb-8 max-w-[540px] text-[0.95rem] leading-relaxed text-[var(--color-cinza-400)] sm:mb-10 sm:text-[1.1rem] md:mx-0 md:text-[1.05rem]">
+            Aprenda do zero o metodo validado para educar caes, conquistar clientes e faturar no
+            mercado pet — mesmo sem experiencia previa.
+          </p>
+
+          <a
+            href="#checkout"
+            className="btn-primary inline-flex min-h-[52px] w-full items-center justify-center gap-2.5 !rounded-full !px-8 !py-3.5 !text-[0.9rem] !font-bold !no-underline hover:!no-underline sm:min-h-[56px] sm:w-auto sm:!px-10 sm:!py-4 sm:!text-base"
+          >
+            Quero garantir minha vaga agora
+            <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+
+          {/* Trust badges */}
+          <div className="mt-8 flex flex-col items-center gap-3 sm:mt-10 sm:flex-row sm:gap-6 md:items-start md:justify-start">
+            {[
+              { icon: Shield, text: '30 dias de garantia' },
+              { icon: Users, text: '+250 familias atendidas' },
+              { icon: Zap, text: 'Metodo positivo' },
+            ].map(({ icon: Icon, text }) => (
+              <div key={text} className="flex items-center gap-2">
+                <Icon className="h-4 w-4 text-[var(--color-cyan-muted)]/60" />
+                <span className="text-[0.75rem] font-medium text-[var(--color-cinza-500)] sm:text-[0.78rem]">{text}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Right — Brenno image */}
+        <div className="relative flex justify-center md:justify-end">
+          <div className="relative w-[260px] sm:w-[300px] md:w-[380px] lg:w-[440px]">
+            {/* CTA-gradient shape behind — same gradient as the button */}
+            <div
+              className="absolute inset-x-[8%] bottom-[5%] top-[12%] rounded-[40px] opacity-40 sm:rounded-[50px]"
+              style={{
+                background: 'linear-gradient(135deg, #1BA8B8 0%, #2edef0 50%, #1BA8B8 100%)',
+                filter: 'blur(20px)',
+              }}
+              aria-hidden
+            />
+            {/* Outer feathered glow */}
+            <div
+              className="pointer-events-none absolute inset-x-[-5%] bottom-[0%] top-[8%] rounded-full opacity-20 blur-[60px] sm:blur-[70px]"
+              style={{ background: 'linear-gradient(135deg, #1BA8B8 0%, #2edef0 50%, #1BA8B8 100%)' }}
+              aria-hidden
+            />
+            <img
+              src="/images/brenno-hero.png"
+              alt="Brenno Rodrigues — Adestrador Profissional com seu cao"
+              className="relative z-10 h-auto w-full object-contain drop-shadow-[0_8px_40px_rgba(0,0,0,0.3)]"
+              fetchPriority="high"
+            />
+          </div>
+        </div>
       </div>
+
+      {/* Bottom fade */}
+      <div
+        className="pointer-events-none absolute bottom-0 left-0 right-0 h-20 sm:h-24"
+        style={{ background: 'linear-gradient(to bottom, transparent, var(--color-cream))' }}
+        aria-hidden
+      />
     </section>
   )
 }
 
+/* ─────────────────── PUBLICO ALVO ─────────────────── */
+
 const publicoItems = [
   {
     icon: Heart,
-    title: 'Apaixonados por cães',
-    text: 'Querem transformar amor em profissão e viver do que amam.',
+    title: 'Apaixonados por caes',
+    text: 'Querem transformar amor em profissao e viver do que amam.',
   },
   {
     icon: GraduationCap,
-    title: 'Tutores que buscam excelência',
-    text: 'Desejam educar o próprio cão com método e segurança.',
+    title: 'Tutores que buscam excelencia',
+    text: 'Desejam educar o proprio cao com metodo e seguranca.',
   },
   {
     icon: Briefcase,
-    title: 'Transição de carreira',
-    text: 'Buscam nova fonte de renda flexível e com propósito.',
+    title: 'Transicao de carreira',
+    text: 'Buscam nova fonte de renda flexivel e com proposito.',
   },
   {
     icon: Stethoscope,
-    title: 'Profissionais da área pet',
-    text: 'Veterinários, passeadores e monitores que querem se especializar.',
+    title: 'Profissionais da area pet',
+    text: 'Veterinarios, passeadores e monitores que querem se especializar.',
   },
 ]
 
 function PublicoAlvo() {
+  useScrollReveal()
+
   return (
-    <section className="bg-white py-16 md:py-20">
-      <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 text-center mb-12">
-          Esse curso foi desenhado para quem quer mais da vida...
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
+    <section className="bg-[var(--color-cream)] px-4 py-14 sm:px-8 sm:py-20 md:py-28">
+      <div className="mx-auto max-w-[1100px]">
+        <div className="mb-10 text-center sm:mb-14" data-reveal="up">
+          <span className="section-label justify-center">Para quem e</span>
+          <h2 className="mx-auto max-w-[550px] !text-[1.5rem] sm:!text-[1.75rem] md:!text-[2.2rem]">
+            Esse curso foi desenhado para quem quer mais da vida...
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4 lg:gap-6" data-reveal-stagger>
           {publicoItems.map((item) => (
             <article
               key={item.title}
-              className="bg-gray-50 rounded-2xl p-6 text-center flex flex-col items-center transition-all duration-300 hover:bg-linear-to-br hover:from-[#00BCD4]/5 hover:to-[#FF9800]/10 hover:shadow-md"
+              className="group flex flex-row items-start gap-4 rounded-2xl border border-[var(--color-cinza-200)] bg-[var(--color-branco)] p-5 transition-all duration-500 hover:-translate-y-1 hover:border-[var(--color-cyan-muted)]/30 hover:shadow-[var(--shadow-md)] sm:flex-col sm:items-center sm:p-6 sm:text-center"
             >
-              <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-[#FF9800]/10 flex items-center justify-center mb-4">
-                <item.icon className="w-9 h-9 md:w-11 md:h-11 text-[#FF9800]" aria-hidden />
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[var(--color-cyan-muted)]/8 transition-colors duration-300 group-hover:bg-[var(--color-cyan-muted)]/14 sm:mb-4 sm:h-14 sm:w-14 sm:rounded-2xl">
+                <item.icon className="h-6 w-6 text-[var(--color-cyan-muted)] sm:h-7 sm:w-7" aria-hidden />
               </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">{item.text}</p>
+              <div>
+                <h3 className="mb-1 !text-[1.05rem] sm:mb-2 sm:!text-[1.15rem]">{item.title}</h3>
+                <p className="text-[0.85rem] leading-relaxed text-[var(--color-texto-muted)] sm:text-[0.9rem]">{item.text}</p>
+              </div>
             </article>
           ))}
         </div>
@@ -91,39 +193,65 @@ function PublicoAlvo() {
   )
 }
 
+/* ─────────────────── ENTREGAVEIS ─────────────────── */
+
 const entregaveisItems = [
   {
     title: 'Processo Completo de Adestramento',
-    text: 'Metodologia validada e passo a passo para educar cães com segurança e resultados.',
+    text: 'Metodologia validada e passo a passo para educar caes com seguranca e resultados.',
   },
   {
-    title: 'Modificação Comportamental',
-    text: 'Técnicas testadas para corrigir comportamentos e fortalecer o vínculo tutor-cão.',
+    title: 'Modificacao Comportamental',
+    text: 'Tecnicas testadas para corrigir comportamentos e fortalecer o vinculo tutor-cao.',
   },
   {
     title: 'Posicionamento e Vendas',
-    text: 'Como captar clientes, precificar serviços e se destacar no mercado pet.',
+    text: 'Como captar clientes, precificar servicos e se destacar no mercado pet.',
   },
   {
-    title: 'Plataforma e Prática',
-    text: '+50 atividades em vídeo e estágio com cães reais para fixar o aprendizado.',
+    title: 'Plataforma e Pratica',
+    text: '+50 atividades em video e estagio com caes reais para fixar o aprendizado.',
   },
 ]
 
 function Entregaveis() {
+  useScrollReveal()
+
   return (
-    <section id="entregaveis" className="bg-gray-50 py-16 md:py-20">
-      <div className="max-w-4xl mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 text-center mb-12">
-          O que você vai aprender?
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <section
+      id="entregaveis"
+      className="relative overflow-hidden px-4 py-14 sm:px-8 sm:py-20 md:py-28"
+      style={{ background: 'var(--gradient-section-dark)' }}
+    >
+      <div
+        className="pointer-events-none absolute right-[-10%] top-[20%] h-[300px] w-[300px] rounded-full opacity-10 blur-[100px] sm:h-[400px] sm:w-[400px] sm:blur-[120px]"
+        style={{ background: 'radial-gradient(circle, rgba(46,222,240,0.25), transparent 70%)' }}
+        aria-hidden
+      />
+
+      <div className="relative mx-auto max-w-[900px]">
+        <div className="mb-10 text-center sm:mb-14" data-reveal="up">
+          <span className="section-label section-label-light justify-center">O Curso</span>
+          <h2 className="mx-auto mb-3 max-w-[500px] !text-[1.5rem] !text-white sm:mb-4 sm:!text-[1.75rem] md:!text-[2.2rem]">
+            O que voce vai aprender?
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2 md:gap-8" data-reveal-stagger>
           {entregaveisItems.map((item) => (
-            <div key={item.title} className="flex gap-4">
-              <CheckCircle2 className="w-8 h-8 text-[#00BCD4] shrink-0 mt-0.5" aria-hidden />
+            <div
+              key={item.title}
+              className="card-dark group flex gap-3.5 p-5 hover:border-[var(--color-cyan)]/20 sm:gap-4 sm:p-7"
+            >
+              <div
+                className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg sm:mt-1 sm:h-10 sm:w-10 sm:rounded-xl"
+                style={{ background: 'var(--gradient-cyan-subtle)' }}
+              >
+                <CheckCircle2 className="h-4.5 w-4.5 text-white sm:h-5 sm:w-5" aria-hidden />
+              </div>
               <div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{item.text}</p>
+                <h3 className="mb-1.5 !text-[1rem] !text-white sm:mb-2 sm:!text-[1.15rem]">{item.title}</h3>
+                <p className="text-[0.85rem] leading-relaxed text-[var(--color-cinza-400)] sm:text-[0.92rem]">{item.text}</p>
               </div>
             </div>
           ))}
@@ -133,31 +261,74 @@ function Entregaveis() {
   )
 }
 
+/* ─────────────────── SOBRE BRENNO ─────────────────── */
+
 function SobreBrenno() {
-  // TODO: Substituir por imagem do Brenno do Google Drive (pasta "SEM FUNDO")
-  const brennoImageSrc = '/images/brenno.jpg'
+  useScrollReveal()
 
   return (
-    <section className="bg-slate-900 text-white py-16 md:py-24">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-          <div className="order-2 md:order-1">
-            <img
-              src={brennoImageSrc}
-              alt="Brenno Rodrigues - Adestrador de Cães"
-              className="rounded-lg shadow-lg object-cover h-96 md:h-full w-full"
-            />
+    <section className="bg-[var(--color-cream)] px-4 py-14 sm:px-8 sm:py-20 md:py-28">
+      <div className="mx-auto max-w-[1100px]">
+        {/* Mobile: title first, then video, then text. Desktop: video left, text right */}
+        <div className="mb-6 text-center md:hidden" data-reveal="up">
+          <span className="section-label justify-center">Seu Instrutor</span>
+          <h2 className="!text-[1.5rem] sm:!text-[1.75rem]">
+            De Engenheiro a Adestrador: conheca o Brenno.
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-16">
+          {/* Video do Brenno */}
+          <div data-reveal="left">
+            <div className="relative mx-auto max-w-[320px] overflow-hidden rounded-2xl border border-[var(--color-cinza-200)] bg-[var(--color-charcoal)] shadow-[var(--shadow-lg)] sm:max-w-[360px] sm:rounded-3xl md:max-w-none">
+              <div className="aspect-[9/16]">
+                <iframe
+                  src="https://www.youtube.com/embed/CMqEWXaRhWU?rel=0&modestbranding=1"
+                  title="Conheca o Brenno — Classe A Pets"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="h-full w-full border-0"
+                  loading="lazy"
+                />
+              </div>
+            </div>
           </div>
-          <div className="order-1 md:order-2">
-            <h2 className="text-3xl md:text-4xl font-extrabold mb-6">
-              De Engenheiro a Adestrador: conheça o seu instrutor.
-            </h2>
-            <p className="text-slate-200 leading-relaxed text-lg">
-              Sou o Brenno Rodrigues. Atuei como engenheiro, mas descobri meu propósito: transformar
-              vidas através da conexão entre pessoas e cães. Com mais de 4 anos de experiência, já
-              impactei +250 famílias. Minha missão é te ensinar o exato caminho que trilhei para me
-              tornar um profissional bem remunerado.
+
+          {/* Text */}
+          <div data-reveal="right">
+            {/* Desktop title (hidden on mobile since it shows above) */}
+            <div className="hidden md:block">
+              <span className="section-label mb-4">Seu Instrutor</span>
+              <h2 className="mb-6">
+                De Engenheiro a Adestrador: conheca o Brenno.
+              </h2>
+            </div>
+            <p className="mb-4 text-[0.95rem] leading-relaxed text-[var(--color-texto-muted)] sm:mb-5 sm:text-[1.05rem]">
+              Sou o Brenno Rodrigues. Atuei como engenheiro, mas descobri meu proposito: transformar
+              vidas atraves da conexao entre pessoas e caes.
             </p>
+            <p className="mb-6 text-[0.95rem] leading-relaxed text-[var(--color-texto-muted)] sm:mb-8 sm:text-[1.05rem]">
+              Com mais de 5 anos de experiencia, ja impactei +250 familias. Minha missao e te ensinar
+              o exato caminho que trilhei para me tornar um profissional bem remunerado.
+            </p>
+
+            <div className="flex flex-wrap gap-5 sm:gap-6">
+              {[
+                { value: '+250', label: 'familias' },
+                { value: '5+', label: 'anos' },
+                { value: '100%', label: 'positivo' },
+              ].map((s) => (
+                <div key={s.label} className="flex items-center gap-2">
+                  <span
+                    className="text-lg font-bold bg-clip-text text-transparent sm:text-xl"
+                    style={{ backgroundImage: 'var(--gradient-cyan)' }}
+                  >
+                    {s.value}
+                  </span>
+                  <span className="text-[0.78rem] font-medium text-[var(--color-texto-muted)] sm:text-[0.8rem]">{s.label}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -165,46 +336,72 @@ function SobreBrenno() {
   )
 }
 
+/* ─────────────────── FORMATO ─────────────────── */
+
 const formatos = [
   {
     title: 'Turma Noturna',
-    schedule: 'Terças e Quintas',
-    time: '19h às 22h',
+    schedule: 'Tercas e Quintas',
+    time: '19h as 22h',
     duration: '6 semanas',
     highlight: true,
   },
   {
-    title: 'Turma de Sábado',
-    schedule: 'Sábados completos',
-    time: '08h às 14h',
-    duration: '5 sábados',
+    title: 'Turma de Sabado',
+    schedule: 'Sabados completos',
+    time: '08h as 14h',
+    duration: '5 sabados',
     highlight: false,
   },
 ]
 
 function Formato() {
+  useScrollReveal()
+
   return (
-    <section className="bg-white py-16 md:py-20">
-      <div className="max-w-4xl mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 text-center mb-12">
-          Escolha o formato que se adapta à sua rotina
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <section
+      className="relative overflow-hidden px-4 py-14 sm:px-8 sm:py-20 md:py-28"
+      style={{ background: 'var(--gradient-section-dark)' }}
+    >
+      <div className="relative mx-auto max-w-[900px]">
+        <div className="mb-10 text-center sm:mb-14" data-reveal="up">
+          <span className="section-label section-label-light justify-center">Formatos</span>
+          <h2 className="mx-auto max-w-[500px] !text-[1.5rem] !text-white sm:!text-[1.75rem] md:!text-[2.2rem]">
+            Escolha o formato que se adapta a sua rotina
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2 md:gap-8" data-reveal-stagger>
           {formatos.map((f) => (
             <article
               key={f.title}
-              className={`rounded-2xl p-8 border-2 ${f.highlight ? 'border-[#00BCD4]' : 'border-gray-200'}`}
+              className={`card-dark group relative overflow-hidden p-5 sm:p-7 md:p-8 ${
+                f.highlight ? 'hover:border-[var(--color-cyan)]/25' : 'hover:border-[var(--color-cinza-400)]/20'
+              }`}
             >
-              <h3 className="text-xl font-bold text-gray-900 mb-4">{f.title}</h3>
-              <div className="space-y-3 text-gray-600">
-                <p className="flex items-center gap-2">
-                  <Calendar className="w-5 h-5 text-[#00BCD4]" aria-hidden />
-                  {f.schedule}
-                </p>
-                <p className="flex items-center gap-2">
-                  <Clock className="w-5 h-5 text-[#00BCD4]" aria-hidden />
-                  {f.time} — {f.duration}
-                </p>
+              {f.highlight && (
+                <span className="absolute right-4 top-4 rounded-full bg-[var(--color-cyan-muted)]/12 px-3 py-1 text-[0.65rem] font-bold uppercase tracking-wider text-[var(--color-cyan)] sm:right-5 sm:top-5 sm:text-[0.7rem]">
+                  Popular
+                </span>
+              )}
+
+              <h3 className="mb-4 !text-[1.15rem] !text-white sm:mb-5 sm:!text-[1.3rem]">{f.title}</h3>
+
+              <div className="space-y-3 sm:space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg sm:h-9 sm:w-9 sm:rounded-xl" style={{ background: 'var(--gradient-cyan-subtle)' }}>
+                    <Calendar className="h-3.5 w-3.5 text-white sm:h-4 sm:w-4" aria-hidden />
+                  </div>
+                  <span className="text-[0.88rem] text-[var(--color-cinza-400)] sm:text-[0.95rem]">{f.schedule}</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg sm:h-9 sm:w-9 sm:rounded-xl" style={{ background: 'var(--gradient-cyan-subtle)' }}>
+                    <Clock className="h-3.5 w-3.5 text-white sm:h-4 sm:w-4" aria-hidden />
+                  </div>
+                  <span className="text-[0.88rem] text-[var(--color-cinza-400)] sm:text-[0.95rem]">
+                    {f.time} — {f.duration}
+                  </span>
+                </div>
               </div>
             </article>
           ))}
@@ -214,34 +411,84 @@ function Formato() {
   )
 }
 
+/* ─────────────────── PRECO ─────────────────── */
+
 function Preco() {
+  useScrollReveal()
+
   return (
-    <section id="preco" className="bg-gray-50 py-16 md:py-24">
-      <div className="max-w-2xl mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 text-center mb-12">
-          O investimento para iniciar sua nova profissão.
-        </h2>
-        <div id="checkout" className="relative border-2 border-[#00BCD4] rounded-3xl p-10 bg-white scroll-mt-24">
-          <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-red-500 text-white text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wide">
-            MELHOR OPÇÃO
-          </span>
-          <div className="text-center space-y-6 pt-2">
-            <p>
-              <del className="text-gray-400 text-xl">R$ 2.500,00</del>
-            </p>
-            <p className="text-4xl font-extrabold text-gray-900">12x de R$ 203,52</p>
-            <p className="text-gray-600">
-              Ou <span className="text-green-600 font-bold">R$ 1.900 à vista no Pix</span> (com desconto)
-            </p>
-            <p className="text-sm text-gray-500">
-              Opções flexíveis em 3x ou 6x sem juros no cartão.
-            </p>
-            <a
-              href="#checkout"
-              className="inline-flex items-center justify-center w-full md:w-fit bg-[#00BCD4] text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:-translate-y-1 transition-transform mt-4"
+    <section id="preco" className="bg-[var(--color-cream)] px-4 py-14 sm:px-8 sm:py-20 md:py-28">
+      <div className="mx-auto max-w-[560px]">
+        <div className="mb-10 text-center sm:mb-14" data-reveal="up">
+          <span className="section-label justify-center">Investimento</span>
+          <h2 className="!text-[1.5rem] sm:!text-[1.75rem] md:!text-[2.2rem]">O investimento para iniciar sua nova profissao.</h2>
+        </div>
+
+        {/* Wrapper with padding-top so badge isn't clipped */}
+        <div className="pt-4" data-reveal="scale">
+          <div
+            id="checkout"
+            className="relative rounded-2xl border-2 border-[var(--color-cyan-muted)]/30 bg-[var(--color-branco)] shadow-[var(--shadow-lg)] scroll-mt-28 sm:rounded-3xl"
+          >
+            {/* Badge */}
+            <span
+              className="absolute left-1/2 top-0 z-10 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full px-4 py-1.5 text-[0.68rem] font-bold uppercase tracking-widest text-white shadow-md sm:px-5 sm:py-2 sm:text-[0.72rem]"
+              style={{ background: 'var(--color-vermelho-muted)' }}
             >
-              Quero me tornar Adestrador Profissional
-            </a>
+              Melhor opcao
+            </span>
+
+            <div className="px-5 pb-6 pt-8 sm:px-10 sm:pb-10 sm:pt-12">
+              {/* Old price */}
+              <p className="text-center">
+                <del className="text-sm text-[var(--color-cinza-400)] sm:text-base">R$ 3.500,00</del>
+              </p>
+
+              {/* Main price */}
+              <p
+                className="mt-2 text-center text-[1.65rem] font-bold bg-clip-text text-transparent sm:mt-3 sm:text-3xl md:text-4xl"
+                style={{
+                  backgroundImage: 'var(--gradient-cyan)',
+                  fontFamily: "'DM Serif Display', Georgia, serif",
+                }}
+              >
+                12x de R$ 233,33
+              </p>
+
+              {/* Pix price */}
+              <p className="mt-3 text-center text-[0.88rem] text-[var(--color-texto-muted)] sm:mt-4 sm:text-[0.95rem]">
+                Ou{' '}
+                <span className="font-bold text-[var(--color-success)]">R$ 2.660 a vista no Pix</span>{' '}
+                <span className="text-[var(--color-cinza-400)]">(com desconto)</span>
+              </p>
+
+              <p className="mt-1.5 text-center text-[0.78rem] text-[var(--color-cinza-400)] sm:mt-2 sm:text-[0.82rem]">
+                Opcoes flexiveis em 3x ou 6x sem juros no cartao.
+              </p>
+
+              {/* Divider */}
+              <div className="mx-auto my-5 h-px w-full bg-[var(--color-cinza-200)] sm:my-6" />
+
+              {/* CTA */}
+              <a
+                href="#checkout"
+                className="btn-primary inline-flex min-h-[50px] w-full items-center justify-center gap-2 !rounded-full !px-6 !py-3.5 !text-[0.88rem] !font-bold !no-underline hover:!no-underline sm:min-h-[56px] sm:!px-8 sm:!py-4 sm:!text-[0.95rem]"
+              >
+                Quero me tornar Adestrador Profissional
+              </a>
+
+              {/* Trust badges */}
+              <div className="mt-4 flex flex-col items-center gap-2.5 sm:mt-5 sm:flex-row sm:justify-center sm:gap-4">
+                {['30 dias de garantia', 'Pagamento seguro', 'Certificado incluso'].map((t) => (
+                  <div key={t} className="flex items-center gap-1.5">
+                    <svg className="h-3.5 w-3.5 text-[var(--color-success)]" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                    <span className="text-[0.75rem] text-[var(--color-cinza-500)] sm:text-[0.78rem]">{t}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -249,52 +496,61 @@ function Preco() {
   )
 }
 
+/* ─────────────────── FAQ ─────────────────── */
+
 const faqItems = [
   {
-    pergunta: 'Preciso ter experiência?',
+    pergunta: 'Preciso ter experiencia?',
     resposta:
-      'Não. O curso foi desenhado para ensinar do zero. Você não precisa de experiência prévia com adestramento.',
+      'Nao. O curso foi desenhado para ensinar do zero. Voce nao precisa de experiencia previa com adestramento.',
   },
   {
     pergunta: 'Consigo conciliar com trabalho?',
     resposta:
-      'Sim. Oferecemos turmas noturnas (Terças e Quintas, 19h às 22h) e turmas aos Sábados (08h às 14h), para você encaixar na sua rotina.',
+      'Sim. Oferecemos turmas noturnas (Tercas e Quintas, 19h as 22h) e turmas aos Sabados (08h as 14h), para voce encaixar na sua rotina.',
   },
   {
-    pergunta: 'Quanto tempo para o 1º cliente?',
+    pergunta: 'Quanto tempo para o 1o cliente?',
     resposta:
-      'Muitos alunos conseguem conquistar o primeiro cliente logo após o término do curso, aplicando o que aprenderam em posicionamento e vendas.',
+      'Muitos alunos conseguem conquistar o primeiro cliente logo apos o termino do curso, aplicando o que aprenderam em posicionamento e vendas.',
   },
   {
     pergunta: 'Tem certificado?',
     resposta:
-      'Sim. O curso possui carga de aproximadamente 100 horas e inclui TCC (Trabalho de Conclusão de Curso) para certificação.',
+      'Sim. O curso possui carga de aproximadamente 100 horas e inclui TCC (Trabalho de Conclusao de Curso) para certificacao.',
   },
 ]
 
 function FAQ() {
+  useScrollReveal()
   const [openIndex, setOpenIndex] = useState(null)
 
   return (
-    <section id="faq" className="bg-white py-16 md:py-20">
-      <div className="max-w-2xl mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 text-center mb-12">
-          Ainda tem dúvidas?
-        </h2>
-        <div className="space-y-0 border border-gray-200 rounded-2xl overflow-hidden">
+    <section
+      id="faq"
+      className="relative overflow-hidden px-4 py-14 sm:px-8 sm:py-20 md:py-28"
+      style={{ background: 'var(--gradient-section-dark)' }}
+    >
+      <div className="relative mx-auto max-w-[700px]">
+        <div className="mb-10 text-center sm:mb-14" data-reveal="up">
+          <span className="section-label section-label-light justify-center">FAQ</span>
+          <h2 className="!text-[1.5rem] !text-white sm:!text-[1.75rem] md:!text-[2.2rem]">Ainda tem duvidas?</h2>
+        </div>
+
+        <div className="overflow-hidden rounded-xl border border-white/6 sm:rounded-2xl" data-reveal="fade">
           {faqItems.map((item, index) => (
-            <div key={index} className="border-b border-gray-200 last:border-b-0">
+            <div key={index} className="border-b border-white/5 last:border-b-0">
               <button
                 type="button"
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full flex items-center justify-between gap-4 py-5 px-6 text-left font-semibold text-gray-900 hover:bg-gray-50 transition-colors"
+                className="flex w-full min-h-[52px] items-center justify-between gap-3 bg-transparent px-4 py-4 text-left text-[0.92rem] font-semibold text-white transition-colors hover:bg-white/2 !rounded-none sm:gap-4 sm:px-6 sm:py-5 sm:text-base"
                 aria-expanded={openIndex === index}
                 aria-controls={`faq-answer-${index}`}
                 id={`faq-question-${index}`}
               >
                 {item.pergunta}
                 <ChevronDown
-                  className={`w-5 h-5 shrink-0 text-gray-500 transition-transform ${openIndex === index ? 'rotate-180' : ''}`}
+                  className={`h-5 w-5 shrink-0 text-[var(--color-cyan)] transition-transform duration-300 ${openIndex === index ? 'rotate-180' : ''}`}
                   aria-hidden
                 />
               </button>
@@ -302,9 +558,11 @@ function FAQ() {
                 id={`faq-answer-${index}`}
                 role="region"
                 aria-labelledby={`faq-question-${index}`}
-                className={`overflow-hidden transition-all duration-200 ${openIndex === index ? 'max-h-64' : 'max-h-0'}`}
+                className={`overflow-hidden transition-all duration-300 ${openIndex === index ? 'max-h-64' : 'max-h-0'}`}
               >
-                <p className="py-0 px-6 pb-5 text-gray-600">{item.resposta}</p>
+                <p className="px-4 pb-4 text-[0.88rem] leading-relaxed text-[var(--color-cinza-400)] sm:px-6 sm:pb-5 sm:text-[0.95rem]">
+                  {item.resposta}
+                </p>
               </div>
             </div>
           ))}
@@ -314,18 +572,29 @@ function FAQ() {
   )
 }
 
-function CtaFinal() {
+/* ─────────────────── CTA FINAL ─────────────────── */
+
+function LandingCtaFinal() {
+  useScrollReveal()
+
   return (
-    <section className="bg-gray-50 py-16 md:py-20">
-      <div className="max-w-2xl mx-auto px-6 text-center">
-        <p className="text-gray-600 mb-4 text-lg">
-          <strong className="text-gray-900">30 dias de garantia ou seu dinheiro de volta.</strong>
-          <br />
-          Assine com segurança e teste o método sem risco.
+    <section className="bg-[var(--color-cream)] px-4 py-14 sm:px-8 sm:py-20 md:py-28">
+      <div className="mx-auto max-w-[600px] text-center" data-reveal="scale">
+        <div className="mb-6 inline-flex items-center gap-3 rounded-xl border border-[var(--color-cinza-200)] bg-[var(--color-branco)] px-5 py-3 shadow-[var(--shadow-sm)] sm:mb-8 sm:rounded-2xl sm:px-6 sm:py-4">
+          <Shield className="h-7 w-7 text-[var(--color-success)] sm:h-8 sm:w-8" />
+          <div className="text-left">
+            <span className="block text-[0.82rem] font-bold text-[var(--color-charcoal)] sm:text-sm">30 dias de garantia</span>
+            <span className="text-[0.72rem] text-[var(--color-texto-muted)] sm:text-xs">ou seu dinheiro de volta</span>
+          </div>
+        </div>
+
+        <p className="mb-6 text-[0.95rem] leading-relaxed text-[var(--color-texto-muted)] sm:mb-8 sm:text-[1.1rem]">
+          Assine com seguranca e teste o metodo sem risco. Se nao gostar, devolvemos 100% do valor.
         </p>
+
         <a
           href="#checkout"
-          className="inline-flex items-center justify-center w-full md:w-fit bg-[#00BCD4] text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:-translate-y-1 transition-transform"
+          className="btn-primary inline-flex min-h-[50px] w-full items-center justify-center gap-2 !rounded-full !px-8 !py-3.5 !text-[0.9rem] !font-bold !no-underline hover:!no-underline sm:min-h-[56px] sm:w-auto sm:!px-10 sm:!py-4 sm:!text-base"
         >
           Quero garantir minha vaga agora
         </a>
@@ -333,6 +602,20 @@ function CtaFinal() {
     </section>
   )
 }
+
+/* ─────────────────── FOOTER ─────────────────── */
+
+function LandingFooter() {
+  return (
+    <footer className="border-t border-white/4 bg-[var(--color-midnight)] px-4 py-6 sm:px-8 sm:py-8">
+      <p className="text-center text-[0.7rem] text-[var(--color-cinza-500)] sm:text-xs">
+        &copy; 2026 Classe A Pets — Todos os direitos reservados.
+      </p>
+    </footer>
+  )
+}
+
+/* ─────────────────── PAGE ─────────────────── */
 
 export default function LandingPage() {
   return (
@@ -345,7 +628,8 @@ export default function LandingPage() {
       <Formato />
       <Preco />
       <FAQ />
-      <CtaFinal />
+      <LandingCtaFinal />
+      <LandingFooter />
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-export function useScrollReveal() {
+export default function useScrollReveal() {
   useEffect(() => {
     if (typeof IntersectionObserver === 'undefined') return
 

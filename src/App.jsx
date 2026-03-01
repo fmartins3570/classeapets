@@ -1,6 +1,6 @@
 import { Suspense, lazy, useEffect, useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
-import { useScrollReveal } from './hooks/useScrollReveal'
+import useScrollReveal from './hooks/useScrollReveal'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import Stats from './components/Stats'
