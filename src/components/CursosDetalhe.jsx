@@ -1,0 +1,107 @@
+function CursosDetalhe() {
+  return (
+    <section id="cursos" className="bg-white px-6 py-16 sm:py-20 md:py-24">
+      <div className="mx-auto max-w-5xl">
+        <h2 className="section-title mb-4 text-3xl font-extrabold text-gray-900 md:text-4xl" data-reveal="up">
+          Cursos
+        </h2>
+        <p className="mx-auto mb-12 max-w-2xl text-center text-gray-600" data-reveal="up">
+          Escolha o formato ideal para a sua rotina e comece sua jornada.
+        </p>
+
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+          {/* Card Presencial */}
+          <article className="card-hover flex flex-col overflow-hidden rounded-2xl border-2 border-[var(--color-accent)] bg-white" data-reveal="left">
+            <div className="flex h-48 items-center justify-center bg-gray-100 text-xs text-gray-400">
+              Imagem do Curso Presencial
+            </div>
+            <div className="flex flex-1 flex-col p-7 sm:p-9">
+              <span className="mb-3 inline-block self-start rounded-full bg-[var(--color-accent)]/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-[var(--color-accent)]">
+                Presencial & Híbrido
+              </span>
+              <h3 className="mb-3 text-xl font-bold text-gray-900">Curso Presencial e Híbrido</h3>
+              <p className="mb-2 text-sm leading-relaxed text-gray-600">
+                Um curso presencial para todos que amam, cuidam ou trabalham com cães — tutores,
+                estudantes, adestradores e profissionais da área.
+              </p>
+              <p className="mb-5 text-sm leading-relaxed text-gray-600">
+                Aprenda com especialistas que vão te acompanhar de perto, unindo teoria essencial com
+                prática real nas ruas da capital de São Paulo.
+              </p>
+              <ul className="mb-6 space-y-2">
+                {[
+                  'Turmas reduzidas com atenção individualizada',
+                  'Aulas teóricas + materiais de apoio',
+                  'Casos práticos e treinamentos reais',
+                  'Formação Técnica + Comportamental + Emocional',
+                  'Desde o 1º dia em contato direto com os cães',
+                  'Networking com outros participantes',
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-2 text-sm text-gray-600">
+                    <svg className="mt-0.5 h-5 w-5 shrink-0 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <p className="mb-6 text-xs leading-relaxed text-gray-500">
+                Ideal para quem busca aprendizado imersivo, experiência prática e reconhecimento profissional imediato.
+              </p>
+              <a
+                href="#contato"
+                className="mt-auto inline-flex min-h-12 w-full touch-manipulation items-center justify-center rounded-xl bg-[var(--color-accent)] px-6 py-3 text-sm font-bold text-white !no-underline shadow-lg transition-transform duration-200 hover:-translate-y-1 hover:!no-underline"
+              >
+                Garantir vaga no curso presencial
+              </a>
+            </div>
+          </article>
+
+          {/* Card Digital */}
+          <article className="card-hover flex flex-col overflow-hidden rounded-2xl border-2 border-gray-200 bg-white" data-reveal="right">
+            <div className="flex h-48 items-center justify-center bg-gray-100 text-xs text-gray-400">
+              Imagem do Curso Digital
+            </div>
+            <div className="flex flex-1 flex-col p-7 sm:p-9">
+              <span className="mb-3 inline-block self-start rounded-full bg-red-50 px-3 py-1 text-xs font-bold uppercase tracking-wide text-red-600">
+                100% Digital
+              </span>
+              <h3 className="mb-3 text-xl font-bold text-gray-900">Curso 100% Digital</h3>
+              <p className="mb-5 text-sm leading-relaxed text-gray-600">
+                Com uma metodologia clara, dinâmica e baseada em casos reais, você vai adquirir
+                conhecimento técnico e prático com videoaulas gravadas, estudar no seu ritmo e aprender
+                técnicas eficazes de manejo, adestramento e bem-estar animal.
+              </p>
+              <ul className="mb-6 space-y-2">
+                {[
+                  'Treinamento 100% online',
+                  'Vídeos curtos, didáticos e com exercícios simples',
+                  'Técnicas baseadas em reforço positivo',
+                  'Aulas sobre segurança, comportamento, clientes e marketing',
+                  'Modelos prontos: contratos, fichas de atendimento e planejamento',
+                  'Suporte direto com especialistas',
+                  'Acesso imediato + certificado de conclusão',
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-2 text-sm text-gray-600">
+                    <svg className="mt-0.5 h-5 w-5 shrink-0 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <p className="mb-6 text-xs leading-relaxed text-gray-500">
+                Ideal para quem busca flexibilidade, autonomia no aprendizado e qualificação de verdade.
+                Comece hoje mesmo e transforme sua relação com os cães.
+              </p>
+              <a
+                href="#contato"
+                className="mt-auto inline-flex min-h-12 w-full touch-manipulation items-center justify-center rounded-xl border-2 border-gray-900 bg-gray-900 px-6 py-3 text-sm font-bold text-white !no-underline transition-transform duration-200 hover:-translate-y-1 hover:!no-underline"
+              >
+                Garantir vaga no curso digital
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default CursosDetalhe
