@@ -497,7 +497,7 @@ function Modulos() {
   )
 }
 
-/* ─────────────────── SOBRE O INSTRUTOR ─────────────────── */
+/* ─────────────────── SOBRE O ADESTRADOR ─────────────────── */
 
 function SobreBrenno() {
   useScrollReveal()
@@ -508,7 +508,7 @@ function SobreBrenno() {
         <div className="mb-6 text-center md:hidden" data-reveal="up">
           <span className="mb-3 inline-flex items-center gap-2 text-[0.78rem] font-bold uppercase tracking-[0.18em] text-[var(--color-accent)]">
             <span className="inline-block h-[2px] w-8 rounded-full bg-[var(--color-accent)]" />
-            Seu Instrutor
+            Seu Adestrador
           </span>
           <h2 className="!text-[1.5rem] sm:!text-[1.75rem]">
             Brenno Rodrigues — Adestrador com Metodo
@@ -537,7 +537,7 @@ function SobreBrenno() {
             <div className="hidden md:block">
               <span className="mb-3 inline-flex items-center gap-2 text-[0.78rem] font-bold uppercase tracking-[0.18em] text-[var(--color-accent)]">
                 <span className="inline-block h-[2px] w-8 rounded-full bg-[var(--color-accent)]" />
-                Seu Instrutor
+                Seu Adestrador
               </span>
               <h2 className="mb-6">
                 Brenno Rodrigues — Adestrador com Metodo

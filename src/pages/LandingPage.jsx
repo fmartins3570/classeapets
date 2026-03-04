@@ -271,7 +271,7 @@ function SobreBrenno() {
       <div className="mx-auto max-w-[1100px]">
         {/* Mobile: title first, then video, then text. Desktop: video left, text right */}
         <div className="mb-6 text-center md:hidden" data-reveal="up">
-          <span className="section-label justify-center">Seu Instrutor</span>
+          <span className="section-label justify-center">Seu Adestrador</span>
           <h2 className="!text-[1.5rem] sm:!text-[1.75rem]">
             De Engenheiro a Adestrador: conheca o Brenno.
           </h2>
@@ -298,7 +298,7 @@ function SobreBrenno() {
           <div data-reveal="right">
             {/* Desktop title (hidden on mobile since it shows above) */}
             <div className="hidden md:block">
-              <span className="section-label mb-4">Seu Instrutor</span>
+              <span className="section-label mb-4">Seu Adestrador</span>
               <h2 className="mb-6">
                 De Engenheiro a Adestrador: conheca o Brenno.
               </h2>
