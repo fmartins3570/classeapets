@@ -7,6 +7,7 @@ import Stats from './components/Stats'
 import Servicos from './components/Servicos'
 import Footer from './components/Footer'
 import LandingPage from './pages/LandingPage'
+import LandingXixiCoco from './pages/LandingXixiCoco'
 
 const Sobre = lazy(() => import('./components/Sobre'))
 const Depoimentos = lazy(() => import('./components/Depoimentos'))
@@ -104,6 +105,7 @@ function App() {
     <Routes>
       <Route path="/" element={homeContent} />
       <Route path="/curso-adestramento-classeapets-presencial" element={<LandingPage />} />
+      <Route path="/xixi-e-coco-no-lugar-certo" element={<LandingXixiCoco />} />
     </Routes>
   )
 }
