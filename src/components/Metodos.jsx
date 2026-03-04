@@ -1,7 +1,7 @@
 function Metodos() {
   const metodos = [
     {
-      title: 'Adestrador de cães para tutores',
+      title: 'Tutores, adestre seu cão',
       items: [
         'Correção de comportamentos indesejados',
         'Mais liberdade para o cão e tranquilidade para o tutor',

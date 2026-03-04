@@ -1,6 +1,17 @@
-function Galeria() {
-  const filtros = ['Todos', 'Adestramento de Cães', 'Formação de Profissionais', 'Treinamentos Digitais']
+import { assetUrl } from '../utils/assetUrl'
 
+const fotos = [
+  { src: 'galeria-1', alt: 'Brenno sorrindo com cão branco no colo' },
+  { src: 'galeria-2', alt: 'Brenno dando comando para golden retriever sentado' },
+  { src: 'galeria-3', alt: 'Brenno agachado fazendo carinho em golden retriever' },
+  { src: 'galeria-4', alt: 'Brenno com três cães atentos durante treinamento' },
+  { src: 'galeria-5', alt: 'Brenno com família e dois golden retrievers' },
+  { src: 'galeria-6', alt: 'Brenno em pé com dois golden retrievers' },
+  { src: 'galeria-7', alt: 'Brenno agachado dando petisco para golden retriever' },
+  { src: 'galeria-8', alt: 'Brenno caminhando com dois golden retrievers' },
+]
+
+function Galeria() {
   return (
     <section id="galeria" className="bg-white px-6 py-16 sm:py-20 md:py-24">
       <div className="mx-auto max-w-6xl">
@@ -8,27 +19,18 @@ function Galeria() {
           Galeria de Fotos
         </h2>
         <p className="mb-8 text-center text-gray-500" data-reveal="up">Por dentro dos nossos treinos</p>
-        <div className="mb-8 flex flex-wrap justify-center gap-2" data-reveal="up">
-          {filtros.map((f, i) => (
-            <button
-              key={i}
-              type="button"
-              className={`min-h-10 cursor-pointer touch-manipulation whitespace-nowrap rounded-lg px-4 py-2 text-sm font-semibold transition-all duration-200 ${
-                i === 0
-                  ? 'bg-gray-900 text-white'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-              }`}
-            >
-              {f}
-            </button>
-          ))}
-        </div>
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 sm:gap-4" data-reveal-stagger data-reveal="scale">
-          {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
-            <div key={n} className="group aspect-square">
-              <div className="flex h-full w-full items-center justify-center rounded-xl bg-gray-100 text-sm text-gray-400 transition-all duration-300 group-hover:bg-gray-200 group-hover:shadow-md">
-                Foto {n}
-              </div>
+          {fotos.map((foto) => (
+            <div key={foto.src} className="group flex items-end justify-center overflow-hidden rounded-xl bg-gradient-to-b from-gray-100 to-gray-200 aspect-[3/4]">
+              <img
+                src={assetUrl(`/images/optimized/${foto.src}-480w.webp`)}
+                srcSet={`${assetUrl(`/images/optimized/${foto.src}-320w.webp`)} 320w, ${assetUrl(`/images/optimized/${foto.src}-480w.webp`)} 480w, ${assetUrl(`/images/optimized/${foto.src}-640w.webp`)} 640w`}
+                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                alt={foto.alt}
+                className="h-full w-auto max-w-full object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.08)] transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
           ))}
         </div>

@@ -1,3 +1,5 @@
+import { assetUrl } from '../utils/assetUrl'
+
 function CursosDetalhe() {
   return (
     <section id="cursos" className="bg-white px-6 py-16 sm:py-20 md:py-24">
@@ -12,8 +14,19 @@ function CursosDetalhe() {
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
           {/* Card Presencial */}
           <article className="card-hover flex flex-col overflow-hidden rounded-2xl border-2 border-[var(--color-accent)] bg-white" data-reveal="left">
-            <div className="flex h-48 items-center justify-center bg-gray-100 text-xs text-gray-400">
-              Imagem do Curso Presencial
+            <div className="relative flex h-52 items-end justify-center overflow-hidden bg-gradient-to-b from-gray-100 to-gray-200">
+              <img
+                src={assetUrl('/images/optimized/curso-presencial-480w.webp')}
+                srcSet={`${assetUrl('/images/optimized/curso-presencial-320w.webp')} 320w, ${assetUrl('/images/optimized/curso-presencial-480w.webp')} 480w, ${assetUrl('/images/optimized/curso-presencial-640w.webp')} 640w`}
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                alt="Brenno com Golden Retriever — Curso Presencial em São Paulo"
+                className="h-full w-auto max-w-full object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.1)]"
+                loading="lazy"
+                decoding="async"
+              />
+              <div className="absolute bottom-2 right-2 flex items-center gap-1 rounded bg-white/80 px-2 py-1 text-[10px] font-semibold text-gray-600 shadow-sm">
+                São Paulo, SP
+              </div>
             </div>
             <div className="flex flex-1 flex-col p-7 sm:p-9">
               <span className="mb-3 inline-block self-start rounded-full bg-[var(--color-accent)]/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-[var(--color-accent)]">
@@ -25,7 +38,7 @@ function CursosDetalhe() {
                 estudantes, adestradores e profissionais da área.
               </p>
               <p className="mb-5 text-sm leading-relaxed text-gray-600">
-                Aprenda com especialistas que vão te acompanhar de perto, unindo teoria essencial com
+                Aprenda com o adestrador que vai te acompanhar de perto, unindo teoria essencial com
                 prática real nas ruas da capital de São Paulo.
               </p>
               <ul className="mb-6 space-y-2">
@@ -36,6 +49,7 @@ function CursosDetalhe() {
                   'Formação Técnica + Comportamental + Emocional',
                   'Desde o 1º dia em contato direto com os cães',
                   'Networking com outros participantes',
+                  'Saia da formação com seus primeiros clientes',
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2 text-sm text-gray-600">
                     <svg className="mt-0.5 h-5 w-5 shrink-0 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
@@ -57,8 +71,16 @@ function CursosDetalhe() {
 
           {/* Card Digital */}
           <article className="card-hover flex flex-col overflow-hidden rounded-2xl border-2 border-gray-200 bg-white" data-reveal="right">
-            <div className="flex h-48 items-center justify-center bg-gray-100 text-xs text-gray-400">
-              Imagem do Curso Digital
+            <div className="flex h-52 items-end justify-center overflow-hidden bg-gradient-to-b from-gray-100 to-gray-200">
+              <img
+                src={assetUrl('/images/optimized/curso-digital-480w.webp')}
+                srcSet={`${assetUrl('/images/optimized/curso-digital-320w.webp')} 320w, ${assetUrl('/images/optimized/curso-digital-480w.webp')} 480w, ${assetUrl('/images/optimized/curso-digital-640w.webp')} 640w`}
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                alt="Brenno de braços abertos — Curso 100% Digital"
+                className="h-full w-auto max-w-full object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.1)]"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
             <div className="flex flex-1 flex-col p-7 sm:p-9">
               <span className="mb-3 inline-block self-start rounded-full bg-red-50 px-3 py-1 text-xs font-bold uppercase tracking-wide text-red-600">
@@ -77,7 +99,7 @@ function CursosDetalhe() {
                   'Técnicas baseadas em reforço positivo',
                   'Aulas sobre segurança, comportamento, clientes e marketing',
                   'Modelos prontos: contratos, fichas de atendimento e planejamento',
-                  'Suporte direto com especialistas',
+                  'Suporte direto com o adestrador',
                   'Acesso imediato + certificado de conclusão',
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2 text-sm text-gray-600">

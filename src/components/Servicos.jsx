@@ -1,35 +1,53 @@
+import { assetUrl } from '../utils/assetUrl'
+
 function Servicos() {
   const servicos = [
     {
-      title: 'Tutor: adestre seu cão',
-      text: 'Nosso foco é ensinar você, tutor, a adestrar seu cão, para ser feliz e equilibrado, de forma presencial, em São Paulo.',
-      cta: 'Clique aqui',
-      link: 'https://classeapets.com.br/adestramento-de-caes-para-tutores',
-    },
-    {
-      title: 'Curso de Formação Passeador de Cães',
-      text: 'Seja um profissional completo, preparado para o mercado. A profissão de Dog Walker é uma vocação — com propósito, movimento, conexão e crescimento real.',
-      cta: 'Clique aqui',
-      link: 'https://classeapets.com.br/curso-profissional-de-passeador-de-caes/',
-    },
-    {
-      title: 'Curso de Formação Adestrador de Cães',
+      title: 'Formação de Adestrador de Cães',
       text: 'Você aprende tudo o que precisa para atuar com confiança no mercado de adestramento. Formação Técnica + Comportamental + Emocional com acompanhamento próximo.',
       cta: 'Clique aqui',
       link: 'https://classeapets.com.br/curso-profissional-de-adestrador-de-caes/',
+      img: 'servico-formacao-adestrador',
+      alt: 'Brenno agachado com dois cães Golden Retriever durante treinamento',
     },
     {
       title: 'Cursos 100% Digital',
       text: 'Aprenda com liberdade. Acesse todos os cursos, de onde quiser, no seu ritmo. Com videoaulas, materiais de apoio, suporte especializado e certificado de conclusão.',
       cta: 'Clique aqui',
       link: 'https://classeapets.com.br/cursos-digitais/',
+      img: 'servico-digital',
+      alt: 'Brenno com dois cães Golden Retriever em sessão de adestramento digital',
+    },
+    {
+      title: 'Tutores, adestre seu cão',
+      text: 'Nosso foco é ensinar você, tutor, a adestrar seu cão, para ser feliz e equilibrado, de forma presencial, em São Paulo.',
+      cta: 'Clique aqui',
+      link: 'https://classeapets.com.br/adestramento-de-caes-para-tutores',
+      img: 'servico-tutores',
+      alt: 'Brenno com três cães durante treinamento para tutores',
+    },
+    {
+      title: 'Curso de Formação Passeador de Cães',
+      text: 'Seja um profissional completo, preparado para o mercado. A profissão de Dog Walker é uma vocação — com propósito, movimento, conexão e crescimento real.',
+      cta: 'Clique aqui',
+      link: 'https://classeapets.com.br/curso-profissional-de-passeador-de-caes/',
+      img: 'servico-passeador',
+      alt: 'Brenno passeando com cão durante formação de passeador',
+    },
+    {
+      title: 'Mentoria para Profissionais',
+      text: 'Acompanhamento personalizado para adestradores e profissionais do mercado pet que querem elevar seus resultados, atrair mais clientes e se posicionar com autoridade.',
+      cta: 'Clique aqui',
+      link: '#mentoria',
+      img: 'servico-mentoria',
+      alt: 'Brenno em sessão de mentoria para profissionais do mercado pet',
     },
   ]
 
   const formatos = [
     {
       label: 'Presencial',
-      desc: 'Ideal para quem busca interação prática direta com instrutores.',
+      desc: 'Ideal para quem busca interação prática com o adestrador.',
     },
     {
       label: 'Híbrido',
@@ -52,7 +70,7 @@ function Servicos() {
           trabalhar profissionalmente com cães — como adestrador ou passeador — você está no lugar certo!
         </p>
         <p className="mx-auto mb-6 max-w-3xl text-center text-gray-600" data-reveal="up">
-          Com uma metodologia moderna, baseada em casos reais e técnicas atualizadas, oferecemos três formatos de aprendizado:
+          Com uma metodologia moderna, baseada em casos reais, técnicas atualizadas e estudo científico, oferecemos três formatos de aprendizado:
         </p>
         <div className="mx-auto mb-12 grid max-w-3xl grid-cols-1 gap-4 sm:grid-cols-3" data-reveal="up">
           {formatos.map((f) => (
@@ -63,11 +81,19 @@ function Servicos() {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8" data-reveal-stagger data-reveal="up">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8" data-reveal-stagger data-reveal="up">
           {servicos.map((s, i) => (
             <article key={i} className="card-hover flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white transition-all duration-300 hover:shadow-md">
-              <div className="flex h-40 items-center justify-center bg-gray-100 text-xs text-gray-400">
-                Imagem {i + 1}
+              <div className="flex h-48 items-end justify-center overflow-hidden bg-gradient-to-b from-gray-100 to-gray-200">
+                <img
+                  src={assetUrl(`/images/optimized/${s.img}-480w.webp`)}
+                  srcSet={`${assetUrl(`/images/optimized/${s.img}-320w.webp`)} 320w, ${assetUrl(`/images/optimized/${s.img}-480w.webp`)} 480w, ${assetUrl(`/images/optimized/${s.img}-640w.webp`)} 640w`}
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  alt={s.alt}
+                  className="h-full w-auto max-w-full object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.1)]"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
               <div className="flex flex-1 flex-col p-5">
                 <h3 className="mb-2 text-base font-bold text-gray-900">{s.title}</h3>
@@ -91,7 +117,7 @@ function Servicos() {
             Adestramento e Equilíbrio Mental para o Seu Cão
           </h3>
           <p className="mb-6 text-sm text-gray-500">
-            Treinamentos presenciais, híbrido e 100% digital &middot; Certificado Incluso &middot; Acesso Imediato &middot; Suporte direto com o instrutor
+            Treinamentos presenciais, híbrido e 100% digital &middot; Acesso Imediato &middot; Suporte direto com o adestrador
           </p>
           <div className="mx-auto grid max-w-2xl grid-cols-1 gap-4 text-left sm:grid-cols-2">
             {[

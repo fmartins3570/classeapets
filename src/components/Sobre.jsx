@@ -1,3 +1,5 @@
+import { assetUrl } from '../utils/assetUrl'
+
 function Sobre() {
   const whatsappHref = 'https://wa.me/5511934066866'
   return (
@@ -7,7 +9,16 @@ function Sobre() {
           Sobre o Adestrador
         </h2>
         <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-12">
-          <div className="order-2 md:order-1" data-reveal="left">
+          <div className="order-2 md:order-1 space-y-6" data-reveal="left">
+            <img
+              src={assetUrl('/images/optimized/foto-brenno-480w.webp')}
+              srcSet={`${assetUrl('/images/optimized/foto-brenno-320w.webp')} 320w, ${assetUrl('/images/optimized/foto-brenno-480w.webp')} 480w, ${assetUrl('/images/optimized/foto-brenno-640w.webp')} 640w`}
+              sizes="(max-width: 640px) 280px, 280px"
+              alt="Adestrador Brenno com cão branco"
+              className="mx-auto max-w-[280px] rounded-2xl shadow-lg"
+              loading="lazy"
+              decoding="async"
+            />
             <div className="flex aspect-video items-center justify-center rounded-xl bg-slate-800 text-sm text-slate-400 shadow-lg">
               Vídeo (placeholder)
             </div>

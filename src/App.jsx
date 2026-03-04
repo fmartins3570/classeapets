@@ -13,6 +13,7 @@ const Sobre = lazy(() => import('./components/Sobre'))
 const Depoimentos = lazy(() => import('./components/Depoimentos'))
 const CursosDetalhe = lazy(() => import('./components/CursosDetalhe'))
 const Metodos = lazy(() => import('./components/Metodos'))
+const Mentoria = lazy(() => import('./components/Mentoria'))
 const Galeria = lazy(() => import('./components/Galeria'))
 const Faq = lazy(() => import('./components/Faq'))
 const CtaFinal = lazy(() => import('./components/CtaFinal'))
@@ -70,6 +71,7 @@ function App() {
           <Sobre />
           <Depoimentos />
           <CursosDetalhe />
+          <Mentoria />
           <Metodos />
           <Galeria />
           <Faq />

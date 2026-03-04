@@ -192,13 +192,13 @@ function HeroSection() {
           {/* Trust badges */}
           <div className="mt-8 flex flex-col items-center gap-3 sm:mt-10 sm:flex-row sm:gap-6 md:items-start md:justify-start">
             {[
-              { icon: Zap, text: 'Metodo positivo' },
+              { icon: Zap, text: 'Método renovador' },
               { icon: Users, text: '+200 familias atendidas' },
               { icon: Shield, text: 'Baseado em ciencia' },
-            ].map(({ icon: Icon, text }) => (
-              <div key={text} className="flex items-center gap-2">
-                <Icon className="h-4 w-4 text-[var(--color-accent)]/50" />
-                <span className="text-[0.75rem] font-medium text-[var(--color-gray-400)] sm:text-[0.78rem]">{text}</span>
+            ].map((item) => (
+              <div key={item.text} className="flex items-center gap-2">
+                <item.icon className="h-4 w-4 text-[var(--color-accent)]/50" />
+                <span className="text-[0.75rem] font-medium text-[var(--color-gray-400)] sm:text-[0.78rem]">{item.text}</span>
               </div>
             ))}
           </div>
@@ -215,7 +215,7 @@ function HeroSection() {
             />
             <img
               src="/images/brenno-golden.png"
-              alt="Brenno Rodrigues — Xixi no Lugar Certo, metodo positivo para caes"
+              alt="Brenno Rodrigues — Xixi no Lugar Certo, método renovador para cães"
               className="relative z-10 h-auto w-full object-contain"
               fetchPriority="high"
             />

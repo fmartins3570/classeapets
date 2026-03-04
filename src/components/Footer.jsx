@@ -11,10 +11,11 @@ function Footer() {
   ]
 
   const courseLinks = [
-    { href: '#servicos', label: 'Adestramento para Tutores' },
-    { href: '#servicos', label: 'Formação Passeador de Cães' },
     { href: '#servicos', label: 'Formação Adestrador Profissional' },
     { href: '#servicos', label: 'Cursos 100% Digitais' },
+    { href: '#servicos', label: 'Adestramento para Tutores' },
+    { href: '#servicos', label: 'Formação Passeador de Cães' },
+    { href: '#mentoria', label: 'Mentoria para Profissionais' },
   ]
 
   const socialLinks = [
@@ -40,7 +41,7 @@ function Footer() {
             />
           </a>
           <p className="mb-6 max-w-[280px] text-sm leading-relaxed text-slate-400">
-            Adestramento de cães com método positivo. Transformando a relação entre cães e tutores no
+            Adestramento de cães com método moderno. Transformando a relação entre cães e tutores no
             ABC Paulista e São Paulo.
           </p>
           <div className="flex items-center gap-3">

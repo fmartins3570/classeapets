@@ -1,9 +1,9 @@
 function Stats() {
   const items = [
-    { number: '+200', label: 'Famílias Atendidas' },
-    { number: '+150', label: 'Tutores Satisfeitos' },
+    { number: '+250', label: 'Famílias Atendidas' },
+    { number: '+500', label: 'Cães Transformados' },
     { number: '+4', label: 'Anos de Experiência' },
-    { number: '25', label: 'Treinamentos Mensais' },
+    { number: '+10', label: 'Estados Atendidos' },
   ]
 
   return (

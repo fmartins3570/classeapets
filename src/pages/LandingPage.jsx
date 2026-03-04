@@ -86,11 +86,11 @@ function HeroSection() {
             {[
               { icon: Shield, text: '30 dias de garantia' },
               { icon: Users, text: '+250 familias atendidas' },
-              { icon: Zap, text: 'Metodo positivo' },
-            ].map(({ icon: Icon, text }) => (
-              <div key={text} className="flex items-center gap-2">
-                <Icon className="h-4 w-4 text-[var(--color-cyan-muted)]/60" />
-                <span className="text-[0.75rem] font-medium text-[var(--color-cinza-500)] sm:text-[0.78rem]">{text}</span>
+              { icon: Zap, text: 'Método renovador' },
+            ].map((item) => (
+              <div key={item.text} className="flex items-center gap-2">
+                <item.icon className="h-4 w-4 text-[var(--color-cyan-muted)]/60" />
+                <span className="text-[0.75rem] font-medium text-[var(--color-cinza-500)] sm:text-[0.78rem]">{item.text}</span>
               </div>
             ))}
           </div>

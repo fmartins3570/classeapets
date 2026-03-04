@@ -16,6 +16,7 @@ function Header() {
     { href: '#sobre', label: 'Sobre' },
     { href: '#depoimentos', label: 'Depoimentos' },
     { href: '#cursos', label: 'Cursos' },
+    { href: '#mentoria', label: 'Mentoria' },
     { href: '#galeria', label: 'Galeria' },
     { href: '#contato', label: 'Contato' },
   ]
