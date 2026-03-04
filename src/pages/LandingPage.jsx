@@ -44,7 +44,7 @@ function HeroSection() {
 
       <div className="relative mx-auto grid max-w-[1200px] grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-12 lg:gap-16">
         {/* Left — Text */}
-        <div className="text-center md:text-left">
+        <div className="relative z-20 text-center md:text-left">
           {/* Urgency badge */}
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[var(--color-vermelho)]/20 bg-[var(--color-vermelho)]/6 px-3.5 py-2 sm:mb-8 sm:gap-2.5 sm:px-5 sm:py-2.5">
             <span className="relative flex h-2 w-2 shrink-0">
@@ -271,15 +271,24 @@ function SobreBrenno() {
       <div className="mx-auto max-w-[1100px]">
         {/* Mobile: title first, then video, then text. Desktop: video left, text right */}
         <div className="mb-6 text-center md:hidden" data-reveal="up">
-          <span className="section-label justify-center">Seu Instrutor</span>
+          <span className="section-label justify-center">Seu Adestrador</span>
           <h2 className="!text-[1.5rem] sm:!text-[1.75rem]">
             De Engenheiro a Adestrador: conheca o Brenno.
           </h2>
         </div>
 
         <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-16">
-          {/* Video do Brenno */}
+          {/* Foto + Video do Brenno */}
           <div data-reveal="left">
+            <img
+              src="/images/optimized/foto-brenno-480w.webp"
+              srcSet="/images/optimized/foto-brenno-320w.webp 320w, /images/optimized/foto-brenno-480w.webp 480w, /images/optimized/foto-brenno-640w.webp 640w"
+              sizes="(max-width: 640px) 260px, 300px"
+              alt="Adestrador Brenno Rodrigues"
+              className="mx-auto mb-6 max-w-[260px] rounded-2xl shadow-[var(--shadow-md)] sm:max-w-[300px]"
+              loading="lazy"
+              decoding="async"
+            />
             <div className="relative mx-auto max-w-[320px] overflow-hidden rounded-2xl border border-[var(--color-cinza-200)] bg-[var(--color-charcoal)] shadow-[var(--shadow-lg)] sm:max-w-[360px] sm:rounded-3xl md:max-w-none">
               <div className="aspect-[9/16]">
                 <iframe
@@ -298,7 +307,7 @@ function SobreBrenno() {
           <div data-reveal="right">
             {/* Desktop title (hidden on mobile since it shows above) */}
             <div className="hidden md:block">
-              <span className="section-label mb-4">Seu Instrutor</span>
+              <span className="section-label mb-4">Seu Adestrador</span>
               <h2 className="mb-6">
                 De Engenheiro a Adestrador: conheca o Brenno.
               </h2>
@@ -479,7 +488,7 @@ function Preco() {
 
               {/* Trust badges */}
               <div className="mt-4 flex flex-col items-center gap-2.5 sm:mt-5 sm:flex-row sm:justify-center sm:gap-4">
-                {['30 dias de garantia', 'Pagamento seguro', 'Certificado incluso'].map((t) => (
+                {['30 dias de garantia', 'Pagamento seguro'].map((t) => (
                   <div key={t} className="flex items-center gap-1.5">
                     <svg className="h-3.5 w-3.5 text-[var(--color-success)]" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
