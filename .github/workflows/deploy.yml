@@ -34,3 +34,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           publish_branch: deploy
+
+      - name: Trigger Hostinger deploy
+        run: curl -s https://webhooks.hostinger.com/deploy/acc38b96abb6fd50410ad65449554506
