@@ -325,7 +325,7 @@ function SobreBrenno() {
               {[
                 { value: '+250', label: 'familias' },
                 { value: '5+', label: 'anos' },
-                { value: '100%', label: 'positivo' },
+                { value: '100%', label: 'dedicação' },
               ].map((s) => (
                 <div key={s.label} className="flex items-center gap-2">
                   <span

@@ -193,7 +193,7 @@ function HeroSection() {
           <div className="mt-8 flex flex-col items-center gap-3 sm:mt-10 sm:flex-row sm:gap-6 md:items-start md:justify-start">
             {[
               { icon: Zap, text: 'Método renovador' },
-              { icon: Users, text: '+200 familias atendidas' },
+              { icon: Users, text: '+250 familias atendidas' },
               { icon: Shield, text: 'Baseado em ciencia' },
             ].map((item) => (
               <div key={item.text} className="flex items-center gap-2">
@@ -548,7 +548,7 @@ function SobreBrenno() {
               as orientacoes certas.
             </p>
             <p className="mb-6 text-[0.95rem] leading-relaxed text-[var(--color-gray-500)] sm:mb-8 sm:text-[1.05rem]">
-              Com metodologia baseada em reforco positivo, ja ajudei centenas de familias
+              Com metodologia moderna e renovadora, ja ajudei centenas de familias
               a resolver problemas de comportamento. O Metodo Suite Canina reune tudo o que
               funciona na pratica.
             </p>
@@ -556,9 +556,9 @@ function SobreBrenno() {
             <div className="grid grid-cols-2 gap-4 sm:flex sm:flex-wrap sm:gap-6">
               {[
                 { value: '+4', label: 'anos de experiencia' },
-                { value: '+200', label: 'familias atendidas' },
-                { value: '+150', label: 'tutores treinados' },
-                { value: '100%', label: 'reforco positivo' },
+                { value: '+250', label: 'familias atendidas' },
+                { value: '+500', label: 'caes treinados' },
+                { value: '100%', label: 'dedicação' },
               ].map((s) => (
                 <div key={s.label} className="flex items-center gap-2">
                   <span className="text-lg font-bold text-[var(--color-accent)] sm:text-xl">

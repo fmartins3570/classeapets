@@ -3,6 +3,14 @@ import { assetUrl } from '../utils/assetUrl'
 function Servicos() {
   const servicos = [
     {
+      title: 'Tutores, adestre seu cão',
+      text: 'Nosso foco é ensinar você, tutor, a adestrar seu cão, para ser feliz e equilibrado, de forma presencial, em São Paulo.',
+      cta: 'Clique aqui',
+      link: 'https://classeapets.com.br/adestramento-de-caes-para-tutores',
+      img: 'servico-tutores',
+      alt: 'Brenno com três cães durante treinamento para tutores',
+    },
+    {
       title: 'Formação de Adestrador de Cães',
       text: 'Você aprende tudo o que precisa para atuar com confiança no mercado de adestramento. Formação Técnica + Comportamental + Emocional com acompanhamento próximo.',
       cta: 'Clique aqui',
@@ -17,14 +25,6 @@ function Servicos() {
       link: 'https://classeapets.com.br/cursos-digitais/',
       img: 'servico-digital',
       alt: 'Brenno com dois cães Golden Retriever em sessão de adestramento digital',
-    },
-    {
-      title: 'Tutores, adestre seu cão',
-      text: 'Nosso foco é ensinar você, tutor, a adestrar seu cão, para ser feliz e equilibrado, de forma presencial, em São Paulo.',
-      cta: 'Clique aqui',
-      link: 'https://classeapets.com.br/adestramento-de-caes-para-tutores',
-      img: 'servico-tutores',
-      alt: 'Brenno com três cães durante treinamento para tutores',
     },
     {
       title: 'Curso de Formação Passeador de Cães',
