@@ -27,7 +27,7 @@ function Footer() {
 
   return (
     <footer id="site-footer" className="bg-slate-900 text-slate-400">
-      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-10 px-6 py-16 lg:grid-cols-4">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 px-6 py-16 sm:gap-10 lg:grid-cols-4">
         <div>
           <a href="#hero" className="mb-5 inline-flex items-center no-underline hover:opacity-90 hover:no-underline">
             <img
@@ -35,7 +35,7 @@ function Footer() {
               srcSet={`${assetUrl('/images/optimized/logo-classeapets-transparent-v2-320w.webp')} 320w, ${assetUrl('/images/optimized/logo-classeapets-transparent-v2-480w.webp')} 480w, ${assetUrl('/images/optimized/logo-classeapets-transparent-v2-640w.webp')} 640w`}
               sizes="120px"
               alt="Classe A Pets"
-              className="w-[120px] object-contain"
+              className="w-20 object-contain sm:w-[120px]"
               loading="lazy"
               decoding="async"
             />

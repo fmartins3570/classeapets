@@ -63,7 +63,7 @@ export default function LandingHeader() {
 
         <button
           type="button"
-          className="relative z-10 flex h-10 w-10 items-center justify-center rounded-xl border border-[var(--color-cyan)]/20 bg-transparent p-0 md:hidden"
+          className="relative z-10 flex h-11 w-11 items-center justify-center rounded-xl border border-[var(--color-cyan)]/20 bg-transparent p-0 md:hidden"
           aria-expanded={menuOpen}
           aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
           onClick={() => setMenuOpen((c) => !c)}

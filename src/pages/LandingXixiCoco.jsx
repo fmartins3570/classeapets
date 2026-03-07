@@ -16,6 +16,7 @@ import {
 } from 'lucide-react'
 import useScrollReveal from '../hooks/useScrollReveal'
 import { assetUrl } from '../utils/assetUrl'
+import { BackgroundGradientAnimation } from '../components/ui/BackgroundGradientAnimation'
 
 /* ─────────────────────────────────────────────────
    LIGHT THEME — Xixi no Lugar Certo
@@ -95,7 +96,7 @@ function XixiCocoHeader() {
 
         <button
           type="button"
-          className="relative z-10 flex h-10 w-10 items-center justify-center rounded-xl border border-[var(--color-gray-200)] bg-transparent p-0 md:hidden"
+          className="relative z-10 flex h-11 w-11 items-center justify-center rounded-xl border border-[var(--color-gray-200)] bg-transparent p-0 md:hidden"
           aria-expanded={menuOpen}
           aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
           onClick={() => setMenuOpen((c) => !c)}
@@ -138,17 +139,21 @@ function XixiCocoHeader() {
 
 function HeroSection() {
   return (
-    <section
-      id="hero"
-      className="relative overflow-hidden bg-gradient-to-b from-[#e4eff1] via-[#edf4f5] to-white px-4 pb-12 pt-24 sm:px-8 sm:pb-16 sm:pt-32 md:pb-24 lg:pt-36"
-    >
-      {/* Subtle teal glow top-left */}
-      <div
-        className="pointer-events-none absolute left-[-15%] top-[5%] h-[350px] w-[350px] rounded-full opacity-20 blur-[120px] sm:h-[500px] sm:w-[500px]"
-        style={{ background: 'radial-gradient(circle, rgba(0,188,212,0.25), transparent 70%)' }}
-        aria-hidden
-      />
-
+    <section id="hero" className="relative overflow-hidden">
+      <BackgroundGradientAnimation
+        gradientBackgroundStart="rgb(228, 239, 241)"
+        gradientBackgroundEnd="rgb(237, 244, 245)"
+        firstColor="178, 235, 242"
+        secondColor="128, 222, 234"
+        thirdColor="200, 240, 245"
+        fourthColor="158, 230, 238"
+        fifthColor="210, 245, 248"
+        pointerColor="178, 235, 242"
+        size="70%"
+        blendingValue="normal"
+        containerClassName="!h-auto"
+        className="px-4 pb-12 pt-24 sm:px-8 sm:pb-16 sm:pt-32 md:pb-24 lg:pt-36"
+      >
       <div className="relative mx-auto grid max-w-[1200px] grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-12 lg:gap-16">
         {/* Left — Text */}
         <div className="text-center md:text-left">
@@ -163,7 +168,7 @@ function HeroSection() {
             </span>
           </div>
 
-          <h1 className="mb-5 !text-[1.8rem] !leading-[1.12] !text-[var(--color-gray-900)] sm:mb-6 sm:!text-[2.5rem] md:!text-[2.6rem] lg:!text-[3.2rem]">
+          <h1 className="mb-5 !text-[1.5rem] !leading-[1.12] !text-[var(--color-gray-900)] sm:!text-[1.8rem] sm:mb-6 sm:!text-[2.5rem] md:!text-[2.6rem] lg:!text-[3.2rem]">
             Xixi{' '}
             <span className="text-[var(--color-accent)]">
               no Lugar Certo
@@ -206,7 +211,7 @@ function HeroSection() {
 
         {/* Right — Brenno + Golden image */}
         <div className="relative flex justify-center md:justify-end">
-          <div className="relative w-[280px] sm:w-[320px] md:w-[400px] lg:w-[460px]">
+          <div className="relative w-[240px] sm:w-[280px] md:w-[400px] lg:w-[460px]">
             {/* Soft teal glow behind */}
             <div
               className="pointer-events-none absolute inset-x-[10%] bottom-[0%] top-[15%] rounded-full opacity-15 blur-[50px] sm:blur-[60px]"
@@ -227,6 +232,7 @@ function HeroSection() {
           </div>
         </div>
       </div>
+      </BackgroundGradientAnimation>
     </section>
   )
 }
@@ -518,7 +524,7 @@ function SobreBrenno() {
         <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-16">
           {/* Video */}
           <div data-reveal="left">
-            <div className="relative mx-auto max-w-[320px] overflow-hidden rounded-2xl border border-[var(--color-gray-200)] bg-[var(--color-gray-100)] shadow-[0_8px_32px_rgba(0,0,0,0.06)] sm:max-w-[360px] sm:rounded-3xl md:max-w-none">
+            <div className="relative mx-auto max-w-[290px] overflow-hidden rounded-2xl border border-[var(--color-gray-200)] bg-[var(--color-gray-100)] shadow-[0_8px_32px_rgba(0,0,0,0.06)] sm:max-w-[320px] sm:rounded-3xl md:max-w-none">
               <div className="aspect-[9/16]">
                 <iframe
                   src="https://www.youtube.com/embed/CMqEWXaRhWU?rel=0&modestbranding=1"
@@ -702,7 +708,7 @@ function Depoimentos() {
                 </div>
                 <div>
                   <span className="block text-[0.82rem] font-semibold text-[var(--color-gray-900)] sm:text-sm">{d.nome}</span>
-                  <span className="text-[0.72rem] text-[var(--color-gray-400)] sm:text-xs">{d.descricao}</span>
+                  <span className="text-xs text-[var(--color-gray-400)]">{d.descricao}</span>
                 </div>
               </div>
             </article>
@@ -776,7 +782,7 @@ function Preco() {
               {/* CTA */}
               <a
                 href="#checkout"
-                className="mt-6 inline-flex min-h-[50px] w-full items-center justify-center gap-2 rounded-full bg-[var(--color-accent)] px-6 py-3.5 text-[0.88rem] font-bold text-white !no-underline shadow-[0_6px_24px_rgba(0,188,212,0.3)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_32px_rgba(0,188,212,0.4)] hover:!no-underline sm:mt-8 sm:min-h-[56px] sm:px-8 sm:py-4 sm:text-[0.95rem]"
+                className="mt-6 inline-flex min-h-[50px] w-full items-center justify-center gap-2 rounded-full bg-[var(--color-accent)] px-4 py-3.5 text-[0.88rem] font-bold text-white !no-underline shadow-[0_6px_24px_rgba(0,188,212,0.3)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_32px_rgba(0,188,212,0.4)] hover:!no-underline sm:mt-8 sm:min-h-[56px] sm:px-6 sm:py-4 sm:text-[0.95rem]"
               >
                 Quero garantir minha vaga
                 <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -878,7 +884,7 @@ function FAQ() {
 function LandingFooter() {
   return (
     <footer className="border-t border-[var(--color-gray-200)] bg-[var(--color-gray-50)] px-4 py-6 sm:px-8 sm:py-8">
-      <p className="text-center text-[0.7rem] text-[var(--color-gray-400)] sm:text-xs">
+      <p className="text-center text-xs text-[var(--color-gray-400)]">
         &copy; 2026 Classe A Pets — Todos os direitos reservados.
       </p>
     </footer>

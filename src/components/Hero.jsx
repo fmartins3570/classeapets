@@ -6,7 +6,7 @@ import { InteractiveHoverButton } from './ui/InteractiveHoverButton'
 function Hero() {
   return (
     <section id="hero" className="relative overflow-hidden">
-      <AuroraBackground className="min-h-[auto] bg-gray-50 py-16 sm:py-20 md:py-28">
+      <AuroraBackground className="min-h-[auto] bg-gray-50 py-10 sm:py-16 md:py-28">
         <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-8 px-6 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -39,7 +39,7 @@ function Hero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.4, duration: 0.8, ease: 'easeOut' }}
-            className="relative mx-auto h-[220px] w-full max-w-[340px] sm:h-[450px] sm:max-w-[380px] lg:h-[540px] lg:max-w-[420px]"
+            className="relative mx-auto h-[220px] w-full max-w-[280px] sm:h-[450px] sm:max-w-[380px] lg:h-[540px] lg:max-w-[420px]"
           >
             <div
               aria-hidden

@@ -48,7 +48,7 @@ function HeroSection() {
               </span>
             </div>
 
-            <h1 className="mb-5 !text-[1.8rem] !leading-[1.12] !text-white sm:mb-6 sm:!text-[2.5rem] md:!text-[2.6rem] lg:!text-[3.2rem]">
+            <h1 className="mb-5 !text-[1.5rem] !leading-[1.12] !text-white sm:!text-[1.8rem] sm:mb-6 sm:!text-[2.5rem] md:!text-[2.6rem] lg:!text-[3.2rem]">
               Transforme sua paixao por caes em uma{' '}
               <span
                 className="bg-clip-text text-transparent"
@@ -90,7 +90,7 @@ function HeroSection() {
 
           {/* Right — Brenno image */}
           <div className="relative flex justify-center md:justify-end">
-            <div className="relative w-[260px] sm:w-[300px] md:w-[380px] lg:w-[440px]">
+            <div className="relative w-[220px] sm:w-[260px] md:w-[380px] lg:w-[440px]">
               <img
                 src="/images/brenno-hero.png"
                 alt="Brenno Rodrigues — Adestrador Profissional com seu cao"
@@ -265,11 +265,11 @@ function SobreBrenno() {
               srcSet="/images/optimized/foto-brenno-320w.webp 320w, /images/optimized/foto-brenno-480w.webp 480w, /images/optimized/foto-brenno-640w.webp 640w"
               sizes="(max-width: 640px) 260px, 300px"
               alt="Adestrador Brenno Rodrigues"
-              className="mx-auto mb-6 max-w-[260px] rounded-2xl shadow-[var(--shadow-md)] sm:max-w-[300px]"
+              className="mx-auto mb-6 max-w-[220px] rounded-2xl shadow-[var(--shadow-md)] sm:max-w-[260px]"
               loading="lazy"
               decoding="async"
             />
-            <div className="relative mx-auto max-w-[320px] overflow-hidden rounded-2xl border border-[var(--color-cinza-200)] bg-[var(--color-charcoal)] shadow-[var(--shadow-lg)] sm:max-w-[360px] sm:rounded-3xl md:max-w-none">
+            <div className="relative mx-auto max-w-[290px] overflow-hidden rounded-2xl border border-[var(--color-cinza-200)] bg-[var(--color-charcoal)] shadow-[var(--shadow-lg)] sm:max-w-[320px] sm:rounded-3xl md:max-w-none">
               <div className="aspect-[9/16]">
                 <iframe
                   src="https://www.youtube.com/embed/CMqEWXaRhWU?rel=0&modestbranding=1"
@@ -367,7 +367,7 @@ function Formato() {
                 className="card-dark group relative overflow-hidden p-5 hover:border-transparent sm:p-7 md:p-8"
               >
                 {f.highlight && (
-                  <span className="absolute right-4 top-4 rounded-full bg-[var(--color-cyan-muted)]/12 px-3 py-1 text-[0.65rem] font-bold uppercase tracking-wider text-[var(--color-cyan)] sm:right-5 sm:top-5 sm:text-[0.7rem]">
+                  <span className="absolute right-4 top-4 rounded-full bg-[var(--color-cyan-muted)]/12 px-3 py-1 text-xs font-bold uppercase tracking-wider text-[var(--color-cyan)] sm:right-5 sm:top-5">
                     Popular
                   </span>
                 )}
@@ -460,7 +460,7 @@ function Preco() {
               {/* CTA */}
               <a
                 href="#checkout"
-                className="btn-primary inline-flex min-h-[50px] w-full items-center justify-center gap-2 !rounded-full !px-6 !py-3.5 !text-[0.88rem] !font-bold !no-underline hover:!no-underline sm:min-h-[56px] sm:!px-8 sm:!py-4 sm:!text-[0.95rem]"
+                className="btn-primary inline-flex min-h-[50px] w-full items-center justify-center gap-2 !rounded-full !px-4 !py-3.5 !text-[0.88rem] !font-bold !no-underline hover:!no-underline sm:min-h-[56px] sm:!px-6 sm:!py-4 sm:!text-[0.95rem]"
               >
                 Quero me tornar Adestrador Profissional
               </a>
@@ -596,7 +596,7 @@ function LandingCtaFinal() {
 function LandingFooter() {
   return (
     <footer className="border-t border-white/4 bg-[var(--color-midnight)] px-4 py-6 sm:px-8 sm:py-8">
-      <p className="text-center text-[0.7rem] text-[var(--color-cinza-500)] sm:text-xs">
+      <p className="text-center text-xs text-[var(--color-cinza-500)]">
         &copy; 2026 Classe A Pets — Todos os direitos reservados.
       </p>
     </footer>
