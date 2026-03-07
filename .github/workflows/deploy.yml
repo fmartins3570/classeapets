@@ -36,4 +36,4 @@ jobs:
           publish_branch: deploy
 
       - name: Trigger Hostinger deploy
-        run: curl -s https://webhooks.hostinger.com/deploy/5bfec3f5c9d307e0b2c6d9b9b4182880
+        run: curl -s https://webhooks.hostinger.com/deploy/f1708ebfaf5a814c6cfe469e8a004132
