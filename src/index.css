@@ -1,10 +1,26 @@
 @import "tailwindcss";
 
+@theme {
+  --animate-aurora: aurora 60s linear infinite;
+}
+
+@keyframes aurora {
+  from { background-position: 50% 50%, 50% 50%; }
+  to { background-position: 350% 50%, 350% 50%; }
+}
+
 /* ───────────────────────────────────────────────
    Design tokens — Classe A Pets
    Direção: profissional, sóbrio, moderno
    ─────────────────────────────────────────────── */
 :root {
+  /* Aurora background colors */
+  --color-aurora-1: #00BCD4;
+  --color-aurora-2: #4DD0E1;
+  --color-aurora-3: #80DEEA;
+  --color-aurora-4: #B2EBF2;
+  --color-aurora-5: #26C6DA;
+
   /* Brand accents — usados com moderação */
   --color-accent: #00BCD4;
   --color-accent-warm: #FF9800;

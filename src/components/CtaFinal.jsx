@@ -1,3 +1,5 @@
+import { InteractiveHoverButton } from './ui/InteractiveHoverButton'
+
 function CtaFinal() {
   const whatsappHref = 'https://wa.me/5511934066866'
   return (
@@ -12,14 +14,13 @@ function CtaFinal() {
         <p className="mb-8 text-gray-600">
           Fale com um adestrador especializado e descubra como mudar a rotina do seu pet.
         </p>
-        <a
+        <InteractiveHoverButton
           href={whatsappHref}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex min-h-12 w-full touch-manipulation items-center justify-center rounded-xl bg-[var(--color-accent)] px-8 py-4 text-base font-bold text-white !no-underline shadow-lg transition-transform duration-200 hover:-translate-y-1 hover:!no-underline sm:w-fit"
-        >
-          Quero entrar em contato!
-        </a>
+          text="Quero entrar em contato!"
+          className="w-full text-base shadow-lg sm:w-fit"
+        />
       </div>
     </section>
   )

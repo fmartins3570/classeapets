@@ -1,3 +1,6 @@
+import { InteractiveHoverButton } from './ui/InteractiveHoverButton'
+import { GlowCard } from './ui/GlowCard'
+
 function Metodos() {
   const metodos = [
     {
@@ -51,7 +54,8 @@ function Metodos() {
         </p>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8" data-reveal-stagger data-reveal="up">
           {metodos.map((m, i) => (
-            <article key={i} className="card-hover flex flex-col rounded-2xl border border-gray-200 bg-white p-6">
+            <GlowCard key={i}>
+            <article className="relative card-hover flex flex-col rounded-2xl border border-gray-200 bg-white p-6">
               <h3 className="mb-4 text-base font-bold text-gray-900">{m.title}</h3>
               <ul className="mb-5 flex-1 space-y-2">
                 {m.items.map((item, j) => (
@@ -61,13 +65,13 @@ function Metodos() {
                   </li>
                 ))}
               </ul>
-              <a
+              <InteractiveHoverButton
                 href="#contato"
-                className="inline-flex min-h-10 w-full touch-manipulation items-center justify-center rounded-xl bg-[var(--color-accent)] px-5 py-2.5 text-sm font-bold text-white !no-underline transition-transform duration-200 hover:-translate-y-0.5 hover:!no-underline"
-              >
-                Saiba mais
-              </a>
+                text="Saiba mais"
+                className="w-full text-sm"
+              />
             </article>
+            </GlowCard>
           ))}
         </div>
       </div>

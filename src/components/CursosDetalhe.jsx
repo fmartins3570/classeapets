@@ -1,4 +1,6 @@
 import { assetUrl } from '../utils/assetUrl'
+import { InteractiveHoverButton } from './ui/InteractiveHoverButton'
+import { GlowCard } from './ui/GlowCard'
 
 function CursosDetalhe() {
   return (
@@ -13,7 +15,8 @@ function CursosDetalhe() {
 
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
           {/* Card Presencial */}
-          <article className="card-hover flex flex-col overflow-hidden rounded-2xl border-2 border-[var(--color-accent)] bg-white" data-reveal="left">
+          <GlowCard>
+          <article className="relative card-hover flex flex-col overflow-hidden rounded-2xl border-2 border-[var(--color-accent)] bg-white" data-reveal="left">
             <div className="relative flex h-52 items-end justify-center overflow-hidden bg-gradient-to-b from-gray-100 to-gray-200">
               <img
                 src={assetUrl('/images/optimized/curso-presencial-480w.webp')}
@@ -60,17 +63,18 @@ function CursosDetalhe() {
               <p className="mb-6 text-xs leading-relaxed text-gray-500">
                 Ideal para quem busca aprendizado imersivo, experiência prática e reconhecimento profissional imediato.
               </p>
-              <a
+              <InteractiveHoverButton
                 href="#contato"
-                className="mt-auto inline-flex min-h-12 w-full touch-manipulation items-center justify-center rounded-xl bg-[var(--color-accent)] px-6 py-3 text-sm font-bold text-white !no-underline shadow-lg transition-transform duration-200 hover:-translate-y-1 hover:!no-underline"
-              >
-                Garantir vaga no curso presencial
-              </a>
+                text="Garantir vaga no curso presencial"
+                className="mt-auto w-full text-sm shadow-lg"
+              />
             </div>
           </article>
+          </GlowCard>
 
           {/* Card Digital */}
-          <article className="card-hover flex flex-col overflow-hidden rounded-2xl border-2 border-gray-200 bg-white" data-reveal="right">
+          <GlowCard>
+          <article className="relative card-hover flex flex-col overflow-hidden rounded-2xl border-2 border-gray-200 bg-white" data-reveal="right">
             <div className="flex h-52 items-end justify-center overflow-hidden bg-gradient-to-b from-gray-100 to-gray-200">
               <img
                 src={assetUrl('/images/optimized/curso-digital-480w.webp')}
@@ -112,14 +116,15 @@ function CursosDetalhe() {
                 Ideal para quem busca flexibilidade, autonomia no aprendizado e qualificação de verdade.
                 Comece hoje mesmo e transforme sua relação com os cães.
               </p>
-              <a
+              <InteractiveHoverButton
                 href="#contato"
-                className="mt-auto inline-flex min-h-12 w-full touch-manipulation items-center justify-center rounded-xl border-2 border-gray-900 bg-gray-900 px-6 py-3 text-sm font-bold text-white !no-underline transition-transform duration-200 hover:-translate-y-1 hover:!no-underline"
-              >
-                Garantir vaga no curso digital
-              </a>
+                text="Garantir vaga no curso digital"
+                variant="dark"
+                className="mt-auto w-full text-sm"
+              />
             </div>
           </article>
+          </GlowCard>
         </div>
       </div>
     </section>

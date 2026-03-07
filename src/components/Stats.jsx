@@ -1,3 +1,5 @@
+import { GlowCard } from './ui/GlowCard'
+
 function Stats() {
   const items = [
     { number: '+250', label: 'Famílias Atendidas' },
@@ -24,12 +26,14 @@ function Stats() {
           data-reveal="up"
         >
           {items.map((item, i) => (
-            <div key={i} className="rounded-2xl bg-white p-6 text-center shadow-sm">
+            <GlowCard key={i}>
+            <div className="relative rounded-2xl bg-white p-6 text-center shadow-sm">
               <span className="mb-1 block text-3xl font-extrabold text-gray-900 sm:text-4xl">
                 {item.number}
               </span>
               <span className="text-sm leading-snug text-gray-500">{item.label}</span>
             </div>
+            </GlowCard>
           ))}
         </div>
       </div>
