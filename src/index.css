@@ -9,6 +9,120 @@
   to { background-position: 350% 50%, 350% 50%; }
 }
 
+@keyframes moveHorizontal {
+  0% { transform: translateX(-50%) translateY(-10%); }
+  50% { transform: translateX(50%) translateY(10%); }
+  100% { transform: translateX(-50%) translateY(-10%); }
+}
+
+@keyframes moveInCircle {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(180deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes moveVertical {
+  0% { transform: translateY(-50%); }
+  50% { transform: translateY(50%); }
+  100% { transform: translateY(-50%); }
+}
+
+/* ───────────────────────────────────────────────
+   Glowing Shadow Card
+   ─────────────────────────────────────────────── */
+
+@property --glow-bg-x {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
+@property --glow-bg-y {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
+
+.glowing-shadow-wrap {
+  --glow-speed: 3s;
+  isolation: isolate;
+}
+
+/* Thin animated border — teal accent */
+.glowing-shadow-border {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+  pointer-events: none;
+  border: 1px solid transparent;
+  background:
+    radial-gradient(
+      40% 40% at calc(var(--glow-bg-x) * 1%) calc(var(--glow-bg-y) * 1%),
+      rgba(46, 222, 240, 0.7) 0%,
+      rgba(0, 188, 212, 0.3) 50%,
+      transparent 100%
+    ) border-box;
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  animation: glow-border-move var(--glow-speed) linear infinite;
+}
+
+.glowing-shadow-wrap:hover .glowing-shadow-border {
+  opacity: 1;
+}
+
+/* Floating orb glow — teal */
+.glowing-shadow-orb {
+  position: absolute;
+  width: 35%;
+  height: 35%;
+  top: 32%;
+  left: 32%;
+  border-radius: 50%;
+  z-index: -1;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease, filter 0.4s ease, transform 0.4s ease;
+  animation: glow-orb-rotate var(--glow-speed) linear infinite;
+}
+
+.glowing-shadow-orb::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(46, 222, 240, 0.5);
+  filter: blur(20px);
+}
+
+.glowing-shadow-wrap:hover .glowing-shadow-orb {
+  opacity: 0.35;
+  filter: blur(6px);
+  transform: scale(1.6);
+}
+
+.glowing-shadow-wrap:hover {
+  box-shadow: 0 0 15px 1px rgba(46, 222, 240, 0.1);
+}
+
+@keyframes glow-border-move {
+  0%   { --glow-bg-x: 0;   --glow-bg-y: 0; }
+  25%  { --glow-bg-x: 100; --glow-bg-y: 0; }
+  50%  { --glow-bg-x: 100; --glow-bg-y: 100; }
+  75%  { --glow-bg-x: 0;   --glow-bg-y: 100; }
+  100% { --glow-bg-x: 0;   --glow-bg-y: 0; }
+}
+
+@keyframes glow-orb-rotate {
+  from { transform: rotate(0deg) translateX(12%); }
+  to   { transform: rotate(360deg) translateX(12%); }
+}
+
 /* ───────────────────────────────────────────────
    Design tokens — Classe A Pets
    Direção: profissional, sóbrio, moderno
@@ -217,7 +331,7 @@ button,
 
 .btn-primary {
   background: var(--gradient-cta);
-  color: var(--color-branco);
+  color: #ffffff !important;
   box-shadow: var(--shadow-cyan);
   position: relative;
   overflow: hidden;
@@ -235,6 +349,7 @@ button,
 .btn-primary:hover {
   transform: translateY(-2px);
   box-shadow: 0 12px 40px rgba(46, 222, 240, 0.28);
+  color: #ffffff !important;
 }
 
 .btn-primary:hover::before {

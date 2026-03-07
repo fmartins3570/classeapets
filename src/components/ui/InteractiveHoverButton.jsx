@@ -47,14 +47,14 @@ const InteractiveHoverButton = forwardRef(function InteractiveHoverButton(
       {...props}
     >
       {/* Static text — visible by default, slides out on hover */}
-      <span className="relative z-[1] inline-block translate-x-1 transition-all duration-300 group-hover:translate-x-12 group-hover:opacity-0">
+      <span className="relative z-[1] inline-block translate-x-1 transition-all duration-300 group-hover:translate-x-12 group-hover:opacity-0 group-hover:text-white">
         {text}
       </span>
       {/* Hover text + arrow — slides in on hover */}
-      <div className={cn(
-        'absolute top-0 z-[3] flex h-full w-full translate-x-12 items-center justify-center gap-2 opacity-0 transition-all duration-300 group-hover:-translate-x-1 group-hover:opacity-100',
-        v.hoverText,
-      )}>
+      <div
+        className="absolute top-0 z-[3] flex h-full w-full translate-x-12 items-center justify-center gap-2 opacity-0 transition-all duration-300 group-hover:-translate-x-1 group-hover:opacity-100"
+        style={{ color: variant === 'white' ? '#111827' : '#ffffff' }}
+      >
         <span>{text}</span>
         <ArrowRight className="h-5 w-5" />
       </div>

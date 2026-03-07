@@ -13,120 +13,98 @@ import {
   Users,
 } from 'lucide-react'
 import LandingHeader from '../components/LandingHeader'
+import { BackgroundGradientAnimation } from '../components/ui/BackgroundGradientAnimation'
+import { GlowingShadow } from '../components/ui/GlowingShadow'
 import useScrollReveal from '../hooks/useScrollReveal'
 
 /* ─────────────────── HERO ─────────────────── */
 
 function HeroSection() {
   return (
-    <section
-      id="hero"
-      className="relative overflow-hidden px-4 pb-12 pt-24 sm:px-8 sm:pb-16 sm:pt-32 md:min-h-screen md:pb-24 lg:pt-36"
-      style={{ background: 'var(--gradient-hero)' }}
-    >
-      {/* Ambient glows */}
-      <div
-        className="pointer-events-none absolute left-[-20%] top-[8%] h-[300px] w-[300px] rounded-full opacity-15 blur-[100px] sm:left-[-12%] sm:h-[550px] sm:w-[550px] sm:blur-[140px]"
-        style={{ background: 'radial-gradient(circle, rgba(46,222,240,0.3), transparent 70%)' }}
-        aria-hidden
-      />
+    <section id="hero" className="relative md:min-h-screen">
+      <BackgroundGradientAnimation
+        gradientBackgroundStart="rgb(3, 12, 15)"
+        gradientBackgroundEnd="rgb(5, 25, 30)"
+        firstColor="10, 70, 80"
+        secondColor="15, 90, 100"
+        thirdColor="0, 60, 70"
+        fourthColor="20, 80, 90"
+        fifthColor="10, 65, 75"
+        pointerColor="15, 85, 95"
+        containerClassName="!h-auto"
+        className="px-4 pb-12 pt-24 sm:px-8 sm:pb-16 sm:pt-32 md:pb-24 lg:pt-36"
+      >
+        <div className="relative mx-auto grid max-w-[1200px] grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-12 lg:gap-16">
+          {/* Left — Text */}
+          <div className="relative z-20 text-center md:text-left">
+            {/* Urgency badge */}
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[var(--color-vermelho)]/20 bg-[var(--color-vermelho)]/6 px-3.5 py-2 backdrop-blur-sm sm:mb-8 sm:gap-2.5 sm:px-5 sm:py-2.5">
+              <span className="relative flex h-2 w-2 shrink-0">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--color-vermelho)] opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--color-vermelho)]" />
+              </span>
+              <span className="text-[0.72rem] font-semibold leading-tight text-[var(--color-vermelho)] sm:text-[0.82rem]">
+                Turma Presencial em SP — Apenas 15 vagas
+              </span>
+            </div>
 
-      {/* Grid */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.02]"
-        style={{
-          backgroundImage:
-            'linear-gradient(rgba(46,222,240,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(46,222,240,0.4) 1px, transparent 1px)',
-          backgroundSize: '48px 48px',
-        }}
-        aria-hidden
-      />
+            <h1 className="mb-5 !text-[1.8rem] !leading-[1.12] !text-white sm:mb-6 sm:!text-[2.5rem] md:!text-[2.6rem] lg:!text-[3.2rem]">
+              Transforme sua paixao por caes em uma{' '}
+              <span
+                className="bg-clip-text text-transparent"
+                style={{ backgroundImage: 'var(--gradient-cyan)' }}
+              >
+                carreira altamente lucrativa.
+              </span>
+            </h1>
 
-      <div className="relative mx-auto grid max-w-[1200px] grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-12 lg:gap-16">
-        {/* Left — Text */}
-        <div className="relative z-20 text-center md:text-left">
-          {/* Urgency badge */}
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[var(--color-vermelho)]/20 bg-[var(--color-vermelho)]/6 px-3.5 py-2 sm:mb-8 sm:gap-2.5 sm:px-5 sm:py-2.5">
-            <span className="relative flex h-2 w-2 shrink-0">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--color-vermelho)] opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--color-vermelho)]" />
-            </span>
-            <span className="text-[0.72rem] font-semibold leading-tight text-[var(--color-vermelho)] sm:text-[0.82rem]">
-              Turma Presencial em SP — Apenas 15 vagas
-            </span>
-          </div>
+            <p className="mx-auto mb-8 max-w-[540px] text-[0.95rem] leading-relaxed text-[var(--color-cinza-400)] sm:mb-10 sm:text-[1.1rem] md:mx-0 md:text-[1.05rem]">
+              Aprenda do zero o metodo validado para educar caes, conquistar clientes e faturar no
+              mercado pet — mesmo sem experiencia previa.
+            </p>
 
-          <h1 className="mb-5 !text-[1.8rem] !leading-[1.12] !text-white sm:mb-6 sm:!text-[2.5rem] md:!text-[2.6rem] lg:!text-[3.2rem]">
-            Transforme sua paixao por caes em uma{' '}
-            <span
-              className="bg-clip-text text-transparent"
-              style={{ backgroundImage: 'var(--gradient-cyan)' }}
+            <a
+              href="#checkout"
+              className="btn-primary inline-flex min-h-[52px] w-full items-center justify-center gap-2.5 !rounded-full !px-8 !py-3.5 !text-[0.9rem] !font-bold !no-underline hover:!no-underline sm:min-h-[56px] sm:w-auto sm:!px-10 sm:!py-4 sm:!text-base"
             >
-              carreira altamente lucrativa.
-            </span>
-          </h1>
+              Quero garantir minha vaga agora
+              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
 
-          <p className="mx-auto mb-8 max-w-[540px] text-[0.95rem] leading-relaxed text-[var(--color-cinza-400)] sm:mb-10 sm:text-[1.1rem] md:mx-0 md:text-[1.05rem]">
-            Aprenda do zero o metodo validado para educar caes, conquistar clientes e faturar no
-            mercado pet — mesmo sem experiencia previa.
-          </p>
+            {/* Trust badges */}
+            <div className="mt-8 flex flex-col items-center gap-3 sm:mt-10 sm:flex-row sm:gap-6 md:items-start md:justify-start">
+              {[
+                { icon: Shield, text: '30 dias de garantia' },
+                { icon: Users, text: '+250 familias atendidas' },
+                { icon: Zap, text: 'Método renovador' },
+              ].map((item) => (
+                <div key={item.text} className="flex items-center gap-2">
+                  <item.icon className="h-4 w-4 text-[var(--color-cyan-muted)]/60" />
+                  <span className="text-[0.75rem] font-medium text-[var(--color-cinza-500)] sm:text-[0.78rem]">{item.text}</span>
+                </div>
+              ))}
+            </div>
+          </div>
 
-          <a
-            href="#checkout"
-            className="btn-primary inline-flex min-h-[52px] w-full items-center justify-center gap-2.5 !rounded-full !px-8 !py-3.5 !text-[0.9rem] !font-bold !no-underline hover:!no-underline sm:min-h-[56px] sm:w-auto sm:!px-10 sm:!py-4 sm:!text-base"
-          >
-            Quero garantir minha vaga agora
-            <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </a>
-
-          {/* Trust badges */}
-          <div className="mt-8 flex flex-col items-center gap-3 sm:mt-10 sm:flex-row sm:gap-6 md:items-start md:justify-start">
-            {[
-              { icon: Shield, text: '30 dias de garantia' },
-              { icon: Users, text: '+250 familias atendidas' },
-              { icon: Zap, text: 'Método renovador' },
-            ].map((item) => (
-              <div key={item.text} className="flex items-center gap-2">
-                <item.icon className="h-4 w-4 text-[var(--color-cyan-muted)]/60" />
-                <span className="text-[0.75rem] font-medium text-[var(--color-cinza-500)] sm:text-[0.78rem]">{item.text}</span>
-              </div>
-            ))}
+          {/* Right — Brenno image */}
+          <div className="relative flex justify-center md:justify-end">
+            <div className="relative w-[260px] sm:w-[300px] md:w-[380px] lg:w-[440px]">
+              <img
+                src="/images/brenno-hero.png"
+                alt="Brenno Rodrigues — Adestrador Profissional com seu cao"
+                className="relative z-10 h-auto w-full object-contain drop-shadow-[0_8px_40px_rgba(0,0,0,0.3)]"
+                fetchPriority="high"
+              />
+            </div>
           </div>
         </div>
-
-        {/* Right — Brenno image */}
-        <div className="relative flex justify-center md:justify-end">
-          <div className="relative w-[260px] sm:w-[300px] md:w-[380px] lg:w-[440px]">
-            {/* CTA-gradient shape behind — same gradient as the button */}
-            <div
-              className="absolute inset-x-[8%] bottom-[5%] top-[12%] rounded-[40px] opacity-40 sm:rounded-[50px]"
-              style={{
-                background: 'linear-gradient(135deg, #1BA8B8 0%, #2edef0 50%, #1BA8B8 100%)',
-                filter: 'blur(20px)',
-              }}
-              aria-hidden
-            />
-            {/* Outer feathered glow */}
-            <div
-              className="pointer-events-none absolute inset-x-[-5%] bottom-[0%] top-[8%] rounded-full opacity-20 blur-[60px] sm:blur-[70px]"
-              style={{ background: 'linear-gradient(135deg, #1BA8B8 0%, #2edef0 50%, #1BA8B8 100%)' }}
-              aria-hidden
-            />
-            <img
-              src="/images/brenno-hero.png"
-              alt="Brenno Rodrigues — Adestrador Profissional com seu cao"
-              className="relative z-10 h-auto w-full object-contain drop-shadow-[0_8px_40px_rgba(0,0,0,0.3)]"
-              fetchPriority="high"
-            />
-          </div>
-        </div>
-      </div>
+      </BackgroundGradientAnimation>
 
       {/* Bottom fade */}
       <div
-        className="pointer-events-none absolute bottom-0 left-0 right-0 h-20 sm:h-24"
+        className="pointer-events-none absolute bottom-0 left-0 right-0 z-20 h-20 sm:h-24"
         style={{ background: 'linear-gradient(to bottom, transparent, var(--color-cream))' }}
         aria-hidden
       />
@@ -174,18 +152,19 @@ function PublicoAlvo() {
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4 lg:gap-6" data-reveal-stagger>
           {publicoItems.map((item) => (
-            <article
-              key={item.title}
-              className="group flex flex-row items-start gap-4 rounded-2xl border border-[var(--color-cinza-200)] bg-[var(--color-branco)] p-5 transition-all duration-500 hover:-translate-y-1 hover:border-[var(--color-cyan-muted)]/30 hover:shadow-[var(--shadow-md)] sm:flex-col sm:items-center sm:p-6 sm:text-center"
-            >
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[var(--color-cyan-muted)]/8 transition-colors duration-300 group-hover:bg-[var(--color-cyan-muted)]/14 sm:mb-4 sm:h-14 sm:w-14 sm:rounded-2xl">
-                <item.icon className="h-6 w-6 text-[var(--color-cyan-muted)] sm:h-7 sm:w-7" aria-hidden />
-              </div>
-              <div>
-                <h3 className="mb-1 !text-[1.05rem] sm:mb-2 sm:!text-[1.15rem]">{item.title}</h3>
-                <p className="text-[0.85rem] leading-relaxed text-[var(--color-texto-muted)] sm:text-[0.9rem]">{item.text}</p>
-              </div>
-            </article>
+            <GlowingShadow key={item.title} className="rounded-2xl">
+              <article
+                className="group flex flex-row items-start gap-4 rounded-2xl border border-[var(--color-cinza-200)] bg-[var(--color-branco)] p-5 transition-all duration-500 hover:-translate-y-1 hover:border-transparent sm:flex-col sm:items-center sm:p-6 sm:text-center"
+              >
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[var(--color-cyan-muted)]/8 transition-colors duration-300 group-hover:bg-[var(--color-cyan-muted)]/14 sm:mb-4 sm:h-14 sm:w-14 sm:rounded-2xl">
+                  <item.icon className="h-6 w-6 text-[var(--color-cyan-muted)] sm:h-7 sm:w-7" aria-hidden />
+                </div>
+                <div>
+                  <h3 className="mb-1 !text-[1.05rem] sm:mb-2 sm:!text-[1.15rem]">{item.title}</h3>
+                  <p className="text-[0.85rem] leading-relaxed text-[var(--color-texto-muted)] sm:text-[0.9rem]">{item.text}</p>
+                </div>
+              </article>
+            </GlowingShadow>
           ))}
         </div>
       </div>
@@ -239,21 +218,22 @@ function Entregaveis() {
 
         <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2 md:gap-8" data-reveal-stagger>
           {entregaveisItems.map((item) => (
-            <div
-              key={item.title}
-              className="card-dark group flex gap-3.5 p-5 hover:border-[var(--color-cyan)]/20 sm:gap-4 sm:p-7"
-            >
+            <GlowingShadow key={item.title} className="rounded-2xl">
               <div
-                className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg sm:mt-1 sm:h-10 sm:w-10 sm:rounded-xl"
-                style={{ background: 'var(--gradient-cyan-subtle)' }}
+                className="card-dark group flex gap-3.5 p-5 hover:border-transparent sm:gap-4 sm:p-7"
               >
-                <CheckCircle2 className="h-4.5 w-4.5 text-white sm:h-5 sm:w-5" aria-hidden />
+                <div
+                  className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg sm:mt-1 sm:h-10 sm:w-10 sm:rounded-xl"
+                  style={{ background: 'var(--gradient-cyan-subtle)' }}
+                >
+                  <CheckCircle2 className="h-4.5 w-4.5 text-white sm:h-5 sm:w-5" aria-hidden />
+                </div>
+                <div>
+                  <h3 className="mb-1.5 !text-[1rem] !text-white sm:mb-2 sm:!text-[1.15rem]">{item.title}</h3>
+                  <p className="text-[0.85rem] leading-relaxed text-[var(--color-cinza-400)] sm:text-[0.92rem]">{item.text}</p>
+                </div>
               </div>
-              <div>
-                <h3 className="mb-1.5 !text-[1rem] !text-white sm:mb-2 sm:!text-[1.15rem]">{item.title}</h3>
-                <p className="text-[0.85rem] leading-relaxed text-[var(--color-cinza-400)] sm:text-[0.92rem]">{item.text}</p>
-              </div>
-            </div>
+            </GlowingShadow>
           ))}
         </div>
       </div>
@@ -382,37 +362,36 @@ function Formato() {
 
         <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2 md:gap-8" data-reveal-stagger>
           {formatos.map((f) => (
-            <article
-              key={f.title}
-              className={`card-dark group relative overflow-hidden p-5 sm:p-7 md:p-8 ${
-                f.highlight ? 'hover:border-[var(--color-cyan)]/25' : 'hover:border-[var(--color-cinza-400)]/20'
-              }`}
-            >
-              {f.highlight && (
-                <span className="absolute right-4 top-4 rounded-full bg-[var(--color-cyan-muted)]/12 px-3 py-1 text-[0.65rem] font-bold uppercase tracking-wider text-[var(--color-cyan)] sm:right-5 sm:top-5 sm:text-[0.7rem]">
-                  Popular
-                </span>
-              )}
-
-              <h3 className="mb-4 !text-[1.15rem] !text-white sm:mb-5 sm:!text-[1.3rem]">{f.title}</h3>
-
-              <div className="space-y-3 sm:space-y-4">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg sm:h-9 sm:w-9 sm:rounded-xl" style={{ background: 'var(--gradient-cyan-subtle)' }}>
-                    <Calendar className="h-3.5 w-3.5 text-white sm:h-4 sm:w-4" aria-hidden />
-                  </div>
-                  <span className="text-[0.88rem] text-[var(--color-cinza-400)] sm:text-[0.95rem]">{f.schedule}</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg sm:h-9 sm:w-9 sm:rounded-xl" style={{ background: 'var(--gradient-cyan-subtle)' }}>
-                    <Clock className="h-3.5 w-3.5 text-white sm:h-4 sm:w-4" aria-hidden />
-                  </div>
-                  <span className="text-[0.88rem] text-[var(--color-cinza-400)] sm:text-[0.95rem]">
-                    {f.time} — {f.duration}
+            <GlowingShadow key={f.title} className="rounded-2xl">
+              <article
+                className="card-dark group relative overflow-hidden p-5 hover:border-transparent sm:p-7 md:p-8"
+              >
+                {f.highlight && (
+                  <span className="absolute right-4 top-4 rounded-full bg-[var(--color-cyan-muted)]/12 px-3 py-1 text-[0.65rem] font-bold uppercase tracking-wider text-[var(--color-cyan)] sm:right-5 sm:top-5 sm:text-[0.7rem]">
+                    Popular
                   </span>
+                )}
+
+                <h3 className="mb-4 !text-[1.15rem] !text-white sm:mb-5 sm:!text-[1.3rem]">{f.title}</h3>
+
+                <div className="space-y-3 sm:space-y-4">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg sm:h-9 sm:w-9 sm:rounded-xl" style={{ background: 'var(--gradient-cyan-subtle)' }}>
+                      <Calendar className="h-3.5 w-3.5 text-white sm:h-4 sm:w-4" aria-hidden />
+                    </div>
+                    <span className="text-[0.88rem] text-[var(--color-cinza-400)] sm:text-[0.95rem]">{f.schedule}</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg sm:h-9 sm:w-9 sm:rounded-xl" style={{ background: 'var(--gradient-cyan-subtle)' }}>
+                      <Clock className="h-3.5 w-3.5 text-white sm:h-4 sm:w-4" aria-hidden />
+                    </div>
+                    <span className="text-[0.88rem] text-[var(--color-cinza-400)] sm:text-[0.95rem]">
+                      {f.time} — {f.duration}
+                    </span>
+                  </div>
                 </div>
-              </div>
-            </article>
+              </article>
+            </GlowingShadow>
           ))}
         </div>
       </div>

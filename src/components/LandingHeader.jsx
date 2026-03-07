@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { assetUrl } from '../utils/assetUrl'
+import { SlideTabs } from './ui/SlideTabs'
 
 const navLinks = [
   { href: '#entregaveis', label: 'O Curso' },
@@ -50,19 +51,11 @@ export default function LandingHeader() {
           />
         </a>
 
-        <nav className="hidden items-center gap-2 md:flex" aria-label="Navegacao principal">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="px-4 py-2 text-[0.85rem] font-semibold tracking-wide text-[var(--color-cinza-300)] !no-underline transition-colors duration-300 hover:text-[var(--color-cyan)] hover:!no-underline"
-            >
-              {link.label}
-            </a>
-          ))}
+        <nav className="hidden items-center gap-3 md:flex" aria-label="Navegacao principal">
+          <SlideTabs items={navLinks} />
           <a
             href="#checkout"
-            className="btn-primary ml-2 !rounded-full !px-6 !py-2.5 !text-[0.82rem] !font-bold !tracking-wider !uppercase !no-underline hover:!no-underline"
+            className="btn-primary ml-3 !rounded-full !px-6 !py-2.5 !text-[0.82rem] !font-bold !tracking-wider !uppercase !no-underline hover:!no-underline"
           >
             Garantir Vaga
           </a>
