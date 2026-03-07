@@ -96,7 +96,7 @@ function CursosDetalhe() {
                 {[
                   'Treinamento 100% online',
                   'Vídeos curtos, didáticos e com exercícios simples',
-                  'Técnicas baseadas em reforço positivo',
+                  'Técnicas baseadas em reforço moderno',
                   'Aulas sobre segurança, comportamento, clientes e marketing',
                   'Modelos prontos: contratos, fichas de atendimento e planejamento',
                   'Suporte direto com o adestrador',

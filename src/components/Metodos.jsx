@@ -19,7 +19,7 @@ function Metodos() {
       ],
     },
     {
-      title: 'Curso passeador de cães',
+      title: 'Curso passeador de cães presencial',
       items: [
         'Menos estresse e mais equilíbrio para o cão',
         'Estímulo físico e mental nos passeios',

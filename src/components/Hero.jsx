@@ -5,7 +5,7 @@ function Hero() {
     <section id="hero" className="relative overflow-hidden bg-gray-50">
       <div className="absolute inset-0 bg-gradient-to-br from-gray-100/80 to-gray-50/80" aria-hidden />
       <div className="relative mx-auto grid max-w-6xl items-center gap-8 px-6 py-16 sm:py-20 md:py-28 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
-        <div className="text-center lg:text-left" data-reveal="up">
+        <div className="relative z-10 text-center lg:text-left" data-reveal="up">
           <span className="mb-5 inline-block rounded-full bg-red-50 px-3 py-1 text-sm font-semibold text-red-600">
             Turma Presencial em São Paulo
           </span>

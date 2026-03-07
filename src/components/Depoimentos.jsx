@@ -15,7 +15,7 @@ function Depoimentos() {
     {
       nome: 'Maria Silva',
       tutorDe: 'Tutora do Max',
-      texto: 'O Brenno demonstrou uma habilidade excepcional ao trabalhar com Max, o bulldog de 1 ano. Desde o início, ficou evidente a conexão que Brenno distribuía com o cão, utilizando técnicas de adestramento positivos que estimularam e respeitaram a personalidade única de Max. O progresso de Max em tão pouco tempo é uma prova da competência do adestrador.',
+      texto: 'O Brenno demonstrou uma habilidade excepcional ao trabalhar com Max, o bulldog de 1 ano. Desde o início, ficou evidente a conexão que Brenno distribuía com o cão, utilizando técnicas de adestramento modernas que estimularam e respeitaram a personalidade única de Max. O progresso de Max em tão pouco tempo é uma prova da competência do adestrador.',
       rating: 5,
     },
   ]
