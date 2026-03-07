@@ -1,4 +1,6 @@
 import { assetUrl } from '../utils/assetUrl'
+import { InteractiveHoverButton } from './ui/InteractiveHoverButton'
+import { GlowCard } from './ui/GlowCard'
 
 function Mentoria() {
   const whatsappHref = 'https://wa.me/5511934066866?text=Ol%C3%A1%2C%20tenho%20interesse%20na%20mentoria%20para%20profissionais!'
@@ -22,7 +24,8 @@ function Mentoria() {
           A mentoria foi criada para quem busca crescimento real, com direcionamento estratégico
           e acompanhamento próximo.
         </p>
-        <div className="rounded-2xl border-2 border-[var(--color-accent)] bg-white p-8 sm:p-10" data-reveal="up">
+        <GlowCard>
+        <div className="relative rounded-2xl border-2 border-[var(--color-accent)] bg-white p-8 sm:p-10" data-reveal="up">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:items-center">
             <div>
               <span className="mb-4 inline-block rounded-full bg-[var(--color-accent)]/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-[var(--color-accent)]">
@@ -55,17 +58,17 @@ function Mentoria() {
                 loading="lazy"
                 decoding="async"
               />
-              <a
+              <InteractiveHoverButton
                 href={whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-12 w-full touch-manipulation items-center justify-center rounded-xl bg-[var(--color-accent)] px-6 py-3 text-base font-bold text-white !no-underline shadow-lg transition-transform duration-200 hover:-translate-y-1 hover:!no-underline"
-              >
-                Quero saber mais sobre a mentoria
-              </a>
+                text="Quero saber mais sobre a mentoria"
+                className="w-full text-base shadow-lg"
+              />
             </div>
           </div>
         </div>
+        </GlowCard>
       </div>
     </section>
   )

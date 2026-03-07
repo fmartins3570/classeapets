@@ -1,4 +1,6 @@
 import { assetUrl } from '../utils/assetUrl'
+import { InteractiveHoverButton } from './ui/InteractiveHoverButton'
+import { GlowCard } from './ui/GlowCard'
 
 function Servicos() {
   const servicos = [
@@ -83,7 +85,8 @@ function Servicos() {
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8" data-reveal-stagger data-reveal="up">
           {servicos.map((s, i) => (
-            <article key={i} className="card-hover flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white transition-all duration-300 hover:shadow-md">
+            <GlowCard key={i}>
+            <article className="relative card-hover flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white transition-all duration-300 hover:shadow-md">
               <div className="flex h-48 items-end justify-center overflow-hidden bg-gradient-to-b from-gray-100 to-gray-200">
                 <img
                   src={assetUrl(`/images/optimized/${s.img}-480w.webp`)}
@@ -98,16 +101,16 @@ function Servicos() {
               <div className="flex flex-1 flex-col p-5">
                 <h3 className="mb-2 text-base font-bold text-gray-900">{s.title}</h3>
                 <p className="mb-5 flex-1 text-sm leading-relaxed text-gray-600">{s.text}</p>
-                <a
+                <InteractiveHoverButton
                   href={s.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex min-h-10 w-full touch-manipulation items-center justify-center rounded-xl bg-[var(--color-accent)] px-5 py-2.5 text-sm font-bold text-white !no-underline shadow-sm transition-transform duration-200 hover:-translate-y-0.5 hover:!no-underline"
-                >
-                  {s.cta}
-                </a>
+                  text={s.cta}
+                  className="w-full text-sm"
+                />
               </div>
             </article>
+            </GlowCard>
           ))}
         </div>
 

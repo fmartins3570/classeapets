@@ -1,4 +1,5 @@
 import { assetUrl } from '../utils/assetUrl'
+import { InteractiveHoverButton } from './ui/InteractiveHoverButton'
 
 function Sobre() {
   const whatsappHref = 'https://wa.me/5511934066866'
@@ -44,14 +45,14 @@ function Sobre() {
               aprendi — e, desde então, venho transformando a vida de centenas de cães, tutores e
               profissionais por todo o Brasil.
             </p>
-            <a
+            <InteractiveHoverButton
               href={whatsappHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex min-h-12 w-full touch-manipulation items-center justify-center rounded-xl bg-[var(--color-accent)] px-6 py-3 text-base font-bold text-white !no-underline shadow-lg transition-transform duration-200 hover:-translate-y-1 hover:!no-underline sm:w-auto"
-            >
-              Quero falar com o Brenno
-            </a>
+              text="Quero falar com o Brenno"
+              variant="white"
+              className="w-full text-base shadow-lg sm:w-auto"
+            />
           </div>
         </div>
       </div>

@@ -1,3 +1,5 @@
+import { GlowCard } from './ui/GlowCard'
+
 function Depoimentos() {
   const depoimentos = [
     {
@@ -36,7 +38,8 @@ function Depoimentos() {
         </p>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8" data-reveal-stagger data-reveal="up">
           {depoimentos.map((d, i) => (
-            <article key={i} className="card-hover flex flex-col rounded-2xl border border-gray-200 bg-white p-6 sm:p-8">
+            <GlowCard key={i}>
+            <article className="relative card-hover flex flex-col rounded-2xl border border-gray-200 bg-white p-6 sm:p-8">
               <div className="mb-3 text-sm text-amber-400">
                 {'★'.repeat(d.rating)}
                 <span className="ml-1 text-xs text-gray-400">5 de 5</span>
@@ -54,6 +57,7 @@ function Depoimentos() {
                 </div>
               </div>
             </article>
+            </GlowCard>
           ))}
         </div>
       </div>
