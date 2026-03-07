@@ -13,11 +13,11 @@ function CursosDetalhe() {
           Escolha o formato ideal para a sua rotina e comece sua jornada.
         </p>
 
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-6 sm:gap-8 lg:grid-cols-2">
           {/* Card Presencial */}
           <GlowCard>
           <article className="relative card-hover flex flex-col overflow-hidden rounded-2xl border-2 border-[var(--color-accent)] bg-white" data-reveal="left">
-            <div className="relative flex h-52 items-end justify-center overflow-hidden bg-gradient-to-b from-gray-100 to-gray-200">
+            <div className="relative flex h-44 items-end justify-center overflow-hidden bg-gradient-to-b from-gray-100 to-gray-200 sm:h-52">
               <img
                 src={assetUrl('/images/optimized/curso-presencial-480w.webp')}
                 srcSet={`${assetUrl('/images/optimized/curso-presencial-320w.webp')} 320w, ${assetUrl('/images/optimized/curso-presencial-480w.webp')} 480w, ${assetUrl('/images/optimized/curso-presencial-640w.webp')} 640w`}
@@ -27,11 +27,11 @@ function CursosDetalhe() {
                 loading="lazy"
                 decoding="async"
               />
-              <div className="absolute bottom-2 right-2 flex items-center gap-1 rounded bg-white/80 px-2 py-1 text-[10px] font-semibold text-gray-600 shadow-sm">
+              <div className="absolute bottom-2 right-2 flex items-center gap-1 rounded bg-white/80 px-2 py-1 text-xs font-semibold text-gray-600 shadow-sm">
                 São Paulo, SP
               </div>
             </div>
-            <div className="flex flex-1 flex-col p-7 sm:p-9">
+            <div className="flex flex-1 flex-col p-5 sm:p-7 md:p-9">
               <span className="mb-3 inline-block self-start rounded-full bg-[var(--color-accent)]/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-[var(--color-accent)]">
                 Presencial & Híbrido
               </span>
@@ -75,7 +75,7 @@ function CursosDetalhe() {
           {/* Card Digital */}
           <GlowCard>
           <article className="relative card-hover flex flex-col overflow-hidden rounded-2xl border-2 border-gray-200 bg-white" data-reveal="right">
-            <div className="flex h-52 items-end justify-center overflow-hidden bg-gradient-to-b from-gray-100 to-gray-200">
+            <div className="flex h-44 items-end justify-center overflow-hidden bg-gradient-to-b from-gray-100 to-gray-200 sm:h-52">
               <img
                 src={assetUrl('/images/optimized/curso-digital-480w.webp')}
                 srcSet={`${assetUrl('/images/optimized/curso-digital-320w.webp')} 320w, ${assetUrl('/images/optimized/curso-digital-480w.webp')} 480w, ${assetUrl('/images/optimized/curso-digital-640w.webp')} 640w`}
@@ -86,7 +86,7 @@ function CursosDetalhe() {
                 decoding="async"
               />
             </div>
-            <div className="flex flex-1 flex-col p-7 sm:p-9">
+            <div className="flex flex-1 flex-col p-5 sm:p-7 md:p-9">
               <span className="mb-3 inline-block self-start rounded-full bg-red-50 px-3 py-1 text-xs font-bold uppercase tracking-wide text-red-600">
                 100% Digital
               </span>

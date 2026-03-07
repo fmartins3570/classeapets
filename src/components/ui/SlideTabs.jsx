@@ -60,7 +60,7 @@ const Tab = React.forwardRef(function Tab({ children, setPosition, onClick, href
       <a
         href={href}
         onClick={onClick}
-        className="block cursor-pointer px-5 py-2.5 text-[0.85rem] font-bold tracking-wide !no-underline transition-colors duration-200 hover:!no-underline"
+        className="block cursor-pointer px-3 py-2 text-[0.78rem] font-bold tracking-wide !no-underline transition-colors duration-200 hover:!no-underline sm:px-5 sm:py-2.5 sm:text-[0.85rem]"
         style={{ color: '#ffffff' }}
       >
         {children}

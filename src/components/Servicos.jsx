@@ -87,7 +87,7 @@ function Servicos() {
           {servicos.map((s, i) => (
             <GlowCard key={i}>
             <article className="relative card-hover flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white transition-all duration-300 hover:shadow-md">
-              <div className="flex h-48 items-end justify-center overflow-hidden bg-gradient-to-b from-gray-100 to-gray-200">
+              <div className="flex h-40 items-end justify-center overflow-hidden bg-gradient-to-b from-gray-100 to-gray-200 sm:h-48">
                 <img
                   src={assetUrl(`/images/optimized/${s.img}-480w.webp`)}
                   srcSet={`${assetUrl(`/images/optimized/${s.img}-320w.webp`)} 320w, ${assetUrl(`/images/optimized/${s.img}-480w.webp`)} 480w, ${assetUrl(`/images/optimized/${s.img}-640w.webp`)} 640w`}

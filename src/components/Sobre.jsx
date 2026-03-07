@@ -9,14 +9,14 @@ function Sobre() {
         <h2 className="mb-12 text-center text-3xl font-extrabold text-white md:text-4xl" data-reveal="up">
           Sobre o Adestrador
         </h2>
-        <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-12">
+        <div className="grid grid-cols-1 items-center gap-6 sm:gap-8 md:grid-cols-2 md:gap-12">
           <div className="order-2 md:order-1 space-y-6" data-reveal="left">
             <img
               src={assetUrl('/images/optimized/foto-brenno-480w.webp')}
               srcSet={`${assetUrl('/images/optimized/foto-brenno-320w.webp')} 320w, ${assetUrl('/images/optimized/foto-brenno-480w.webp')} 480w, ${assetUrl('/images/optimized/foto-brenno-640w.webp')} 640w`}
               sizes="(max-width: 640px) 280px, 280px"
               alt="Adestrador Brenno com cão branco"
-              className="mx-auto max-w-[280px] rounded-2xl shadow-lg"
+              className="mx-auto max-w-[240px] rounded-2xl shadow-lg sm:max-w-[280px]"
               loading="lazy"
               decoding="async"
             />

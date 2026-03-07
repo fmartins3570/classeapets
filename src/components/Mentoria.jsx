@@ -25,8 +25,8 @@ function Mentoria() {
           e acompanhamento próximo.
         </p>
         <GlowCard>
-        <div className="relative rounded-2xl border-2 border-[var(--color-accent)] bg-white p-8 sm:p-10" data-reveal="up">
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:items-center">
+        <div className="relative rounded-2xl border-2 border-[var(--color-accent)] bg-white p-5 sm:p-8 md:p-10" data-reveal="up">
+          <div className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 md:items-center">
             <div>
               <span className="mb-4 inline-block rounded-full bg-[var(--color-accent)]/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-[var(--color-accent)]">
                 Exclusivo

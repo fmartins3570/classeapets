@@ -21,14 +21,14 @@ function Stats() {
           Aqui, o adestramento vai além dos comandos: é conexão, respeito e resultado de verdade!
         </p>
         <div
-          className="grid grid-cols-2 gap-6 sm:gap-8 lg:grid-cols-4"
+          className="grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4 lg:gap-8"
           data-reveal-stagger
           data-reveal="up"
         >
           {items.map((item, i) => (
             <GlowCard key={i}>
             <div className="relative rounded-2xl bg-white p-6 text-center shadow-sm">
-              <span className="mb-1 block text-3xl font-extrabold text-gray-900 sm:text-4xl">
+              <span className="mb-1 block text-2xl font-extrabold text-gray-900 sm:text-3xl lg:text-4xl">
                 {item.number}
               </span>
               <span className="text-sm leading-snug text-gray-500">{item.label}</span>

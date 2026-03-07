@@ -123,6 +123,15 @@
   to   { transform: rotate(360deg) translateX(12%); }
 }
 
+/* ─── InteractiveHoverButton — force white text on hover ─── */
+.interactive-hover-btn:hover {
+  color: #ffffff !important;
+}
+.interactive-hover-btn:hover span,
+.interactive-hover-btn:hover a {
+  color: inherit !important;
+}
+
 /* ───────────────────────────────────────────────
    Design tokens — Classe A Pets
    Direção: profissional, sóbrio, moderno
@@ -226,14 +235,16 @@ body {
   overflow-x: clip;
 }
 
-a {
-  font-weight: 500;
-  color: var(--color-gray-700);
-  text-decoration: none;
-}
+@layer base {
+  a {
+    font-weight: 500;
+    color: var(--color-gray-700);
+    text-decoration: none;
+  }
 
-a:hover {
-  color: var(--color-accent);
+  a:hover {
+    color: var(--color-accent);
+  }
 }
 
 /* Headings — Outfit extrabold, clean */

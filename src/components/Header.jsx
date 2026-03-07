@@ -95,7 +95,7 @@ function Header() {
         {/* Mobile toggle */}
         <button
           type="button"
-          className="inline-flex min-h-10 min-w-10 touch-manipulation items-center justify-center rounded-xl border border-gray-200 bg-white/80 px-3 py-2 text-sm font-semibold text-gray-700 backdrop-blur transition-colors hover:bg-gray-100 lg:hidden"
+          className="inline-flex min-h-[44px] min-w-[44px] touch-manipulation items-center justify-center rounded-xl border border-gray-200 bg-white/80 px-3 py-2 text-sm font-semibold text-gray-700 backdrop-blur transition-colors hover:bg-gray-100 lg:hidden"
           aria-expanded={menuOpen}
           aria-controls="main-nav"
           onClick={() => setMenuOpen((c) => !c)}
@@ -124,7 +124,7 @@ function Header() {
                 return (
                   <a
                     key={item.href}
-                    className={`flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold !no-underline transition-colors hover:!no-underline ${
+                    className={`flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-semibold !no-underline transition-colors hover:!no-underline ${
                       isActive
                         ? 'bg-[var(--color-accent)]/8 text-[var(--color-accent)]'
                         : 'text-gray-700 hover:bg-gray-50 hover:text-[var(--color-accent)]'

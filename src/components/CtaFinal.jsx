@@ -8,7 +8,7 @@ function CtaFinal() {
         <h2 className="mb-4 text-3xl font-extrabold text-gray-900 md:text-4xl">
           Vamos criar juntos uma nova rotina para seu cão?
         </h2>
-        <p className="mb-3 text-lg text-gray-600">
+        <p className="mb-3 text-base text-gray-600 sm:text-lg">
           Seu cão pode muito mais — com orientação certa e respeito ao comportamento natural.
         </p>
         <p className="mb-8 text-gray-600">
