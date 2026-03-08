@@ -42,7 +42,7 @@ const InteractiveHoverButton = forwardRef(function InteractiveHoverButton(
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       className={cn(
-        'interactive-hover-btn group relative cursor-pointer overflow-hidden rounded-full border bg-white/80 backdrop-blur-sm p-3 px-8 text-center font-bold !no-underline hover:!no-underline transition-all duration-300 inline-flex items-center justify-center',
+        'interactive-hover-btn group relative cursor-pointer overflow-hidden rounded-full border bg-white/80 backdrop-blur-sm p-3 px-5 sm:px-8 text-center font-bold !no-underline hover:!no-underline transition-all duration-300 inline-flex items-center justify-center',
         v.border,
         className,
       )}

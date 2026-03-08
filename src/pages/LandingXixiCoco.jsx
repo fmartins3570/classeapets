@@ -163,12 +163,12 @@ function HeroSection() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--color-accent)] opacity-60" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--color-accent)]" />
             </span>
-            <span className="text-[0.72rem] font-semibold leading-tight text-[var(--color-accent)] sm:text-[0.82rem]">
+            <span className="text-[0.78rem] font-semibold leading-tight text-[var(--color-accent)] sm:text-[0.82rem]">
               Metodo definitivo para filhotes e adultos
             </span>
           </div>
 
-          <h1 className="mb-5 !text-[1.5rem] !leading-[1.12] !text-[var(--color-gray-900)] sm:!text-[1.8rem] sm:mb-6 sm:!text-[2.5rem] md:!text-[2.6rem] lg:!text-[3.2rem]">
+          <h1 className="mb-5 !text-[1.5rem] !leading-[1.2] !text-[var(--color-gray-900)] sm:mb-6 sm:!text-[2rem] md:!text-[2.5rem] lg:!text-[3.2rem]">
             Xixi{' '}
             <span className="text-[var(--color-accent)]">
               no Lugar Certo
@@ -203,7 +203,7 @@ function HeroSection() {
             ].map((item) => (
               <div key={item.text} className="flex items-center gap-2">
                 <item.icon className="h-4 w-4 text-[var(--color-accent)]/50" />
-                <span className="text-[0.75rem] font-medium text-[var(--color-gray-400)] sm:text-[0.78rem]">{item.text}</span>
+                <span className="text-[0.78rem] font-medium text-[var(--color-gray-400)] sm:text-[0.8rem]">{item.text}</span>
               </div>
             ))}
           </div>
@@ -211,7 +211,7 @@ function HeroSection() {
 
         {/* Right — Brenno + Golden image */}
         <div className="relative flex justify-center md:justify-end">
-          <div className="relative w-[240px] sm:w-[280px] md:w-[400px] lg:w-[460px]">
+          <div className="relative w-[65vw] max-w-[280px] sm:w-[280px] md:w-[400px] lg:w-[460px]">
             {/* Soft teal glow behind */}
             <div
               className="pointer-events-none absolute inset-x-[10%] bottom-[0%] top-[15%] rounded-full opacity-15 blur-[50px] sm:blur-[60px]"
@@ -524,7 +524,7 @@ function SobreBrenno() {
         <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-16">
           {/* Video */}
           <div data-reveal="left">
-            <div className="relative mx-auto max-w-[290px] overflow-hidden rounded-2xl border border-[var(--color-gray-200)] bg-[var(--color-gray-100)] shadow-[0_8px_32px_rgba(0,0,0,0.06)] sm:max-w-[320px] sm:rounded-3xl md:max-w-none">
+            <div className="relative mx-auto max-w-[85vw] overflow-hidden rounded-2xl border border-[var(--color-gray-200)] bg-[var(--color-gray-100)] shadow-[0_8px_32px_rgba(0,0,0,0.06)] sm:max-w-[320px] sm:rounded-3xl md:max-w-none">
               <div className="aspect-[9/16]">
                 <iframe
                   src="https://www.youtube.com/embed/CMqEWXaRhWU?rel=0&modestbranding=1"
@@ -559,7 +559,7 @@ function SobreBrenno() {
               funciona na pratica.
             </p>
 
-            <div className="grid grid-cols-2 gap-4 sm:flex sm:flex-wrap sm:gap-6">
+            <div className="grid grid-cols-2 gap-3 sm:flex sm:flex-wrap sm:gap-6">
               {[
                 { value: '+4', label: 'anos de experiencia' },
                 { value: '+250', label: 'familias atendidas' },
@@ -570,7 +570,7 @@ function SobreBrenno() {
                   <span className="text-lg font-bold text-[var(--color-accent)] sm:text-xl">
                     {s.value}
                   </span>
-                  <span className="text-[0.72rem] font-medium text-[var(--color-gray-400)] sm:text-[0.78rem]">{s.label}</span>
+                  <span className="text-[0.75rem] font-medium text-[var(--color-gray-400)] sm:text-[0.78rem]">{s.label}</span>
                 </div>
               ))}
             </div>
@@ -743,7 +743,7 @@ function Preco() {
             className="relative rounded-2xl border-2 border-[var(--color-accent)]/20 bg-white shadow-[0_12px_48px_rgba(0,188,212,0.08)] scroll-mt-28 sm:rounded-3xl"
           >
             {/* Badge */}
-            <span className="absolute left-1/2 top-0 z-10 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full bg-[var(--color-accent)] px-4 py-1.5 text-[0.68rem] font-bold uppercase tracking-widest text-white shadow-md sm:px-5 sm:py-2 sm:text-[0.72rem]">
+            <span className="absolute left-1/2 top-0 z-10 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full bg-[var(--color-accent)] px-4 py-1.5 text-[0.75rem] font-bold uppercase tracking-widest text-white shadow-md sm:px-5 sm:py-2 sm:text-[0.78rem]">
               Oferta especial
             </span>
 
@@ -797,7 +797,7 @@ function Preco() {
                     <svg className="h-3.5 w-3.5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
-                    <span className="text-[0.75rem] text-[var(--color-gray-400)] sm:text-[0.78rem]">{t}</span>
+                    <span className="text-[0.78rem] text-[var(--color-gray-400)] sm:text-[0.8rem]">{t}</span>
                   </div>
                 ))}
               </div>
@@ -895,7 +895,7 @@ function LandingFooter() {
 
 export default function LandingXixiCoco() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen overflow-x-clip bg-white">
       <XixiCocoHeader />
       <HeroSection />
       <ProblemaSection />

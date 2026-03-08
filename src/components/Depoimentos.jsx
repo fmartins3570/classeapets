@@ -23,7 +23,7 @@ function Depoimentos() {
   ]
 
   return (
-    <section id="depoimentos" className="bg-gray-50 px-6 py-16 sm:py-20 md:py-24">
+    <section id="depoimentos" className="bg-gray-50 px-4 py-14 sm:px-6 sm:py-20 md:py-24">
       <div className="mx-auto max-w-6xl">
         <h2 className="section-title mb-2 text-3xl font-extrabold text-gray-900 md:text-4xl" data-reveal="up">
           Depoimentos de Adestramento
@@ -36,7 +36,7 @@ function Depoimentos() {
           nossos métodos ajudaram cães a se tornarem mais equilibrados e profissionais a iniciarem
           carreiras no universo pet com segurança e propósito.
         </p>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8" data-reveal-stagger data-reveal="up">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-8" data-reveal-stagger data-reveal="up">
           {depoimentos.map((d, i) => (
             <GlowCard key={i}>
             <article className="relative card-hover flex flex-col rounded-2xl border border-gray-200 bg-white p-5 sm:p-6 md:p-8">

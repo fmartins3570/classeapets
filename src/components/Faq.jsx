@@ -37,7 +37,7 @@ function Faq() {
   const [openIndex, setOpenIndex] = useState(null)
 
   return (
-    <section id="faq" className="bg-white px-6 py-16 sm:py-20 md:py-24">
+    <section id="faq" className="bg-white px-4 py-14 sm:px-6 sm:py-20 md:py-24">
       <div className="mx-auto max-w-2xl">
         <h2 className="section-title mb-12 text-3xl font-extrabold text-gray-900 md:text-4xl" data-reveal="up">
           Ainda tem dúvidas?
@@ -48,7 +48,7 @@ function Faq() {
               <button
                 type="button"
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="flex w-full items-center justify-between gap-4 rounded-none bg-transparent px-6 py-5 text-left font-semibold text-gray-900 transition-colors hover:bg-gray-50"
+                className="flex w-full items-center justify-between gap-3 rounded-none bg-transparent px-4 py-4 text-left text-[0.92rem] font-semibold text-gray-900 transition-colors hover:bg-gray-50 sm:gap-4 sm:px-6 sm:py-5 sm:text-base"
                 aria-expanded={openIndex === index}
                 aria-controls={`faq-answer-${index}`}
                 id={`faq-question-${index}`}
@@ -70,7 +70,7 @@ function Faq() {
                 aria-labelledby={`faq-question-${index}`}
                 className={`overflow-hidden transition-all duration-200 ${openIndex === index ? 'max-h-64' : 'max-h-0'}`}
               >
-                <p className="px-6 pb-5 text-sm leading-relaxed text-gray-600">{item.resposta}</p>
+                <p className="px-4 pb-4 text-[0.88rem] leading-relaxed text-gray-600 sm:px-6 sm:pb-5 sm:text-sm">{item.resposta}</p>
               </div>
             </div>
           ))}

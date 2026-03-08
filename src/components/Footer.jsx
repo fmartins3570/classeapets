@@ -27,7 +27,7 @@ function Footer() {
 
   return (
     <footer id="site-footer" className="bg-slate-900 text-slate-400">
-      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 px-6 py-16 sm:gap-10 lg:grid-cols-4">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-4 py-12 sm:grid-cols-2 sm:gap-10 sm:px-6 sm:py-16 lg:grid-cols-4">
         <div>
           <a href="#hero" className="mb-5 inline-flex items-center no-underline hover:opacity-90 hover:no-underline">
             <img
@@ -96,7 +96,7 @@ function Footer() {
 
         <div>
           <h4 className="mb-4 text-sm font-bold uppercase tracking-wider text-white">Contato</h4>
-          <div className="space-y-3 text-sm">
+          <div className="space-y-3 text-sm break-words">
             <div>
               <p className="font-semibold text-slate-300">Endereço</p>
               <p>ABC Paulista e São Paulo Capital</p>
@@ -118,7 +118,7 @@ function Footer() {
       </div>
 
       <div className="border-t border-slate-800">
-        <p className="mx-auto max-w-6xl px-6 py-5 text-center text-xs text-slate-500">
+        <p className="mx-auto max-w-6xl px-4 py-5 text-center text-xs text-slate-500 sm:px-6">
           © 2026 Classe A Pets — Todos os direitos reservados.
         </p>
       </div>
