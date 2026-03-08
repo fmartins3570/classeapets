@@ -65,7 +65,7 @@ function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-white/70 shadow-[0_4px_30px_rgba(0,0,0,0.06)] backdrop-blur-xl">
-      <div className="relative mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-2.5">
+      <div className="relative mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-2.5 sm:px-6">
         {/* Logo */}
         <a
           href="#hero"

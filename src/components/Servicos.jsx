@@ -62,7 +62,7 @@ function Servicos() {
   ]
 
   return (
-    <section id="servicos" className="bg-white px-6 py-16 sm:py-20 md:py-24">
+    <section id="servicos" className="bg-white px-4 py-14 sm:px-6 sm:py-20 md:py-24">
       <div className="mx-auto max-w-6xl">
         <h2 className="section-title mb-4 text-3xl font-extrabold text-gray-900 md:text-4xl" data-reveal="up">
           Nossos Serviços
@@ -83,7 +83,7 @@ function Servicos() {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8" data-reveal-stagger data-reveal="up">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-8" data-reveal-stagger data-reveal="up">
           {servicos.map((s, i) => (
             <GlowCard key={i}>
             <article className="relative card-hover flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white transition-all duration-300 hover:shadow-md">

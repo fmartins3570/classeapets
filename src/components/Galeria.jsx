@@ -13,13 +13,13 @@ const fotos = [
 
 function Galeria() {
   return (
-    <section id="galeria" className="bg-white px-6 py-16 sm:py-20 md:py-24">
+    <section id="galeria" className="bg-white px-4 py-14 sm:px-6 sm:py-20 md:py-24">
       <div className="mx-auto max-w-6xl">
         <h2 className="section-title mb-2 text-3xl font-extrabold text-gray-900 md:text-4xl" data-reveal="up">
           Galeria de Fotos
         </h2>
         <p className="mb-8 text-center text-gray-500" data-reveal="up">Por dentro dos nossos treinos</p>
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 sm:gap-4" data-reveal-stagger data-reveal="scale">
+        <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4" data-reveal-stagger data-reveal="scale">
           {fotos.map((foto) => (
             <div key={foto.src} className="group flex items-end justify-center overflow-hidden rounded-xl bg-gradient-to-b from-gray-100 to-gray-200 aspect-[3/4]">
               <img

@@ -4,7 +4,7 @@ import { InteractiveHoverButton } from './ui/InteractiveHoverButton'
 function Sobre() {
   const whatsappHref = 'https://wa.me/5511934066866'
   return (
-    <section id="sobre" className="bg-slate-900 px-6 py-16 text-white sm:py-20 md:py-24">
+    <section id="sobre" className="bg-slate-900 px-4 py-14 text-white sm:px-6 sm:py-20 md:py-24">
       <div className="mx-auto max-w-6xl">
         <h2 className="mb-12 text-center text-3xl font-extrabold text-white md:text-4xl" data-reveal="up">
           Sobre o Adestrador
@@ -20,7 +20,7 @@ function Sobre() {
               loading="lazy"
               decoding="async"
             />
-            <div className="flex aspect-video items-center justify-center rounded-xl bg-slate-800 text-sm text-slate-400 shadow-lg">
+            <div className="flex aspect-video items-center justify-center overflow-hidden rounded-xl bg-slate-800 text-sm text-slate-400 shadow-lg">
               Vídeo (placeholder)
             </div>
           </div>
@@ -51,7 +51,7 @@ function Sobre() {
               rel="noopener noreferrer"
               text="Quero falar com o Brenno"
               variant="white"
-              className="w-full text-base shadow-lg sm:w-auto"
+              className="w-full text-sm shadow-lg sm:w-auto sm:text-base"
             />
           </div>
         </div>

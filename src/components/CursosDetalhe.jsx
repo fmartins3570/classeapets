@@ -4,7 +4,7 @@ import { GlowCard } from './ui/GlowCard'
 
 function CursosDetalhe() {
   return (
-    <section id="cursos" className="bg-white px-6 py-16 sm:py-20 md:py-24">
+    <section id="cursos" className="bg-white px-4 py-14 sm:px-6 sm:py-20 md:py-24">
       <div className="mx-auto max-w-5xl">
         <h2 className="section-title mb-4 text-3xl font-extrabold text-gray-900 md:text-4xl" data-reveal="up">
           Cursos
@@ -17,7 +17,7 @@ function CursosDetalhe() {
           {/* Card Presencial */}
           <GlowCard>
           <article className="relative card-hover flex flex-col overflow-hidden rounded-2xl border-2 border-[var(--color-accent)] bg-white" data-reveal="left">
-            <div className="relative flex h-44 items-end justify-center overflow-hidden bg-gradient-to-b from-gray-100 to-gray-200 sm:h-52">
+            <div className="relative flex h-40 items-end justify-center overflow-hidden bg-gradient-to-b from-gray-100 to-gray-200 sm:h-52">
               <img
                 src={assetUrl('/images/optimized/curso-presencial-480w.webp')}
                 srcSet={`${assetUrl('/images/optimized/curso-presencial-320w.webp')} 320w, ${assetUrl('/images/optimized/curso-presencial-480w.webp')} 480w, ${assetUrl('/images/optimized/curso-presencial-640w.webp')} 640w`}
@@ -31,7 +31,7 @@ function CursosDetalhe() {
                 São Paulo, SP
               </div>
             </div>
-            <div className="flex flex-1 flex-col p-5 sm:p-7 md:p-9">
+            <div className="flex flex-1 flex-col p-4 sm:p-7 md:p-9">
               <span className="mb-3 inline-block self-start rounded-full bg-[var(--color-accent)]/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-[var(--color-accent)]">
                 Presencial & Híbrido
               </span>
@@ -75,7 +75,7 @@ function CursosDetalhe() {
           {/* Card Digital */}
           <GlowCard>
           <article className="relative card-hover flex flex-col overflow-hidden rounded-2xl border-2 border-gray-200 bg-white" data-reveal="right">
-            <div className="flex h-44 items-end justify-center overflow-hidden bg-gradient-to-b from-gray-100 to-gray-200 sm:h-52">
+            <div className="flex h-40 items-end justify-center overflow-hidden bg-gradient-to-b from-gray-100 to-gray-200 sm:h-52">
               <img
                 src={assetUrl('/images/optimized/curso-digital-480w.webp')}
                 srcSet={`${assetUrl('/images/optimized/curso-digital-320w.webp')} 320w, ${assetUrl('/images/optimized/curso-digital-480w.webp')} 480w, ${assetUrl('/images/optimized/curso-digital-640w.webp')} 640w`}
@@ -86,7 +86,7 @@ function CursosDetalhe() {
                 decoding="async"
               />
             </div>
-            <div className="flex flex-1 flex-col p-5 sm:p-7 md:p-9">
+            <div className="flex flex-1 flex-col p-4 sm:p-7 md:p-9">
               <span className="mb-3 inline-block self-start rounded-full bg-red-50 px-3 py-1 text-xs font-bold uppercase tracking-wide text-red-600">
                 100% Digital
               </span>

@@ -43,7 +43,7 @@ function Metodos() {
   ]
 
   return (
-    <section id="metodos" className="bg-gray-50 px-6 py-16 sm:py-20 md:py-24">
+    <section id="metodos" className="bg-gray-50 px-4 py-14 sm:px-6 sm:py-20 md:py-24">
       <div className="mx-auto max-w-6xl">
         <h2 className="section-title mb-4 text-3xl font-extrabold text-gray-900 md:text-4xl" data-reveal="up">
           Nossos Métodos
@@ -52,7 +52,7 @@ function Metodos() {
           Seja você tutor ou aspirante a profissional, temos a solução ideal com nossos métodos comprovados,
           conteúdo de qualidade e apoio profissional para sua jornada no mundo comportamental canino.
         </p>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8" data-reveal-stagger data-reveal="up">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4 lg:gap-8" data-reveal-stagger data-reveal="up">
           {metodos.map((m, i) => (
             <GlowCard key={i}>
             <article className="relative card-hover flex flex-col rounded-2xl border border-gray-200 bg-white p-6">

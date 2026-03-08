@@ -43,12 +43,12 @@ function HeroSection() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--color-vermelho)] opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--color-vermelho)]" />
               </span>
-              <span className="text-[0.72rem] font-semibold leading-tight text-[var(--color-vermelho)] sm:text-[0.82rem]">
+              <span className="text-[0.78rem] font-semibold leading-tight text-[var(--color-vermelho)] sm:text-[0.82rem]">
                 Turma Presencial em SP — Apenas 15 vagas
               </span>
             </div>
 
-            <h1 className="mb-5 !text-[1.5rem] !leading-[1.12] !text-white sm:!text-[1.8rem] sm:mb-6 sm:!text-[2.5rem] md:!text-[2.6rem] lg:!text-[3.2rem]">
+            <h1 className="mb-5 !text-[1.5rem] !leading-[1.2] !text-white sm:mb-6 sm:!text-[2rem] md:!text-[2.5rem] lg:!text-[3.2rem]">
               Transforme sua paixao por caes em uma{' '}
               <span
                 className="bg-clip-text text-transparent"
@@ -82,7 +82,7 @@ function HeroSection() {
               ].map((item) => (
                 <div key={item.text} className="flex items-center gap-2">
                   <item.icon className="h-4 w-4 text-[var(--color-cyan-muted)]/60" />
-                  <span className="text-[0.75rem] font-medium text-[var(--color-cinza-500)] sm:text-[0.78rem]">{item.text}</span>
+                  <span className="text-[0.78rem] font-medium text-[var(--color-cinza-500)] sm:text-[0.8rem]">{item.text}</span>
                 </div>
               ))}
             </div>
@@ -90,7 +90,7 @@ function HeroSection() {
 
           {/* Right — Brenno image */}
           <div className="relative flex justify-center md:justify-end">
-            <div className="relative w-[220px] sm:w-[260px] md:w-[380px] lg:w-[440px]">
+            <div className="relative w-[65vw] max-w-[260px] sm:w-[260px] md:w-[380px] lg:w-[440px]">
               <img
                 src="/images/brenno-hero.png"
                 alt="Brenno Rodrigues — Adestrador Profissional com seu cao"
@@ -269,7 +269,7 @@ function SobreBrenno() {
               loading="lazy"
               decoding="async"
             />
-            <div className="relative mx-auto max-w-[290px] overflow-hidden rounded-2xl border border-[var(--color-cinza-200)] bg-[var(--color-charcoal)] shadow-[var(--shadow-lg)] sm:max-w-[320px] sm:rounded-3xl md:max-w-none">
+            <div className="relative mx-auto max-w-[85vw] overflow-hidden rounded-2xl border border-[var(--color-cinza-200)] bg-[var(--color-charcoal)] shadow-[var(--shadow-lg)] sm:max-w-[320px] sm:rounded-3xl md:max-w-none">
               <div className="aspect-[9/16]">
                 <iframe
                   src="https://www.youtube.com/embed/CMqEWXaRhWU?rel=0&modestbranding=1"
@@ -420,7 +420,7 @@ function Preco() {
           >
             {/* Badge */}
             <span
-              className="absolute left-1/2 top-0 z-10 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full px-4 py-1.5 text-[0.68rem] font-bold uppercase tracking-widest text-white shadow-md sm:px-5 sm:py-2 sm:text-[0.72rem]"
+              className="absolute left-1/2 top-0 z-10 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full px-4 py-1.5 text-[0.75rem] font-bold uppercase tracking-widest text-white shadow-md sm:px-5 sm:py-2 sm:text-[0.78rem]"
               style={{ background: 'var(--color-vermelho-muted)' }}
             >
               Melhor opcao
@@ -472,7 +472,7 @@ function Preco() {
                     <svg className="h-3.5 w-3.5 text-[var(--color-success)]" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
-                    <span className="text-[0.75rem] text-[var(--color-cinza-500)] sm:text-[0.78rem]">{t}</span>
+                    <span className="text-[0.78rem] text-[var(--color-cinza-500)] sm:text-[0.8rem]">{t}</span>
                   </div>
                 ))}
               </div>
@@ -607,7 +607,7 @@ function LandingFooter() {
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-clip">
       <LandingHeader />
       <HeroSection />
       <PublicoAlvo />

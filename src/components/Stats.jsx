@@ -9,7 +9,7 @@ function Stats() {
   ]
 
   return (
-    <section id="estatisticas" className="bg-gray-50 px-6 py-16 sm:py-20">
+    <section id="estatisticas" className="bg-gray-50 px-4 py-14 sm:px-6 sm:py-20">
       <div className="mx-auto max-w-4xl">
         <p className="mb-3 text-center text-sm font-semibold uppercase tracking-wider text-[var(--color-accent)]" data-reveal="up">
           O que posso te ajudar?
@@ -27,11 +27,11 @@ function Stats() {
         >
           {items.map((item, i) => (
             <GlowCard key={i}>
-            <div className="relative rounded-2xl bg-white p-6 text-center shadow-sm">
-              <span className="mb-1 block text-2xl font-extrabold text-gray-900 sm:text-3xl lg:text-4xl">
+            <div className="relative rounded-2xl bg-white p-4 text-center shadow-sm sm:p-6">
+              <span className="mb-1 block text-xl font-extrabold text-gray-900 sm:text-3xl lg:text-4xl">
                 {item.number}
               </span>
-              <span className="text-sm leading-snug text-gray-500">{item.label}</span>
+              <span className="text-xs leading-snug text-gray-500 sm:text-sm">{item.label}</span>
             </div>
             </GlowCard>
           ))}
