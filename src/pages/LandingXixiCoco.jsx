@@ -219,24 +219,13 @@ function HeroSection() {
         </div>
 
         {/* Right — Brenno + Golden image */}
-        <div className="relative flex justify-center md:justify-end">
-          <div className="relative w-[65vw] max-w-[280px] sm:w-[280px] md:w-[400px] lg:w-[460px]">
-            {/* Soft teal glow behind */}
-            <div
-              className="pointer-events-none absolute inset-x-[10%] bottom-[0%] top-[15%] rounded-full opacity-15 blur-[50px] sm:blur-[60px]"
-              style={{ background: 'radial-gradient(circle, rgba(0,188,212,0.4), transparent 70%)' }}
-              aria-hidden
-            />
+        <div className="relative flex items-end justify-center md:justify-end">
+          <div className="relative w-[90vw] max-w-[380px] sm:w-[400px] md:w-[560px] lg:w-[640px]">
             <img
               src="/images/brenno-golden.png"
               alt="Brenno Rodrigues — Xixi no Lugar Certo, método renovador para cães"
-              className="relative z-10 h-auto w-full object-contain"
+              className="relative z-10 h-auto w-full object-contain drop-shadow-[0_6px_6px_rgba(0,0,0,0.25)]"
               fetchPriority="high"
-            />
-            {/* Floor shadow */}
-            <div
-              className="pointer-events-none absolute bottom-[-4%] left-1/2 z-0 h-[18px] w-[75%] -translate-x-1/2 rounded-[50%] bg-black/[0.12] blur-[12px] sm:h-[22px] sm:blur-[16px]"
-              aria-hidden
             />
           </div>
         </div>
