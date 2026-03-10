@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { assetUrl } from '../utils/assetUrl'
 
 function Footer() {
@@ -7,7 +8,6 @@ function Footer() {
     { href: '#sobre', label: 'Sobre' },
     { href: '#depoimentos', label: 'Depoimentos' },
     { href: '#faq', label: 'FAQ' },
-    { href: '#', label: 'Política de Privacidade' },
   ]
 
   const courseLinks = [
@@ -118,9 +118,26 @@ function Footer() {
       </div>
 
       <div className="border-t border-slate-800">
-        <p className="mx-auto max-w-6xl px-4 py-5 text-center text-xs text-slate-500 sm:px-6">
-          © 2026 Classe A Pets — Todos os direitos reservados.
-        </p>
+        <div className="mx-auto flex max-w-6xl flex-col items-center gap-3 px-4 py-5 sm:px-6">
+          <div className="flex flex-wrap justify-center gap-4 text-xs">
+            <Link
+              to="/termos-de-uso"
+              className="text-slate-500 transition-colors hover:text-white"
+            >
+              Termos de Uso
+            </Link>
+            <span className="text-slate-700">|</span>
+            <Link
+              to="/politica-de-privacidade"
+              className="text-slate-500 transition-colors hover:text-white"
+            >
+              Política de Privacidade
+            </Link>
+          </div>
+          <p className="text-center text-xs text-slate-500">
+            © 2026 Classe A Pets — Todos os direitos reservados.
+          </p>
+        </div>
       </div>
     </footer>
   )

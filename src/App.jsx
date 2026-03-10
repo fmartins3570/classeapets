@@ -8,6 +8,9 @@ import Servicos from './components/Servicos'
 import Footer from './components/Footer'
 import LandingPage from './pages/LandingPage'
 import LandingXixiCoco from './pages/LandingXixiCoco'
+import TermosDeUso from './pages/TermosDeUso'
+import PoliticaDePrivacidade from './pages/PoliticaDePrivacidade'
+import PagamentoStatus from './pages/PagamentoStatus'
 
 const Sobre = lazy(() => import('./components/Sobre'))
 const Depoimentos = lazy(() => import('./components/Depoimentos'))
@@ -108,6 +111,9 @@ function App() {
       <Route path="/" element={homeContent} />
       <Route path="/curso-adestramento-classeapets-presencial" element={<LandingPage />} />
       <Route path="/xixi-e-coco-no-lugar-certo" element={<LandingXixiCoco />} />
+      <Route path="/termos-de-uso" element={<TermosDeUso />} />
+      <Route path="/politica-de-privacidade" element={<PoliticaDePrivacidade />} />
+      <Route path="/pagamento/:status" element={<PagamentoStatus />} />
     </Routes>
   )
 }

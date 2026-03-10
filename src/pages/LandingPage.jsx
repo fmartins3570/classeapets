@@ -16,6 +16,35 @@ import LandingHeader from '../components/LandingHeader'
 import { BackgroundGradientAnimation } from '../components/ui/BackgroundGradientAnimation'
 import { GlowingShadow } from '../components/ui/GlowingShadow'
 import useScrollReveal from '../hooks/useScrollReveal'
+import { createCheckout } from '../utils/checkout'
+
+/* ─────────────────── CHECKOUT BUTTON ─────────────────── */
+
+function CheckoutButton({ children, className = '' }) {
+  const [loading, setLoading] = useState(false)
+
+  const handleCheckout = async () => {
+    if (loading) return
+    setLoading(true)
+    try {
+      await createCheckout('curso-adestrador-profissional')
+    } catch {
+      alert('Erro ao iniciar pagamento. Tente novamente.')
+      setLoading(false)
+    }
+  }
+
+  return (
+    <button
+      type="button"
+      onClick={handleCheckout}
+      disabled={loading}
+      className={`disabled:opacity-60 disabled:hover:translate-y-0 ${className}`}
+    >
+      {loading ? 'Redirecionando...' : children}
+    </button>
+  )
+}
 
 /* ─────────────────── HERO ─────────────────── */
 
@@ -63,15 +92,14 @@ function HeroSection() {
               mercado pet — mesmo sem experiencia previa.
             </p>
 
-            <a
-              href="#checkout"
+            <CheckoutButton
               className="btn-primary inline-flex min-h-[52px] w-full items-center justify-center gap-2.5 !rounded-full !px-8 !py-3.5 !text-[0.9rem] !font-bold !no-underline hover:!no-underline sm:min-h-[56px] sm:w-auto sm:!px-10 sm:!py-4 sm:!text-base"
             >
               Quero garantir minha vaga agora
               <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
-            </a>
+            </CheckoutButton>
 
             {/* Trust badges */}
             <div className="mt-8 flex flex-col items-center gap-3 sm:mt-10 sm:flex-row sm:gap-6 md:items-start md:justify-start">
@@ -458,12 +486,11 @@ function Preco() {
               <div className="mx-auto my-5 h-px w-full bg-[var(--color-cinza-200)] sm:my-6" />
 
               {/* CTA */}
-              <a
-                href="#checkout"
+              <CheckoutButton
                 className="btn-primary inline-flex min-h-[50px] w-full items-center justify-center gap-2 !rounded-full !px-4 !py-3.5 !text-[0.88rem] !font-bold !no-underline hover:!no-underline sm:min-h-[56px] sm:!px-6 sm:!py-4 sm:!text-[0.95rem]"
               >
                 Quero me tornar Adestrador Profissional
-              </a>
+              </CheckoutButton>
 
               {/* Trust badges */}
               <div className="mt-4 flex flex-col items-center gap-2.5 sm:mt-5 sm:flex-row sm:justify-center sm:gap-4">
@@ -580,12 +607,11 @@ function LandingCtaFinal() {
           Assine com seguranca e teste o metodo sem risco. Se nao gostar, devolvemos 100% do valor.
         </p>
 
-        <a
-          href="#checkout"
+        <CheckoutButton
           className="btn-primary inline-flex min-h-[50px] w-full items-center justify-center gap-2 !rounded-full !px-8 !py-3.5 !text-[0.9rem] !font-bold !no-underline hover:!no-underline sm:min-h-[56px] sm:w-auto sm:!px-10 sm:!py-4 sm:!text-base"
         >
           Quero garantir minha vaga agora
-        </a>
+        </CheckoutButton>
       </div>
     </section>
   )
