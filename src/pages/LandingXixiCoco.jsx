@@ -884,9 +884,20 @@ function FAQ() {
 function LandingFooter() {
   return (
     <footer className="border-t border-[var(--color-gray-200)] bg-[var(--color-gray-50)] px-4 py-6 sm:px-8 sm:py-8">
-      <p className="text-center text-xs text-[var(--color-gray-400)]">
-        &copy; 2026 Classe A Pets — Todos os direitos reservados.
-      </p>
+      <div className="mx-auto flex max-w-6xl flex-col items-center gap-3">
+        <div className="flex flex-wrap justify-center gap-4 text-xs">
+          <a href="/termos-de-uso" className="text-[var(--color-gray-400)] transition-colors hover:text-[var(--color-gray-700)]">
+            Termos de Uso
+          </a>
+          <span className="text-[var(--color-gray-300)]">|</span>
+          <a href="/politica-de-privacidade" className="text-[var(--color-gray-400)] transition-colors hover:text-[var(--color-gray-700)]">
+            Política de Privacidade
+          </a>
+        </div>
+        <p className="text-center text-xs text-[var(--color-gray-400)]">
+          &copy; 2026 Classe A Pets — Todos os direitos reservados.
+        </p>
+      </div>
     </footer>
   )
 }
