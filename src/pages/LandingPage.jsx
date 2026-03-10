@@ -622,9 +622,20 @@ function LandingCtaFinal() {
 function LandingFooter() {
   return (
     <footer className="border-t border-white/4 bg-[var(--color-midnight)] px-4 py-6 sm:px-8 sm:py-8">
-      <p className="text-center text-xs text-[var(--color-cinza-500)]">
-        &copy; 2026 Classe A Pets — Todos os direitos reservados.
-      </p>
+      <div className="mx-auto flex max-w-6xl flex-col items-center gap-3">
+        <div className="flex flex-wrap justify-center gap-4 text-xs">
+          <a href="/termos-de-uso" className="text-[var(--color-cinza-500)] transition-colors hover:text-white">
+            Termos de Uso
+          </a>
+          <span className="text-[var(--color-cinza-500)]/30">|</span>
+          <a href="/politica-de-privacidade" className="text-[var(--color-cinza-500)] transition-colors hover:text-white">
+            Política de Privacidade
+          </a>
+        </div>
+        <p className="text-center text-xs text-[var(--color-cinza-500)]">
+          &copy; 2026 Classe A Pets — Todos os direitos reservados.
+        </p>
+      </div>
     </footer>
   )
 }

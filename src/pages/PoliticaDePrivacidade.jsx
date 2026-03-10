@@ -50,7 +50,7 @@ function PoliticaDePrivacidade() {
           <ul className="ml-6 list-disc space-y-1">
             <li><strong>Dados fornecidos pelo usuário:</strong> nome, e-mail, telefone/WhatsApp e mensagens enviadas através de formulários de contato ou WhatsApp;</li>
             <li><strong>Dados de navegação:</strong> endereço IP, tipo de navegador, sistema operacional, páginas visitadas, tempo de permanência e origem do tráfego;</li>
-            <li><strong>Dados de cookies e tecnologias semelhantes:</strong> cookies de sessão, cookies analíticos (Google Analytics) e pixels de rastreamento (Meta Pixel/Facebook Pixel).</li>
+            <li><strong>Dados de cookies e tecnologias semelhantes:</strong> cookies de sessão e pixels de rastreamento (Meta Pixel/Facebook Pixel).</li>
           </ul>
 
           <h2 className="!mt-10 text-xl font-bold text-[var(--color-preto)]">2. Como Utilizamos os Dados</h2>
@@ -96,15 +96,19 @@ function PoliticaDePrivacidade() {
             .
           </p>
 
-          <h2 className="!mt-10 text-xl font-bold text-[var(--color-preto)]">4. Cookies</h2>
+          <h2 className="!mt-10 text-xl font-bold text-[var(--color-preto)]">4. Cookies e Consentimento</h2>
           <p>Utilizamos os seguintes tipos de cookies:</p>
           <ul className="ml-6 list-disc space-y-1">
             <li><strong>Cookies essenciais:</strong> necessários para o funcionamento básico do site;</li>
-            <li><strong>Cookies analíticos:</strong> utilizados para entender como os visitantes interagem com o site (ex.: Google Analytics);</li>
-            <li><strong>Cookies de marketing:</strong> utilizados para exibir anúncios relevantes (ex.: Meta Pixel).</li>
+            <li><strong>Cookies de marketing:</strong> utilizados para exibir anúncios relevantes e mensurar campanhas (ex.: Meta Pixel).</li>
           </ul>
           <p>
-            O usuário pode desativar cookies a qualquer momento através das configurações do seu navegador.
+            <strong>Consentimento:</strong> Ao acessar o site, um banner de consentimento é exibido. Cookies de marketing
+            (incluindo o Meta Pixel) somente são ativados após o consentimento explícito do usuário. O usuário pode
+            revogar o consentimento a qualquer momento limpando os cookies do navegador e recarregando a página.
+          </p>
+          <p>
+            O usuário também pode desativar cookies diretamente nas configurações do seu navegador.
             A desativação de alguns cookies pode afetar a funcionalidade do site.
           </p>
 
@@ -112,7 +116,6 @@ function PoliticaDePrivacidade() {
           <p>Os dados pessoais poderão ser compartilhados com:</p>
           <ul className="ml-6 list-disc space-y-1">
             <li><strong>Meta Platforms, Inc.:</strong> para fins de mensuração e otimização de anúncios;</li>
-            <li><strong>Google LLC:</strong> para análise de tráfego do site (Google Analytics);</li>
             <li><strong>Autoridades competentes:</strong> quando exigido por lei ou ordem judicial.</li>
           </ul>
           <p>
@@ -177,7 +180,7 @@ function PoliticaDePrivacidade() {
               </a>
             </li>
             <li><strong>WhatsApp:</strong> (11) 93406-6866</li>
-            <li><strong>Endereço:</strong> ABC Paulista e São Paulo Capital</li>
+            <li><strong>Endereço:</strong> R. das Artemísias, 71 - Vila Bela, São Paulo - SP, 03202-040</li>
           </ul>
         </div>
 

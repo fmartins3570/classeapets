@@ -99,7 +99,7 @@ function Footer() {
           <div className="space-y-3 text-sm break-words">
             <div>
               <p className="font-semibold text-slate-300">Endereço</p>
-              <p>ABC Paulista e São Paulo Capital</p>
+              <p>R. das Artemísias, 71 - Vila Bela, São Paulo - SP, 03202-040</p>
             </div>
             <div>
               <p className="font-semibold text-slate-300">WhatsApp</p>
