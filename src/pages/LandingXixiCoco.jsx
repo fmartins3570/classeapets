@@ -102,7 +102,7 @@ function XixiCocoHeader() {
 
         <button
           type="button"
-          className="relative z-10 flex h-11 w-11 items-center justify-center rounded-xl border border-[var(--color-gray-200)] bg-transparent p-0 md:hidden"
+          className="relative z-50 flex h-11 w-11 items-center justify-center rounded-xl border border-[var(--color-gray-200)] bg-transparent p-0 md:hidden"
           aria-expanded={menuOpen}
           aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
           onClick={() => setMenuOpen((c) => !c)}
@@ -171,14 +171,14 @@ function HeroSection() {
               <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--color-accent)]" />
             </span>
             <span className="text-[0.78rem] font-semibold leading-tight text-[var(--color-accent)] sm:text-[0.82rem]">
-              Resultados em 7-14 dias · Filhotes e adultos
+              Metodo para filhotes e adultos · Baseado em ciencia
             </span>
           </div>
 
           <h1 className="mb-5 !text-[1.5rem] !leading-[1.2] !text-[var(--color-gray-900)] sm:mb-6 sm:!text-[2rem] md:!text-[2.5rem] lg:!text-[3.2rem]">
             Ensine seu cao a fazer xixi e coco{' '}
             <span className="text-[var(--color-accent)]">
-              no lugar certo em ate 14 dias
+              no lugar certo com metodo comprovado
             </span>
           </h1>
 
@@ -238,12 +238,12 @@ function HeroSection() {
 /* ─────────────────── DOR / PROBLEMA ─────────────────── */
 
 const dorItems = [
-  'Acorda e ja precisa limpar xixi ou coco antes mesmo do cafe da manha',
-  'Limpou o mesmo canto 10 vezes — e o cheiro nunca vai embora de verdade',
-  'Tentou brigar, colocar o focinho, ignorar — e nada mudou',
-  'Seu cao faz certo quando voce esta olhando, mas erra quando fica sozinho',
-  'Tem vergonha de receber visitas em casa por causa do cheiro',
-  'Ja gastou uma fortuna em tapetes higienicos, enzimas e produtos de limpeza',
+  'Tutores que precisam limpar xixi ou coco logo ao acordar, antes mesmo do cafe',
+  'Limpar o mesmo canto varias vezes — e o cheiro que nunca vai embora de verdade',
+  'Tentar brigar, colocar o focinho, ignorar — e nenhum metodo funcionar',
+  'Caes que fazem certo quando alguem esta olhando, mas erram quando ficam sozinhos',
+  'Desconforto ao receber visitas em casa por causa do cheiro',
+  'Gastos acumulados com tapetes higienicos, enzimas e produtos de limpeza',
 ]
 
 function ProblemaSection() {
@@ -258,7 +258,7 @@ function ProblemaSection() {
             O problema
           </span>
           <h2 className="mx-auto max-w-[500px] !text-[1.5rem] sm:!text-[1.75rem] md:!text-[2.2rem]">
-            Voce ja passou por isso?
+            Situacoes comuns entre tutores de caes
           </h2>
         </div>
 
@@ -276,9 +276,9 @@ function ProblemaSection() {
 
         <div className="mt-8 text-center sm:mt-10" data-reveal="up">
           <p className="mx-auto max-w-[480px] text-[1rem] font-semibold leading-snug text-[var(--color-gray-900)] sm:text-[1.1rem]">
-            Nao e culpa sua — e nem do seu cao.{' '}
+            O problema nao e o tutor, nem o cao.{' '}
             <span className="text-[var(--color-accent)]">
-              O problema e a falta do metodo certo.
+              E a falta do metodo certo.
             </span>
           </p>
         </div>
@@ -673,7 +673,7 @@ const passos = [
   {
     numero: '4',
     titulo: 'Veja os resultados',
-    texto: 'A maioria dos tutores ve progresso em 7-14 dias. Tire duvidas no grupo exclusivo de WhatsApp.',
+    texto: 'Muitos tutores relatam progresso nas primeiras semanas. Tire duvidas no grupo exclusivo de WhatsApp.',
   },
 ]
 
@@ -719,7 +719,7 @@ function ComoFunciona() {
 const resultados = [
   { valor: '+250', label: 'familias atendidas' },
   { valor: '+500', label: 'caes treinados' },
-  { valor: '7-14', label: 'dias para ver resultados' },
+  { valor: '15min', label: 'por dia de dedicacao' },
   { valor: '100%', label: 'sem punicao' },
 ]
 
@@ -739,6 +739,9 @@ function Resultados() {
           </h2>
           <p className="mx-auto mt-3 max-w-[480px] text-[0.92rem] text-[var(--color-gray-500)] sm:mt-4 sm:text-[1rem]">
             A Classe A Pets ja transformou a rotina de centenas de familias com metodo baseado em ciencia e reforco positivo.
+          </p>
+          <p className="mx-auto mt-2 max-w-[440px] text-[0.75rem] text-[var(--color-gray-400)]">
+            *Resultados individuais variam conforme o cao, o ambiente e a consistencia do tutor.
           </p>
         </div>
 
@@ -779,7 +782,7 @@ function Comparativo() {
             Perspectiva
           </span>
           <h2 className="mx-auto max-w-[480px] !text-[1.5rem] sm:!text-[1.75rem] md:!text-[2.2rem]">
-            Quanto voce ja gastou tentando resolver isso?
+            O custo real de nao resolver a educacao sanitaria
           </h2>
         </div>
 
@@ -917,7 +920,7 @@ const faqItems = [
   {
     pergunta: 'Em quanto tempo vejo resultado?',
     resposta:
-      'Depende do cao e da consistencia. A maioria dos tutores ve progresso em 7-14 dias seguindo o metodo. Caes adultos com historico longo de erros podem precisar de ate 3-4 semanas.',
+      'Depende do cao e da consistencia do tutor. Muitos tutores relatam progresso em 7-14 dias seguindo o metodo. Caes adultos com historico longo de erros podem precisar de mais tempo. Resultados individuais variam.',
   },
   {
     pergunta: 'Preciso comprar equipamentos caros?',

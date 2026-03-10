@@ -11,6 +11,16 @@ import {
   Shield,
   Zap,
   Users,
+  TrendingUp,
+  BookOpen,
+  Target,
+  Award,
+  Gift,
+  DollarSign,
+  MessageCircle,
+  FileText,
+  Video,
+  Star,
 } from 'lucide-react'
 import LandingHeader from '../components/LandingHeader'
 import { BackgroundGradientAnimation } from '../components/ui/BackgroundGradientAnimation'
@@ -78,18 +88,18 @@ function HeroSection() {
             </div>
 
             <h1 className="mb-5 !text-[1.5rem] !leading-[1.2] !text-white sm:mb-6 sm:!text-[2rem] md:!text-[2.5rem] lg:!text-[3.2rem]">
-              Transforme sua paixao por caes em uma{' '}
+              Torne-se Adestrador Profissional e{' '}
               <span
                 className="bg-clip-text text-transparent"
                 style={{ backgroundImage: 'var(--gradient-cyan)' }}
               >
-                carreira altamente lucrativa.
+                construa sua carreira no mercado pet.
               </span>
             </h1>
 
             <p className="mx-auto mb-8 max-w-[540px] text-[0.95rem] leading-relaxed text-[var(--color-cinza-400)] sm:mb-10 sm:text-[1.1rem] md:mx-0 md:text-[1.05rem]">
-              Aprenda do zero o metodo validado para educar caes, conquistar clientes e faturar no
-              mercado pet — mesmo sem experiencia previa.
+              Formacao completa de 3 meses — do zero ao avancado. Aprenda o metodo validado para
+              educar caes, conquistar clientes e construir uma carreira no mercado pet.
             </p>
 
             <CheckoutButton
@@ -106,7 +116,7 @@ function HeroSection() {
               {[
                 { icon: Shield, text: '30 dias de garantia' },
                 { icon: Users, text: '+250 familias atendidas' },
-                { icon: Zap, text: 'Método renovador' },
+                { icon: Clock, text: '3 meses de formacao' },
               ].map((item) => (
                 <div key={item.text} className="flex items-center gap-2">
                   <item.icon className="h-4 w-4 text-[var(--color-cyan-muted)]/60" />
@@ -200,6 +210,124 @@ function PublicoAlvo() {
   )
 }
 
+/* ─────────────────── JORNADA — 3 MESES ─────────────────── */
+
+const jornadaItems = [
+  {
+    mes: 'Mes 1',
+    title: 'Fundamentos',
+    icon: BookOpen,
+    items: [
+      'Psicologia e comportamento canino',
+      'Linguagem corporal e comunicacao',
+      'Tecnicas de reforco positivo',
+      'Primeiros comandos basicos',
+    ],
+  },
+  {
+    mes: 'Mes 2',
+    title: 'Tecnicas Avancadas',
+    icon: Target,
+    items: [
+      'Modificacao comportamental',
+      'Casos complexos (agressividade, medo)',
+      'Socializacao e dessensibilizacao',
+      'Estagio pratico com caes reais',
+    ],
+  },
+  {
+    mes: 'Mes 3',
+    title: 'Mercado e Profissao',
+    icon: TrendingUp,
+    items: [
+      'Posicionamento e marca pessoal',
+      'Como captar e fidelizar clientes',
+      'Precificacao de servicos',
+      'TCC e certificacao final',
+    ],
+  },
+]
+
+function Jornada() {
+  useScrollReveal()
+
+  return (
+    <section
+      id="jornada"
+      className="relative overflow-hidden px-4 py-14 sm:px-8 sm:py-20 md:py-28"
+      style={{ background: 'var(--gradient-section-dark)' }}
+    >
+      <div
+        className="pointer-events-none absolute left-[-10%] top-[30%] h-[300px] w-[300px] rounded-full opacity-10 blur-[100px] sm:h-[400px] sm:w-[400px] sm:blur-[120px]"
+        style={{ background: 'radial-gradient(circle, rgba(46,222,240,0.25), transparent 70%)' }}
+        aria-hidden
+      />
+
+      <div className="relative mx-auto max-w-[1000px]">
+        <div className="mb-10 text-center sm:mb-14" data-reveal="up">
+          <span className="section-label section-label-light justify-center">A Jornada</span>
+          <h2 className="mx-auto mb-3 max-w-[600px] !text-[1.5rem] !text-white sm:mb-4 sm:!text-[1.75rem] md:!text-[2.2rem]">
+            3 meses de formacao completa — do zero ao profissional
+          </h2>
+          <p className="mx-auto max-w-[500px] text-[0.9rem] text-[var(--color-cinza-400)] sm:text-[0.95rem]">
+            Enquanto outros cursos ensinam o basico em um fim de semana, aqui voce se forma com pratica real em 3 meses.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-3 md:gap-6" data-reveal-stagger>
+          {jornadaItems.map((fase) => (
+            <GlowingShadow key={fase.mes} className="rounded-2xl">
+              <div className="card-dark group h-full p-5 hover:border-transparent sm:p-7">
+                <div className="mb-4 flex items-center gap-3">
+                  <div
+                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl"
+                    style={{ background: 'var(--gradient-cyan-subtle)' }}
+                  >
+                    <fase.icon className="h-5 w-5 text-white" aria-hidden />
+                  </div>
+                  <div>
+                    <span className="block text-[0.72rem] font-bold uppercase tracking-widest text-[var(--color-cyan)]">
+                      {fase.mes}
+                    </span>
+                    <h3 className="!text-[1.05rem] !text-white sm:!text-[1.15rem]">{fase.title}</h3>
+                  </div>
+                </div>
+                <ul className="space-y-2.5">
+                  {fase.items.map((item) => (
+                    <li key={item} className="flex items-start gap-2.5">
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-success)]" aria-hidden />
+                      <span className="text-[0.85rem] leading-snug text-[var(--color-cinza-400)] sm:text-[0.9rem]">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </GlowingShadow>
+          ))}
+        </div>
+
+        {/* Carga horaria */}
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-6 sm:mt-12 sm:gap-10" data-reveal="fade">
+          {[
+            { value: '100h+', label: 'de carga horaria' },
+            { value: '+50', label: 'atividades em video' },
+            { value: '15', label: 'alunos por turma' },
+          ].map((s) => (
+            <div key={s.label} className="flex items-center gap-2">
+              <span
+                className="text-lg font-bold bg-clip-text text-transparent sm:text-xl"
+                style={{ backgroundImage: 'var(--gradient-cyan)' }}
+              >
+                {s.value}
+              </span>
+              <span className="text-[0.78rem] font-medium text-[var(--color-cinza-500)] sm:text-[0.82rem]">{s.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
 /* ─────────────────── ENTREGAVEIS ─────────────────── */
 
 const entregaveisItems = [
@@ -227,6 +355,48 @@ function Entregaveis() {
   return (
     <section
       id="entregaveis"
+      className="bg-[var(--color-cream)] px-4 py-14 sm:px-8 sm:py-20 md:py-28"
+    >
+      <div className="mx-auto max-w-[900px]">
+        <div className="mb-10 text-center sm:mb-14" data-reveal="up">
+          <span className="section-label justify-center">O Curso</span>
+          <h2 className="mx-auto mb-3 max-w-[500px] !text-[1.5rem] sm:mb-4 sm:!text-[1.75rem] md:!text-[2.2rem]">
+            O que voce vai dominar
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2 md:gap-6" data-reveal-stagger>
+          {entregaveisItems.map((item) => (
+            <GlowingShadow key={item.title} className="rounded-2xl">
+              <div
+                className="group flex gap-3.5 rounded-2xl border border-[var(--color-cinza-200)] bg-[var(--color-branco)] p-5 transition-all duration-500 hover:-translate-y-1 hover:border-transparent sm:gap-4 sm:p-7"
+              >
+                <div
+                  className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg sm:mt-1 sm:h-10 sm:w-10 sm:rounded-xl"
+                  style={{ background: 'var(--gradient-cyan)' }}
+                >
+                  <CheckCircle2 className="h-4.5 w-4.5 text-white sm:h-5 sm:w-5" aria-hidden />
+                </div>
+                <div>
+                  <h3 className="mb-1.5 !text-[1rem] sm:mb-2 sm:!text-[1.15rem]">{item.title}</h3>
+                  <p className="text-[0.85rem] leading-relaxed text-[var(--color-texto-muted)] sm:text-[0.92rem]">{item.text}</p>
+                </div>
+              </div>
+            </GlowingShadow>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+/* ─────────────────── ROI — QUANTO UM ADESTRADOR FATURA ─────────────────── */
+
+function ROI() {
+  useScrollReveal()
+
+  return (
+    <section
       className="relative overflow-hidden px-4 py-14 sm:px-8 sm:py-20 md:py-28"
       style={{ background: 'var(--gradient-section-dark)' }}
     >
@@ -238,31 +408,64 @@ function Entregaveis() {
 
       <div className="relative mx-auto max-w-[900px]">
         <div className="mb-10 text-center sm:mb-14" data-reveal="up">
-          <span className="section-label section-label-light justify-center">O Curso</span>
-          <h2 className="mx-auto mb-3 max-w-[500px] !text-[1.5rem] !text-white sm:mb-4 sm:!text-[1.75rem] md:!text-[2.2rem]">
-            O que voce vai aprender?
+          <span className="section-label section-label-light justify-center">Retorno Financeiro</span>
+          <h2 className="mx-auto mb-3 max-w-[600px] !text-[1.5rem] !text-white sm:mb-4 sm:!text-[1.75rem] md:!text-[2.2rem]">
+            Quanto um adestrador profissional fatura?
           </h2>
+          <p className="mx-auto max-w-[500px] text-[0.9rem] text-[var(--color-cinza-400)] sm:text-[0.95rem]">
+            O mercado pet cresce 14% ao ano no Brasil. Confira a media de valores praticados por adestradores:
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2 md:gap-8" data-reveal-stagger>
-          {entregaveisItems.map((item) => (
-            <GlowingShadow key={item.title} className="rounded-2xl">
-              <div
-                className="card-dark group flex gap-3.5 p-5 hover:border-transparent sm:gap-4 sm:p-7"
-              >
+        <div className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-3 md:gap-6" data-reveal-stagger>
+          {[
+            {
+              icon: DollarSign,
+              value: 'R$ 150–300',
+              label: 'por sessao individual',
+              detail: 'Atendimento domiciliar de 1h',
+            },
+            {
+              icon: Users,
+              value: 'R$ 600–900',
+              label: 'pacote de 5 aulas',
+              detail: 'Formato mais vendido',
+            },
+            {
+              icon: TrendingUp,
+              value: 'R$ 3.000–8.000',
+              label: 'faturamento mensal',
+              detail: 'Com 4 a 10 clientes ativos',
+            },
+          ].map((item) => (
+            <GlowingShadow key={item.label} className="rounded-2xl">
+              <div className="card-dark group flex flex-col items-center p-5 text-center hover:border-transparent sm:p-7">
                 <div
-                  className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg sm:mt-1 sm:h-10 sm:w-10 sm:rounded-xl"
+                  className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl sm:mb-4 sm:h-14 sm:w-14 sm:rounded-2xl"
                   style={{ background: 'var(--gradient-cyan-subtle)' }}
                 >
-                  <CheckCircle2 className="h-4.5 w-4.5 text-white sm:h-5 sm:w-5" aria-hidden />
+                  <item.icon className="h-6 w-6 text-white sm:h-7 sm:w-7" aria-hidden />
                 </div>
-                <div>
-                  <h3 className="mb-1.5 !text-[1rem] !text-white sm:mb-2 sm:!text-[1.15rem]">{item.title}</h3>
-                  <p className="text-[0.85rem] leading-relaxed text-[var(--color-cinza-400)] sm:text-[0.92rem]">{item.text}</p>
-                </div>
+                <span
+                  className="mb-1 text-xl font-bold bg-clip-text text-transparent sm:text-2xl"
+                  style={{ backgroundImage: 'var(--gradient-cyan)' }}
+                >
+                  {item.value}
+                </span>
+                <span className="mb-1 text-[0.88rem] font-semibold text-white sm:text-[0.95rem]">{item.label}</span>
+                <span className="text-[0.78rem] text-[var(--color-cinza-400)] sm:text-[0.82rem]">{item.detail}</span>
               </div>
             </GlowingShadow>
           ))}
+        </div>
+
+        <div className="mt-8 rounded-xl border border-[var(--color-success)]/20 bg-[var(--color-success)]/5 p-4 text-center sm:mt-12 sm:rounded-2xl sm:p-6" data-reveal="fade">
+          <p className="text-[0.9rem] font-medium text-[var(--color-success)] sm:text-[1rem]">
+            O mercado oferece oportunidades de retorno rapido para quem se dedica.
+          </p>
+          <p className="mt-2 text-[0.72rem] text-[var(--color-cinza-500)] sm:text-[0.75rem]">
+            *Valores ilustrativos baseados em media de mercado. Resultados individuais variam conforme dedicacao, regiao e experiencia.
+          </p>
         </div>
       </div>
     </section>
@@ -326,7 +529,7 @@ function SobreBrenno() {
             </p>
             <p className="mb-6 text-[0.95rem] leading-relaxed text-[var(--color-texto-muted)] sm:mb-8 sm:text-[1.05rem]">
               Com mais de 5 anos de experiencia, ja impactei +250 familias. Minha missao e te ensinar
-              o exato caminho que trilhei para me tornar um profissional bem remunerado.
+              o exato caminho que trilhei para me tornar um profissional bem remunerado e viver do que amo.
             </p>
 
             <div className="flex flex-wrap gap-5 sm:gap-6">
@@ -360,14 +563,14 @@ const formatos = [
     title: 'Turma Noturna',
     schedule: 'Tercas e Quintas',
     time: '19h as 22h',
-    duration: '6 semanas',
+    duration: '3 meses',
     highlight: true,
   },
   {
     title: 'Turma de Sabado',
     schedule: 'Sabados completos',
     time: '08h as 14h',
-    duration: '5 sabados',
+    duration: '3 meses',
     highlight: false,
   },
 ]
@@ -427,37 +630,132 @@ function Formato() {
   )
 }
 
+/* ─────────────────── BONUS ─────────────────── */
+
+const bonusItems = [
+  {
+    icon: Video,
+    title: 'Plataforma com +50 videoaulas',
+    description: 'Acesso completo a plataforma online para revisar e aprofundar o conteudo quando quiser.',
+    value: 'R$ 997',
+  },
+  {
+    icon: MessageCircle,
+    title: 'Grupo VIP no WhatsApp',
+    description: 'Comunidade exclusiva de alunos para trocar experiencias, tirar duvidas e fazer networking.',
+    value: 'R$ 297',
+  },
+  {
+    icon: Award,
+    title: 'Certificado com TCC',
+    description: 'Certificacao profissional com carga de +100 horas e Trabalho de Conclusao de Curso.',
+    value: 'R$ 497',
+  },
+  {
+    icon: FileText,
+    title: 'Kit do Adestrador Profissional',
+    description: 'Templates de contrato, tabela de precificacao, modelo de orcamento e scripts de captacao de clientes.',
+    value: 'R$ 297',
+  },
+]
+
+function Bonus() {
+  useScrollReveal()
+
+  return (
+    <section className="bg-[var(--color-cream)] px-4 py-14 sm:px-8 sm:py-20 md:py-28">
+      <div className="mx-auto max-w-[900px]">
+        <div className="mb-10 text-center sm:mb-14" data-reveal="up">
+          <span className="section-label justify-center">Bonus Exclusivos</span>
+          <h2 className="mx-auto mb-3 max-w-[500px] !text-[1.5rem] sm:mb-4 sm:!text-[1.75rem] md:!text-[2.2rem]">
+            Alem do curso, voce ainda leva:
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2 md:gap-6" data-reveal-stagger>
+          {bonusItems.map((item) => (
+            <GlowingShadow key={item.title} className="rounded-2xl">
+              <div className="group flex gap-4 rounded-2xl border border-[var(--color-cinza-200)] bg-[var(--color-branco)] p-5 transition-all duration-500 hover:-translate-y-1 hover:border-transparent sm:p-6">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[var(--color-cyan-muted)]/8 transition-colors duration-300 group-hover:bg-[var(--color-cyan-muted)]/14 sm:h-12 sm:w-12">
+                  <item.icon className="h-5 w-5 text-[var(--color-cyan-muted)] sm:h-6 sm:w-6" aria-hidden />
+                </div>
+                <div className="flex-1">
+                  <div className="mb-1 flex flex-wrap items-center gap-2">
+                    <h3 className="!text-[0.95rem] sm:!text-[1.05rem]">{item.title}</h3>
+                    <span className="rounded-full bg-[var(--color-success)]/10 px-2 py-0.5 text-[0.68rem] font-bold text-[var(--color-success)]">
+                      GRATIS
+                    </span>
+                  </div>
+                  <p className="mb-1.5 text-[0.82rem] leading-relaxed text-[var(--color-texto-muted)] sm:text-[0.88rem]">{item.description}</p>
+                  <p className="text-[0.78rem] text-[var(--color-cinza-400)]">
+                    Valor: <del>{item.value}</del>
+                  </p>
+                </div>
+              </div>
+            </GlowingShadow>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
 /* ─────────────────── PRECO ─────────────────── */
 
 function Preco() {
   useScrollReveal()
 
+  const valorTotal = 3500 + 997 + 297 + 497 + 297
+
   return (
-    <section id="preco" className="bg-[var(--color-cream)] px-4 py-14 sm:px-8 sm:py-20 md:py-28">
-      <div className="mx-auto max-w-[560px]">
+    <section
+      id="preco"
+      className="relative overflow-hidden px-4 py-14 sm:px-8 sm:py-20 md:py-28"
+      style={{ background: 'var(--gradient-section-dark)' }}
+    >
+      <div className="relative mx-auto max-w-[560px]">
         <div className="mb-10 text-center sm:mb-14" data-reveal="up">
-          <span className="section-label justify-center">Investimento</span>
-          <h2 className="!text-[1.5rem] sm:!text-[1.75rem] md:!text-[2.2rem]">O investimento para iniciar sua nova profissao.</h2>
+          <span className="section-label section-label-light justify-center">Investimento</span>
+          <h2 className="!text-[1.5rem] !text-white sm:!text-[1.75rem] md:!text-[2.2rem]">O investimento para iniciar sua nova profissao</h2>
+        </div>
+
+        {/* Value stack */}
+        <div className="mb-6 space-y-2.5 sm:mb-8" data-reveal="fade">
+          {[
+            { label: 'Curso Presencial — 3 meses (100h+)', value: 'R$ 3.500' },
+            { label: 'Plataforma com +50 videoaulas', value: 'R$ 997' },
+            { label: 'Certificado com TCC', value: 'R$ 497' },
+            { label: 'Grupo VIP no WhatsApp', value: 'R$ 297' },
+            { label: 'Kit do Adestrador Profissional', value: 'R$ 297' },
+          ].map((item) => (
+            <div key={item.label} className="flex items-center justify-between rounded-lg border border-white/5 bg-white/3 px-4 py-2.5 sm:px-5 sm:py-3">
+              <span className="text-[0.82rem] text-[var(--color-cinza-400)] sm:text-[0.88rem]">{item.label}</span>
+              <del className="text-[0.82rem] text-[var(--color-cinza-500)] sm:text-[0.88rem]">{item.value}</del>
+            </div>
+          ))}
+          <div className="flex items-center justify-between rounded-lg border border-white/10 bg-white/5 px-4 py-3 sm:px-5">
+            <span className="text-[0.88rem] font-semibold text-white sm:text-[0.95rem]">Valor total</span>
+            <del className="text-[0.95rem] font-bold text-[var(--color-cinza-400)] sm:text-[1.05rem]">R$ {valorTotal.toLocaleString('pt-BR')}</del>
+          </div>
         </div>
 
         {/* Wrapper with padding-top so badge isn't clipped */}
         <div className="pt-4" data-reveal="scale">
           <div
             id="checkout"
-            className="relative rounded-2xl border-2 border-[var(--color-cyan-muted)]/30 bg-[var(--color-branco)] shadow-[var(--shadow-lg)] scroll-mt-28 sm:rounded-3xl"
+            className="relative rounded-2xl border-2 border-[var(--color-cyan-muted)]/30 bg-[var(--color-branco)] shadow-[0_0_60px_rgba(46,222,240,0.08)] scroll-mt-28 sm:rounded-3xl"
           >
             {/* Badge */}
             <span
               className="absolute left-1/2 top-0 z-10 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full px-4 py-1.5 text-[0.75rem] font-bold uppercase tracking-widest text-white shadow-md sm:px-5 sm:py-2 sm:text-[0.78rem]"
               style={{ background: 'var(--color-vermelho-muted)' }}
             >
-              Melhor opcao
+              Oferta especial
             </span>
 
             <div className="px-5 pb-6 pt-8 sm:px-10 sm:pb-10 sm:pt-12">
-              {/* Old price */}
-              <p className="text-center">
-                <del className="text-sm text-[var(--color-cinza-400)] sm:text-base">R$ 3.500,00</del>
+              <p className="mb-1 text-center text-[0.82rem] font-medium text-[var(--color-texto-muted)] sm:text-[0.88rem]">
+                Tudo isso por apenas
               </p>
 
               {/* Main price */}
@@ -482,6 +780,18 @@ function Preco() {
                 Opcoes flexiveis em 3x ou 6x sem juros no cartao.
               </p>
 
+              {/* Savings callout */}
+              <div className="mx-auto mt-4 max-w-[320px] rounded-lg bg-[var(--color-success)]/6 px-3 py-2 text-center sm:mt-5">
+                <p className="text-[0.78rem] font-semibold text-[var(--color-success)] sm:text-[0.82rem]">
+                  Voce economiza R$ {(valorTotal - 2800).toLocaleString('pt-BR')} nesta oferta
+                </p>
+              </div>
+
+              {/* Custo por hora */}
+              <p className="mt-3 text-center text-[0.75rem] text-[var(--color-cinza-400)] sm:text-[0.78rem]">
+                Menos de R$ 27/hora de formacao profissional
+              </p>
+
               {/* Divider */}
               <div className="mx-auto my-5 h-px w-full bg-[var(--color-cinza-200)] sm:my-6" />
 
@@ -494,7 +804,7 @@ function Preco() {
 
               {/* Trust badges */}
               <div className="mt-4 flex flex-col items-center gap-2.5 sm:mt-5 sm:flex-row sm:justify-center sm:gap-4">
-                {['30 dias de garantia', 'Pagamento seguro'].map((t) => (
+                {['30 dias de garantia', 'Pagamento seguro', 'Vagas limitadas'].map((t) => (
                   <div key={t} className="flex items-center gap-1.5">
                     <svg className="h-3.5 w-3.5 text-[var(--color-success)]" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
@@ -515,24 +825,44 @@ function Preco() {
 
 const faqItems = [
   {
-    pergunta: 'Preciso ter experiencia?',
+    pergunta: 'Preciso ter experiencia previa?',
     resposta:
-      'Nao. O curso foi desenhado para ensinar do zero. Voce nao precisa de experiencia previa com adestramento.',
+      'Nao. O curso foi desenhado para ensinar do zero ao avancado. Voce nao precisa de experiencia previa com adestramento — nosso metodo te guia passo a passo durante os 3 meses.',
   },
   {
-    pergunta: 'Consigo conciliar com trabalho?',
+    pergunta: 'Consigo conciliar com meu trabalho atual?',
     resposta:
-      'Sim. Oferecemos turmas noturnas (Tercas e Quintas, 19h as 22h) e turmas aos Sabados (08h as 14h), para voce encaixar na sua rotina.',
+      'Sim. Oferecemos turmas noturnas (Tercas e Quintas, 19h as 22h) e turmas aos Sabados (08h as 14h), para voce encaixar na sua rotina sem precisar largar seu emprego.',
   },
   {
-    pergunta: 'Quanto tempo para o 1o cliente?',
+    pergunta: 'Quanto tempo ate conseguir o primeiro cliente?',
     resposta:
-      'Muitos alunos conseguem conquistar o primeiro cliente logo apos o termino do curso, aplicando o que aprenderam em posicionamento e vendas.',
+      'Muitos alunos conseguem o primeiro cliente ainda durante o curso, aplicando as tecnicas de posicionamento e captacao que ensinamos no Mes 3. O metodo inclui scripts prontos e estrategias testadas.',
   },
   {
-    pergunta: 'Tem certificado?',
+    pergunta: 'Quanto um adestrador profissional ganha?',
     resposta:
-      'Sim. O curso possui carga de aproximadamente 100 horas e inclui TCC (Trabalho de Conclusao de Curso) para certificacao.',
+      'Uma sessao individual costuma variar entre R$ 150 e R$ 300 no mercado. Adestradores com 4 a 10 clientes ativos reportam faturamento entre R$ 3.000 e R$ 8.000. Resultados variam conforme dedicacao e regiao.',
+  },
+  {
+    pergunta: 'O certificado e reconhecido?',
+    resposta:
+      'Sim. O curso possui carga de +100 horas e inclui TCC (Trabalho de Conclusao de Curso). Voce recebe um certificado de conclusao que comprova sua formacao como adestrador profissional.',
+  },
+  {
+    pergunta: 'E se eu faltar uma aula?',
+    resposta:
+      'Voce tem acesso a plataforma online com +50 videoaulas para acompanhar e revisar todo o conteudo. Alem disso, o grupo VIP no WhatsApp permite tirar duvidas a qualquer momento.',
+  },
+  {
+    pergunta: 'Tem acompanhamento apos o curso?',
+    resposta:
+      'Sim. O grupo VIP no WhatsApp continua ativo apos o termino do curso, para que voce troque experiencias com outros adestradores formados e tire duvidas conforme atende seus primeiros clientes.',
+  },
+  {
+    pergunta: 'Como funciona a garantia de 30 dias?',
+    resposta:
+      'Se por qualquer motivo voce nao ficar satisfeito com o curso nos primeiros 30 dias, devolvemos 100% do valor investido. Sem burocracia, sem perguntas. O risco e todo nosso.',
   },
 ]
 
@@ -543,29 +873,28 @@ function FAQ() {
   return (
     <section
       id="faq"
-      className="relative overflow-hidden px-4 py-14 sm:px-8 sm:py-20 md:py-28"
-      style={{ background: 'var(--gradient-section-dark)' }}
+      className="bg-[var(--color-cream)] px-4 py-14 sm:px-8 sm:py-20 md:py-28"
     >
-      <div className="relative mx-auto max-w-[700px]">
+      <div className="mx-auto max-w-[700px]">
         <div className="mb-10 text-center sm:mb-14" data-reveal="up">
-          <span className="section-label section-label-light justify-center">FAQ</span>
-          <h2 className="!text-[1.5rem] !text-white sm:!text-[1.75rem] md:!text-[2.2rem]">Ainda tem duvidas?</h2>
+          <span className="section-label justify-center">FAQ</span>
+          <h2 className="!text-[1.5rem] sm:!text-[1.75rem] md:!text-[2.2rem]">Perguntas frequentes</h2>
         </div>
 
-        <div className="overflow-hidden rounded-xl border border-white/6 sm:rounded-2xl" data-reveal="fade">
+        <div className="overflow-hidden rounded-xl border border-[var(--color-cinza-200)] bg-[var(--color-branco)] sm:rounded-2xl" data-reveal="fade">
           {faqItems.map((item, index) => (
-            <div key={index} className="border-b border-white/5 last:border-b-0">
+            <div key={index} className="border-b border-[var(--color-cinza-200)]/60 last:border-b-0">
               <button
                 type="button"
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="flex w-full min-h-[52px] items-center justify-between gap-3 bg-transparent px-4 py-4 text-left text-[0.92rem] font-semibold text-white transition-colors hover:bg-white/2 !rounded-none sm:gap-4 sm:px-6 sm:py-5 sm:text-base"
+                className="flex w-full min-h-[52px] items-center justify-between gap-3 bg-transparent px-4 py-4 text-left text-[0.92rem] font-semibold text-[var(--color-charcoal)] transition-colors hover:bg-[var(--color-cinza-100)]/50 !rounded-none sm:gap-4 sm:px-6 sm:py-5 sm:text-base"
                 aria-expanded={openIndex === index}
                 aria-controls={`faq-answer-${index}`}
                 id={`faq-question-${index}`}
               >
                 {item.pergunta}
                 <ChevronDown
-                  className={`h-5 w-5 shrink-0 text-[var(--color-cyan)] transition-transform duration-300 ${openIndex === index ? 'rotate-180' : ''}`}
+                  className={`h-5 w-5 shrink-0 text-[var(--color-cyan-muted)] transition-transform duration-300 ${openIndex === index ? 'rotate-180' : ''}`}
                   aria-hidden
                 />
               </button>
@@ -575,7 +904,7 @@ function FAQ() {
                 aria-labelledby={`faq-question-${index}`}
                 className={`overflow-hidden transition-all duration-300 ${openIndex === index ? 'max-h-64' : 'max-h-0'}`}
               >
-                <p className="px-4 pb-4 text-[0.88rem] leading-relaxed text-[var(--color-cinza-400)] sm:px-6 sm:pb-5 sm:text-[0.95rem]">
+                <p className="px-4 pb-4 text-[0.88rem] leading-relaxed text-[var(--color-texto-muted)] sm:px-6 sm:pb-5 sm:text-[0.95rem]">
                   {item.resposta}
                 </p>
               </div>
@@ -593,18 +922,21 @@ function LandingCtaFinal() {
   useScrollReveal()
 
   return (
-    <section className="bg-[var(--color-cream)] px-4 py-14 sm:px-8 sm:py-20 md:py-28">
-      <div className="mx-auto max-w-[600px] text-center" data-reveal="scale">
-        <div className="mb-6 inline-flex items-center gap-3 rounded-xl border border-[var(--color-cinza-200)] bg-[var(--color-branco)] px-5 py-3 shadow-[var(--shadow-sm)] sm:mb-8 sm:rounded-2xl sm:px-6 sm:py-4">
+    <section
+      className="relative overflow-hidden px-4 py-14 sm:px-8 sm:py-20 md:py-28"
+      style={{ background: 'var(--gradient-section-dark)' }}
+    >
+      <div className="relative mx-auto max-w-[600px] text-center" data-reveal="scale">
+        <div className="mb-6 inline-flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-5 py-3 sm:mb-8 sm:rounded-2xl sm:px-6 sm:py-4">
           <Shield className="h-7 w-7 text-[var(--color-success)] sm:h-8 sm:w-8" />
           <div className="text-left">
-            <span className="block text-[0.82rem] font-bold text-[var(--color-charcoal)] sm:text-sm">30 dias de garantia</span>
-            <span className="text-[0.72rem] text-[var(--color-texto-muted)] sm:text-xs">ou seu dinheiro de volta</span>
+            <span className="block text-[0.82rem] font-bold text-white sm:text-sm">30 dias de garantia</span>
+            <span className="text-[0.72rem] text-[var(--color-cinza-400)] sm:text-xs">ou seu dinheiro de volta</span>
           </div>
         </div>
 
-        <p className="mb-6 text-[0.95rem] leading-relaxed text-[var(--color-texto-muted)] sm:mb-8 sm:text-[1.1rem]">
-          Assine com seguranca e teste o metodo sem risco. Se nao gostar, devolvemos 100% do valor.
+        <p className="mb-6 text-[0.95rem] leading-relaxed text-[var(--color-cinza-400)] sm:mb-8 sm:text-[1.1rem]">
+          Inscreva-se com seguranca e teste o metodo sem risco. Se nao ficar satisfeito nos primeiros 30 dias, devolvemos 100% do valor. Sem burocracia.
         </p>
 
         <CheckoutButton
@@ -612,6 +944,10 @@ function LandingCtaFinal() {
         >
           Quero garantir minha vaga agora
         </CheckoutButton>
+
+        <p className="mt-4 text-[0.78rem] text-[var(--color-cinza-500)] sm:mt-5">
+          Restam poucas vagas — turma limitada a 15 alunos.
+        </p>
       </div>
     </section>
   )
@@ -648,9 +984,12 @@ export default function LandingPage() {
       <LandingHeader />
       <HeroSection />
       <PublicoAlvo />
+      <Jornada />
       <Entregaveis />
+      <ROI />
       <SobreBrenno />
       <Formato />
+      <Bonus />
       <Preco />
       <FAQ />
       <LandingCtaFinal />

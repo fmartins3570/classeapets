@@ -3,6 +3,7 @@ import { assetUrl } from '../utils/assetUrl'
 import { SlideTabs } from './ui/SlideTabs'
 
 const navLinks = [
+  { href: '#jornada', label: 'A Jornada' },
   { href: '#entregaveis', label: 'O Curso' },
   { href: '#preco', label: 'Investimento' },
   { href: '#faq', label: 'FAQ' },
@@ -63,7 +64,7 @@ export default function LandingHeader() {
 
         <button
           type="button"
-          className="relative z-10 flex h-11 w-11 items-center justify-center rounded-xl border border-[var(--color-cyan)]/20 bg-transparent p-0 md:hidden"
+          className="relative z-50 flex h-11 w-11 items-center justify-center rounded-xl border border-[var(--color-cyan)]/20 bg-transparent p-0 md:hidden"
           aria-expanded={menuOpen}
           aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
           onClick={() => setMenuOpen((c) => !c)}
