@@ -6,7 +6,6 @@ import {
   Zap,
   Users,
   Clock,
-  Star,
   Home,
   MessageSquare,
   Brain,
@@ -185,7 +184,9 @@ function HeroSection() {
           </p>
 
           <a
-            href="#checkout"
+            href={HOTMART_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex min-h-[52px] w-full items-center justify-center gap-2.5 rounded-full bg-[var(--color-accent)] px-8 py-3.5 text-[0.9rem] font-bold text-white !no-underline shadow-[0_6px_24px_rgba(0,188,212,0.3)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_32px_rgba(0,188,212,0.4)] hover:!no-underline sm:min-h-[56px] sm:w-auto sm:px-10 sm:py-4 sm:text-base"
           >
             Quero comecar agora
@@ -410,6 +411,8 @@ const bonus = {
   aulas: '4 aulas',
   duracao: '11 min',
 }
+
+const HOTMART_URL = 'https://hotmart.com/pt-br/club/clubclasseapets/classe-a-pets-educacao-sanitaria-para-caes-filhotes-e-adultos/U104730984S?off=xnf1j7w9'
 
 function Modulos() {
   useScrollReveal()
@@ -649,69 +652,105 @@ function ParaQuemE() {
   )
 }
 
-/* ─────────────────── DEPOIMENTOS ─────────────────── */
+/* ─────────────────── COMO FUNCIONA ─────────────────── */
 
-const depoimentos = [
+const passos = [
   {
-    texto: 'Depoimento em breve',
-    nome: 'Maria',
-    descricao: 'Tutora de filhote',
+    numero: '1',
+    titulo: 'Assista as aulas',
+    texto: 'Video-aulas curtas e objetivas. Assista no celular ou computador, no seu ritmo.',
   },
   {
-    texto: 'Depoimento em breve',
-    nome: 'Joao',
-    descricao: 'Dono de cao adulto resgatado',
+    numero: '2',
+    titulo: 'Monte a Suite Canina',
+    texto: 'Prepare o ambiente ideal com materiais simples e acessiveis seguindo o passo a passo.',
   },
   {
-    texto: 'Depoimento em breve',
-    nome: 'Ana',
-    descricao: 'Ja tentou tudo antes',
+    numero: '3',
+    titulo: 'Aplique o metodo diariamente',
+    texto: 'Siga o protocolo especifico para filhote ou adulto. Apenas 15-30 minutos por dia.',
+  },
+  {
+    numero: '4',
+    titulo: 'Veja os resultados',
+    texto: 'A maioria dos tutores ve progresso em 7-14 dias. Tire duvidas no grupo exclusivo de WhatsApp.',
   },
 ]
 
-function Depoimentos() {
+function ComoFunciona() {
   useScrollReveal()
 
   return (
     <section className="bg-white px-4 py-14 sm:px-8 sm:py-20 md:py-28">
-      <div className="mx-auto max-w-[1000px]">
+      <div className="mx-auto max-w-[900px]">
         <div className="mb-10 text-center sm:mb-14" data-reveal="up">
           <span className="mb-3 inline-flex items-center gap-2 text-[0.78rem] font-bold uppercase tracking-[0.18em] text-[var(--color-accent)]">
             <span className="inline-block h-[2px] w-8 rounded-full bg-[var(--color-accent)]" />
-            Depoimentos
+            Passo a passo
           </span>
           <h2 className="mx-auto max-w-[500px] !text-[1.5rem] sm:!text-[1.75rem] md:!text-[2.2rem]">
-            Quem ja usou, aprovou
+            Como funciona na pratica
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-3" data-reveal-stagger>
-          {depoimentos.map((d) => (
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:gap-6" data-reveal-stagger>
+          {passos.map((p) => (
             <article
-              key={d.nome}
-              className="group rounded-2xl border border-[var(--color-gray-200)] bg-white p-5 transition-all duration-500 hover:border-[var(--color-accent)]/20 hover:shadow-[0_4px_20px_rgba(0,0,0,0.04)] sm:p-7"
+              key={p.numero}
+              className="group flex gap-4 rounded-2xl border border-[var(--color-gray-200)] bg-white p-5 transition-all duration-500 hover:border-[var(--color-accent)]/20 hover:shadow-[0_4px_20px_rgba(0,0,0,0.04)] sm:p-6"
             >
-              {/* Stars */}
-              <div className="mb-4 flex gap-1">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" aria-hidden />
-                ))}
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[var(--color-accent)]/10">
+                <span className="text-lg font-bold text-[var(--color-accent)]">{p.numero}</span>
               </div>
-
-              <p className="mb-5 text-[0.88rem] leading-relaxed text-[var(--color-gray-500)] italic sm:text-[0.95rem]">
-                &ldquo;{d.texto}&rdquo;
-              </p>
-
-              <div className="flex items-center gap-3">
-                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[var(--color-accent)]/10 sm:h-10 sm:w-10">
-                  <span className="text-[0.7rem] font-bold text-[var(--color-accent)] sm:text-xs">{d.nome.charAt(0)}</span>
-                </div>
-                <div>
-                  <span className="block text-[0.82rem] font-semibold text-[var(--color-gray-900)] sm:text-sm">{d.nome}</span>
-                  <span className="text-xs text-[var(--color-gray-400)]">{d.descricao}</span>
-                </div>
+              <div>
+                <h3 className="mb-1.5 !text-[1rem] sm:!text-[1.1rem]">{p.titulo}</h3>
+                <p className="text-[0.85rem] leading-relaxed text-[var(--color-gray-500)] sm:text-[0.92rem]">{p.texto}</p>
               </div>
             </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+/* ─────────────────── RESULTADOS ─────────────────── */
+
+const resultados = [
+  { valor: '+250', label: 'familias atendidas' },
+  { valor: '+500', label: 'caes treinados' },
+  { valor: '7-14', label: 'dias para ver resultados' },
+  { valor: '100%', label: 'sem punicao' },
+]
+
+function Resultados() {
+  useScrollReveal()
+
+  return (
+    <section className="bg-[var(--color-gray-50)] px-4 py-14 sm:px-8 sm:py-20 md:py-28">
+      <div className="mx-auto max-w-[900px]">
+        <div className="mb-10 text-center sm:mb-14" data-reveal="up">
+          <span className="mb-3 inline-flex items-center gap-2 text-[0.78rem] font-bold uppercase tracking-[0.18em] text-[var(--color-accent)]">
+            <span className="inline-block h-[2px] w-8 rounded-full bg-[var(--color-accent)]" />
+            Resultados
+          </span>
+          <h2 className="mx-auto max-w-[500px] !text-[1.5rem] sm:!text-[1.75rem] md:!text-[2.2rem]">
+            Numeros que comprovam o metodo
+          </h2>
+          <p className="mx-auto mt-3 max-w-[480px] text-[0.92rem] text-[var(--color-gray-500)] sm:mt-4 sm:text-[1rem]">
+            A Classe A Pets ja transformou a rotina de centenas de familias com metodo baseado em ciencia e reforco positivo.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 gap-4 sm:gap-5 md:grid-cols-4" data-reveal-stagger>
+          {resultados.map((r) => (
+            <div
+              key={r.label}
+              className="rounded-2xl border border-[var(--color-gray-200)] bg-white p-5 text-center transition-all duration-500 hover:border-[var(--color-accent)]/20 hover:shadow-[0_4px_20px_rgba(0,0,0,0.04)] sm:p-6"
+            >
+              <span className="block text-2xl font-bold text-[var(--color-accent)] sm:text-3xl">{r.valor}</span>
+              <span className="mt-1 block text-[0.78rem] font-medium text-[var(--color-gray-400)] sm:text-[0.82rem]">{r.label}</span>
+            </div>
           ))}
         </div>
       </div>
@@ -753,6 +792,7 @@ function Preco() {
                 {[
                   '7 aulas do Modulo Principal (~80 min de conteudo)',
                   '4 aulas Bonus de Enriquecimento Ambiental',
+                  'Grupo exclusivo de WhatsApp para tirar duvidas',
                   'Material de apoio incluso',
                   'Acesso imediato pelo computador ou celular',
                 ].map((t) => (
@@ -768,7 +808,7 @@ function Preco() {
 
               {/* Old price */}
               <p className="text-center">
-                <del className="text-sm text-[var(--color-gray-400)] sm:text-base">R$ XX,00</del>
+                <del className="text-sm text-[var(--color-gray-400)] sm:text-base">R$ 397,00</del>
               </p>
 
               {/* Main price */}
@@ -776,15 +816,22 @@ function Preco() {
                 className="mt-2 text-center text-[1.65rem] font-bold text-[var(--color-accent)] sm:mt-3 sm:text-3xl md:text-4xl"
                 style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}
               >
-                R$ XX,00
+                R$ 197,00
+              </p>
+
+              {/* Installments */}
+              <p className="mt-2 text-center text-[0.82rem] text-[var(--color-gray-400)] sm:mt-3 sm:text-[0.88rem]">
+                ou parcele em ate 12x no cartao
               </p>
 
               {/* CTA */}
               <a
-                href="#checkout"
+                href={HOTMART_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="mt-6 inline-flex min-h-[50px] w-full items-center justify-center gap-2 rounded-full bg-[var(--color-accent)] px-4 py-3.5 text-[0.88rem] font-bold text-white !no-underline shadow-[0_6px_24px_rgba(0,188,212,0.3)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_32px_rgba(0,188,212,0.4)] hover:!no-underline sm:mt-8 sm:min-h-[56px] sm:px-6 sm:py-4 sm:text-[0.95rem]"
               >
-                Quero garantir minha vaga
+                Quero ensinar meu cao agora
                 <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
@@ -792,7 +839,7 @@ function Preco() {
 
               {/* Trust badges */}
               <div className="mt-4 flex flex-col items-center gap-2.5 sm:mt-5 sm:flex-row sm:justify-center sm:gap-4">
-                {['Pagamento seguro', 'Acesso imediato'].map((t) => (
+                {['7 dias de garantia', 'Pagamento seguro', 'Acesso imediato'].map((t) => (
                   <div key={t} className="flex items-center gap-1.5">
                     <svg className="h-3.5 w-3.5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
@@ -815,17 +862,42 @@ const faqItems = [
   {
     pergunta: 'Funciona para caes adultos?',
     resposta:
-      'Sim! O curso tem uma aula especifica para caes adultos que nunca aprenderam.',
+      'Sim! O curso tem uma aula especifica para caes adultos que nunca aprenderam. O Metodo Suite Canina funciona independente da idade do cao.',
   },
   {
     pergunta: 'Em quanto tempo vejo resultado?',
     resposta:
-      'Depende do cao e da consistencia. A maioria dos tutores ve progresso em 7-14 dias seguindo o metodo.',
+      'Depende do cao e da consistencia. A maioria dos tutores ve progresso em 7-14 dias seguindo o metodo. Caes adultos com historico longo de erros podem precisar de ate 3-4 semanas.',
   },
   {
     pergunta: 'Preciso comprar equipamentos caros?',
     resposta:
       'Nao. O curso ensina como montar a Suite Canina com materiais acessiveis e faceis de encontrar. Voce nao precisa gastar muito.',
+  },
+  {
+    pergunta: 'Funciona em apartamento?',
+    resposta:
+      'Sim! O metodo foi pensado especialmente para espacos limitados. Apartamentos sao os casos mais comuns dos nossos alunos.',
+  },
+  {
+    pergunta: 'Quanto tempo preciso dedicar por dia?',
+    resposta:
+      'Entre 15 e 30 minutos por dia. O metodo e objetivo e as aulas sao curtas para voce encaixar na rotina sem dificuldade.',
+  },
+  {
+    pergunta: 'Como funciona o grupo de WhatsApp?',
+    resposta:
+      'Ao se inscrever voce recebe acesso ao grupo exclusivo de alunos, onde pode tirar duvidas diretamente com o Brenno e trocar experiencias com outros tutores.',
+  },
+  {
+    pergunta: 'Como acesso o curso?',
+    resposta:
+      'O curso e 100% online, hospedado na plataforma Hotmart. Apos o pagamento, voce recebe o acesso imediato por e-mail e pode assistir pelo celular ou computador.',
+  },
+  {
+    pergunta: 'Tem garantia?',
+    resposta:
+      'Sim. Voce tem 7 dias de garantia incondicional. Se por qualquer motivo nao gostar, devolvemos 100% do valor — sem burocracia.',
   },
 ]
 
@@ -879,6 +951,68 @@ function FAQ() {
   )
 }
 
+/* ─────────────────── GARANTIA ─────────────────── */
+
+function Garantia() {
+  useScrollReveal()
+
+  return (
+    <section className="bg-[var(--color-gray-50)] px-4 py-14 sm:px-8 sm:py-20 md:py-28">
+      <div className="mx-auto max-w-[600px]" data-reveal="scale">
+        <div className="rounded-2xl border-2 border-emerald-200 bg-white p-6 text-center sm:rounded-3xl sm:p-10">
+          <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-emerald-50 sm:mb-6 sm:h-20 sm:w-20">
+            <Shield className="h-8 w-8 text-emerald-500 sm:h-10 sm:w-10" />
+          </div>
+          <h2 className="mb-3 !text-[1.3rem] sm:mb-4 sm:!text-[1.5rem] md:!text-[1.75rem]">
+            Garantia incondicional de 7 dias
+          </h2>
+          <p className="mx-auto max-w-[450px] text-[0.92rem] leading-relaxed text-[var(--color-gray-500)] sm:text-[1rem]">
+            Teste o metodo por 7 dias. Se nao ficar satisfeito por qualquer motivo,
+            devolvemos <strong className="text-[var(--color-gray-700)]">100% do seu investimento</strong> — sem
+            perguntas, sem burocracia. O risco e zero.
+          </p>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+/* ─────────────────── CTA FINAL ─────────────────── */
+
+function CtaFinal() {
+  useScrollReveal()
+
+  return (
+    <section className="bg-white px-4 py-14 sm:px-8 sm:py-20 md:py-28">
+      <div className="mx-auto max-w-[600px] text-center" data-reveal="scale">
+        <h2 className="mb-4 !text-[1.5rem] sm:mb-5 sm:!text-[1.75rem] md:!text-[2.2rem]">
+          Chega de limpar xixi no lugar errado.
+        </h2>
+        <p className="mx-auto mb-6 max-w-[480px] text-[0.95rem] leading-relaxed text-[var(--color-gray-500)] sm:mb-8 sm:text-[1.05rem]">
+          O metodo que ja ajudou centenas de familias pode resolver o problema do seu cao tambem.
+          Comece hoje com garantia total de 7 dias.
+        </p>
+
+        <a
+          href={HOTMART_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex min-h-[50px] w-full items-center justify-center gap-2.5 rounded-full bg-[var(--color-accent)] px-8 py-3.5 text-[0.9rem] font-bold text-white !no-underline shadow-[0_6px_24px_rgba(0,188,212,0.3)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_32px_rgba(0,188,212,0.4)] hover:!no-underline sm:min-h-[56px] sm:w-auto sm:px-10 sm:py-4 sm:text-base"
+        >
+          Quero ensinar meu cao agora — R$ 197
+          <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+
+        <p className="mt-4 text-[0.78rem] text-[var(--color-gray-400)] sm:mt-5 sm:text-[0.82rem]">
+          Pagamento seguro via Hotmart · Acesso imediato · 7 dias de garantia
+        </p>
+      </div>
+    </section>
+  )
+}
+
 /* ─────────────────── FOOTER ─────────────────── */
 
 function LandingFooter() {
@@ -911,12 +1045,15 @@ export default function LandingXixiCoco() {
       <HeroSection />
       <ProblemaSection />
       <SolucaoSection />
+      <ComoFunciona />
       <Modulos />
       <SobreBrenno />
       <ParaQuemE />
-      <Depoimentos />
+      <Resultados />
       <Preco />
+      <Garantia />
       <FAQ />
+      <CtaFinal />
       <LandingFooter />
     </div>
   )
