@@ -55,8 +55,15 @@ function XixiCocoHeader() {
   }, [menuOpen])
 
   return (
+    <>
+    {/* Barra de urgência */}
+    <div className="fixed top-0 left-0 right-0 z-[60] bg-[var(--color-accent)] px-4 py-2 text-center">
+      <p className="text-[0.72rem] font-bold uppercase tracking-wider text-white sm:text-[0.78rem]">
+        Oferta de lancamento — De <del>R$ 197</del> por apenas <span className="text-yellow-200">R$ 97</span> · Acesso imediato + Grupo WhatsApp
+      </p>
+    </div>
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 backdrop-blur-xl ${
+      className={`fixed top-[32px] sm:top-[36px] left-0 right-0 z-50 transition-all duration-500 backdrop-blur-xl ${
         scrolled
           ? 'bg-white/85 shadow-[0_1px_12px_rgba(0,0,0,0.06)]'
           : 'bg-white/50'
@@ -131,6 +138,7 @@ function XixiCocoHeader() {
         </nav>
       </div>
     </header>
+    </>
   )
 }
 
@@ -151,7 +159,7 @@ function HeroSection() {
         size="70%"
         blendingValue="normal"
         containerClassName="!h-auto"
-        className="px-4 pb-12 pt-24 sm:px-8 sm:pb-16 sm:pt-32 md:pb-24 lg:pt-36"
+        className="px-4 pb-12 pt-32 sm:px-8 sm:pb-16 sm:pt-40 md:pb-24 lg:pt-44"
       >
       <div className="relative mx-auto grid max-w-[1200px] grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-12 lg:gap-16">
         {/* Left — Text */}
@@ -163,24 +171,24 @@ function HeroSection() {
               <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--color-accent)]" />
             </span>
             <span className="text-[0.78rem] font-semibold leading-tight text-[var(--color-accent)] sm:text-[0.82rem]">
-              Metodo definitivo para filhotes e adultos
+              Resultados em 7-14 dias · Filhotes e adultos
             </span>
           </div>
 
           <h1 className="mb-5 !text-[1.5rem] !leading-[1.2] !text-[var(--color-gray-900)] sm:mb-6 sm:!text-[2rem] md:!text-[2.5rem] lg:!text-[3.2rem]">
-            Xixi{' '}
+            Ensine seu cao a fazer xixi e coco{' '}
             <span className="text-[var(--color-accent)]">
-              no Lugar Certo
+              no lugar certo em ate 14 dias
             </span>
           </h1>
 
           <p className="mx-auto mb-3 max-w-[540px] text-[1.05rem] font-semibold leading-snug text-[var(--color-gray-700)] sm:mb-4 sm:text-[1.2rem] md:mx-0">
-            O Metodo Definitivo para Caes Filhotes e Adultos
+            Sem brigar, sem punir — com o Metodo Suite Canina baseado em ciencia
           </p>
 
           <p className="mx-auto mb-8 max-w-[540px] text-[0.95rem] leading-relaxed text-[var(--color-gray-500)] sm:mb-10 sm:text-[1.1rem] md:mx-0 md:text-[1.05rem]">
-            Aprenda o Metodo Suite Canina e ensine seu cao a fazer as necessidades
-            no lugar certo — sem punicao, sem estresse, com ciencia.
+            Passo a passo em video para resolver de vez o problema do xixi fora do lugar.
+            Funciona para filhotes e adultos, em casas e apartamentos. Apenas 15 minutos por dia.
           </p>
 
           <a
@@ -241,11 +249,12 @@ function HeroSection() {
 /* ─────────────────── DOR / PROBLEMA ─────────────────── */
 
 const dorItems = [
-  'Acordou cedo e pisou em surpresas pelo apartamento',
-  'Limpou o mesmo lugar varias vezes e o cheiro nao vai embora',
-  'Tentou brigar, ignorar, punir — e nada funcionou',
-  'Seu cao parece fazer de proposito justamente onde voce limpou',
-  'Ja pensou em devolver o pet por nao saber o que fazer',
+  'Acorda e ja precisa limpar xixi ou coco antes mesmo do cafe da manha',
+  'Limpou o mesmo canto 10 vezes — e o cheiro nunca vai embora de verdade',
+  'Tentou brigar, colocar o focinho, ignorar — e nada mudou',
+  'Seu cao faz certo quando voce esta olhando, mas erra quando fica sozinho',
+  'Tem vergonha de receber visitas em casa por causa do cheiro',
+  'Ja gastou uma fortuna em tapetes higienicos, enzimas e produtos de limpeza',
 ]
 
 function ProblemaSection() {
@@ -589,13 +598,15 @@ function SobreBrenno() {
 const paraQuem = [
   'Tutores com filhotes recem-chegados em casa',
   'Donos de caes adultos que nunca aprenderam o local correto',
+  'Quem mora em apartamento e precisa de solucao para espacos pequenos',
   'Quem ja tentou outros metodos sem sucesso',
-  'Quem quer um lar mais limpo e harmonico',
+  'Quem quer parar de gastar com tapetes e produtos de limpeza',
 ]
 
 const naoParaQuem = [
-  'Quem quer punir o animal',
-  'Quem nao vai dedicar 30 minutos por dia ao processo',
+  'Quem quer punir o animal ou usar metodos de medo',
+  'Quem nao vai dedicar 15-30 minutos por dia ao processo',
+  'Quem busca solucao magica sem esforco',
 ]
 
 function ParaQuemE() {
@@ -758,6 +769,55 @@ function Resultados() {
   )
 }
 
+/* ─────────────────── COMPARATIVO DE CUSTO ─────────────────── */
+
+function Comparativo() {
+  useScrollReveal()
+
+  const itens = [
+    { label: 'Adestrador presencial (4-8 sessoes)', valor: 'R$ 1.500 a R$ 3.000' },
+    { label: 'Tapetes higienicos por mes', valor: 'R$ 60 a R$ 120/mes' },
+    { label: 'Produtos enzimas e limpeza', valor: 'R$ 40 a R$ 80/mes' },
+    { label: 'Trocar sofa, tapete ou colchao danificado', valor: 'R$ 500 a R$ 5.000' },
+  ]
+
+  return (
+    <section className="bg-white px-4 py-14 sm:px-8 sm:py-20 md:py-28">
+      <div className="mx-auto max-w-[600px]">
+        <div className="mb-10 text-center sm:mb-14" data-reveal="up">
+          <span className="mb-3 inline-flex items-center gap-2 text-[0.78rem] font-bold uppercase tracking-[0.18em] text-[var(--color-accent)]">
+            <span className="inline-block h-[2px] w-8 rounded-full bg-[var(--color-accent)]" />
+            Perspectiva
+          </span>
+          <h2 className="mx-auto max-w-[480px] !text-[1.5rem] sm:!text-[1.75rem] md:!text-[2.2rem]">
+            Quanto voce ja gastou tentando resolver isso?
+          </h2>
+        </div>
+
+        <div className="space-y-3 sm:space-y-4" data-reveal-stagger>
+          {itens.map((item) => (
+            <div
+              key={item.label}
+              className="flex items-center justify-between gap-4 rounded-xl border border-red-100 bg-red-50/50 px-4 py-3.5 sm:rounded-2xl sm:px-6 sm:py-4"
+            >
+              <span className="text-[0.85rem] text-[var(--color-gray-600)] sm:text-[0.92rem]">{item.label}</span>
+              <span className="shrink-0 text-[0.82rem] font-bold text-red-400 sm:text-[0.88rem]">{item.valor}</span>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-8 text-center sm:mt-10" data-reveal="up">
+          <p className="mx-auto max-w-[440px] text-[1rem] font-semibold leading-snug text-[var(--color-gray-900)] sm:text-[1.1rem]">
+            Com o Metodo Suite Canina, voce resolve o problema de vez por{' '}
+            <span className="text-[var(--color-accent)]">apenas R$ 97</span> — menos que
+            um unico pacote de tapetes higienicos.
+          </p>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 /* ─────────────────── PRECO ─────────────────── */
 
 function Preco() {
@@ -772,7 +832,7 @@ function Preco() {
             Investimento
           </span>
           <h2 className="!text-[1.5rem] sm:!text-[1.75rem] md:!text-[2.2rem]">
-            Tudo que voce vai receber
+            Tudo isso por menos do que voce imagina
           </h2>
         </div>
 
@@ -782,8 +842,8 @@ function Preco() {
             className="relative rounded-2xl border-2 border-[var(--color-accent)]/20 bg-white shadow-[0_12px_48px_rgba(0,188,212,0.08)] scroll-mt-28 sm:rounded-3xl"
           >
             {/* Badge */}
-            <span className="absolute left-1/2 top-0 z-10 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full bg-[var(--color-accent)] px-4 py-1.5 text-[0.75rem] font-bold uppercase tracking-widest text-white shadow-md sm:px-5 sm:py-2 sm:text-[0.78rem]">
-              Oferta especial
+            <span className="absolute left-1/2 top-0 z-10 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full bg-red-500 px-4 py-1.5 text-[0.75rem] font-bold uppercase tracking-widest text-white shadow-md sm:px-5 sm:py-2 sm:text-[0.78rem]">
+              50% OFF — Lancamento
             </span>
 
             <div className="px-5 pb-6 pt-8 sm:px-10 sm:pb-10 sm:pt-12">
@@ -792,9 +852,10 @@ function Preco() {
                 {[
                   '7 aulas do Modulo Principal (~80 min de conteudo)',
                   '4 aulas Bonus de Enriquecimento Ambiental',
-                  'Grupo exclusivo de WhatsApp para tirar duvidas',
-                  'Material de apoio incluso',
-                  'Acesso imediato pelo computador ou celular',
+                  'Grupo exclusivo de WhatsApp com o Brenno',
+                  'Material de apoio e checklist do tutor',
+                  'Acesso imediato pelo celular ou computador',
+                  'Garantia incondicional de 7 dias',
                 ].map((t) => (
                   <div key={t} className="flex items-start gap-2.5">
                     <CheckCircle2 className="mt-0.5 h-4.5 w-4.5 shrink-0 text-emerald-500" aria-hidden />
@@ -808,7 +869,7 @@ function Preco() {
 
               {/* Old price */}
               <p className="text-center">
-                <del className="text-sm text-[var(--color-gray-400)] sm:text-base">R$ 397,00</del>
+                <del className="text-sm text-[var(--color-gray-400)] sm:text-base">R$ 197,00</del>
               </p>
 
               {/* Main price */}
@@ -816,12 +877,12 @@ function Preco() {
                 className="mt-2 text-center text-[1.65rem] font-bold text-[var(--color-accent)] sm:mt-3 sm:text-3xl md:text-4xl"
                 style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}
               >
-                R$ 197,00
+                R$ 97,00
               </p>
 
               {/* Installments */}
               <p className="mt-2 text-center text-[0.82rem] text-[var(--color-gray-400)] sm:mt-3 sm:text-[0.88rem]">
-                ou parcele em ate 12x no cartao
+                ou parcele em ate 12x de R$ 9,70 no cartao
               </p>
 
               {/* CTA */}
@@ -831,7 +892,7 @@ function Preco() {
                 rel="noopener noreferrer"
                 className="mt-6 inline-flex min-h-[50px] w-full items-center justify-center gap-2 rounded-full bg-[var(--color-accent)] px-4 py-3.5 text-[0.88rem] font-bold text-white !no-underline shadow-[0_6px_24px_rgba(0,188,212,0.3)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_32px_rgba(0,188,212,0.4)] hover:!no-underline sm:mt-8 sm:min-h-[56px] sm:px-6 sm:py-4 sm:text-[0.95rem]"
               >
-                Quero ensinar meu cao agora
+                Quero resolver o xixi do meu cao agora
                 <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
@@ -999,13 +1060,18 @@ function CtaFinal() {
           rel="noopener noreferrer"
           className="inline-flex min-h-[50px] w-full items-center justify-center gap-2.5 rounded-full bg-[var(--color-accent)] px-8 py-3.5 text-[0.9rem] font-bold text-white !no-underline shadow-[0_6px_24px_rgba(0,188,212,0.3)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_32px_rgba(0,188,212,0.4)] hover:!no-underline sm:min-h-[56px] sm:w-auto sm:px-10 sm:py-4 sm:text-base"
         >
-          Quero ensinar meu cao agora — R$ 197
+          Quero comecar agora por R$ 97
           <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
           </svg>
         </a>
 
-        <p className="mt-4 text-[0.78rem] text-[var(--color-gray-400)] sm:mt-5 sm:text-[0.82rem]">
+        <p className="mt-3 text-[0.85rem] text-[var(--color-gray-400)] sm:mt-4">
+          <del>R$ 197</del>{' '}
+          <span className="font-bold text-[var(--color-accent)]">R$ 97</span>{' '}
+          <span className="text-[0.78rem]">· Oferta de lancamento</span>
+        </p>
+        <p className="mt-2 text-[0.78rem] text-[var(--color-gray-400)] sm:text-[0.82rem]">
           Pagamento seguro via Hotmart · Acesso imediato · 7 dias de garantia
         </p>
       </div>
@@ -1050,6 +1116,7 @@ export default function LandingXixiCoco() {
       <SobreBrenno />
       <ParaQuemE />
       <Resultados />
+      <Comparativo />
       <Preco />
       <Garantia />
       <FAQ />
