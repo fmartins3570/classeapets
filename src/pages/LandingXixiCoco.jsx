@@ -19,7 +19,7 @@ import { BackgroundGradientAnimation } from '../components/ui/BackgroundGradient
 
 /* ─────────────────────────────────────────────────
    LIGHT THEME — Xixi no Lugar Certo
-   O Metodo Definitivo para Caes Filhotes e Adultos
+   O Metodo Comprovado para Caes Filhotes e Adultos
    Paleta: branco + cinza claro + accent teal (#00BCD4)
    ───────────────────────────────────────────────── */
 

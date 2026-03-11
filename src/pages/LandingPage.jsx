@@ -16,7 +16,6 @@ import {
   Target,
   Award,
   Gift,
-  DollarSign,
   MessageCircle,
   FileText,
   Video,
@@ -390,9 +389,9 @@ function Entregaveis() {
   )
 }
 
-/* ─────────────────── ROI — QUANTO UM ADESTRADOR FATURA ─────────────────── */
+/* ─────────────────── MERCADO PET ─────────────────── */
 
-function ROI() {
+function MercadoPet() {
   useScrollReveal()
 
   return (
@@ -408,34 +407,34 @@ function ROI() {
 
       <div className="relative mx-auto max-w-[900px]">
         <div className="mb-10 text-center sm:mb-14" data-reveal="up">
-          <span className="section-label section-label-light justify-center">Retorno Financeiro</span>
+          <span className="section-label section-label-light justify-center">O Mercado</span>
           <h2 className="mx-auto mb-3 max-w-[600px] !text-[1.5rem] !text-white sm:mb-4 sm:!text-[1.75rem] md:!text-[2.2rem]">
-            Quanto um adestrador profissional fatura?
+            O mercado pet no Brasil nao para de crescer
           </h2>
           <p className="mx-auto max-w-[500px] text-[0.9rem] text-[var(--color-cinza-400)] sm:text-[0.95rem]">
-            O mercado pet cresce 14% ao ano no Brasil. Confira a media de valores praticados por adestradores:
+            O setor pet cresce 14% ao ano no Brasil (fonte: ABINPET). Conheça alguns dados do segmento:
           </p>
         </div>
 
         <div className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-3 md:gap-6" data-reveal-stagger>
           {[
             {
-              icon: DollarSign,
-              value: 'R$ 150–300',
-              label: 'por sessao individual',
-              detail: 'Atendimento domiciliar de 1h',
+              icon: TrendingUp,
+              value: '3º maior',
+              label: 'mercado pet do mundo',
+              detail: 'Brasil so fica atras de EUA e China',
             },
             {
               icon: Users,
-              value: 'R$ 600–900',
-              label: 'pacote de 5 aulas',
-              detail: 'Formato mais vendido',
+              value: '149 milhoes',
+              label: 'de animais de estimacao',
+              detail: 'Mais pets que criancas no pais',
             },
             {
-              icon: TrendingUp,
-              value: 'R$ 3.000–8.000',
-              label: 'faturamento mensal',
-              detail: 'Com 4 a 10 clientes ativos',
+              icon: Target,
+              value: 'R$ 68 bi',
+              label: 'faturamento do setor em 2024',
+              detail: 'Crescimento acima da media da economia',
             },
           ].map((item) => (
             <GlowingShadow key={item.label} className="rounded-2xl">
@@ -461,10 +460,10 @@ function ROI() {
 
         <div className="mt-8 rounded-xl border border-[var(--color-success)]/20 bg-[var(--color-success)]/5 p-4 text-center sm:mt-12 sm:rounded-2xl sm:p-6" data-reveal="fade">
           <p className="text-[0.9rem] font-medium text-[var(--color-success)] sm:text-[1rem]">
-            O mercado oferece oportunidades de retorno rapido para quem se dedica.
+            Um setor em expansao com demanda crescente por profissionais qualificados.
           </p>
           <p className="mt-2 text-[0.72rem] text-[var(--color-cinza-500)] sm:text-[0.75rem]">
-            *Valores ilustrativos baseados em media de mercado. Resultados individuais variam conforme dedicacao, regiao e experiencia.
+            *Dados baseados em relatorios publicos do setor pet brasileiro (ABINPET 2024).
           </p>
         </div>
       </div>
@@ -529,7 +528,7 @@ function SobreBrenno() {
             </p>
             <p className="mb-6 text-[0.95rem] leading-relaxed text-[var(--color-texto-muted)] sm:mb-8 sm:text-[1.05rem]">
               Com mais de 5 anos de experiencia, ja impactei +250 familias. Minha missao e te ensinar
-              o exato caminho que trilhei para me tornar um profissional bem remunerado e viver do que amo.
+              o exato caminho que trilhei para me tornar um profissional realizado e viver do que amo.
             </p>
 
             <div className="flex flex-wrap gap-5 sm:gap-6">
@@ -637,25 +636,21 @@ const bonusItems = [
     icon: Video,
     title: 'Plataforma com +50 videoaulas',
     description: 'Acesso completo a plataforma online para revisar e aprofundar o conteudo quando quiser.',
-    value: 'R$ 997',
   },
   {
     icon: MessageCircle,
     title: 'Grupo VIP no WhatsApp',
     description: 'Comunidade exclusiva de alunos para trocar experiencias, tirar duvidas e fazer networking.',
-    value: 'R$ 297',
   },
   {
     icon: Award,
     title: 'Certificado com TCC',
     description: 'Certificacao profissional com carga de +100 horas e Trabalho de Conclusao de Curso.',
-    value: 'R$ 497',
   },
   {
     icon: FileText,
     title: 'Kit do Adestrador Profissional',
     description: 'Templates de contrato, tabela de precificacao, modelo de orcamento e scripts de captacao de clientes.',
-    value: 'R$ 297',
   },
 ]
 
@@ -687,8 +682,8 @@ function Bonus() {
                     </span>
                   </div>
                   <p className="mb-1.5 text-[0.82rem] leading-relaxed text-[var(--color-texto-muted)] sm:text-[0.88rem]">{item.description}</p>
-                  <p className="text-[0.78rem] text-[var(--color-cinza-400)]">
-                    Valor: <del>{item.value}</del>
+                  <p className="text-[0.78rem] font-medium text-[var(--color-success)]">
+                    Incluido na formacao
                   </p>
                 </div>
               </div>
@@ -705,8 +700,6 @@ function Bonus() {
 function Preco() {
   useScrollReveal()
 
-  const valorTotal = 3500 + 997 + 297 + 497 + 297
-
   return (
     <section
       id="preco"
@@ -719,24 +712,20 @@ function Preco() {
           <h2 className="!text-[1.5rem] !text-white sm:!text-[1.75rem] md:!text-[2.2rem]">O investimento para iniciar sua nova profissao</h2>
         </div>
 
-        {/* Value stack */}
+        {/* O que esta incluido */}
         <div className="mb-6 space-y-2.5 sm:mb-8" data-reveal="fade">
           {[
-            { label: 'Curso Presencial — 3 meses (100h+)', value: 'R$ 3.500' },
-            { label: 'Plataforma com +50 videoaulas', value: 'R$ 997' },
-            { label: 'Certificado com TCC', value: 'R$ 497' },
-            { label: 'Grupo VIP no WhatsApp', value: 'R$ 297' },
-            { label: 'Kit do Adestrador Profissional', value: 'R$ 297' },
-          ].map((item) => (
-            <div key={item.label} className="flex items-center justify-between rounded-lg border border-white/5 bg-white/3 px-4 py-2.5 sm:px-5 sm:py-3">
-              <span className="text-[0.82rem] text-[var(--color-cinza-400)] sm:text-[0.88rem]">{item.label}</span>
-              <del className="text-[0.82rem] text-[var(--color-cinza-500)] sm:text-[0.88rem]">{item.value}</del>
+            'Curso Presencial — 3 meses (100h+)',
+            'Plataforma com +50 videoaulas',
+            'Certificado com TCC',
+            'Grupo VIP no WhatsApp',
+            'Kit do Adestrador Profissional',
+          ].map((label) => (
+            <div key={label} className="flex items-center gap-3 rounded-lg border border-white/5 bg-white/3 px-4 py-2.5 sm:px-5 sm:py-3">
+              <CheckCircle2 className="h-4 w-4 shrink-0 text-[var(--color-success)]" aria-hidden />
+              <span className="text-[0.82rem] text-[var(--color-cinza-300)] sm:text-[0.88rem]">{label}</span>
             </div>
           ))}
-          <div className="flex items-center justify-between rounded-lg border border-white/10 bg-white/5 px-4 py-3 sm:px-5">
-            <span className="text-[0.88rem] font-semibold text-white sm:text-[0.95rem]">Valor total</span>
-            <del className="text-[0.95rem] font-bold text-[var(--color-cinza-400)] sm:text-[1.05rem]">R$ {valorTotal.toLocaleString('pt-BR')}</del>
-          </div>
         </div>
 
         {/* Wrapper with padding-top so badge isn't clipped */}
@@ -780,15 +769,8 @@ function Preco() {
                 Opcoes flexiveis em 3x ou 6x sem juros no cartao.
               </p>
 
-              {/* Savings callout */}
-              <div className="mx-auto mt-4 max-w-[320px] rounded-lg bg-[var(--color-success)]/6 px-3 py-2 text-center sm:mt-5">
-                <p className="text-[0.78rem] font-semibold text-[var(--color-success)] sm:text-[0.82rem]">
-                  Voce economiza R$ {(valorTotal - 2800).toLocaleString('pt-BR')} nesta oferta
-                </p>
-              </div>
-
               {/* Custo por hora */}
-              <p className="mt-3 text-center text-[0.75rem] text-[var(--color-cinza-400)] sm:text-[0.78rem]">
+              <p className="mt-4 text-center text-[0.75rem] text-[var(--color-cinza-400)] sm:mt-5 sm:text-[0.78rem]">
                 Menos de R$ 27/hora de formacao profissional
               </p>
 
@@ -837,12 +819,12 @@ const faqItems = [
   {
     pergunta: 'Quanto tempo ate conseguir o primeiro cliente?',
     resposta:
-      'Muitos alunos conseguem o primeiro cliente ainda durante o curso, aplicando as tecnicas de posicionamento e captacao que ensinamos no Mes 3. O metodo inclui scripts prontos e estrategias testadas.',
+      'Muitos alunos conseguem o primeiro cliente ainda durante o curso, aplicando as tecnicas de posicionamento e captacao que ensinamos no Mes 3. O metodo inclui scripts prontos e estrategias testadas. Resultados variam conforme dedicação.',
   },
   {
-    pergunta: 'Quanto um adestrador profissional ganha?',
+    pergunta: 'Como esta o mercado para adestradores?',
     resposta:
-      'Uma sessao individual costuma variar entre R$ 150 e R$ 300 no mercado. Adestradores com 4 a 10 clientes ativos reportam faturamento entre R$ 3.000 e R$ 8.000. Resultados variam conforme dedicacao e regiao.',
+      'O mercado pet brasileiro e o 3o maior do mundo e cresce 14% ao ano (ABINPET). A demanda por profissionais qualificados acompanha esse crescimento. Resultados individuais variam conforme dedicacao, regiao e experiencia.',
   },
   {
     pergunta: 'O certificado e reconhecido?',
@@ -968,6 +950,9 @@ function LandingFooter() {
             Política de Privacidade
           </a>
         </div>
+        <p className="text-center text-[10px] text-[var(--color-cinza-500)]">
+          Resultados podem variar conforme dedicação e perfil do aluno.
+        </p>
         <p className="text-center text-xs text-[var(--color-cinza-500)]">
           &copy; 2026 Classe A Pets — Todos os direitos reservados.
         </p>
@@ -986,7 +971,7 @@ export default function LandingPage() {
       <PublicoAlvo />
       <Jornada />
       <Entregaveis />
-      <ROI />
+      <MercadoPet />
       <SobreBrenno />
       <Formato />
       <Bonus />

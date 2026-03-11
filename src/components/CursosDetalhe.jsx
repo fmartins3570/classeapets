@@ -52,7 +52,7 @@ function CursosDetalhe() {
                   'Formação Técnica + Comportamental + Emocional',
                   'Desde o 1º dia em contato direto com os cães',
                   'Networking com outros participantes',
-                  'Saia da formação com seus primeiros clientes',
+                  'Ferramentas para conquistar seus primeiros clientes',
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2 text-sm text-gray-600">
                     <svg className="mt-0.5 h-5 w-5 shrink-0 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>

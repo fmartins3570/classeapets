@@ -18,10 +18,10 @@ function Hero() {
               Turma Presencial em São Paulo
             </span>
             <h1 className="mb-4 text-[1.6rem] font-extrabold leading-tight text-gray-900 sm:mb-5 sm:text-4xl md:text-5xl lg:text-6xl">
-              Transforme Sua Paixão por Cães em uma Profissão Lucrativa
+              Transforme Sua Paixão por Cães em uma Nova Carreira
             </h1>
             <p className="mb-4 text-[0.95rem] leading-relaxed text-gray-600 sm:mb-5 sm:text-lg lg:max-w-[540px]">
-              Aprenda do zero como faturar no mercado pet com o método renovador. Seja você um apaixonado
+              Aprenda do zero como atuar profissionalmente no mercado pet com o método renovador. Seja você um apaixonado
               por cães, tutor ou passeador, nossa formação presencial te dá o passo a passo, a prática
               real e a confiança para iniciar sua nova carreira como adestrador.
             </p>

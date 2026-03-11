@@ -9,13 +9,13 @@ function Depoimentos() {
       rating: 5,
     },
     {
-      nome: 'João Souza',
+      nome: 'João S.',
       tutorDe: 'Tutor da Maia',
       texto: 'A Maia, uma encantadora yorkshire de 3 anos, tem se destacado não apenas pela fofura, mas também pelo seu comportamento exemplar, graças ao adestramento do Brenno. Cada passeio se transforma em uma oportunidade de explorar o mundo ao seu redor.',
       rating: 5,
     },
     {
-      nome: 'Maria Silva',
+      nome: 'Maria S.',
       tutorDe: 'Tutora do Max',
       texto: 'O Brenno demonstrou uma habilidade excepcional ao trabalhar com Max, o bulldog de 1 ano. Desde o início, ficou evidente a conexão que Brenno distribuía com o cão, utilizando técnicas de adestramento modernas que estimularam e respeitaram a personalidade única de Max. O progresso de Max em tão pouco tempo é uma prova da competência do adestrador.',
       rating: 5,
@@ -60,6 +60,9 @@ function Depoimentos() {
             </GlowCard>
           ))}
         </div>
+        <p className="mt-6 text-center text-xs text-gray-400" data-reveal="up">
+          * Alguns nomes foram abreviados para preservar a privacidade. Resultados podem variar conforme dedicação e perfil do cão.
+        </p>
       </div>
     </section>
   )
