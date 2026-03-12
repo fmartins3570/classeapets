@@ -6,11 +6,12 @@ import Hero from './components/Hero'
 import Stats from './components/Stats'
 import Servicos from './components/Servicos'
 import Footer from './components/Footer'
-import LandingPage from './pages/LandingPage'
-import LandingXixiCoco from './pages/LandingXixiCoco'
-import TermosDeUso from './pages/TermosDeUso'
-import PoliticaDePrivacidade from './pages/PoliticaDePrivacidade'
-import PagamentoStatus from './pages/PagamentoStatus'
+const LandingPage = lazy(() => import('./pages/LandingPage'))
+const LandingXixiCoco = lazy(() => import('./pages/LandingXixiCoco'))
+const LandingAwareness = lazy(() => import('./pages/LandingAwareness'))
+const TermosDeUso = lazy(() => import('./pages/TermosDeUso'))
+const PoliticaDePrivacidade = lazy(() => import('./pages/PoliticaDePrivacidade'))
+const PagamentoStatus = lazy(() => import('./pages/PagamentoStatus'))
 import CookieConsent from './components/CookieConsent'
 
 const Sobre = lazy(() => import('./components/Sobre'))
@@ -109,14 +110,17 @@ function App() {
 
   return (
     <>
-      <Routes>
-        <Route path="/" element={homeContent} />
-        <Route path="/curso-adestramento-classeapets-presencial" element={<LandingPage />} />
-        <Route path="/xixi-e-coco-no-lugar-certo" element={<LandingXixiCoco />} />
-        <Route path="/termos-de-uso" element={<TermosDeUso />} />
-        <Route path="/politica-de-privacidade" element={<PoliticaDePrivacidade />} />
-        <Route path="/pagamento/:status" element={<PagamentoStatus />} />
-      </Routes>
+      <Suspense fallback={null}>
+        <Routes>
+          <Route path="/" element={homeContent} />
+          <Route path="/curso-adestramento-classeapets-presencial" element={<LandingPage />} />
+          <Route path="/xixi-e-coco-no-lugar-certo" element={<LandingXixiCoco />} />
+          <Route path="/profissao-adestrador" element={<LandingAwareness />} />
+          <Route path="/termos-de-uso" element={<TermosDeUso />} />
+          <Route path="/politica-de-privacidade" element={<PoliticaDePrivacidade />} />
+          <Route path="/pagamento/:status" element={<PagamentoStatus />} />
+        </Routes>
+      </Suspense>
       <CookieConsent />
     </>
   )

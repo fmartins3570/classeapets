@@ -16,6 +16,7 @@ import {
 import useScrollReveal from '../hooks/useScrollReveal'
 import { assetUrl } from '../utils/assetUrl'
 import { BackgroundGradientAnimation } from '../components/ui/BackgroundGradientAnimation'
+import VideoPlayer from '../components/ui/VideoPlayer'
 
 /* ─────────────────────────────────────────────────
    LIGHT THEME — Xixi no Lugar Certo
@@ -525,18 +526,7 @@ function SobreBrenno() {
         <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-16">
           {/* Video */}
           <div data-reveal="left">
-            <div className="relative mx-auto max-w-[85vw] overflow-hidden rounded-2xl border border-[var(--color-gray-200)] bg-[var(--color-gray-100)] shadow-[0_8px_32px_rgba(0,0,0,0.06)] sm:max-w-[320px] sm:rounded-3xl md:max-w-none">
-              <div className="aspect-[9/16]">
-                <iframe
-                  src="https://www.youtube.com/embed/CMqEWXaRhWU?rel=0&modestbranding=1"
-                  title="Conheca o Brenno — Classe A Pets"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="h-full w-full border-0"
-                  loading="lazy"
-                />
-              </div>
-            </div>
+            <VideoPlayer youtube="CMqEWXaRhWU" variant="light" />
           </div>
 
           {/* Text */}

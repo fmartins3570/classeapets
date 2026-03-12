@@ -26,7 +26,7 @@ function Footer() {
   ]
 
   return (
-    <footer id="site-footer" className="bg-slate-900 text-slate-400">
+    <footer id="site-footer" className="bg-slate-900 text-slate-300">
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-4 py-12 sm:grid-cols-2 sm:gap-10 sm:px-6 sm:py-16 lg:grid-cols-4">
         <div>
           <a href="#hero" className="mb-5 inline-flex items-center no-underline hover:opacity-90 hover:no-underline">
@@ -40,7 +40,7 @@ function Footer() {
               decoding="async"
             />
           </a>
-          <p className="mb-6 max-w-[280px] text-sm leading-relaxed text-slate-400">
+          <p className="mb-6 max-w-[280px] text-sm leading-relaxed text-slate-300">
             Adestramento de cães com método moderno. Transformando a relação entre cães e tutores no
             ABC Paulista e São Paulo.
           </p>
@@ -69,7 +69,7 @@ function Footer() {
               <li key={link.label}>
                 <a
                   href={link.href}
-                  className="text-sm text-slate-400 transition-colors duration-200 hover:text-white"
+                  className="text-sm text-slate-300 transition-colors duration-200 hover:text-white"
                 >
                   {link.label}
                 </a>
@@ -85,7 +85,7 @@ function Footer() {
               <li key={course.label}>
                 <a
                   href={course.href}
-                  className="text-sm text-slate-400 transition-colors duration-200 hover:text-white"
+                  className="text-sm text-slate-300 transition-colors duration-200 hover:text-white"
                 >
                   {course.label}
                 </a>

@@ -24,6 +24,7 @@ import {
 import LandingHeader from '../components/LandingHeader'
 import { BackgroundGradientAnimation } from '../components/ui/BackgroundGradientAnimation'
 import { GlowingShadow } from '../components/ui/GlowingShadow'
+import VideoPlayer from '../components/ui/VideoPlayer'
 import useScrollReveal from '../hooks/useScrollReveal'
 import { createCheckout } from '../utils/checkout'
 
@@ -499,18 +500,7 @@ function SobreBrenno() {
               loading="lazy"
               decoding="async"
             />
-            <div className="relative mx-auto max-w-[85vw] overflow-hidden rounded-2xl border border-[var(--color-cinza-200)] bg-[var(--color-charcoal)] shadow-[var(--shadow-lg)] sm:max-w-[320px] sm:rounded-3xl md:max-w-none">
-              <div className="aspect-[9/16]">
-                <iframe
-                  src="https://www.youtube.com/embed/CMqEWXaRhWU?rel=0&modestbranding=1"
-                  title="Conheca o Brenno — Classe A Pets"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="h-full w-full border-0"
-                  loading="lazy"
-                />
-              </div>
-            </div>
+            <VideoPlayer youtube="CMqEWXaRhWU" variant="dark" />
           </div>
 
           {/* Text */}

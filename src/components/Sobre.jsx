@@ -1,5 +1,6 @@
 import { assetUrl } from '../utils/assetUrl'
 import { InteractiveHoverButton } from './ui/InteractiveHoverButton'
+import VideoPlayer from './ui/VideoPlayer'
 
 function Sobre() {
   const whatsappHref = 'https://wa.me/5511934066866'
@@ -20,9 +21,7 @@ function Sobre() {
               loading="lazy"
               decoding="async"
             />
-            <div className="flex aspect-video items-center justify-center overflow-hidden rounded-xl bg-slate-800 text-sm text-slate-400 shadow-lg">
-              Vídeo (placeholder)
-            </div>
+            <VideoPlayer youtube="CMqEWXaRhWU" variant="dark" />
           </div>
           <div className="order-1 md:order-2" data-reveal="right">
             <p className="mb-4 leading-relaxed text-slate-200">
@@ -34,12 +33,12 @@ function Sobre() {
               com o trabalho no universo pet. Mas foi em 2021 que dei um passo decisivo: entrei no curso
               profissionalizante de adestrador de cães.
             </p>
-            <p className="mb-4 leading-relaxed text-slate-300">
+            <p className="mb-4 leading-relaxed text-slate-200">
               Ao concluir a formação, tomei a decisão mais importante da minha vida — deixei a engenharia
               para trás e escolhi viver do que realmente me realiza: trabalhar com cães. Desde então, atuo
               de forma autônoma e com dedicação total à profissão.
             </p>
-            <p className="mb-6 leading-relaxed text-slate-300">
+            <p className="mb-6 leading-relaxed text-slate-200">
               Com mais de 4 anos de experiência prática, lidando com cães de diferentes raças e perfis,
               senti que era hora de dar um novo passo. Foi assim que comecei a compartilhar tudo o que
               aprendi — e, desde então, venho transformando a vida de centenas de cães, tutores e
