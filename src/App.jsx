@@ -9,6 +9,7 @@ import Footer from './components/Footer'
 const LandingPage = lazy(() => import('./pages/LandingPage'))
 const LandingXixiCoco = lazy(() => import('./pages/LandingXixiCoco'))
 const LandingAwareness = lazy(() => import('./pages/LandingAwareness'))
+const LandingProvaSocial = lazy(() => import('./pages/LandingProvaSocial'))
 const TermosDeUso = lazy(() => import('./pages/TermosDeUso'))
 const PoliticaDePrivacidade = lazy(() => import('./pages/PoliticaDePrivacidade'))
 const PagamentoStatus = lazy(() => import('./pages/PagamentoStatus'))
@@ -116,6 +117,7 @@ function App() {
           <Route path="/curso-adestramento-classeapets-presencial" element={<LandingPage />} />
           <Route path="/xixi-e-coco-no-lugar-certo" element={<LandingXixiCoco />} />
           <Route path="/profissao-adestrador" element={<LandingAwareness />} />
+          <Route path="/prova-social-adestrador" element={<LandingProvaSocial />} />
           <Route path="/termos-de-uso" element={<TermosDeUso />} />
           <Route path="/politica-de-privacidade" element={<PoliticaDePrivacidade />} />
           <Route path="/pagamento/:status" element={<PagamentoStatus />} />
