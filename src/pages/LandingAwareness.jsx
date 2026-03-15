@@ -311,6 +311,34 @@ export default function LandingAwareness() {
         </div>
       </section>
 
+      {/* ── QUANTO FATURA ── */}
+      <section className="relative py-16 sm:py-24">
+        <div className="mx-auto max-w-5xl px-5">
+          <p
+            className="mb-3 text-center text-sm font-semibold tracking-widest text-[var(--color-cyan)] uppercase"
+            data-reveal
+          >
+            Na prática
+          </p>
+          <h2
+            className="mb-4 text-center text-2xl font-bold tracking-tight text-white sm:text-3xl md:text-4xl"
+            data-reveal
+          >
+            Quanto um adestrador bem posicionado fatura por mês?
+          </h2>
+          <p
+            className="mx-auto mb-8 max-w-xl text-center text-base leading-relaxed text-[var(--color-cinza-200)] sm:mb-12 sm:text-lg"
+            data-reveal
+          >
+            O Brenno mostra os números reais da profissão — sem promessas, só fatos.
+          </p>
+
+          <div data-reveal>
+            <VideoPlayer src="/videos/quanto-fatura-adestrador.mp4" />
+          </div>
+        </div>
+      </section>
+
       {/* ── COMPARATIVO ── */}
       <section className="relative py-8 sm:py-16">
         <div className="mx-auto max-w-5xl px-5">

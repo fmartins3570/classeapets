@@ -205,6 +205,14 @@ function PublicoAlvo() {
             </GlowingShadow>
           ))}
         </div>
+
+        {/* Video: Sem experiência */}
+        <div className="mt-10 sm:mt-14" data-reveal="fade">
+          <p className="mb-4 text-center text-[0.9rem] text-[var(--color-texto-muted)] sm:mb-6 sm:text-[0.95rem]">
+            Acha que precisa de experiencia previa? Assista:
+          </p>
+          <VideoPlayer src="/videos/sem-experiencia-caes.mp4" variant="light" />
+        </div>
       </div>
     </section>
   )
@@ -500,7 +508,7 @@ function SobreBrenno() {
               loading="lazy"
               decoding="async"
             />
-            <VideoPlayer youtube="CMqEWXaRhWU" variant="dark" />
+            <VideoPlayer src="/videos/quem-e-brenno-adestrador.mp4" variant="dark" />
           </div>
 
           {/* Text */}
@@ -613,6 +621,14 @@ function Formato() {
               </article>
             </GlowingShadow>
           ))}
+        </div>
+
+        {/* Video: Conciliar com trabalho */}
+        <div className="mt-10 sm:mt-14" data-reveal="fade">
+          <p className="mb-4 text-center text-[0.9rem] text-[var(--color-cinza-400)] sm:mb-6 sm:text-[0.95rem]">
+            Trabalha CLT ou estuda? Veja como o Brenno comecou conciliando:
+          </p>
+          <VideoPlayer src="/videos/conciliar-trabalho.mp4" />
         </div>
       </div>
     </section>

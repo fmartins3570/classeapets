@@ -526,7 +526,7 @@ function SobreBrenno() {
         <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-16">
           {/* Video */}
           <div data-reveal="left">
-            <VideoPlayer youtube="CMqEWXaRhWU" variant="light" />
+            <VideoPlayer src="/videos/quem-e-brenno-adestrador.mp4" variant="light" />
           </div>
 
           {/* Text */}

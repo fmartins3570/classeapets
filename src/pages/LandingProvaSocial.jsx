@@ -252,6 +252,45 @@ export default function LandingProvaSocial() {
         </div>
       </section>
 
+      {/* ── CASO DE SUCESSO ── */}
+      <section className="relative py-16 sm:py-24">
+        <div className="mx-auto max-w-5xl px-5">
+          <p
+            className="mb-3 text-center text-sm font-semibold tracking-widest text-[var(--color-cyan)] uppercase"
+            data-reveal
+          >
+            Caso de sucesso
+          </p>
+          <h2
+            className="mb-4 text-center text-2xl font-bold tracking-tight text-white sm:text-3xl md:text-4xl"
+            data-reveal
+          >
+            O aluno que faturou antes de terminar o curso
+          </h2>
+          <p
+            className="mx-auto mb-8 max-w-xl text-center text-base leading-relaxed text-[var(--color-cinza-200)] sm:mb-12 sm:text-lg"
+            data-reveal
+          >
+            Veja como um aluno da formação começou a atender e gerar resultados
+            ainda durante o curso.
+          </p>
+
+          <div data-reveal>
+            <VideoPlayer src="/videos/aluno-faturou-antes-terminar.mp4" />
+          </div>
+
+          <div className="mt-8 flex justify-center" data-reveal>
+            <a
+              href="/curso-adestramento-classeapets-presencial"
+              className="btn-primary group inline-flex items-center gap-3 !rounded-full !px-8 !py-4 !text-sm !font-bold !tracking-wider !uppercase !no-underline hover:!no-underline sm:!text-base"
+            >
+              Quero começar minha formação
+              <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* ── DEPOIMENTOS ── */}
       <section className="relative py-16 sm:py-24">
         <div className="mx-auto max-w-5xl px-5">
