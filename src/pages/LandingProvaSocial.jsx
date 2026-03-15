@@ -160,24 +160,9 @@ function SimpleFooter() {
 
 const testimonials = [
   {
-    name: 'Aluno(a) 1',
-    role: 'Aluno(a) da Formação',
-    text: 'Depoimento real em breve. Este é um placeholder para ser substituído por um depoimento verdadeiro de um aluno da formação.',
-  },
-  {
-    name: 'Aluno(a) 2',
-    role: 'Aluno(a) da Formação',
-    text: 'Depoimento real em breve. Este é um placeholder para ser substituído por um depoimento verdadeiro de um aluno da formação.',
-  },
-  {
-    name: 'Aluno(a) 3',
-    role: 'Aluno(a) da Formação',
-    text: 'Depoimento real em breve. Este é um placeholder para ser substituído por um depoimento verdadeiro de um aluno da formação.',
-  },
-  {
-    name: 'Aluno(a) 4',
-    role: 'Aluno(a) da Formação',
-    text: 'Depoimento real em breve. Este é um placeholder para ser substituído por um depoimento verdadeiro de um aluno da formação.',
+    name: 'Felipe Ramalho',
+    role: 'Aluno da Formação',
+    text: 'Eu sempre gostei de cachorro, mas nunca imaginei que pudesse viver disso. Não tinha conhecimento nenhum do lado profissional. Conheci o Brenno, meti as caras e comecei a fazer o curso. Menos de um mês, já estava com 10, 15 clientes. E eu nem terminei o curso ainda!',
   },
 ]
 
@@ -308,8 +293,8 @@ export default function LandingProvaSocial() {
           </h2>
 
           <div
-            className="grid grid-cols-1 gap-4 sm:grid-cols-2"
-            data-reveal-stagger
+            className="mx-auto max-w-lg"
+            data-reveal
           >
             {testimonials.map((t, i) => (
               <TestimonialCard key={i} {...t} />
