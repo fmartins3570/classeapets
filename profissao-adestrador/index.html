@@ -6,6 +6,7 @@
     <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light only" />
     <meta
       name="description"
       content="Adiestre seu cão com método moderno em São Paulo. Cursos presenciais, híbridos e digitais com o adestrador Brenno. Fale agora no WhatsApp."
@@ -95,9 +96,15 @@
   <body style="margin:0;background:#ffffff">
     <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1487904233336440&ev=PageView&noscript=1" /></noscript>
     <div id="root">
-      <div style="display:flex;align-items:center;justify-content:center;min-height:100vh;font-family:system-ui,sans-serif;background:#ffffff">
-        <p style="color:#666;font-size:14px">Carregando...</p>
+      <div id="loading-fallback" style="display:flex;align-items:center;justify-content:center;min-height:100vh;font-family:system-ui,sans-serif;background:#ffffff !important;color:#333">
+        <p style="font-size:18px">Carregando Classe A Pets...</p>
       </div>
     </div>
+    <script>
+      window.onerror = function(msg) {
+        var el = document.getElementById('loading-fallback');
+        if (el) el.innerHTML = '<div style="padding:2rem;text-align:center"><h2 style="margin-bottom:1rem">Classe A Pets</h2><p style="margin-bottom:1rem">Erro ao carregar. Tente abrir no navegador (Safari ou Chrome).</p><a href="https://wa.me/5511934066866" style="color:#25d366;font-size:18px">Falar no WhatsApp</a></div>';
+      };
+    </script>
   </body>
 </html>
