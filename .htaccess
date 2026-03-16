@@ -4,6 +4,47 @@ RewriteEngine On
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
+# ── Cache Control ──
+# HTML: never cache (always fetch latest)
+<FilesMatch "\.(html)$">
+  Header set Cache-Control "no-cache, no-store, must-revalidate"
+  Header set Pragma "no-cache"
+  Header set Expires 0
+</FilesMatch>
+
+# Assets with content hash: cache 1 year
+<FilesMatch "\.(js|css)$">
+  Header set Cache-Control "public, max-age=31536000, immutable"
+</FilesMatch>
+
+# Images: cache 30 days
+<FilesMatch "\.(webp|png|jpg|jpeg|svg|ico)$">
+  Header set Cache-Control "public, max-age=2592000"
+</FilesMatch>
+
+# Videos: cache 7 days
+<FilesMatch "\.(mp4|webm)$">
+  Header set Cache-Control "public, max-age=604800"
+</FilesMatch>
+
+# ── CORS for fonts ──
+<FilesMatch "\.(woff2?|ttf|otf|eot)$">
+  Header set Access-Control-Allow-Origin "*"
+</FilesMatch>
+
+# ── Correct MIME types ──
+<IfModule mod_mime.c>
+  AddType application/javascript .js
+  AddType text/css .css
+  AddType video/mp4 .mp4
+  AddType image/webp .webp
+</IfModule>
+
+# ── Compression ──
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+</IfModule>
+
 # Handle SPA routing - serve index.html for all routes
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
