@@ -6,11 +6,10 @@ import { Play, Pause, Volume2, VolumeX } from 'lucide-react'
  *
  * Props:
  *  - src: caminho de vídeo local (ex: "/videos/video.mp4")
- *  - youtube: ID do YouTube (ex: "CMqEWXaRhWU")
  *  - className: classes extras no container
  *  - variant: "dark" (padrão) ou "light" — ajusta borda/sombra
  */
-export default function VideoPlayer({ src, youtube, className = '', variant = 'dark' }) {
+export default function VideoPlayer({ src, className = '', variant = 'dark' }) {
   const videoRef = useRef(null)
   const [isPlaying, setIsPlaying] = useState(false)
   const [isMuted, setIsMuted] = useState(true)
@@ -18,10 +17,7 @@ export default function VideoPlayer({ src, youtube, className = '', variant = 'd
   const [progress, setProgress] = useState(0)
   const hideTimer = useRef(null)
 
-  const isYoutube = !!youtube
-
   const togglePlay = () => {
-    if (isYoutube) return
     const v = videoRef.current
     if (!v) return
     if (v.paused) {
@@ -71,24 +67,6 @@ export default function VideoPlayer({ src, youtube, className = '', variant = 'd
   const glowClass = variant === 'light'
     ? 'from-[var(--color-accent)]/10 via-transparent to-[var(--color-accent)]/5'
     : 'from-[var(--color-cyan)]/20 via-transparent to-[var(--color-cyan)]/10'
-
-  if (isYoutube) {
-    return (
-      <div className={`group relative mx-auto w-full max-w-[320px] overflow-hidden rounded-2xl border sm:max-w-[380px] md:max-w-[406px] ${borderClass} ${className}`}>
-        <div className={`pointer-events-none absolute -inset-[1px] rounded-2xl bg-gradient-to-b ${glowClass}`} aria-hidden />
-        <div className="aspect-[9/16]">
-          <iframe
-            src={`https://www.youtube.com/embed/${youtube}?rel=0&modestbranding=1`}
-            title="Vídeo — Classe A Pets"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className="relative z-10 h-full w-full border-0"
-            loading="lazy"
-          />
-        </div>
-      </div>
-    )
-  }
 
   return (
     <div
