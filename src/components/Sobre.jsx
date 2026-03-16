@@ -1,6 +1,5 @@
 import { assetUrl } from '../utils/assetUrl'
 import { InteractiveHoverButton } from './ui/InteractiveHoverButton'
-import VideoPlayer from './ui/VideoPlayer'
 
 function Sobre() {
   const whatsappHref = 'https://wa.me/5511934066866'
@@ -21,7 +20,6 @@ function Sobre() {
               loading="lazy"
               decoding="async"
             />
-            <VideoPlayer youtube="CMqEWXaRhWU" variant="dark" />
           </div>
           <div className="order-1 md:order-2" data-reveal="right">
             <p className="mb-4 leading-relaxed text-slate-200">
