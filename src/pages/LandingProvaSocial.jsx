@@ -4,6 +4,7 @@ import { assetUrl } from '../utils/assetUrl'
 import { FallingPattern } from '../components/ui/FallingPattern'
 import VideoPlayer from '../components/ui/VideoPlayer'
 import useScrollReveal from '../hooks/useScrollReveal'
+import { trackViewContent } from '../utils/metaPixel'
 
 /* ─────────────────── HEADER ─────────────────── */
 
@@ -173,6 +174,7 @@ export default function LandingProvaSocial() {
 
   useEffect(() => {
     document.title = 'Resultados dos Alunos | Classe A Pets'
+    trackViewContent('Prova Social Adestrador', 'retargeting')
   }, [])
 
   return (
