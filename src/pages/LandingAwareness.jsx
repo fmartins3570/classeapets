@@ -7,6 +7,7 @@ import {
   ArrowRight,
 } from 'lucide-react'
 import { assetUrl } from '../utils/assetUrl'
+import { trackViewContent } from '../utils/metaPixel'
 import { FallingPattern } from '../components/ui/FallingPattern'
 import VideoPlayer from '../components/ui/VideoPlayer'
 import useScrollReveal from '../hooks/useScrollReveal'
@@ -205,6 +206,7 @@ export default function LandingAwareness() {
 
   useEffect(() => {
     document.title = 'Quanto ganha um Adestrador Profissional? | Classe A Pets'
+    trackViewContent('Profissao Adestrador', 'awareness')
   }, [])
 
   return (

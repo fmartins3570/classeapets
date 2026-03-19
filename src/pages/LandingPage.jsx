@@ -27,7 +27,7 @@ import { GlowingShadow } from '../components/ui/GlowingShadow'
 import VideoPlayer from '../components/ui/VideoPlayer'
 import useScrollReveal from '../hooks/useScrollReveal'
 import { createCheckout } from '../utils/checkout'
-import { trackViewContent, trackInitiateCheckout } from '../utils/metaPixel'
+import { trackViewContent, trackInitiateCheckout, trackContact } from '../utils/metaPixel'
 
 /* ─────────────────── CHECKOUT BUTTON ─────────────────── */
 
@@ -906,6 +906,38 @@ function FAQ() {
   )
 }
 
+/* ─────────────────── WHATSAPP CTA ─────────────────── */
+
+function WhatsAppCta() {
+  return (
+    <section className="bg-[#25d366]/5 px-4 py-10 sm:px-8 sm:py-14">
+      <div className="mx-auto max-w-[600px] text-center" data-reveal="scale">
+        <p className="mb-2 text-sm font-semibold tracking-widest text-[#25d366] uppercase">
+          Ficou com dúvida?
+        </p>
+        <h2 className="mb-3 text-xl font-bold text-[var(--color-charcoal)] sm:text-2xl">
+          Fale diretamente com o Brenno
+        </h2>
+        <p className="mb-6 text-sm leading-relaxed text-[var(--color-texto-muted)] sm:text-base">
+          Tire suas dúvidas sobre a formação, turmas disponíveis ou formas de pagamento.
+        </p>
+        <a
+          href="https://wa.me/5511934066866?text=Ol%C3%A1%20Brenno%2C%20tenho%20interesse%20na%20forma%C3%A7%C3%A3o%20presencial!"
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => trackContact('LP Curso WhatsApp')}
+          className="inline-flex items-center gap-3 rounded-full bg-[#25d366] px-8 py-3.5 text-sm font-bold text-white !no-underline shadow-lg transition-transform duration-200 hover:scale-105 hover:!no-underline sm:text-base"
+        >
+          <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current" aria-hidden>
+            <path d="M20.52 3.48A11.86 11.86 0 0 0 12.07 0C5.49 0 .16 5.32.16 11.9c0 2.1.55 4.15 1.6 5.95L0 24l6.33-1.66a11.9 11.9 0 0 0 5.74 1.46h.01c6.58 0 11.92-5.33 11.92-11.9a11.8 11.8 0 0 0-3.48-8.42Zm-8.45 18.3h-.01a9.9 9.9 0 0 1-5.05-1.38l-.36-.22-3.76.99 1-3.66-.24-.38A9.84 9.84 0 0 1 2.15 11.9C2.15 6.42 6.6 1.96 12.08 1.96c2.64 0 5.12 1.03 6.98 2.9a9.8 9.8 0 0 1 2.9 6.98c0 5.49-4.46 9.94-9.9 9.94Zm5.44-7.43c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.18.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.49a9.1 9.1 0 0 1-1.68-2.08c-.18-.3-.02-.47.13-.62.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.48-.5-.67-.5h-.57c-.2 0-.52.08-.8.37-.27.3-1.05 1.02-1.05 2.5s1.08 2.9 1.23 3.1c.15.2 2.12 3.25 5.13 4.55.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.77-.72 2.02-1.41.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z" />
+          </svg>
+          Falar com o Brenno no WhatsApp
+        </a>
+      </div>
+    </section>
+  )
+}
+
 /* ─────────────────── CTA FINAL ─────────────────── */
 
 function LandingCtaFinal() {
@@ -986,6 +1018,7 @@ export default function LandingPage() {
       <Bonus />
       <Preco />
       <FAQ />
+      <WhatsAppCta />
       <LandingCtaFinal />
       <LandingFooter />
     </div>
