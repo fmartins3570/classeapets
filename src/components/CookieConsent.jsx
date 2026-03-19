@@ -19,12 +19,6 @@ function setConsent(value) {
   }
 }
 
-function grantMetaConsent() {
-  if (typeof window.fbq === 'function') {
-    window.fbq('consent', 'grant')
-  }
-}
-
 function CookieConsent() {
   const [visible, setVisible] = useState(false)
 
@@ -32,14 +26,11 @@ function CookieConsent() {
     const consent = getConsent()
     if (!consent) {
       setVisible(true)
-    } else if (consent === 'accepted') {
-      grantMetaConsent()
     }
   }, [])
 
   const handleAccept = () => {
     setConsent('accepted')
-    grantMetaConsent()
     setVisible(false)
   }
 

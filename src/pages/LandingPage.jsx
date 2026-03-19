@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import {
   Heart,
   GraduationCap,
@@ -27,6 +27,7 @@ import { GlowingShadow } from '../components/ui/GlowingShadow'
 import VideoPlayer from '../components/ui/VideoPlayer'
 import useScrollReveal from '../hooks/useScrollReveal'
 import { createCheckout } from '../utils/checkout'
+import { trackViewContent, trackInitiateCheckout } from '../utils/metaPixel'
 
 /* ─────────────────── CHECKOUT BUTTON ─────────────────── */
 
@@ -36,6 +37,7 @@ function CheckoutButton({ children, className = '' }) {
   const handleCheckout = async () => {
     if (loading) return
     setLoading(true)
+    trackInitiateCheckout(2660, 'BRL')
     try {
       await createCheckout('curso-adestrador-profissional')
     } catch {
@@ -970,6 +972,7 @@ function LandingFooter() {
 /* ─────────────────── PAGE ─────────────────── */
 
 export default function LandingPage() {
+  useEffect(() => { trackViewContent('Curso Adestrador Presencial', 'landing_page') }, [])
   return (
     <div className="min-h-screen overflow-x-clip">
       <LandingHeader />

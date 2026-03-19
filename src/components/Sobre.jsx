@@ -1,5 +1,6 @@
 import { assetUrl } from '../utils/assetUrl'
 import { InteractiveHoverButton } from './ui/InteractiveHoverButton'
+import { trackContact } from '../utils/metaPixel'
 
 function Sobre() {
   const whatsappHref = 'https://wa.me/5511934066866'
@@ -47,6 +48,7 @@ function Sobre() {
               target="_blank"
               rel="noopener noreferrer"
               text="Quero falar com o Brenno"
+              onClick={() => trackContact('Sobre Brenno')}
               variant="white"
               className="w-full text-sm shadow-lg sm:w-auto sm:text-base"
             />

@@ -1,4 +1,5 @@
 import { InteractiveHoverButton } from './ui/InteractiveHoverButton'
+import { trackContact } from '../utils/metaPixel'
 
 function CtaFinal() {
   const whatsappHref = 'https://wa.me/5511934066866'
@@ -19,6 +20,7 @@ function CtaFinal() {
           target="_blank"
           rel="noopener noreferrer"
           text="Quero entrar em contato!"
+          onClick={() => trackContact('CTA Final')}
           className="w-full text-sm shadow-lg sm:w-fit sm:text-base"
         />
       </div>

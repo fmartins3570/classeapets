@@ -14,6 +14,7 @@ const TermosDeUso = lazy(() => import('./pages/TermosDeUso'))
 const PoliticaDePrivacidade = lazy(() => import('./pages/PoliticaDePrivacidade'))
 const PagamentoStatus = lazy(() => import('./pages/PagamentoStatus'))
 import CookieConsent from './components/CookieConsent'
+import { trackContact } from './utils/metaPixel'
 
 const Sobre = lazy(() => import('./components/Sobre'))
 const Depoimentos = lazy(() => import('./components/Depoimentos'))
@@ -116,6 +117,7 @@ function App() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Falar no WhatsApp"
+        onClick={() => trackContact('WhatsApp Flutuante')}
         className="fixed right-4 z-[1200] inline-flex h-14 w-14 touch-manipulation items-center justify-center rounded-full bg-[#25d366] text-[var(--color-branco)] !no-underline shadow-[0_10px_24px_rgba(37,211,102,0.45)] transition-transform duration-200 hover:scale-105 hover:!no-underline focus:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-branco)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#25d366] sm:right-5"
         style={{ bottom: 'max(1rem, env(safe-area-inset-bottom))' }}
       >

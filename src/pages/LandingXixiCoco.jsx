@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import {
   CheckCircle2,
   ChevronDown,
@@ -15,6 +15,7 @@ import {
 } from 'lucide-react'
 import useScrollReveal from '../hooks/useScrollReveal'
 import { assetUrl } from '../utils/assetUrl'
+import { trackViewContent } from '../utils/metaPixel'
 import { BackgroundGradientAnimation } from '../components/ui/BackgroundGradientAnimation'
 import VideoPlayer from '../components/ui/VideoPlayer'
 
@@ -1087,6 +1088,7 @@ function LandingFooter() {
 /* ─────────────────── PAGE ─────────────────── */
 
 export default function LandingXixiCoco() {
+  useEffect(() => { trackViewContent('Xixi e Coco no Lugar Certo', 'landing_page') }, [])
   return (
     <div className="min-h-screen overflow-x-clip bg-white">
       <XixiCocoHeader />

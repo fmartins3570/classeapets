@@ -1,6 +1,7 @@
 import { assetUrl } from '../utils/assetUrl'
 import { InteractiveHoverButton } from './ui/InteractiveHoverButton'
 import { GlowCard } from './ui/GlowCard'
+import { trackContact } from '../utils/metaPixel'
 
 function Mentoria() {
   const whatsappHref = 'https://wa.me/5511934066866?text=Ol%C3%A1%2C%20tenho%20interesse%20na%20mentoria%20para%20profissionais!'
@@ -63,6 +64,7 @@ function Mentoria() {
                 target="_blank"
                 rel="noopener noreferrer"
                 text="Quero saber mais sobre a mentoria"
+                onClick={() => trackContact('Mentoria')}
                 className="w-full text-sm shadow-lg sm:text-base"
               />
             </div>
