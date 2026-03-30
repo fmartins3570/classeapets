@@ -15,7 +15,7 @@ export default defineConfig({
       closeBundle() {
         // Copy index.html to SPA sub-routes so static hosts serve them correctly
         const dist = resolve(__dirname, 'dist')
-        const routes = ['curso-adestramento-classeapets-presencial', 'xixi-e-coco-no-lugar-certo', 'profissao-adestrador', 'prova-social-adestrador']
+        const routes = ['curso-adestramento-classeapets-presencial', 'curso-adestramento-classeapets-presencial-b', 'xixi-e-coco-no-lugar-certo', 'profissao-adestrador', 'prova-social-adestrador']
         for (const route of routes) {
           const dir = resolve(dist, route)
           mkdirSync(dir, { recursive: true })

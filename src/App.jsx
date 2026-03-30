@@ -7,6 +7,7 @@ import Stats from './components/Stats'
 import Servicos from './components/Servicos'
 import Footer from './components/Footer'
 const LandingPage = lazy(() => import('./pages/LandingPage'))
+const LandingPageB = lazy(() => import('./pages/LandingPageB'))
 const LandingXixiCoco = lazy(() => import('./pages/LandingXixiCoco'))
 const LandingAwareness = lazy(() => import('./pages/LandingAwareness'))
 const LandingProvaSocial = lazy(() => import('./pages/LandingProvaSocial'))
@@ -95,6 +96,7 @@ function App() {
         <Routes>
           <Route path="/" element={homeContent} />
           <Route path="/curso-adestramento-classeapets-presencial" element={<LandingPage />} />
+          <Route path="/curso-adestramento-classeapets-presencial-b" element={<LandingPageB />} />
           <Route path="/xixi-e-coco-no-lugar-certo" element={<LandingXixiCoco />} />
           <Route path="/profissao-adestrador" element={<LandingAwareness />} />
           <Route path="/prova-social-adestrador" element={<LandingProvaSocial />} />

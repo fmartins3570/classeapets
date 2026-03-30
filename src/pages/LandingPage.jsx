@@ -31,15 +31,15 @@ import { trackViewContent, trackInitiateCheckout, trackContact } from '../utils/
 
 /* ─────────────────── CHECKOUT BUTTON ─────────────────── */
 
-function CheckoutButton({ children, className = '' }) {
+function CheckoutButton({ children, className = '', productId = 'curso-adestrador-profissional-promo', price = 1577 }) {
   const [loading, setLoading] = useState(false)
 
   const handleCheckout = async () => {
     if (loading) return
     setLoading(true)
-    trackInitiateCheckout(2660, 'BRL')
+    trackInitiateCheckout(price, 'BRL')
     try {
-      await createCheckout('curso-adestrador-profissional')
+      await createCheckout(productId)
     } catch {
       alert('Erro ao iniciar pagamento. Tente novamente.')
       setLoading(false)
@@ -55,6 +55,49 @@ function CheckoutButton({ children, className = '' }) {
     >
       {loading ? 'Redirecionando...' : children}
     </button>
+  )
+}
+
+/* ─────────────────── COUNTDOWN TIMER ─────────────────── */
+
+function CountdownTimer() {
+  const [timeLeft, setTimeLeft] = useState(null)
+
+  useEffect(() => {
+    const key = 'classeapets_promo_end'
+    let end = localStorage.getItem(key)
+    if (!end) {
+      end = Date.now() + 24 * 60 * 60 * 1000
+      localStorage.setItem(key, end.toString())
+    } else {
+      end = parseInt(end, 10)
+    }
+    const tick = () => setTimeLeft(Math.max(0, end - Date.now()))
+    tick()
+    const id = setInterval(tick, 1000)
+    return () => clearInterval(id)
+  }, [])
+
+  if (timeLeft === null) return null
+  if (timeLeft <= 0) {
+    return <p className="text-center text-[0.85rem] font-bold text-[var(--color-vermelho)]">Tempo esgotado!</p>
+  }
+
+  const h = String(Math.floor(timeLeft / 3600000)).padStart(2, '0')
+  const m = String(Math.floor((timeLeft % 3600000) / 60000)).padStart(2, '0')
+  const s = String(Math.floor((timeLeft % 60000) / 1000)).padStart(2, '0')
+
+  return (
+    <div className="flex items-center justify-center gap-1">
+      {[h, m, s].map((val, i) => (
+        <div key={i} className="flex items-center gap-1">
+          {i > 0 && <span className="text-base font-bold text-[var(--color-vermelho)] sm:text-lg">:</span>}
+          <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-[var(--color-charcoal)] text-base font-bold tabular-nums text-white sm:h-10 sm:w-10 sm:text-lg">
+            {val}
+          </span>
+        </div>
+      ))}
+    </div>
   )
 }
 
@@ -705,7 +748,41 @@ function Bonus() {
 
 /* ─────────────────── PRECO ─────────────────── */
 
-function Preco() {
+function PrecoIncluded() {
+  return (
+    <div className="mb-6 space-y-2.5 sm:mb-8" data-reveal="fade">
+      {[
+        'Curso Presencial — 3 meses (100h+)',
+        'Plataforma com +50 videoaulas',
+        'Certificado com TCC',
+        'Grupo VIP no WhatsApp',
+        'Kit do Adestrador Profissional',
+      ].map((label) => (
+        <div key={label} className="flex items-center gap-3 rounded-lg border border-white/5 bg-white/3 px-4 py-2.5 sm:px-5 sm:py-3">
+          <CheckCircle2 className="h-4 w-4 shrink-0 text-[var(--color-success)]" aria-hidden />
+          <span className="text-[0.82rem] text-[var(--color-cinza-300)] sm:text-[0.88rem]">{label}</span>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+function PrecoTrustBadges() {
+  return (
+    <div className="mt-4 flex flex-col items-center gap-2.5 sm:mt-5 sm:flex-row sm:justify-center sm:gap-4">
+      {['30 dias de garantia', 'Pagamento seguro', 'Vagas limitadas'].map((t) => (
+        <div key={t} className="flex items-center gap-1.5">
+          <svg className="h-3.5 w-3.5 text-[var(--color-success)]" fill="currentColor" viewBox="0 0 20 20">
+            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+          </svg>
+          <span className="text-[0.78rem] text-[var(--color-cinza-500)] sm:text-[0.8rem]">{t}</span>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+function Preco({ variant = 'a' }) {
   useScrollReveal()
 
   return (
@@ -720,91 +797,137 @@ function Preco() {
           <h2 className="!text-[1.5rem] !text-white sm:!text-[1.75rem] md:!text-[2.2rem]">O investimento para iniciar sua nova profissao</h2>
         </div>
 
-        {/* O que esta incluido */}
-        <div className="mb-6 space-y-2.5 sm:mb-8" data-reveal="fade">
-          {[
-            'Curso Presencial — 3 meses (100h+)',
-            'Plataforma com +50 videoaulas',
-            'Certificado com TCC',
-            'Grupo VIP no WhatsApp',
-            'Kit do Adestrador Profissional',
-          ].map((label) => (
-            <div key={label} className="flex items-center gap-3 rounded-lg border border-white/5 bg-white/3 px-4 py-2.5 sm:px-5 sm:py-3">
-              <CheckCircle2 className="h-4 w-4 shrink-0 text-[var(--color-success)]" aria-hidden />
-              <span className="text-[0.82rem] text-[var(--color-cinza-300)] sm:text-[0.88rem]">{label}</span>
-            </div>
-          ))}
-        </div>
+        <PrecoIncluded />
 
-        {/* Wrapper with padding-top so badge isn't clipped */}
         <div className="pt-4" data-reveal="scale">
-          <div
-            id="checkout"
-            className="relative rounded-2xl border-2 border-[var(--color-cyan-muted)]/30 bg-[var(--color-branco)] shadow-[0_0_60px_rgba(46,222,240,0.08)] scroll-mt-28 sm:rounded-3xl"
-          >
-            {/* Badge */}
-            <span
-              className="absolute left-1/2 top-0 z-10 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full px-4 py-1.5 text-[0.75rem] font-bold uppercase tracking-widest text-white shadow-md sm:px-5 sm:py-2 sm:text-[0.78rem]"
-              style={{ background: 'var(--color-vermelho-muted)' }}
+          {variant === 'b' ? (
+            /* ── Variant B: clean lower price ── */
+            <div
+              id="checkout"
+              className="relative rounded-2xl border-2 border-[var(--color-cyan-muted)]/30 bg-[var(--color-branco)] shadow-[0_0_60px_rgba(46,222,240,0.08)] scroll-mt-28 sm:rounded-3xl"
             >
-              Oferta especial
-            </span>
-
-            <div className="px-5 pb-6 pt-8 sm:px-10 sm:pb-10 sm:pt-12">
-              <p className="mb-1 text-center text-[0.82rem] font-medium text-[var(--color-texto-muted)] sm:text-[0.88rem]">
-                Tudo isso por apenas
-              </p>
-
-              {/* Main price */}
-              <p
-                className="mt-2 text-center text-[1.65rem] font-bold bg-clip-text text-transparent sm:mt-3 sm:text-3xl md:text-4xl"
-                style={{
-                  backgroundImage: 'var(--gradient-cyan)',
-                  fontFamily: "'DM Serif Display', Georgia, serif",
-                }}
+              <span
+                className="absolute left-1/2 top-0 z-10 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full px-4 py-1.5 text-[0.75rem] font-bold uppercase tracking-widest text-white shadow-md sm:px-5 sm:py-2 sm:text-[0.78rem]"
+                style={{ background: 'var(--color-vermelho-muted)' }}
               >
-                12x de R$ 233,33
-              </p>
+                Oferta especial
+              </span>
 
-              {/* Pix price */}
-              <p className="mt-3 text-center text-[0.88rem] text-[var(--color-texto-muted)] sm:mt-4 sm:text-[0.95rem]">
-                Ou{' '}
-                <span className="font-bold text-[var(--color-success)]">R$ 2.660 a vista no Pix</span>{' '}
-                <span className="text-[var(--color-cinza-400)]">(com desconto)</span>
-              </p>
+              <div className="px-5 pb-6 pt-8 sm:px-10 sm:pb-10 sm:pt-12">
+                <p className="mb-1 text-center text-[0.82rem] font-medium text-[var(--color-texto-muted)] sm:text-[0.88rem]">
+                  Tudo isso por apenas
+                </p>
 
-              <p className="mt-1.5 text-center text-[0.78rem] text-[var(--color-cinza-400)] sm:mt-2 sm:text-[0.82rem]">
-                Opcoes flexiveis em 3x ou 6x sem juros no cartao.
-              </p>
+                <p
+                  className="mt-2 text-center text-[1.65rem] font-bold bg-clip-text text-transparent sm:mt-3 sm:text-3xl md:text-4xl"
+                  style={{
+                    backgroundImage: 'var(--gradient-cyan)',
+                    fontFamily: "'DM Serif Display', Georgia, serif",
+                  }}
+                >
+                  12x de R$ 167,00
+                </p>
 
-              {/* Custo por hora */}
-              <p className="mt-4 text-center text-[0.75rem] text-[var(--color-cinza-400)] sm:mt-5 sm:text-[0.78rem]">
-                Menos de R$ 27/hora de formacao profissional
-              </p>
+                <p className="mt-3 text-center text-[0.88rem] text-[var(--color-texto-muted)] sm:mt-4 sm:text-[0.95rem]">
+                  Ou{' '}
+                  <span className="font-bold text-[var(--color-success)]">R$ 1.577 a vista no Pix</span>
+                </p>
 
-              {/* Divider */}
-              <div className="mx-auto my-5 h-px w-full bg-[var(--color-cinza-200)] sm:my-6" />
+                <p className="mt-1.5 text-center text-[0.78rem] text-[var(--color-cinza-400)] sm:mt-2 sm:text-[0.82rem]">
+                  Opcoes flexiveis em 3x ou 6x sem juros no cartao.
+                </p>
 
-              {/* CTA */}
-              <CheckoutButton
-                className="btn-primary inline-flex min-h-[50px] w-full items-center justify-center gap-2 !rounded-full !px-4 !py-3.5 !text-[0.88rem] !font-bold !no-underline hover:!no-underline sm:min-h-[56px] sm:!px-6 sm:!py-4 sm:!text-[0.95rem]"
-              >
-                Quero me tornar Adestrador Profissional
-              </CheckoutButton>
+                <p className="mt-4 text-center text-[0.75rem] text-[var(--color-cinza-400)] sm:mt-5 sm:text-[0.78rem]">
+                  Menos de R$ 16/hora de formacao profissional
+                </p>
 
-              {/* Trust badges */}
-              <div className="mt-4 flex flex-col items-center gap-2.5 sm:mt-5 sm:flex-row sm:justify-center sm:gap-4">
-                {['30 dias de garantia', 'Pagamento seguro', 'Vagas limitadas'].map((t) => (
-                  <div key={t} className="flex items-center gap-1.5">
-                    <svg className="h-3.5 w-3.5 text-[var(--color-success)]" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-[0.78rem] text-[var(--color-cinza-500)] sm:text-[0.8rem]">{t}</span>
-                  </div>
-                ))}
+                <div className="mx-auto my-5 h-px w-full bg-[var(--color-cinza-200)] sm:my-6" />
+
+                <CheckoutButton
+                  className="btn-primary inline-flex min-h-[50px] w-full items-center justify-center gap-2 !rounded-full !px-4 !py-3.5 !text-[0.88rem] !font-bold !no-underline hover:!no-underline sm:min-h-[56px] sm:!px-6 sm:!py-4 sm:!text-[0.95rem]"
+                >
+                  Quero me tornar Adestrador Profissional
+                </CheckoutButton>
+
+                <PrecoTrustBadges />
               </div>
             </div>
-          </div>
+          ) : (
+            /* ── Variant A: scarcity + price anchoring ── */
+            <div
+              id="checkout"
+              className="relative rounded-2xl border-2 border-[var(--color-vermelho)]/40 bg-[var(--color-branco)] shadow-[0_0_60px_rgba(239,68,68,0.1)] scroll-mt-28 sm:rounded-3xl"
+            >
+              <span
+                className="absolute left-1/2 top-0 z-10 -translate-x-1/2 -translate-y-1/2 flex items-center gap-2 whitespace-nowrap rounded-full px-4 py-1.5 text-[0.75rem] font-bold uppercase tracking-widest text-white shadow-md sm:px-5 sm:py-2 sm:text-[0.78rem]"
+                style={{ background: 'var(--color-vermelho)' }}
+              >
+                <Zap className="h-3.5 w-3.5" aria-hidden />
+                Oferta relampago
+              </span>
+
+              <div className="px-5 pb-6 pt-10 sm:px-10 sm:pb-10 sm:pt-14">
+                {/* Countdown */}
+                <div className="mb-5 rounded-xl bg-[var(--color-charcoal)]/5 px-4 py-3 sm:mb-6 sm:px-6 sm:py-4">
+                  <p className="mb-2.5 text-center text-[0.78rem] font-semibold uppercase tracking-wider text-[var(--color-vermelho)] sm:text-[0.82rem]">
+                    Oferta encerra em:
+                  </p>
+                  <CountdownTimer />
+                </div>
+
+                {/* Original price (anchor) */}
+                <p className="mb-1 text-center text-[0.82rem] font-medium text-[var(--color-texto-muted)] sm:text-[0.88rem]">
+                  Valor original:
+                </p>
+                <p
+                  className="text-center text-lg font-bold text-[var(--color-cinza-400)] line-through sm:text-xl"
+                  style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}
+                >
+                  R$ 2.660,00
+                </p>
+
+                {/* Promo price */}
+                <p className="mt-3 text-center text-[0.82rem] font-semibold text-[var(--color-vermelho)] sm:mt-4 sm:text-[0.88rem]">
+                  Valor promocional:
+                </p>
+                <p
+                  className="mt-1 text-center text-[1.65rem] font-bold bg-clip-text text-transparent sm:mt-2 sm:text-3xl md:text-4xl"
+                  style={{
+                    backgroundImage: 'var(--gradient-cyan)',
+                    fontFamily: "'DM Serif Display', Georgia, serif",
+                  }}
+                >
+                  12x de R$ 167,00
+                </p>
+
+                <p className="mt-2 text-center text-[0.88rem] text-[var(--color-texto-muted)] sm:mt-3 sm:text-[0.95rem]">
+                  Ou{' '}
+                  <span className="font-bold text-[var(--color-success)]">R$ 1.577 a vista no Pix</span>
+                </p>
+
+                {/* Scarcity message */}
+                <div className="mt-4 flex items-center justify-center gap-2 rounded-lg border border-[var(--color-vermelho)]/20 bg-[var(--color-vermelho)]/5 px-4 py-2.5 sm:mt-5">
+                  <span className="relative flex h-2 w-2 shrink-0">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--color-vermelho)] opacity-75" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--color-vermelho)]" />
+                  </span>
+                  <span className="text-[0.82rem] font-semibold text-[var(--color-vermelho)] sm:text-[0.88rem]">
+                    Resta apenas 1 vaga com esse valor
+                  </span>
+                </div>
+
+                <div className="mx-auto my-5 h-px w-full bg-[var(--color-cinza-200)] sm:my-6" />
+
+                <CheckoutButton
+                  className="btn-primary inline-flex min-h-[50px] w-full items-center justify-center gap-2 !rounded-full !px-4 !py-3.5 !text-[0.88rem] !font-bold !no-underline hover:!no-underline sm:min-h-[56px] sm:!px-6 sm:!py-4 sm:!text-[0.95rem]"
+                >
+                  Garantir minha vaga com desconto
+                </CheckoutButton>
+
+                <PrecoTrustBadges />
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </section>
@@ -1003,8 +1126,14 @@ function LandingFooter() {
 
 /* ─────────────────── PAGE ─────────────────── */
 
-export default function LandingPage() {
-  useEffect(() => { trackViewContent('Curso Adestrador Presencial', 'landing_page') }, [])
+export default function LandingPage({ variant = 'a' }) {
+  useEffect(() => {
+    trackViewContent(
+      variant === 'b' ? 'Curso Adestrador Presencial - Variante B' : 'Curso Adestrador Presencial',
+      'landing_page',
+    )
+  }, [variant])
+
   return (
     <div className="min-h-screen overflow-x-clip">
       <LandingHeader />
@@ -1016,7 +1145,7 @@ export default function LandingPage() {
       <SobreBrenno />
       <Formato />
       <Bonus />
-      <Preco />
+      <Preco variant={variant} />
       <FAQ />
       <WhatsAppCta />
       <LandingCtaFinal />

@@ -26,6 +26,12 @@ const PRODUCTS = {
     unit_price: 2660.00,
     currency_id: 'BRL',
   },
+  'curso-adestrador-profissional-promo': {
+    title: 'Curso Adestrador Profissional - Classe A Pets (Promo)',
+    description: 'Formação presencial completa em adestramento de cães (~100h)',
+    unit_price: 1577.00,
+    currency_id: 'BRL',
+  },
 }
 
 app.post('/api/checkout', async (req, res) => {
