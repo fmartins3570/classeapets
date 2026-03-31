@@ -76,6 +76,8 @@ function DogWalkerHeader() {
             sizes="56px"
             alt="Classe A Pets"
             className="w-[48px] object-contain sm:w-[56px]"
+            width={56}
+            height={56}
             decoding="async"
             fetchPriority="high"
           />
@@ -140,23 +142,38 @@ function DogWalkerHeader() {
 
 /* ─────────────────── HERO ─────────────────── */
 
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < 768)
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 768px)')
+    const handler = (e) => setIsMobile(!e.matches)
+    mq.addEventListener('change', handler)
+    return () => mq.removeEventListener('change', handler)
+  }, [])
+  return isMobile
+}
+
 function HeroSection() {
+  const isMobile = useIsMobile()
+
   return (
     <section id="hero" className="relative md:min-h-screen" style={{ background: 'linear-gradient(135deg, rgb(3,12,15), rgb(5,25,30))' }}>
-      <Suspense fallback={null}>
-        <BackgroundGradientAnimation
-          gradientBackgroundStart="rgb(3, 12, 15)"
-          gradientBackgroundEnd="rgb(5, 25, 30)"
-          firstColor="10, 70, 80"
-          secondColor="15, 90, 100"
-          thirdColor="0, 60, 70"
-          fourthColor="20, 80, 90"
-          fifthColor="10, 65, 75"
-          pointerColor="15, 85, 95"
-          containerClassName="!h-auto !absolute !inset-0"
-          className="!absolute !inset-0"
-        />
-      </Suspense>
+      {!isMobile && (
+        <Suspense fallback={null}>
+          <BackgroundGradientAnimation
+            gradientBackgroundStart="rgb(3, 12, 15)"
+            gradientBackgroundEnd="rgb(5, 25, 30)"
+            firstColor="10, 70, 80"
+            secondColor="15, 90, 100"
+            thirdColor="0, 60, 70"
+            fourthColor="20, 80, 90"
+            fifthColor="10, 65, 75"
+            pointerColor="15, 85, 95"
+            containerClassName="!h-auto !absolute !inset-0"
+            className="!absolute !inset-0"
+          />
+        </Suspense>
+      )}
 
       <div className="relative z-10 px-4 pb-10 pt-22 sm:px-8 sm:pb-16 sm:pt-32 md:pb-24 lg:pt-36">
         <div className="mx-auto grid max-w-[1200px] grid-cols-1 items-center gap-6 sm:gap-8 md:grid-cols-2 md:gap-12 lg:gap-16">
