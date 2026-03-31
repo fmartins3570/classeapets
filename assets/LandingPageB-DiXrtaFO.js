@@ -1,1 +1,0 @@
-import{j as r}from"./index-BMWu9B9F.js";import t from"./LandingPage-Cmc2ABR9.js";import"./react-C6WxKkic.js";import"./BackgroundGradientAnimation-Crt3UXPe.js";import"./VideoPlayer-BEs_Dp2F.js";import"./clock-C9QIyJqm.js";import"./trending-up-BL1ofqoU.js";function s(){return r.jsx(t,{variant:"b"})}export{s as default};
