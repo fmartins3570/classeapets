@@ -158,21 +158,37 @@ function HeroSection() {
         />
       </Suspense>
 
-      <div className="relative z-10 px-4 pb-12 pt-24 sm:px-8 sm:pb-16 sm:pt-32 md:pb-24 lg:pt-36">
-        <div className="mx-auto grid max-w-[1200px] grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-12 lg:gap-16">
-          {/* Left — Text */}
-          <div className="text-center md:text-left">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[var(--color-cyan)]/20 bg-[var(--color-cyan)]/6 px-3.5 py-2 backdrop-blur-sm sm:mb-8 sm:gap-2.5 sm:px-5 sm:py-2.5">
+      <div className="relative z-10 px-4 pb-10 pt-22 sm:px-8 sm:pb-16 sm:pt-32 md:pb-24 lg:pt-36">
+        <div className="mx-auto grid max-w-[1200px] grid-cols-1 items-center gap-6 sm:gap-8 md:grid-cols-2 md:gap-12 lg:gap-16">
+          {/* Mobile: image first, then text */}
+          <div className="relative flex justify-center md:order-2 md:justify-end">
+            <div className="relative w-[50vw] max-w-[200px] sm:w-[260px] md:w-[380px] lg:w-[440px]">
+              <img
+                src={assetUrl('/images/optimized/servico-passeador-640w.webp')}
+                srcSet={`${assetUrl('/images/optimized/servico-passeador-480w.webp')} 480w, ${assetUrl('/images/optimized/servico-passeador-640w.webp')} 640w, ${assetUrl('/images/optimized/servico-passeador-960w.webp')} 960w`}
+                sizes="(max-width: 768px) 200px, 440px"
+                alt="Brenno Rodrigues — Dog Walker Profissional passeando com cães"
+                className="relative z-10 h-auto w-full rounded-2xl object-cover shadow-[0_8px_40px_rgba(0,0,0,0.3)]"
+                width={640}
+                height={640}
+                fetchPriority="high"
+              />
+            </div>
+          </div>
+
+          {/* Text */}
+          <div className="text-center md:order-1 md:text-left">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[var(--color-cyan)]/20 bg-[var(--color-cyan)]/6 px-3.5 py-1.5 backdrop-blur-sm sm:mb-8 sm:gap-2.5 sm:px-5 sm:py-2.5">
               <span className="relative flex h-2 w-2 shrink-0">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--color-cyan)] opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--color-cyan)]" />
               </span>
-              <span className="text-[0.78rem] font-semibold leading-tight text-[var(--color-cyan)] sm:text-[0.82rem]">
+              <span className="text-[0.75rem] font-semibold leading-tight text-[var(--color-cyan)] sm:text-[0.82rem]">
                 Vagas Limitadas — Presencial em SP
               </span>
             </div>
 
-            <h1 className="mb-5 !text-[1.5rem] !leading-[1.2] !text-white sm:mb-6 sm:!text-[2rem] md:!text-[2.5rem] lg:!text-[3.2rem]">
+            <h1 className="mb-4 !text-[1.6rem] !leading-[1.18] !text-white sm:mb-6 sm:!text-[2rem] md:!text-[2.5rem] lg:!text-[3.2rem]">
               Torne-se Dog Walker Profissional e{' '}
               <span
                 className="bg-clip-text text-transparent"
@@ -182,46 +198,30 @@ function HeroSection() {
               </span>
             </h1>
 
-            <p className="mx-auto mb-8 max-w-[540px] text-[0.95rem] leading-relaxed text-[var(--color-cinza-400)] sm:mb-10 sm:text-[1.1rem] md:mx-0 md:text-[1.05rem]">
+            <p className="mx-auto mb-6 max-w-[540px] text-[0.9rem] leading-relaxed text-[var(--color-cinza-400)] sm:mb-10 sm:text-[1.1rem] md:mx-0 md:text-[1.05rem]">
               O único curso de Dog Walker ministrado por um adestrador profissional.
               Você não aprende só a passear — aprende a ENTENDER o cão.
             </p>
 
             <a
               href="#investimento"
-              className="btn-primary inline-flex min-h-[52px] w-full items-center justify-center gap-2.5 !rounded-full !px-8 !py-3.5 !text-[0.9rem] !font-bold !no-underline hover:!no-underline sm:min-h-[56px] sm:w-auto sm:!px-10 sm:!py-4 sm:!text-base"
+              className="btn-primary inline-flex min-h-[48px] w-full items-center justify-center gap-2.5 !rounded-full !px-8 !py-3 !text-[0.88rem] !font-bold !no-underline hover:!no-underline sm:min-h-[56px] sm:w-auto sm:!px-10 sm:!py-4 sm:!text-base"
             >
               Quero me tornar Dog Walker
               <ArrowRight className="h-4 w-4" aria-hidden />
             </a>
 
-            <div className="mt-8 flex flex-col items-center gap-3 sm:mt-10 sm:flex-row sm:gap-6 md:items-start md:justify-start">
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 sm:mt-10 sm:gap-6 md:justify-start">
               {[
                 { icon: Shield, text: 'Certificação profissional' },
                 { icon: Dog, text: 'Prática real com cães' },
                 { icon: MapPin, text: 'Presencial em São Paulo' },
               ].map((item) => (
-                <div key={item.text} className="flex items-center gap-2">
-                  <item.icon className="h-4 w-4 text-[var(--color-cyan-muted)]/60" />
-                  <span className="text-[0.78rem] font-medium text-[var(--color-cinza-500)] sm:text-[0.8rem]">{item.text}</span>
+                <div key={item.text} className="flex items-center gap-1.5">
+                  <item.icon className="h-3.5 w-3.5 text-[var(--color-cyan-muted)]/60 sm:h-4 sm:w-4" />
+                  <span className="text-[0.72rem] font-medium text-[var(--color-cinza-500)] sm:text-[0.8rem]">{item.text}</span>
                 </div>
               ))}
-            </div>
-          </div>
-
-          {/* Right — Image */}
-          <div className="relative flex justify-center md:justify-end">
-            <div className="relative w-[65vw] max-w-[260px] sm:w-[260px] md:w-[380px] lg:w-[440px]">
-              <img
-                src={assetUrl('/images/optimized/servico-passeador-640w.webp')}
-                srcSet={`${assetUrl('/images/optimized/servico-passeador-480w.webp')} 480w, ${assetUrl('/images/optimized/servico-passeador-640w.webp')} 640w, ${assetUrl('/images/optimized/servico-passeador-960w.webp')} 960w`}
-                sizes="(max-width: 768px) 260px, 440px"
-                alt="Brenno Rodrigues — Dog Walker Profissional passeando com cães"
-                className="relative z-10 h-auto w-full rounded-2xl object-cover shadow-[0_8px_40px_rgba(0,0,0,0.3)]"
-                width={640}
-                height={640}
-                fetchPriority="high"
-              />
             </div>
           </div>
         </div>
@@ -251,7 +251,7 @@ function NumerosMercado() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4" data-reveal data-reveal-stagger>
+        <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4" data-reveal data-reveal-stagger>
           {[
             {
               icon: DollarSign,
@@ -261,7 +261,8 @@ function NumerosMercado() {
             },
             {
               icon: TrendingUp,
-              value: 'R$ 4.400–7.000',
+              value: 'R$ 4–7 mil',
+              mobileValue: 'R$ 4–7 mil',
               label: 'renda mensal com 5 cães/dia',
               accent: false,
             },
@@ -280,23 +281,23 @@ function NumerosMercado() {
           ].map((stat) => (
             <div
               key={stat.label}
-              className={`group relative overflow-hidden rounded-2xl border p-6 transition-all duration-500 hover:-translate-y-1 sm:p-8 ${
+              className={`group relative overflow-hidden rounded-2xl border p-4 transition-all duration-500 hover:-translate-y-1 sm:p-6 lg:p-8 ${
                 stat.accent
                   ? 'border-[var(--color-cyan-muted)]/20 bg-[var(--color-cyan-muted)]/5'
                   : 'border-[var(--color-cinza-200)] bg-[var(--color-branco)]'
               }`}
             >
               <div className="relative z-10">
-                <div className={`mb-3 inline-flex rounded-xl p-2.5 ${stat.accent ? 'bg-[var(--color-cyan-muted)]/15' : 'bg-[var(--color-cyan-muted)]/8'}`}>
-                  <stat.icon className={`h-5 w-5 ${stat.accent ? 'text-[var(--color-cyan-muted)]' : 'text-[var(--color-cyan-muted)]'}`} />
+                <div className={`mb-2.5 inline-flex rounded-xl p-2 sm:mb-3 sm:p-2.5 ${stat.accent ? 'bg-[var(--color-cyan-muted)]/15' : 'bg-[var(--color-cyan-muted)]/8'}`}>
+                  <stat.icon className={`h-4 w-4 sm:h-5 sm:w-5 ${stat.accent ? 'text-[var(--color-cyan-muted)]' : 'text-[var(--color-cyan-muted)]'}`} />
                 </div>
                 <p
-                  className="text-2xl font-bold tracking-tight sm:text-3xl bg-clip-text text-transparent"
+                  className="text-xl font-bold tracking-tight sm:text-2xl lg:text-3xl bg-clip-text text-transparent"
                   style={{ backgroundImage: 'var(--gradient-cyan)' }}
                 >
                   {stat.value}
                 </p>
-                <p className="mt-1 text-sm font-medium leading-relaxed text-[var(--color-texto-muted)]">
+                <p className="mt-1 text-xs font-medium leading-relaxed text-[var(--color-texto-muted)] sm:text-sm">
                   {stat.label}
                 </p>
               </div>
@@ -403,16 +404,16 @@ function Regulamentacao() {
                 a lei entrar em vigor.
               </p>
 
-              <div className="flex flex-wrap items-center justify-center gap-4 text-[0.78rem] font-medium text-[var(--color-cinza-400)] sm:gap-6 sm:text-[0.82rem] md:justify-start">
+              <div className="grid grid-cols-2 gap-x-3 gap-y-2 text-[0.78rem] font-medium text-[var(--color-cinza-400)] sm:flex sm:flex-wrap sm:items-center sm:justify-center sm:gap-6 sm:text-[0.82rem] md:justify-start">
                 {[
-                  'Comportamento canino ✓',
-                  'Técnicas de manejo ✓',
-                  'Primeiros socorros ✓',
-                  'Certificação ✓',
+                  'Comportamento canino',
+                  'Técnicas de manejo',
+                  'Primeiros socorros',
+                  'Certificação',
                 ].map((item) => (
                   <span key={item} className="inline-flex items-center gap-1.5">
-                    <CheckCircle2 className="h-3.5 w-3.5 text-[var(--color-success)]" />
-                    {item.replace(' ✓', '')}
+                    <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-[var(--color-success)]" />
+                    {item}
                   </span>
                 ))}
               </div>
@@ -422,7 +423,7 @@ function Regulamentacao() {
           <div className="mt-6 flex justify-center sm:mt-8 md:justify-start md:pl-[104px]">
             <a
               href="#investimento"
-              className="btn-primary group inline-flex items-center gap-3 !rounded-full !px-8 !py-3.5 !text-[0.88rem] !font-bold !tracking-wider !uppercase !no-underline hover:!no-underline sm:!text-[0.92rem]"
+              className="btn-primary group inline-flex w-full items-center justify-center gap-3 !rounded-full !px-6 !py-3.5 !text-[0.82rem] !font-bold !tracking-wider !uppercase !no-underline hover:!no-underline sm:w-auto sm:!px-8 sm:!text-[0.92rem]"
             >
               Garantir minha certificação agora
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -529,7 +530,26 @@ function Comparativo() {
           </h2>
         </div>
 
-        <div className="mx-auto max-w-3xl" data-reveal>
+        {/* Mobile: stacked cards */}
+        <div className="mx-auto max-w-md space-y-3 sm:hidden" data-reveal-stagger>
+          {items.map((item, i) => (
+            <div key={i} className="overflow-hidden rounded-xl border border-[var(--color-cinza-200)]">
+              <div className="flex items-start gap-2.5 border-b border-[var(--color-cinza-200)]/60 bg-[var(--color-vermelho)]/[0.04] px-4 py-3">
+                <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[var(--color-vermelho)]/10">
+                  <span className="text-[0.65rem] font-bold text-[var(--color-vermelho)]">✕</span>
+                </span>
+                <p className="text-[0.85rem] leading-snug text-[var(--color-texto-muted)]">{item.amador}</p>
+              </div>
+              <div className="flex items-start gap-2.5 bg-[var(--color-cyan-muted)]/[0.04] px-4 py-3">
+                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[var(--color-success)]" />
+                <p className="text-[0.85rem] font-semibold leading-snug text-[var(--color-charcoal)]">{item.profissional}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop: table grid */}
+        <div className="mx-auto hidden max-w-3xl sm:block" data-reveal>
           <div className="grid grid-cols-[1fr_auto_1fr] items-stretch gap-0">
             <div className="rounded-tl-2xl border-b border-[var(--color-cinza-200)] bg-[var(--color-vermelho)]/5 px-4 py-4 sm:px-6">
               <p className="text-xs font-bold tracking-widest text-[var(--color-vermelho)] uppercase">Amador</p>
@@ -661,20 +681,20 @@ function Programa() {
           ))}
         </div>
 
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-6 sm:mt-12 sm:gap-10" data-reveal="fade">
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-4 sm:mt-12 sm:gap-10" data-reveal="fade">
           {[
             { value: 'Presencial', label: 'em São Paulo' },
             { value: 'Prática', label: 'com cães reais' },
             { value: 'Turmas', label: 'reduzidas' },
           ].map((s) => (
-            <div key={s.label} className="flex items-center gap-2">
+            <div key={s.label} className="flex items-center gap-1.5 sm:gap-2">
               <span
-                className="text-lg font-bold bg-clip-text text-transparent sm:text-xl"
+                className="text-base font-bold bg-clip-text text-transparent sm:text-xl"
                 style={{ backgroundImage: 'var(--gradient-cyan)' }}
               >
                 {s.value}
               </span>
-              <span className="text-[0.78rem] font-medium text-[var(--color-cinza-500)] sm:text-[0.82rem]">{s.label}</span>
+              <span className="text-[0.72rem] font-medium text-[var(--color-cinza-500)] sm:text-[0.82rem]">{s.label}</span>
             </div>
           ))}
         </div>
@@ -698,19 +718,37 @@ function Diferencial() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-16">
-          <div data-reveal="left">
+        <div className="grid grid-cols-1 items-center gap-6 sm:gap-8 md:grid-cols-2 md:gap-16">
+          <div className="flex items-center gap-5 md:block" data-reveal="left">
             <img
               src={assetUrl('/images/optimized/foto-brenno-480w.webp')}
               srcSet={`${assetUrl('/images/optimized/foto-brenno-320w.webp')} 320w, ${assetUrl('/images/optimized/foto-brenno-480w.webp')} 480w, ${assetUrl('/images/optimized/foto-brenno-640w.webp')} 640w`}
-              sizes="(max-width: 640px) 260px, 300px"
+              sizes="(max-width: 640px) 120px, (max-width: 768px) 260px, 300px"
               alt="Adestrador Brenno Rodrigues"
-              className="mx-auto mb-6 max-w-[220px] rounded-2xl shadow-[var(--shadow-md)] sm:max-w-[260px]"
+              className="w-[120px] shrink-0 rounded-2xl shadow-[var(--shadow-md)] sm:mx-auto sm:mb-6 sm:w-auto sm:max-w-[260px]"
               width={480}
               height={480}
               loading="lazy"
               decoding="async"
             />
+            <div className="min-w-0 flex-1 sm:hidden">
+              <p className="mb-1 text-[0.88rem] font-bold text-[var(--color-charcoal)]">Brenno Rodrigues</p>
+              <p className="text-[0.78rem] leading-snug text-[var(--color-texto-muted)]">
+                Adestrador profissional. Dog Walker desde 2017.
+              </p>
+              <div className="mt-2.5 flex flex-wrap gap-x-3 gap-y-1">
+                {[
+                  { value: '+500', label: 'cães' },
+                  { value: '+250', label: 'famílias' },
+                  { value: '5+', label: 'anos' },
+                ].map((s) => (
+                  <div key={s.label} className="flex items-center gap-1">
+                    <span className="text-[0.82rem] font-bold bg-clip-text text-transparent" style={{ backgroundImage: 'var(--gradient-cyan)' }}>{s.value}</span>
+                    <span className="text-[0.68rem] font-medium text-[var(--color-texto-muted)]">{s.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
 
           <div data-reveal="right">
@@ -721,20 +759,20 @@ function Diferencial() {
               </h2>
             </div>
 
-            <p className="mb-4 text-[0.95rem] leading-relaxed text-[var(--color-texto-muted)] sm:mb-5 sm:text-[1.05rem]">
+            <p className="mb-4 text-[0.9rem] leading-relaxed text-[var(--color-texto-muted)] sm:mb-5 sm:text-[1.05rem]">
               Eu sou o Brenno Rodrigues — adestrador profissional. Comecei minha carreira no mundo pet
               como Dog Walker em 2017 e de lá pra cá já transformei a vida de +500 cães e +250 famílias.
             </p>
-            <p className="mb-4 text-[0.95rem] leading-relaxed text-[var(--color-texto-muted)] sm:mb-5 sm:text-[1.05rem]">
+            <p className="mb-4 text-[0.9rem] leading-relaxed text-[var(--color-texto-muted)] sm:mb-5 sm:text-[1.05rem]">
               Diferente de outros cursos de Dog Walker, aqui você aprende com quem ENTENDE de comportamento canino.
               Isso significa que você sai do curso não só sabendo passear — mas sabendo LER o cão,
               prevenir problemas e entregar muito mais valor pro tutor.
             </p>
-            <p className="mb-6 text-[0.95rem] font-semibold leading-relaxed text-[var(--color-charcoal)] sm:mb-8 sm:text-[1.05rem]">
+            <p className="mb-6 text-[0.9rem] font-semibold leading-relaxed text-[var(--color-charcoal)] sm:mb-8 sm:text-[1.05rem]">
               Dog Walker que entende de adestramento cobra 3x mais. E nunca falta cliente.
             </p>
 
-            <div className="flex flex-wrap gap-5 sm:gap-6">
+            <div className="hidden flex-wrap gap-5 sm:flex sm:gap-6">
               {[
                 { value: '+500', label: 'cães' },
                 { value: '+250', label: 'famílias' },
@@ -903,13 +941,13 @@ function Investimento() {
                 Quero garantir minha vaga
               </a>
 
-              <div className="mt-4 flex flex-col items-center gap-2.5 sm:mt-5 sm:flex-row sm:justify-center sm:gap-4">
+              <div className="mt-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 sm:mt-5 sm:gap-4">
                 {['Certificação profissional', 'Pagamento seguro', 'Vagas limitadas'].map((t) => (
                   <div key={t} className="flex items-center gap-1.5">
                     <svg className="h-3.5 w-3.5 text-[var(--color-success)]" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
-                    <span className="text-[0.78rem] text-[var(--color-cinza-500)] sm:text-[0.8rem]">{t}</span>
+                    <span className="text-[0.72rem] text-[var(--color-cinza-500)] sm:text-[0.8rem]">{t}</span>
                   </div>
                 ))}
               </div>
@@ -1078,7 +1116,7 @@ function CtaFinal() {
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => trackContact('LP Dog Walker CTA Final')}
-          className="btn-primary inline-flex min-h-[50px] w-full items-center justify-center gap-2 !rounded-full !px-8 !py-3.5 !text-[0.9rem] !font-bold !no-underline hover:!no-underline sm:min-h-[56px] sm:w-auto sm:!px-10 sm:!py-4 sm:!text-base"
+          className="btn-primary inline-flex min-h-[48px] w-full items-center justify-center gap-2 !rounded-full !px-6 !py-3 !text-[0.85rem] !font-bold !no-underline hover:!no-underline sm:min-h-[56px] sm:w-auto sm:!px-10 sm:!py-4 sm:!text-base"
         >
           Quero me tornar Dog Walker Profissional
         </a>
