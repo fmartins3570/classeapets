@@ -45,6 +45,10 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
   AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
 </IfModule>
 
+# Serve Google/Bing verification files directly
+RewriteRule ^google.*\.html$ - [L]
+RewriteRule ^BingSiteAuth\.xml$ - [L]
+
 # Handle SPA routing - serve index.html for all routes
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
