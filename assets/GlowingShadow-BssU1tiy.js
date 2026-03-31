@@ -1,0 +1,1 @@
+import{j as s,e as r}from"./index-DBzZr765.js";import"./react-C6WxKkic.js";function l({children:a,className:o}){return s.jsxs("div",{className:r("glowing-shadow-wrap group/glow relative",o),children:[s.jsx("span",{className:"glowing-shadow-orb"}),s.jsx("div",{className:"glowing-shadow-border"}),s.jsx("div",{className:"relative z-[1]",children:a})]})}export{l as GlowingShadow};
