@@ -28,30 +28,39 @@
     <meta property="og:url" content="https://classeapets.com.br" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@classeapets" />
-    <!-- Font: Outfit (clean, professional) -->
+    <!-- Font: Outfit (non-render-blocking) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
-    <!-- Meta Pixel -->
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" /></noscript>
+    <!-- Meta Pixel + GA4 (deferred to after page load) -->
     <script>
-      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
-      (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '1487904233336440');
-      fbq('track', 'PageView');
-    </script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WKYQSXJMSQ"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-WKYQSXJMSQ');
+      function _loadTracking(){
+        // Meta Pixel
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+        n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+        (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1487904233336440');
+        fbq('track', 'PageView');
+        // GA4
+        var g=document.createElement('script');g.async=!0;
+        g.src='https://www.googletagmanager.com/gtag/js?id=G-WKYQSXJMSQ';
+        document.head.appendChild(g);
+        window.dataLayer=window.dataLayer||[];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag=gtag;
+        gtag('js',new Date());
+        gtag('config','G-WKYQSXJMSQ');
+      }
+      if(window.requestIdleCallback){requestIdleCallback(_loadTracking)}
+      else{setTimeout(_loadTracking,2500)}
     </script>
     <!-- Facebook Domain Verification -->
     <meta name="facebook-domain-verification" content="9zkwjws3wrg0gkwopztetbd497u9jt" />
@@ -96,7 +105,7 @@
       }
     </script>
     <title>Adestramento de Cães com Método Moderno em São Paulo | Classe A Pets</title>
-    <script type="module" crossorigin src="/assets/index-DG_TPG4S.js"></script>
+    <script type="module" crossorigin src="/assets/index-5ZOEKMjn.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/react-C6WxKkic.js">
     <link rel="stylesheet" crossorigin href="/assets/index-BgQpZURh.css">
   </head>
