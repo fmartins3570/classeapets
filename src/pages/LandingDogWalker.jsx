@@ -1,8 +1,6 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, lazy, Suspense } from 'react'
 import {
   CheckCircle2,
-  Clock,
-  Calendar,
   ChevronDown,
   Shield,
   Users,
@@ -23,14 +21,13 @@ import {
   ShieldCheck,
   BookOpen,
 } from 'lucide-react'
-import { BackgroundGradientAnimation } from '../components/ui/BackgroundGradientAnimation'
-import { GlowingShadow } from '../components/ui/GlowingShadow'
-import { FallingPattern } from '../components/ui/FallingPattern'
-import VideoPlayer from '../components/ui/VideoPlayer'
 import useScrollReveal from '../hooks/useScrollReveal'
 import { assetUrl } from '../utils/assetUrl'
 import { trackViewContent, trackContact } from '../utils/metaPixel'
-import { SlideTabs } from '../components/ui/SlideTabs'
+
+const BackgroundGradientAnimation = lazy(() => import('../components/ui/BackgroundGradientAnimation').then(m => ({ default: m.BackgroundGradientAnimation })))
+const GlowingShadow = lazy(() => import('../components/ui/GlowingShadow').then(m => ({ default: m.GlowingShadow })))
+const SlideTabs = lazy(() => import('../components/ui/SlideTabs').then(m => ({ default: m.SlideTabs })))
 
 /* ─────────────────── HEADER ─────────────────── */
 
@@ -85,7 +82,7 @@ function DogWalkerHeader() {
         </a>
 
         <nav className="hidden items-center gap-3 md:flex" aria-label="Navegação principal">
-          <SlideTabs items={navLinks} />
+          <Suspense fallback={null}><SlideTabs items={navLinks} /></Suspense>
           <a
             href="#investimento"
             className="btn-primary ml-3 !rounded-full !px-6 !py-2.5 !text-[0.82rem] !font-bold !tracking-wider !uppercase !no-underline hover:!no-underline"
@@ -145,22 +142,26 @@ function DogWalkerHeader() {
 
 function HeroSection() {
   return (
-    <section id="hero" className="relative md:min-h-screen">
-      <BackgroundGradientAnimation
-        gradientBackgroundStart="rgb(3, 12, 15)"
-        gradientBackgroundEnd="rgb(5, 25, 30)"
-        firstColor="10, 70, 80"
-        secondColor="15, 90, 100"
-        thirdColor="0, 60, 70"
-        fourthColor="20, 80, 90"
-        fifthColor="10, 65, 75"
-        pointerColor="15, 85, 95"
-        containerClassName="!h-auto"
-        className="px-4 pb-12 pt-24 sm:px-8 sm:pb-16 sm:pt-32 md:pb-24 lg:pt-36"
-      >
-        <div className="relative mx-auto grid max-w-[1200px] grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-12 lg:gap-16">
+    <section id="hero" className="relative md:min-h-screen" style={{ background: 'linear-gradient(135deg, rgb(3,12,15), rgb(5,25,30))' }}>
+      <Suspense fallback={null}>
+        <BackgroundGradientAnimation
+          gradientBackgroundStart="rgb(3, 12, 15)"
+          gradientBackgroundEnd="rgb(5, 25, 30)"
+          firstColor="10, 70, 80"
+          secondColor="15, 90, 100"
+          thirdColor="0, 60, 70"
+          fourthColor="20, 80, 90"
+          fifthColor="10, 65, 75"
+          pointerColor="15, 85, 95"
+          containerClassName="!h-auto !absolute !inset-0"
+          className="!absolute !inset-0"
+        />
+      </Suspense>
+
+      <div className="relative z-10 px-4 pb-12 pt-24 sm:px-8 sm:pb-16 sm:pt-32 md:pb-24 lg:pt-36">
+        <div className="mx-auto grid max-w-[1200px] grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-12 lg:gap-16">
           {/* Left — Text */}
-          <div className="relative z-20 text-center md:text-left">
+          <div className="text-center md:text-left">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[var(--color-cyan)]/20 bg-[var(--color-cyan)]/6 px-3.5 py-2 backdrop-blur-sm sm:mb-8 sm:gap-2.5 sm:px-5 sm:py-2.5">
               <span className="relative flex h-2 w-2 shrink-0">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--color-cyan)] opacity-75" />
@@ -212,17 +213,19 @@ function HeroSection() {
           <div className="relative flex justify-center md:justify-end">
             <div className="relative w-[65vw] max-w-[260px] sm:w-[260px] md:w-[380px] lg:w-[440px]">
               <img
-                src={assetUrl('/images/optimized/servico-passeador.webp')}
+                src={assetUrl('/images/optimized/servico-passeador-640w.webp')}
                 srcSet={`${assetUrl('/images/optimized/servico-passeador-480w.webp')} 480w, ${assetUrl('/images/optimized/servico-passeador-640w.webp')} 640w, ${assetUrl('/images/optimized/servico-passeador-960w.webp')} 960w`}
                 sizes="(max-width: 768px) 260px, 440px"
                 alt="Brenno Rodrigues — Dog Walker Profissional passeando com cães"
                 className="relative z-10 h-auto w-full rounded-2xl object-cover shadow-[0_8px_40px_rgba(0,0,0,0.3)]"
+                width={640}
+                height={640}
                 fetchPriority="high"
               />
             </div>
           </div>
         </div>
-      </BackgroundGradientAnimation>
+      </div>
 
       <div
         className="pointer-events-none absolute bottom-0 left-0 right-0 z-20 h-20 sm:h-24"
@@ -485,7 +488,7 @@ function PublicoAlvo() {
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4 lg:gap-6" data-reveal-stagger>
           {publicoItems.map((item) => (
-            <GlowingShadow key={item.title} className="rounded-2xl">
+            <Suspense fallback={null}><GlowingShadow key={item.title} className="rounded-2xl">
               <article className="card-dark group flex flex-row items-start gap-4 p-5 hover:border-transparent sm:flex-col sm:items-center sm:p-6 sm:text-center">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl transition-colors duration-300 sm:mb-4 sm:h-14 sm:w-14 sm:rounded-2xl" style={{ background: 'var(--gradient-cyan-subtle)' }}>
                   <item.icon className="h-6 w-6 text-white sm:h-7 sm:w-7" aria-hidden />
@@ -495,7 +498,7 @@ function PublicoAlvo() {
                   <p className="text-[0.85rem] leading-relaxed text-[var(--color-cinza-400)] sm:text-[0.9rem]">{item.text}</p>
                 </div>
               </article>
-            </GlowingShadow>
+            </GlowingShadow></Suspense>
           ))}
         </div>
       </div>
@@ -629,7 +632,7 @@ function Programa() {
 
         <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2 md:gap-6" data-reveal-stagger>
           {programaModulos.map((fase) => (
-            <GlowingShadow key={fase.modulo} className="rounded-2xl">
+            <Suspense fallback={null}><GlowingShadow key={fase.modulo} className="rounded-2xl">
               <div className="card-dark group h-full p-5 hover:border-transparent sm:p-7">
                 <div className="mb-4 flex items-center gap-3">
                   <div
@@ -654,7 +657,7 @@ function Programa() {
                   ))}
                 </ul>
               </div>
-            </GlowingShadow>
+            </GlowingShadow></Suspense>
           ))}
         </div>
 
@@ -703,6 +706,8 @@ function Diferencial() {
               sizes="(max-width: 640px) 260px, 300px"
               alt="Adestrador Brenno Rodrigues"
               className="mx-auto mb-6 max-w-[220px] rounded-2xl shadow-[var(--shadow-md)] sm:max-w-[260px]"
+              width={480}
+              height={480}
               loading="lazy"
               decoding="async"
             />
@@ -796,7 +801,7 @@ function Incluso() {
 
         <div className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2 md:gap-6" data-reveal-stagger>
           {inclusoItems.map((item) => (
-            <GlowingShadow key={item.title} className="rounded-2xl">
+            <Suspense fallback={null}><GlowingShadow key={item.title} className="rounded-2xl">
               <div className="card-dark group flex gap-4 p-5 hover:border-transparent sm:p-6">
                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl transition-colors duration-300 sm:h-12 sm:w-12" style={{ background: 'var(--gradient-cyan-subtle)' }}>
                   <item.icon className="h-5 w-5 text-white sm:h-6 sm:w-6" aria-hidden />
@@ -811,7 +816,7 @@ function Incluso() {
                   <p className="text-[0.82rem] leading-relaxed text-[var(--color-cinza-400)] sm:text-[0.88rem]">{item.description}</p>
                 </div>
               </div>
-            </GlowingShadow>
+            </GlowingShadow></Suspense>
           ))}
         </div>
       </div>
