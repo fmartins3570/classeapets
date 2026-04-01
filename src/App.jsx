@@ -4,7 +4,7 @@ import useScrollReveal from './hooks/useScrollReveal'
 const Header = lazy(() => import('./components/Header'))
 const Hero = lazy(() => import('./components/Hero'))
 import Stats from './components/Stats'
-import Servicos from './components/Servicos'
+const Servicos = lazy(() => import('./components/Servicos'))
 import Footer from './components/Footer'
 const LandingPage = lazy(() => import('./pages/LandingPage'))
 const LandingPageB = lazy(() => import('./pages/LandingPageB'))
