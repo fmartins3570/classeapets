@@ -48,6 +48,7 @@ const navLinks = [
 function DogWalkerHeader() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const isMobileNav = typeof window !== 'undefined' && window.innerWidth < 768
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -91,7 +92,7 @@ function DogWalkerHeader() {
         </a>
 
         <nav className="hidden items-center gap-3 md:flex" aria-label="Navegação principal">
-          <Suspense fallback={null}><SlideTabs items={navLinks} /></Suspense>
+          {!isMobileNav && <Suspense fallback={null}><SlideTabs items={navLinks} /></Suspense>}
           <a
             href="#investimento"
             className="btn-primary ml-3 !rounded-full !px-6 !py-2.5 !text-[0.82rem] !font-bold !tracking-wider !uppercase !no-underline hover:!no-underline"
