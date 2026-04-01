@@ -1,8 +1,8 @@
 import { Suspense, lazy, useEffect, useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import useScrollReveal from './hooks/useScrollReveal'
-import Header from './components/Header'
-import Hero from './components/Hero'
+const Header = lazy(() => import('./components/Header'))
+const Hero = lazy(() => import('./components/Hero'))
 import Stats from './components/Stats'
 import Servicos from './components/Servicos'
 import Footer from './components/Footer'
