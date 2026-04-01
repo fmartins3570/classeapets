@@ -38,6 +38,7 @@ export default defineConfig({
   build: {
     target: ['es2020', 'chrome80', 'safari14', 'firefox90'],
     cssCodeSplit: true,
+    modulePreload: false,
     rollupOptions: {
       output: {
         manualChunks: {
