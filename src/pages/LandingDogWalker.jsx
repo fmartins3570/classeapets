@@ -29,6 +29,13 @@ const BackgroundGradientAnimation = lazy(() => import('../components/ui/Backgrou
 const GlowingShadow = lazy(() => import('../components/ui/GlowingShadow').then(m => ({ default: m.GlowingShadow })))
 const SlideTabs = lazy(() => import('../components/ui/SlideTabs').then(m => ({ default: m.SlideTabs })))
 
+// Skip GlowingShadow on mobile to reduce Style & Layout work
+function OptionalGlow({ children, className }) {
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768
+  if (isMobile) return children
+  return <Suspense fallback={null}><GlowingShadow className={className}>{children}</GlowingShadow></Suspense>
+}
+
 /* ─────────────────── HEADER ─────────────────── */
 
 const navLinks = [
@@ -506,7 +513,7 @@ function PublicoAlvo() {
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4 lg:gap-6" data-reveal-stagger>
           {publicoItems.map((item) => (
-            <Suspense fallback={null}><GlowingShadow key={item.title} className="rounded-2xl">
+            <OptionalGlow key={item.title} className="rounded-2xl">
               <article className="card-dark group flex flex-row items-start gap-4 p-5 hover:border-transparent sm:flex-col sm:items-center sm:p-6 sm:text-center">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl transition-colors duration-300 sm:mb-4 sm:h-14 sm:w-14 sm:rounded-2xl" style={{ background: 'var(--gradient-cyan-subtle)' }}>
                   <item.icon className="h-6 w-6 text-white sm:h-7 sm:w-7" aria-hidden />
@@ -516,7 +523,7 @@ function PublicoAlvo() {
                   <p className="text-[0.85rem] leading-relaxed text-[var(--color-cinza-400)] sm:text-[0.9rem]">{item.text}</p>
                 </div>
               </article>
-            </GlowingShadow></Suspense>
+            </OptionalGlow>
           ))}
         </div>
       </div>
@@ -669,7 +676,7 @@ function Programa() {
 
         <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2 md:gap-6" data-reveal-stagger>
           {programaModulos.map((fase) => (
-            <Suspense fallback={null}><GlowingShadow key={fase.modulo} className="rounded-2xl">
+            <OptionalGlow key={fase.modulo} className="rounded-2xl">
               <div className="card-dark group h-full p-5 hover:border-transparent sm:p-7">
                 <div className="mb-4 flex items-center gap-3">
                   <div
@@ -694,7 +701,7 @@ function Programa() {
                   ))}
                 </ul>
               </div>
-            </GlowingShadow></Suspense>
+            </OptionalGlow>
           ))}
         </div>
 
@@ -856,7 +863,7 @@ function Incluso() {
 
         <div className="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2 md:gap-6" data-reveal-stagger>
           {inclusoItems.map((item) => (
-            <Suspense fallback={null}><GlowingShadow key={item.title} className="rounded-2xl">
+            <OptionalGlow key={item.title} className="rounded-2xl">
               <div className="card-dark group flex gap-4 p-5 hover:border-transparent sm:p-6">
                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl transition-colors duration-300 sm:h-12 sm:w-12" style={{ background: 'var(--gradient-cyan-subtle)' }}>
                   <item.icon className="h-5 w-5 text-white sm:h-6 sm:w-6" aria-hidden />
@@ -871,7 +878,7 @@ function Incluso() {
                   <p className="text-[0.82rem] leading-relaxed text-[var(--color-cinza-400)] sm:text-[0.88rem]">{item.description}</p>
                 </div>
               </div>
-            </GlowingShadow></Suspense>
+            </OptionalGlow>
           ))}
         </div>
       </div>
