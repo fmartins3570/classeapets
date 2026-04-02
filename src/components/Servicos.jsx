@@ -8,7 +8,7 @@ function Servicos() {
       title: 'Tutores, adestre seu cão',
       text: 'Nosso foco é ensinar você, tutor, a adestrar seu cão, para ser feliz e equilibrado, de forma presencial, em São Paulo.',
       cta: 'Clique aqui',
-      link: 'https://classeapets.com.br/adestramento-de-caes-para-tutores',
+      link: 'https://wa.me/5511934066866?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20adestramento%20para%20tutores',
       img: 'servico-tutores',
       alt: 'Brenno com três cães durante treinamento para tutores',
     },
@@ -16,7 +16,7 @@ function Servicos() {
       title: 'Formação de Adestrador de Cães',
       text: 'Você aprende tudo o que precisa para atuar com confiança no mercado de adestramento. Formação Técnica + Comportamental + Emocional com acompanhamento próximo.',
       cta: 'Clique aqui',
-      link: 'https://classeapets.com.br/curso-profissional-de-adestrador-de-caes/',
+      link: '/curso-adestramento-classeapets-presencial',
       img: 'servico-formacao-adestrador',
       alt: 'Brenno agachado com dois cães Golden Retriever durante treinamento',
     },
@@ -24,7 +24,7 @@ function Servicos() {
       title: 'Cursos 100% Digital',
       text: 'Aprenda com liberdade. Acesse todos os cursos, de onde quiser, no seu ritmo. Com videoaulas, materiais de apoio, suporte especializado e certificado de conclusão.',
       cta: 'Clique aqui',
-      link: 'https://classeapets.com.br/cursos-digitais/',
+      link: '/xixi-e-coco-no-lugar-certo',
       img: 'servico-digital',
       alt: 'Brenno com dois cães Golden Retriever em sessão de adestramento digital',
     },
@@ -32,7 +32,7 @@ function Servicos() {
       title: 'Curso de Formação Passeador de Cães',
       text: 'Seja um profissional completo, preparado para o mercado. A profissão de Dog Walker é uma vocação — com propósito, movimento, conexão e crescimento real.',
       cta: 'Clique aqui',
-      link: 'https://classeapets.com.br/curso-profissional-de-passeador-de-caes/',
+      link: '/curso-dog-walker-profissional',
       img: 'servico-passeador',
       alt: 'Brenno passeando com cão durante formação de passeador',
     },
@@ -103,8 +103,7 @@ function Servicos() {
                 <p className="mb-5 flex-1 text-sm leading-relaxed text-gray-600">{s.text}</p>
                 <InteractiveHoverButton
                   href={s.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  {...(s.link.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                   text={s.cta}
                   className="w-full text-sm"
                 />

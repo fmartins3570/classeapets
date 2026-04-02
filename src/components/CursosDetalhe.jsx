@@ -13,7 +13,7 @@ function CursosDetalhe() {
           Escolha o formato ideal para a sua rotina e comece sua jornada.
         </p>
 
-        <div className="grid grid-cols-1 gap-6 sm:gap-8 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-6 sm:gap-8 lg:grid-cols-3">
           {/* Card Presencial */}
           <GlowCard>
           <article className="relative card-hover flex flex-col overflow-hidden rounded-2xl border-2 border-[var(--color-accent)] bg-white" data-reveal="left">
@@ -35,7 +35,7 @@ function CursosDetalhe() {
               <span className="mb-3 inline-block self-start rounded-full bg-[var(--color-accent)]/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-[var(--color-accent)]">
                 Presencial & Híbrido
               </span>
-              <h3 className="mb-3 text-xl font-bold text-gray-900">Curso Presencial e Híbrido</h3>
+              <h3 className="mb-3 text-xl font-bold text-gray-900">Formação de Adestrador de Cães</h3>
               <p className="mb-2 text-sm leading-relaxed text-gray-600">
                 Um curso presencial para todos que amam, cuidam ou trabalham com cães — tutores,
                 estudantes, adestradores e profissionais da área.
@@ -64,7 +64,7 @@ function CursosDetalhe() {
                 Ideal para quem busca aprendizado imersivo, experiência prática e reconhecimento profissional imediato.
               </p>
               <InteractiveHoverButton
-                href="#contato"
+                href="/curso-adestramento-classeapets-presencial"
                 text="Garantir vaga no curso presencial"
                 className="mt-auto w-full text-sm shadow-lg"
               />
@@ -90,7 +90,7 @@ function CursosDetalhe() {
               <span className="mb-3 inline-block self-start rounded-full bg-red-50 px-3 py-1 text-xs font-bold uppercase tracking-wide text-red-600">
                 100% Digital
               </span>
-              <h3 className="mb-3 text-xl font-bold text-gray-900">Curso 100% Digital</h3>
+              <h3 className="mb-3 text-xl font-bold text-gray-900">Curso de Adestramento Digital</h3>
               <p className="mb-5 text-sm leading-relaxed text-gray-600">
                 Com uma metodologia clara, dinâmica e baseada em casos reais, você vai adquirir
                 conhecimento técnico e prático com videoaulas gravadas, estudar no seu ritmo e aprender
@@ -117,8 +117,63 @@ function CursosDetalhe() {
                 Comece hoje mesmo e transforme sua relação com os cães.
               </p>
               <InteractiveHoverButton
-                href="#contato"
+                href="/xixi-e-coco-no-lugar-certo"
                 text="Garantir vaga no curso digital"
+                variant="dark"
+                className="mt-auto w-full text-sm"
+              />
+            </div>
+          </article>
+          </GlowCard>
+
+          {/* Card Dog Walker */}
+          <GlowCard>
+          <article className="relative card-hover flex flex-col overflow-hidden rounded-2xl border-2 border-gray-200 bg-white" data-reveal="up">
+            <div className="relative flex h-40 items-end justify-center overflow-hidden bg-gradient-to-b from-gray-100 to-gray-200 sm:h-52">
+              <img
+                src={assetUrl('/images/optimized/servico-passeador-480w.webp')}
+                srcSet={`${assetUrl('/images/optimized/servico-passeador-320w.webp')} 320w, ${assetUrl('/images/optimized/servico-passeador-480w.webp')} 480w, ${assetUrl('/images/optimized/servico-passeador-640w.webp')} 640w`}
+                sizes="(max-width: 1024px) 100vw, 33vw"
+                alt="Brenno passeando com cão — Curso de Passeador de Cães"
+                className="h-full w-auto max-w-full object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.1)]"
+                loading="lazy"
+                decoding="async"
+              />
+              <div className="absolute bottom-2 right-2 flex items-center gap-1 rounded bg-white/80 px-2 py-1 text-xs font-semibold text-gray-600 shadow-sm">
+                São Paulo, SP
+              </div>
+            </div>
+            <div className="flex flex-1 flex-col p-4 sm:p-7 md:p-9">
+              <span className="mb-3 inline-block self-start rounded-full bg-orange-50 px-3 py-1 text-xs font-bold uppercase tracking-wide text-orange-600">
+                Presencial
+              </span>
+              <h3 className="mb-3 text-xl font-bold text-gray-900">Curso de Passeador de Cães (Dog Walker)</h3>
+              <p className="mb-5 text-sm leading-relaxed text-gray-600">
+                Seja um profissional completo, preparado para o mercado. A profissão de Dog Walker é
+                uma vocação — com propósito, movimento, conexão e crescimento real.
+              </p>
+              <ul className="mb-6 space-y-2">
+                {[
+                  'Formação prática e presencial',
+                  'Técnicas de condução e manejo seguro',
+                  'Como conquistar seus primeiros clientes',
+                  'Segurança e bem-estar dos cães',
+                  'Marketing e posicionamento profissional',
+                  'Suporte direto com o adestrador',
+                  'Certificado de conclusão',
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-2 text-sm text-gray-600">
+                    <svg className="mt-0.5 h-5 w-5 shrink-0 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <p className="mb-6 text-xs leading-relaxed text-gray-500">
+                Ideal para quem ama cães e quer transformar passeios em uma profissão rentável e com propósito.
+              </p>
+              <InteractiveHoverButton
+                href="/curso-dog-walker-profissional"
+                text="Garantir vaga no curso Dog Walker"
                 variant="dark"
                 className="mt-auto w-full text-sm"
               />

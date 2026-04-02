@@ -5,6 +5,8 @@ function Metodos() {
   const metodos = [
     {
       title: 'Tutores, adestre seu cão',
+      link: 'https://wa.me/5511934066866?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20adestramento%20para%20tutores',
+      external: true,
       items: [
         'Correção de comportamentos indesejados',
         'Mais liberdade para o cão e tranquilidade para o tutor',
@@ -14,6 +16,7 @@ function Metodos() {
     },
     {
       title: 'Curso de adestrador de cães',
+      link: '/curso-adestramento-classeapets-presencial',
       items: [
         'Acompanhamento próximo com profissional experiente',
         'Casos práticos e treinamentos reais desde o 1º dia',
@@ -23,6 +26,7 @@ function Metodos() {
     },
     {
       title: 'Curso passeador de cães presencial',
+      link: '/curso-dog-walker-profissional',
       items: [
         'Menos estresse e mais equilíbrio para o cão',
         'Estímulo físico e mental nos passeios',
@@ -33,6 +37,7 @@ function Metodos() {
     },
     {
       title: 'Cursos 100% digital',
+      link: '/xixi-e-coco-no-lugar-certo',
       items: [
         'Mapa das melhores rotas para passeios seguros',
         'Módulos sobre ansiedade, comandos, xixi fora do lugar e mais',
@@ -66,7 +71,8 @@ function Metodos() {
                 ))}
               </ul>
               <InteractiveHoverButton
-                href="#contato"
+                href={m.link}
+                {...(m.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                 text="Saiba mais"
                 className="w-full text-sm"
               />

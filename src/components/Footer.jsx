@@ -11,10 +11,10 @@ function Footer() {
   ]
 
   const courseLinks = [
-    { href: '#servicos', label: 'Formação Adestrador Profissional' },
-    { href: '#servicos', label: 'Cursos 100% Digitais' },
-    { href: '#servicos', label: 'Adestramento para Tutores' },
-    { href: '#servicos', label: 'Formação Passeador de Cães' },
+    { href: '/curso-adestramento-classeapets-presencial', label: 'Formação Adestrador Profissional' },
+    { href: '/xixi-e-coco-no-lugar-certo', label: 'Cursos 100% Digitais' },
+    { href: 'https://wa.me/5511934066866?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20adestramento%20para%20tutores', label: 'Adestramento para Tutores', external: true },
+    { href: '/curso-dog-walker-profissional', label: 'Formação Passeador de Cães' },
     { href: '#mentoria', label: 'Mentoria para Profissionais' },
   ]
 
@@ -85,6 +85,7 @@ function Footer() {
               <li key={course.label}>
                 <a
                   href={course.href}
+                  {...(course.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                   className="text-sm text-slate-300 transition-colors duration-200 hover:text-white"
                 >
                   {course.label}
