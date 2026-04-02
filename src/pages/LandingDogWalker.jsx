@@ -26,7 +26,7 @@ import { assetUrl } from '../utils/assetUrl'
 import { trackViewContent, trackContact } from '../utils/metaPixel'
 import { createCheckout } from '../utils/checkout'
 
-const BackgroundGradientAnimation = lazy(() => import('../components/ui/BackgroundGradientAnimation').then(m => ({ default: m.BackgroundGradientAnimation })))
+
 const GlowingShadow = lazy(() => import('../components/ui/GlowingShadow').then(m => ({ default: m.GlowingShadow })))
 const SlideTabs = lazy(() => import('../components/ui/SlideTabs').then(m => ({ default: m.SlideTabs })))
 
@@ -73,8 +73,8 @@ function DogWalkerHeader() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 backdrop-blur-xl ${
         scrolled
-          ? 'bg-[var(--color-charcoal)]/80'
-          : 'bg-[var(--color-charcoal)]/40'
+          ? 'bg-white/90 shadow-sm'
+          : 'bg-white/60'
       }`}
     >
       <div className="mx-auto flex w-full max-w-[1280px] items-center justify-between px-5 py-3 sm:px-8 md:py-4">
@@ -104,22 +104,22 @@ function DogWalkerHeader() {
 
         <button
           type="button"
-          className="relative z-50 flex h-11 w-11 items-center justify-center rounded-xl border border-[var(--color-cyan)]/20 bg-transparent p-0 md:hidden"
+          className="relative z-50 flex h-11 w-11 items-center justify-center rounded-xl border border-[var(--color-charcoal)]/15 bg-transparent p-0 md:hidden"
           aria-expanded={menuOpen}
           aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
           onClick={() => setMenuOpen((c) => !c)}
         >
           <div className="flex w-[18px] flex-col items-center gap-[4px]">
-            <span className={`block h-[2px] w-full rounded-full bg-[var(--color-cinza-200)] transition-all duration-300 ${menuOpen ? 'translate-y-[6px] rotate-45' : ''}`} />
-            <span className={`block h-[2px] w-full rounded-full bg-[var(--color-cinza-200)] transition-all duration-300 ${menuOpen ? 'scale-x-0 opacity-0' : ''}`} />
-            <span className={`block h-[2px] w-full rounded-full bg-[var(--color-cinza-200)] transition-all duration-300 ${menuOpen ? '-translate-y-[6px] -rotate-45' : ''}`} />
+            <span className={`block h-[2px] w-full rounded-full bg-[var(--color-charcoal)] transition-all duration-300 ${menuOpen ? 'translate-y-[6px] rotate-45 !bg-[var(--color-cinza-200)]' : ''}`} />
+            <span className={`block h-[2px] w-full rounded-full bg-[var(--color-charcoal)] transition-all duration-300 ${menuOpen ? 'scale-x-0 opacity-0' : ''}`} />
+            <span className={`block h-[2px] w-full rounded-full bg-[var(--color-charcoal)] transition-all duration-300 ${menuOpen ? '-translate-y-[6px] -rotate-45 !bg-[var(--color-cinza-200)]' : ''}`} />
           </div>
         </button>
       </div>
 
       <div
         className="pointer-events-none absolute bottom-0 left-0 right-0 h-16 translate-y-full"
-        style={{ background: 'linear-gradient(to bottom, rgba(46,222,240,0.07), rgba(46,222,240,0.02) 40%, transparent)' }}
+        style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.03), transparent)' }}
         aria-hidden
       />
 
@@ -151,38 +151,25 @@ function DogWalkerHeader() {
 
 /* ─────────────────── HERO ─────────────────── */
 
-function useIsMobile() {
-  const [isMobile, setIsMobile] = useState(() => typeof window !== 'undefined' && window.innerWidth < 768)
-  useEffect(() => {
-    const mq = window.matchMedia('(min-width: 768px)')
-    const handler = (e) => setIsMobile(!e.matches)
-    mq.addEventListener('change', handler)
-    return () => mq.removeEventListener('change', handler)
-  }, [])
-  return isMobile
-}
-
 function HeroSection() {
-  const isMobile = useIsMobile()
-
   return (
-    <section id="hero" className="relative md:min-h-screen" style={{ background: 'linear-gradient(135deg, rgb(3,12,15), rgb(5,25,30))' }}>
-      {!isMobile && (
-        <Suspense fallback={null}>
-          <BackgroundGradientAnimation
-            gradientBackgroundStart="rgb(3, 12, 15)"
-            gradientBackgroundEnd="rgb(5, 25, 30)"
-            firstColor="10, 70, 80"
-            secondColor="15, 90, 100"
-            thirdColor="0, 60, 70"
-            fourthColor="20, 80, 90"
-            fifthColor="10, 65, 75"
-            pointerColor="15, 85, 95"
-            containerClassName="!h-auto !absolute !inset-0"
-            className="!absolute !inset-0"
-          />
-        </Suspense>
-      )}
+    <section id="hero" className="relative md:min-h-screen bg-[var(--color-cream)] overflow-hidden">
+      {/* Soft gradient blobs — palette matched to hero photo */}
+      <div
+        className="pointer-events-none absolute -top-[15%] -right-[5%] h-[500px] w-[500px] rounded-full blur-[100px] sm:h-[700px] sm:w-[700px]"
+        style={{ background: 'radial-gradient(circle, rgba(72,160,68,0.35), transparent 70%)' }}
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute -bottom-[5%] -left-[10%] h-[450px] w-[450px] rounded-full blur-[90px] sm:h-[650px] sm:w-[650px]"
+        style={{ background: 'radial-gradient(circle, rgba(210,180,120,0.30), transparent 70%)' }}
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute top-[25%] left-[45%] h-[350px] w-[350px] rounded-full blur-[80px] sm:h-[500px] sm:w-[500px]"
+        style={{ background: 'radial-gradient(circle, rgba(56,120,48,0.20), transparent 70%)' }}
+        aria-hidden
+      />
 
       <div className="relative z-10 px-4 pb-10 pt-22 sm:px-8 sm:pb-16 sm:pt-32 md:pb-24 lg:pt-36">
         <div className="mx-auto grid max-w-[1200px] grid-cols-1 items-center gap-6 sm:gap-8 md:grid-cols-2 md:gap-12 lg:gap-16">
@@ -194,7 +181,7 @@ function HeroSection() {
                 srcSet={`${assetUrl('/images/optimized/servico-passeador-480w.webp')} 480w, ${assetUrl('/images/optimized/servico-passeador-640w.webp')} 640w, ${assetUrl('/images/optimized/servico-passeador-960w.webp')} 960w`}
                 sizes="(max-width: 768px) 200px, 440px"
                 alt="Brenno Rodrigues — Dog Walker Profissional passeando com cães"
-                className="relative z-10 h-auto w-full rounded-2xl object-cover shadow-[0_8px_40px_rgba(0,0,0,0.3)]"
+                className="relative z-10 h-auto w-full rounded-2xl object-cover shadow-[0_8px_30px_rgba(0,0,0,0.1)]"
                 width={640}
                 height={640}
                 fetchPriority="high"
@@ -204,17 +191,17 @@ function HeroSection() {
 
           {/* Text */}
           <div className="text-center md:order-1 md:text-left">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[var(--color-cyan)]/20 bg-[var(--color-cyan)]/6 px-3.5 py-1.5 backdrop-blur-sm sm:mb-8 sm:gap-2.5 sm:px-5 sm:py-2.5">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[var(--color-cyan-muted)]/25 bg-[var(--color-cyan-muted)]/8 px-3.5 py-1.5 sm:mb-8 sm:gap-2.5 sm:px-5 sm:py-2.5">
               <span className="relative flex h-2 w-2 shrink-0">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--color-cyan)] opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--color-cyan)]" />
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--color-cyan-muted)] opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--color-cyan-muted)]" />
               </span>
-              <span className="text-[0.75rem] font-semibold leading-tight text-[var(--color-cyan)] sm:text-[0.82rem]">
+              <span className="text-[0.75rem] font-semibold leading-tight text-[var(--color-charcoal)] sm:text-[0.82rem]">
                 Vagas Limitadas — Presencial em SP
               </span>
             </div>
 
-            <h1 className="mb-4 !text-[1.6rem] !leading-[1.18] !text-white sm:mb-6 sm:!text-[2rem] md:!text-[2.5rem] lg:!text-[3.2rem]">
+            <h1 className="mb-4 !text-[1.6rem] !leading-[1.18] !text-[var(--color-charcoal)] sm:mb-6 sm:!text-[2rem] md:!text-[2.5rem] lg:!text-[3.2rem]">
               Torne-se Dog Walker Profissional e{' '}
               <span
                 className="bg-clip-text text-transparent"
@@ -224,7 +211,7 @@ function HeroSection() {
               </span>
             </h1>
 
-            <p className="mx-auto mb-6 max-w-[540px] text-[0.9rem] leading-relaxed text-[var(--color-cinza-400)] sm:mb-10 sm:text-[1.1rem] md:mx-0 md:text-[1.05rem]">
+            <p className="mx-auto mb-6 max-w-[540px] text-[0.9rem] leading-relaxed text-[var(--color-texto-muted)] sm:mb-10 sm:text-[1.1rem] md:mx-0 md:text-[1.05rem]">
               O único curso de Dog Walker ministrado por um adestrador profissional.
               Você não aprende só a passear — aprende a ENTENDER o cão.
             </p>
@@ -244,20 +231,14 @@ function HeroSection() {
                 { icon: MapPin, text: 'Presencial em São Paulo' },
               ].map((item) => (
                 <div key={item.text} className="flex items-center gap-1.5">
-                  <item.icon className="h-3.5 w-3.5 text-[var(--color-cyan-muted)]/60 sm:h-4 sm:w-4" />
-                  <span className="text-[0.72rem] font-medium text-[var(--color-cinza-500)] sm:text-[0.8rem]">{item.text}</span>
+                  <item.icon className="h-3.5 w-3.5 text-[var(--color-cyan-muted)] sm:h-4 sm:w-4" />
+                  <span className="text-[0.72rem] font-medium text-[var(--color-texto-muted)] sm:text-[0.8rem]">{item.text}</span>
                 </div>
               ))}
             </div>
           </div>
         </div>
       </div>
-
-      <div
-        className="pointer-events-none absolute bottom-0 left-0 right-0 z-20 h-20 sm:h-24"
-        style={{ background: 'linear-gradient(to bottom, transparent, var(--color-cream))' }}
-        aria-hidden
-      />
     </section>
   )
 }
