@@ -90,21 +90,20 @@ function CursosDetalhe() {
               <span className="mb-3 inline-block self-start rounded-full bg-red-50 px-3 py-1 text-xs font-bold uppercase tracking-wide text-red-600">
                 100% Digital
               </span>
-              <h3 className="mb-3 text-xl font-bold text-gray-900">Curso de Adestramento Digital</h3>
+              <h3 className="mb-3 text-xl font-bold text-gray-900">Xixi e Cocô no Lugar Certo</h3>
               <p className="mb-5 text-sm leading-relaxed text-gray-600">
-                Com uma metodologia clara, dinâmica e baseada em casos reais, você vai adquirir
-                conhecimento técnico e prático com videoaulas gravadas, estudar no seu ritmo e aprender
-                técnicas eficazes de manejo, adestramento e bem-estar animal.
+                Ensine seu cão a fazer as necessidades no lugar certo com o Método Suite Canina.
+                Curso 100% digital, com videoaulas práticas e diretas — para filhotes ou adultos.
               </p>
               <ul className="mb-6 space-y-2">
                 {[
-                  'Treinamento 100% online',
-                  'Vídeos curtos, didáticos e com exercícios simples',
-                  'Técnicas baseadas em reforço moderno',
-                  'Aulas sobre segurança, comportamento, clientes e marketing',
-                  'Modelos prontos: contratos, fichas de atendimento e planejamento',
+                  'Método Suite Canina — passo a passo comprovado',
+                  'Funciona para filhotes e adultos',
+                  'Videoaulas curtas e práticas (~90 min)',
+                  'Sem punição — reforço positivo',
+                  'Acesso imediato após a compra',
                   'Suporte direto com o adestrador',
-                  'Acesso imediato + certificado de conclusão',
+                  'Certificado de conclusão',
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2 text-sm text-gray-600">
                     <svg className="mt-0.5 h-5 w-5 shrink-0 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
@@ -113,12 +112,11 @@ function CursosDetalhe() {
                 ))}
               </ul>
               <p className="mb-6 text-xs leading-relaxed text-gray-500">
-                Ideal para quem busca flexibilidade, autonomia no aprendizado e qualificação de verdade.
-                Comece hoje mesmo e transforme sua relação com os cães.
+                Ideal para tutores que querem resolver o problema de xixi e cocô fora do lugar de uma vez por todas.
               </p>
               <InteractiveHoverButton
                 href="/xixi-e-coco-no-lugar-certo"
-                text="Garantir vaga no curso digital"
+                text="Quero ensinar meu cão"
                 variant="dark"
                 className="mt-auto w-full text-sm"
               />
