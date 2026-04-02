@@ -33,7 +33,7 @@ function CursosDetalhe() {
             </div>
             <div className="flex flex-1 flex-col p-4 sm:p-7 md:p-9">
               <span className="mb-3 inline-block self-start rounded-full bg-[var(--color-accent)]/10 px-3 py-1 text-xs font-bold uppercase tracking-wide text-[var(--color-accent)]">
-                Presencial & Híbrido
+                Presencial
               </span>
               <h3 className="mb-3 text-xl font-bold text-gray-900">Formação de Adestrador de Cães</h3>
               <p className="mb-2 text-sm leading-relaxed text-gray-600">
