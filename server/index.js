@@ -32,6 +32,12 @@ const PRODUCTS = {
     unit_price: 1577.00,
     currency_id: 'BRL',
   },
+  'curso-dog-walker': {
+    title: 'Curso Dog Walker Profissional - Classe A Pets',
+    description: 'Formação presencial de Passeador de Cães (Dog Walker)',
+    unit_price: 370.00,
+    currency_id: 'BRL',
+  },
 }
 
 app.post('/api/checkout', async (req, res) => {

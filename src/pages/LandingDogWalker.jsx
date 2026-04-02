@@ -24,6 +24,7 @@ import {
 import useScrollReveal from '../hooks/useScrollReveal'
 import { assetUrl } from '../utils/assetUrl'
 import { trackViewContent, trackContact } from '../utils/metaPixel'
+import { createCheckout } from '../utils/checkout'
 
 const BackgroundGradientAnimation = lazy(() => import('../components/ui/BackgroundGradientAnimation').then(m => ({ default: m.BackgroundGradientAnimation })))
 const GlowingShadow = lazy(() => import('../components/ui/GlowingShadow').then(m => ({ default: m.GlowingShadow })))
@@ -344,7 +345,7 @@ function Regulamentacao() {
     {
       icon: BookOpen,
       title: 'Treinamento obrigatório',
-      text: 'Certificação em comportamento canino, técnicas de manejo e primeiros socorros.',
+      text: 'Certificação em comportamento canino, técnicas de manejo e sinais de emergência.',
     },
     {
       icon: Scale,
@@ -424,7 +425,7 @@ function Regulamentacao() {
               </h3>
               <p className="mb-4 text-[0.88rem] leading-relaxed text-[var(--color-cinza-400)] sm:text-[0.95rem]">
                 Nosso programa cobre todas as exigências do projeto de lei: comportamento canino,
-                técnicas de manejo, segurança, primeiros socorros e certificação profissional.
+                técnicas de manejo, segurança, sinais de emergência e certificação profissional.
                 Quem se formar agora estará <strong className="text-[var(--color-cyan)]">à frente de 95% do mercado</strong> quando
                 a lei entrar em vigor.
               </p>
@@ -433,7 +434,7 @@ function Regulamentacao() {
                 {[
                   'Comportamento canino',
                   'Técnicas de manejo',
-                  'Primeiros socorros',
+                  'Sinais de emergência',
                   'Certificação',
                 ].map((item) => (
                   <span key={item} className="inline-flex items-center gap-1.5">
@@ -613,35 +614,25 @@ const programaModulos = [
     items: [
       'Linguagem corporal e sinais de estresse',
       'Temperamentos e compatibilidade entre cães',
-      'Psicologia canina aplicada ao passeio',
+      'Manejo entre cães',
       'Identificação de cães reativos',
     ],
   },
   {
     modulo: 'Módulo 2',
-    title: 'Técnicas de Passeio',
-    items: [
-      'Manejo de matilha (3 a 8 cães)',
-      'Equipamentos: guias, peitorais, enforcadores',
-      'Socialização durante o passeio',
-      'Dessensibilização em ambientes urbanos',
-    ],
-  },
-  {
-    modulo: 'Módulo 3',
     title: 'Segurança e Emergências',
     items: [
       'Protocolo para brigas entre cães',
-      'Primeiros socorros caninos',
+      'Sinais de emergência',
       'Fuga, atropelamento e acidentes',
       'Responsabilidade legal e seguros',
     ],
   },
   {
-    modulo: 'Módulo 4',
+    modulo: 'Módulo 3',
     title: 'Negócio e Clientes',
     items: [
-      'Como conseguir seus 10 primeiros clientes',
+      'Apresentação profissional para seu cliente',
       'Precificação e pacotes de serviço',
       'Contratos e fichas profissionais',
       'Marketing e posicionamento digital',
@@ -825,9 +816,14 @@ function Diferencial() {
 
 const inclusoItems = [
   {
+    icon: Users,
+    title: 'Estágio Presencial',
+    description: 'Participação do estágio presencial com acompanhamento do instrutor.',
+  },
+  {
     icon: Award,
     title: 'Certificado Profissional',
-    description: 'Certificação reconhecida + Carteirinha de Dog Walker Profissional.',
+    description: 'Certificação reconhecida de Dog Walker Profissional.',
   },
   {
     icon: FileText,
@@ -891,6 +887,18 @@ function Incluso() {
 
 function Investimento() {
   useScrollReveal()
+  const [loading, setLoading] = useState(false)
+
+  const handleCheckout = async () => {
+    if (loading) return
+    setLoading(true)
+    try {
+      trackContact('LP Dog Walker CTA')
+      await createCheckout('curso-dog-walker')
+    } catch {
+      setLoading(false)
+    }
+  }
 
   return (
     <section
@@ -908,9 +916,9 @@ function Investimento() {
         {/* Included items */}
         <div className="mb-6 space-y-2.5 sm:mb-8" data-reveal="fade">
           {[
-            'Curso Presencial completo (todos os módulos)',
+            'Curso Presencial completo',
             'Dia de prática em campo com cães reais',
-            'Certificado + Carteirinha Profissional',
+            'Certificado Profissional',
             'Kit completo: contrato, ficha, relatório, tabela de preços',
             'Grupo VIP WhatsApp + suporte pós-curso',
           ].map((label) => (
@@ -935,7 +943,7 @@ function Investimento() {
 
             <div className="px-5 pb-6 pt-8 sm:px-10 sm:pb-10 sm:pt-12">
               <p className="mb-1 text-center text-[0.82rem] font-medium text-[var(--color-texto-muted)] sm:text-[0.88rem]">
-                Investimento total
+                ou em até
               </p>
 
               <p
@@ -945,26 +953,34 @@ function Investimento() {
                   fontFamily: "'DM Serif Display', Georgia, serif",
                 }}
               >
-                Consulte condições
+                12x de R$ 37,65
               </p>
 
-              <p className="mt-3 text-center text-[0.88rem] text-[var(--color-texto-muted)] sm:mt-4 sm:text-[0.95rem]">
-                Parcelamento disponível — fale com o Brenno para saber valores e datas
+              <div className="mx-auto my-4 h-px w-16 bg-[var(--color-cinza-200)] sm:my-5" />
+
+              <p className="text-center text-[0.95rem] font-semibold text-[var(--color-charcoal)] sm:text-[1.05rem]">
+                À vista:{' '}
+                <span
+                  className="text-[1.15rem] font-bold bg-clip-text text-transparent sm:text-[1.3rem]"
+                  style={{ backgroundImage: 'var(--gradient-cyan)' }}
+                >
+                  R$ 370,00
+                </span>
+                <span className="ml-2 inline-flex items-center rounded-full bg-[var(--color-success)]/10 px-2.5 py-0.5 text-[0.72rem] font-bold text-[var(--color-success)]">
+                  18% OFF
+                </span>
               </p>
 
               <div className="mx-auto my-5 h-px w-full bg-[var(--color-cinza-200)] sm:my-6" />
 
-              <a
-                href="https://wa.me/5511934066866?text=Ol%C3%A1%20Brenno%2C%20tenho%20interesse%20no%20curso%20de%20Dog%20Walker!"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => {
-                  trackContact('LP Dog Walker CTA')
-                }}
-                className="btn-primary inline-flex min-h-[50px] w-full items-center justify-center gap-2 !rounded-full !px-4 !py-3.5 !text-[0.88rem] !font-bold !no-underline hover:!no-underline sm:min-h-[56px] sm:!px-6 sm:!py-4 sm:!text-[0.95rem]"
+              <button
+                type="button"
+                onClick={handleCheckout}
+                disabled={loading}
+                className="btn-primary inline-flex min-h-[50px] w-full items-center justify-center gap-2 !rounded-full !px-4 !py-3.5 !text-[0.88rem] !font-bold !no-underline hover:!no-underline sm:min-h-[56px] sm:!px-6 sm:!py-4 sm:!text-[0.95rem] disabled:opacity-60"
               >
-                Quero garantir minha vaga
-              </a>
+                {loading ? 'Redirecionando...' : 'Quero garantir minha vaga'}
+              </button>
 
               <div className="mt-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 sm:mt-5 sm:gap-4">
                 {['Certificação profissional', 'Pagamento seguro', 'Vagas limitadas'].map((t) => (
@@ -995,7 +1011,7 @@ const faqItems = [
   {
     pergunta: 'Quanto tempo até começar a faturar?',
     resposta:
-      'Muitos alunos conseguem os primeiros clientes ainda durante o curso, usando as estratégias de captação que ensinamos no Módulo 4. Resultados variam conforme dedicação e região.',
+      'Muitos alunos conseguem os primeiros clientes ainda durante o curso, usando as estratégias de captação que ensinamos. Resultados variam conforme dedicação e região.',
   },
   {
     pergunta: 'Qual a diferença desse curso pros outros?',
@@ -1020,12 +1036,12 @@ const faqItems = [
   {
     pergunta: 'Recebo certificado?',
     resposta:
-      'Sim. Você recebe certificado de conclusão e carteirinha de Dog Walker Profissional. Com a regulamentação em andamento, ter certificação será um diferencial (e possivelmente obrigatório).',
+      'Sim. Você recebe certificado de conclusão de Dog Walker Profissional. Com a regulamentação em andamento, ter certificação será um diferencial (e possivelmente obrigatório).',
   },
   {
     pergunta: 'O que acontece se um cão brigar durante o passeio?',
     resposta:
-      'Esse é exatamente o tipo de situação que cobrimos no Módulo 3 (Segurança e Emergências). Você aprende protocolos testados para prevenir e lidar com brigas, fugas, e qualquer emergência durante o passeio.',
+      'Esse é exatamente o tipo de situação que cobrimos no módulo de Segurança e Emergências. Você aprende protocolos testados para prevenir e lidar com brigas, fugas, e qualquer emergência durante o passeio.',
   },
 ]
 
