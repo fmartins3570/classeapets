@@ -21,7 +21,7 @@ export default defineConfig({
       closeBundle() {
         const dist = resolve(__dirname, 'dist')
         const baseHtml = readFileSync(resolve(dist, 'index.html'), 'utf-8')
-        const routes = ['curso-adestramento-classeapets-presencial', 'curso-adestramento-classeapets-presencial-b', 'xixi-e-coco-no-lugar-certo', 'profissao-adestrador', 'prova-social-adestrador', 'curso-dog-walker-profissional']
+        const routes = ['curso-adestramento-classeapets-presencial', 'curso-adestramento-classeapets-presencial-b', 'xixi-e-coco-no-lugar-certo', 'profissao-adestrador', 'prova-social-adestrador', 'curso-dog-walker-profissional', 'certificacao-dog-walker', 'guia-dog-walker']
         for (const route of routes) {
           const dir = resolve(dist, route)
           mkdirSync(dir, { recursive: true })
@@ -45,6 +45,7 @@ export default defineConfig({
           react: ['react', 'react-dom'],
           router: ['react-router-dom'],
           motion: ['framer-motion'],
+          supabase: ['@supabase/supabase-js'],
         },
       },
     },
