@@ -20,7 +20,7 @@ import {
 } from 'lucide-react'
 import useScrollReveal from '../hooks/useScrollReveal'
 import { assetUrl } from '../utils/assetUrl'
-import { trackViewContent } from '../utils/metaPixel'
+import { trackViewContent, trackCompleteRegistration } from '../utils/metaPixel'
 import LeadCaptureForm from '../components/LeadCaptureForm'
 
 const SESSION_KEY = 'dw_cert_popup_shown'
@@ -214,9 +214,10 @@ function PersonalizedBanner({ nome, profissao }) {
         {/* Download + seta */}
         <div className="mt-10 flex flex-col items-center gap-5">
           <a
-            href="/downloads/guia-certificacao-dog-walker.pdf"
+            href="/downloads/certificacao-dog-walker.pdf"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackCompleteRegistration('Certificacao Dog Walker')}
             className="btn-primary inline-flex min-h-[52px] cursor-pointer items-center justify-center gap-2.5 !rounded-full !px-8 !py-3.5 !text-[0.95rem] !font-bold !no-underline hover:!no-underline sm:!px-10 sm:!text-base"
           >
             <Download className="h-5 w-5" aria-hidden />

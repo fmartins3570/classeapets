@@ -52,10 +52,17 @@ export default function LeadCaptureForm({ source, onSuccess }) {
           ...utm,
         })
       }
-      trackLead(source?.includes('certificacao') ? 'Certificacao Dog Walker' : 'Guia Dog Walker')
+      const contentName = source?.includes('certificacao') ? 'Certificacao Dog Walker' : 'Guia Dog Walker'
+      const nameParts = nome.trim().split(' ')
+      const userData = {
+        firstName: nameParts[0],
+        lastName: nameParts.length > 1 ? nameParts.slice(1).join(' ') : undefined,
+        phone: whatsapp.replace(/\D/g, ''),
+      }
+      trackLead(contentName, userData)
       onSuccess({ nome: nome.trim(), profissao: profissao.trim() })
     } catch {
-      trackLead('Certificacao Dog Walker')
+      trackLead(source?.includes('certificacao') ? 'Certificacao Dog Walker' : 'Guia Dog Walker')
       onSuccess({ nome: nome.trim(), profissao: profissao.trim() })
     } finally {
       setLoading(false)

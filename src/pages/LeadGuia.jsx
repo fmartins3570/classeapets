@@ -20,7 +20,7 @@ import {
 } from 'lucide-react'
 import useScrollReveal from '../hooks/useScrollReveal'
 import { assetUrl } from '../utils/assetUrl'
-import { trackViewContent } from '../utils/metaPixel'
+import { trackViewContent, trackCompleteRegistration } from '../utils/metaPixel'
 import LeadCaptureForm from '../components/LeadCaptureForm'
 
 const SESSION_KEY = 'dw_guia_popup_shown'
@@ -192,6 +192,7 @@ function PersonalizedBanner({ nome, profissao }) {
             href="/downloads/guia-transicao-dog-walker.pdf"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackCompleteRegistration('Guia Dog Walker')}
             className="inline-flex min-h-[52px] cursor-pointer items-center justify-center gap-2.5 rounded-full bg-gradient-to-br from-emerald-500 to-emerald-400 px-8 py-3.5 text-[0.95rem] font-bold text-white shadow-[0_4px_16px_rgba(16,185,129,0.3)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_28px_rgba(16,185,129,0.4)] !no-underline hover:!no-underline sm:px-10 sm:text-base"
           >
             <Download className="h-5 w-5" aria-hidden />
