@@ -1,8 +1,14 @@
 import 'dotenv/config'
 import { createHash } from 'node:crypto'
+import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs'
+import { join, dirname } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import express from 'express'
 import cors from 'cors'
 import { MercadoPagoConfig, Preference } from 'mercadopago'
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
+const LEADS_FILE = join(__dirname, 'data', 'leads.json')
 
 const app = express()
 app.use(cors())
@@ -86,6 +92,66 @@ app.post('/api/checkout', async (req, res) => {
     console.error('Mercado Pago error:', err)
     return res.status(500).json({ error: 'Erro ao criar checkout. Tente novamente.' })
   }
+})
+
+// --- Leads API ---
+
+function readLeads() {
+  if (!existsSync(LEADS_FILE)) return []
+  return JSON.parse(readFileSync(LEADS_FILE, 'utf-8'))
+}
+
+function writeLeads(leads) {
+  const dir = dirname(LEADS_FILE)
+  if (!existsSync(dir)) mkdirSync(dir, { recursive: true })
+  writeFileSync(LEADS_FILE, JSON.stringify(leads, null, 2))
+}
+
+app.post('/api/leads', (req, res) => {
+  try {
+    const { nome, whatsapp, profissao, source, utm_source, utm_medium, utm_campaign, utm_content, utm_term } = req.body
+
+    if (!nome || !whatsapp) {
+      return res.status(400).json({ error: 'nome and whatsapp required' })
+    }
+
+    const phone = whatsapp.replace(/\D/g, '')
+    const leads = readLeads()
+
+    const existing = leads.findIndex((l) => l.whatsapp === phone)
+    const lead = {
+      nome: nome.trim(),
+      whatsapp: phone,
+      profissao: profissao?.trim() || '',
+      source: source || '',
+      utm_source: utm_source || null,
+      utm_medium: utm_medium || null,
+      utm_campaign: utm_campaign || null,
+      utm_content: utm_content || null,
+      utm_term: utm_term || null,
+      created_at: new Date().toISOString(),
+      ip: req.headers['x-forwarded-for']?.split(',')[0]?.trim() || req.ip,
+    }
+
+    if (existing >= 0) {
+      lead.created_at = leads[existing].created_at
+      lead.updated_at = new Date().toISOString()
+      leads[existing] = lead
+    } else {
+      leads.push(lead)
+    }
+
+    writeLeads(leads)
+    return res.json({ success: true, total: leads.length, duplicate: existing >= 0 })
+  } catch (err) {
+    console.error('Lead save error:', err.message)
+    return res.status(500).json({ error: 'Failed to save lead' })
+  }
+})
+
+app.get('/api/leads', (req, res) => {
+  const leads = readLeads()
+  res.json({ total: leads.length, leads })
 })
 
 // --- Meta Conversions API (CAPI) ---

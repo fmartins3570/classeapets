@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import { supabase } from '../utils/supabase'
 import { trackLead } from '../utils/metaPixel'
+
+const API_URL = (import.meta.env.VITE_API_URL || 'https://api.classeapets.com.br') + '/api/leads'
 
 function getUtmParams() {
   const params = new URLSearchParams(window.location.search)
@@ -8,6 +9,8 @@ function getUtmParams() {
     utm_source: params.get('utm_source'),
     utm_medium: params.get('utm_medium'),
     utm_campaign: params.get('utm_campaign'),
+    utm_content: params.get('utm_content'),
+    utm_term: params.get('utm_term'),
   }
 }
 
@@ -42,16 +45,18 @@ export default function LeadCaptureForm({ source, onSuccess }) {
     setLoading(true)
 
     try {
-      if (supabase) {
-        const utm = getUtmParams()
-        await supabase.from('dogwalker_leads').insert({
+      const utm = getUtmParams()
+      await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
           nome: nome.trim(),
           whatsapp: whatsapp.replace(/\D/g, ''),
           profissao: profissao.trim(),
           source,
           ...utm,
-        })
-      }
+        }),
+      })
       const contentName = source?.includes('certificacao') ? 'Certificacao Dog Walker' : 'Guia Dog Walker'
       const nameParts = nome.trim().split(' ')
       const userData = {

@@ -1,4 +1,4 @@
-const CAPI_URL = (import.meta.env.VITE_API_URL || '') + '/api/capi'
+const CAPI_URL = (import.meta.env.VITE_API_URL || 'https://api.classeapets.com.br') + '/api/capi'
 
 function generateEventId() {
   return crypto.randomUUID()
