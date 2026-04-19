@@ -14,6 +14,7 @@ const LandingProvaSocial = lazy(() => import('./pages/LandingProvaSocial'))
 const LandingDogWalker = lazy(() => import('./pages/LandingDogWalker'))
 const LeadCertificacao = lazy(() => import('./pages/LeadCertificacao'))
 const LeadGuia = lazy(() => import('./pages/LeadGuia'))
+const ThankYouGuia = lazy(() => import('./pages/ThankYouGuia'))
 const TermosDeUso = lazy(() => import('./pages/TermosDeUso'))
 const PoliticaDePrivacidade = lazy(() => import('./pages/PoliticaDePrivacidade'))
 const PagamentoStatus = lazy(() => import('./pages/PagamentoStatus'))
@@ -106,6 +107,7 @@ function App() {
           <Route path="/curso-dog-walker-profissional" element={<LandingDogWalker />} />
           <Route path="/certificacao-dog-walker" element={<LeadCertificacao />} />
           <Route path="/guia-dog-walker" element={<LeadGuia />} />
+          <Route path="/guia-dog-walker/obrigado" element={<ThankYouGuia />} />
           <Route path="/termos-de-uso" element={<TermosDeUso />} />
           <Route path="/politica-de-privacidade" element={<PoliticaDePrivacidade />} />
           <Route path="/pagamento/:status" element={<PagamentoStatus />} />

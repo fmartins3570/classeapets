@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
+import { useNavigate } from 'react-router-dom'
 import {
   MapPin,
   TrendingUp,
@@ -751,8 +752,8 @@ function GuiaFooter() {
 /* ─────────────────── PAGE ─────────────────── */
 
 export default function LeadGuia() {
-  const [lead, setLead] = useState(null)
   const [manualPopup, setManualPopup] = useState(false)
+  const nav = useNavigate()
 
   useScrollReveal()
 
@@ -765,18 +766,12 @@ export default function LeadGuia() {
 
   function handleSuccess(data) {
     setManualPopup(false)
-    setLead(data)
-    requestAnimationFrame(() => {
-      const el = document.getElementById('personalizado')
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    })
+    nav('/guia-dog-walker/obrigado', { state: data })
   }
 
   return (
     <div className="min-h-screen overflow-x-clip">
       <GuiaHeader onCtaClick={openForm} />
-
-      {lead && <PersonalizedBanner nome={lead.nome} profissao={lead.profissao} />}
 
       <HeroSection onCtaClick={openForm} />
       <DorVsSonho />
@@ -788,7 +783,7 @@ export default function LeadGuia() {
 
       <AutoPopup onSuccess={handleSuccess} />
       <ManualPopup open={manualPopup} onSuccess={handleSuccess} onDismiss={() => setManualPopup(false)} />
-      <ExitIntentPopup onSuccess={handleSuccess} leadCaptured={!!lead} />
+      <ExitIntentPopup onSuccess={handleSuccess} leadCaptured={false} />
       <WhatsAppFloat />
       <MobileStickyBar onCtaClick={openForm} />
     </div>
