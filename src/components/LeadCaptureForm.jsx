@@ -33,7 +33,6 @@ export default function LeadCaptureForm({ source, onSuccess }) {
     if (!nome.trim() || nome.trim().length < 3) errs.nome = 'Informe seu nome completo'
     const digits = whatsapp.replace(/\D/g, '')
     if (digits.length < 10 || digits.length > 11) errs.whatsapp = 'Informe um WhatsApp valido com DDD'
-    if (!profissao.trim() || profissao.trim().length < 2) errs.profissao = 'Informe sua profissao atual'
     setErrors(errs)
     return Object.keys(errs).length === 0
   }
@@ -122,7 +121,7 @@ export default function LeadCaptureForm({ source, onSuccess }) {
       {/* Profissao — texto livre */}
       <div>
         <label htmlFor="lead-profissao" className="mb-1.5 block text-sm font-medium text-white/80">
-          Sua profissao atual
+          Sua profissao atual <span className="text-white/30 font-normal">(opcional)</span>
         </label>
         <input
           id="lead-profissao"

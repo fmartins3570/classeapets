@@ -42,7 +42,7 @@ function CookieConsent() {
   if (!visible) return null
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-[9999] border-t border-slate-700 bg-slate-900 px-4 py-4 shadow-[0_-4px_20px_rgba(0,0,0,0.3)] sm:px-6 sm:py-5">
+    <div className="fixed bottom-0 left-0 right-0 z-[48] border-t border-slate-700 bg-slate-900 px-4 py-4 shadow-[0_-4px_20px_rgba(0,0,0,0.3)] sm:px-6 sm:py-5">
       <div className="mx-auto flex max-w-5xl flex-col items-center gap-4 sm:flex-row sm:gap-6">
         <p className="flex-1 text-center text-sm leading-relaxed text-slate-300 sm:text-left">
           Utilizamos cookies e tecnologias semelhantes, incluindo o Meta Pixel, para personalizar

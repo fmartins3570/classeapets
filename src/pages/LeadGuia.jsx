@@ -32,8 +32,15 @@ function AutoPopup({ onSuccess }) {
 
   useEffect(() => {
     if (sessionStorage.getItem(SESSION_KEY)) return
-    const timer = setTimeout(() => setOpen(true), 3000)
-    return () => clearTimeout(timer)
+    const onScroll = () => {
+      const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)
+      if (pct >= 0.4) {
+        setOpen(true)
+        window.removeEventListener('scroll', onScroll)
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   const dismiss = useCallback(() => {
@@ -74,8 +81,12 @@ function AutoPopup({ onSuccess }) {
           <h2 className="mb-2 text-center text-[1.35rem] font-extrabold leading-tight tracking-tight text-white sm:text-[1.5rem]">
             Pronto pra mudar de vida?
           </h2>
-          <p className="mb-6 text-center text-[0.9rem] leading-relaxed text-white/55">
+          <p className="mb-3 text-center text-[0.9rem] leading-relaxed text-white/55">
             Receba o plano completo de transicao de carreira para Dog Walker
+          </p>
+          <p className="mb-6 flex items-center justify-center gap-1.5 text-center text-[0.78rem] text-emerald-400/70">
+            <Users className="h-3.5 w-3.5" aria-hidden />
+            <span><strong className="text-emerald-400">+340 pessoas</strong> ja baixaram este guia</span>
           </p>
           <LeadCaptureForm source="guia-popup" onSuccess={handleSuccess} />
         </div>
@@ -121,8 +132,12 @@ function ManualPopup({ open, onSuccess, onDismiss }) {
           <h2 className="mb-2 text-center text-[1.35rem] font-extrabold leading-tight tracking-tight text-white sm:text-[1.5rem]">
             Sua nova carreira comeca aqui
           </h2>
-          <p className="mb-6 text-center text-[0.9rem] leading-relaxed text-white/55">
+          <p className="mb-3 text-center text-[0.9rem] leading-relaxed text-white/55">
             Preencha seus dados e acesse o plano de transicao agora
+          </p>
+          <p className="mb-6 flex items-center justify-center gap-1.5 text-center text-[0.78rem] text-emerald-400/70">
+            <Users className="h-3.5 w-3.5" aria-hidden />
+            <span><strong className="text-emerald-400">+340 pessoas</strong> ja baixaram este guia</span>
           </p>
           <LeadCaptureForm source="guia-cta" onSuccess={onSuccess} />
         </div>
@@ -157,11 +172,18 @@ function PersonalizedBanner({ nome, profissao }) {
         </div>
 
         <h2 className="mb-6 text-center text-[1.5rem] font-extrabold leading-tight tracking-tight text-white sm:text-[1.85rem] md:text-[2.2rem]">
-          {firstName}, voce nao precisa continuar sendo{' '}
-          <span className="bg-gradient-to-r from-emerald-400 to-emerald-300 bg-clip-text text-transparent">
-            {profissao}
-          </span>{' '}
-          pro resto da vida.
+          {profissao ? (
+            <>{firstName}, voce nao precisa continuar sendo{' '}
+              <span className="bg-gradient-to-r from-emerald-400 to-emerald-300 bg-clip-text text-transparent">
+                {profissao}
+              </span>{' '}
+              pro resto da vida.</>
+          ) : (
+            <>{firstName}, sua vida pode{' '}
+              <span className="bg-gradient-to-r from-emerald-400 to-emerald-300 bg-clip-text text-transparent">
+                mudar a partir de agora.
+              </span></>
+          )}
         </h2>
 
         <div className="mx-auto max-w-[620px] space-y-4 text-[0.95rem] leading-relaxed text-white/70 sm:text-[1.05rem]">
@@ -560,6 +582,148 @@ function CtaFinal({ onCtaClick }) {
   )
 }
 
+/* ─────────────────── EXIT INTENT POPUP ─────────────────── */
+
+const EXIT_KEY = 'dw_guia_exit_shown'
+
+function ExitIntentPopup({ onSuccess, leadCaptured }) {
+  const [open, setOpen] = useState(false)
+
+  useEffect(() => {
+    if (leadCaptured) return
+    if (sessionStorage.getItem(EXIT_KEY)) return
+
+    let armed = false
+    const armTimer = setTimeout(() => { armed = true }, 8000)
+
+    const onMouseLeave = (e) => {
+      if (!armed || e.clientY > 0) return
+      setOpen(true)
+      sessionStorage.setItem(EXIT_KEY, '1')
+      document.removeEventListener('mouseout', onMouseLeave)
+    }
+
+    document.addEventListener('mouseout', onMouseLeave)
+    return () => {
+      clearTimeout(armTimer)
+      document.removeEventListener('mouseout', onMouseLeave)
+    }
+  }, [leadCaptured])
+
+  const dismiss = useCallback(() => {
+    sessionStorage.setItem(EXIT_KEY, '1')
+    setOpen(false)
+  }, [])
+
+  useEffect(() => {
+    if (!open) return
+    const onEsc = (e) => { if (e.key === 'Escape') dismiss() }
+    document.addEventListener('keydown', onEsc)
+    return () => document.removeEventListener('keydown', onEsc)
+  }, [open, dismiss])
+
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [open])
+
+  function handleSuccess(data) {
+    sessionStorage.setItem(EXIT_KEY, '1')
+    setOpen(false)
+    onSuccess(data)
+  }
+
+  if (!open) return null
+
+  return (
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-label="Ultima chance">
+      <div className="absolute inset-0 bg-[#0B1120]/85 backdrop-blur-md animate-[fadeIn_0.3s_ease-out]" onClick={dismiss} />
+      <div className="relative w-full max-w-[480px] overflow-hidden rounded-2xl border border-amber-400/15 bg-gradient-to-b from-[#111827] to-[#0B1120] shadow-[0_24px_80px_rgba(0,0,0,0.5)] animate-[slideUp_0.4s_cubic-bezier(0.16,1,0.3,1)]">
+        <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-amber-400 to-transparent" />
+        <button onClick={dismiss} className="absolute top-3 right-3 z-10 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-white/25 bg-white/10 text-white transition-all duration-200 hover:scale-110 hover:border-white/40 hover:bg-white/20" aria-label="Fechar"><X size={18} /></button>
+        <div className="p-6 pt-8 sm:p-8 sm:pt-10">
+          <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl border border-amber-400/20 bg-gradient-to-br from-amber-400/15 to-amber-400/5">
+            <AlertTriangle className="h-7 w-7 text-amber-400" />
+          </div>
+          <h2 className="mb-2 text-center text-[1.35rem] font-extrabold leading-tight tracking-tight text-white sm:text-[1.5rem]">
+            Espera — voce ia sair sem o guia?
+          </h2>
+          <p className="mb-3 text-center text-[0.9rem] leading-relaxed text-white/55">
+            O plano de transicao que ja ajudou +340 pessoas a mudar de carreira. E gratuito.
+          </p>
+          <p className="mb-6 flex items-center justify-center gap-1.5 text-center text-[0.78rem] text-amber-400/70">
+            <Clock className="h-3.5 w-3.5" aria-hidden />
+            <span>Leva menos de <strong className="text-amber-400">30 segundos</strong> pra receber</span>
+          </p>
+          <LeadCaptureForm source="guia-exit" onSuccess={handleSuccess} />
+        </div>
+      </div>
+      <style>{`
+        @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
+        @keyframes slideUp {
+          from { opacity: 0; transform: translateY(40px) scale(0.96) }
+          to { opacity: 1; transform: translateY(0) scale(1) }
+        }
+      `}</style>
+    </div>
+  )
+}
+
+/* ─────────────────── WHATSAPP FLOAT ─────────────────── */
+
+function WhatsAppFloat() {
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setVisible(window.scrollY > 400)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  return (
+    <a
+      href="https://wa.me/5511934066866?text=Oi%20Brenno%2C%20vi%20o%20anuncio%20e%20quero%20saber%20mais%20sobre%20a%20carreira%20de%20Dog%20Walker!"
+      target="_blank"
+      rel="noopener noreferrer"
+      onClick={() => trackContact('WhatsApp Float Guia')}
+      className={`fixed right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25d366] shadow-[0_4px_16px_rgba(37,211,102,0.4)] transition-all duration-500 hover:scale-110 hover:shadow-[0_8px_28px_rgba(37,211,102,0.5)] bottom-24 sm:bottom-6 ${visible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0 pointer-events-none'}`}
+      aria-label="Falar com o Brenno no WhatsApp"
+    >
+      <svg viewBox="0 0 24 24" className="h-7 w-7 fill-white" aria-hidden>
+        <path d="M20.52 3.48A11.86 11.86 0 0 0 12.07 0C5.49 0 .16 5.32.16 11.9c0 2.1.55 4.15 1.6 5.95L0 24l6.33-1.66a11.9 11.9 0 0 0 5.74 1.46h.01c6.58 0 11.92-5.33 11.92-11.9a11.8 11.8 0 0 0-3.48-8.42Zm-8.45 18.3h-.01a9.9 9.9 0 0 1-5.05-1.38l-.36-.22-3.76.99 1-3.66-.24-.38A9.84 9.84 0 0 1 2.15 11.9C2.15 6.42 6.6 1.96 12.08 1.96c2.64 0 5.12 1.03 6.98 2.9a9.8 9.8 0 0 1 2.9 6.98c0 5.49-4.46 9.94-9.9 9.94Zm5.44-7.43c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.18.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.49a9.1 9.1 0 0 1-1.68-2.08c-.18-.3-.02-.47.13-.62.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.48-.5-.67-.5h-.57c-.2 0-.52.08-.8.37-.27.3-1.05 1.02-1.05 2.5s1.08 2.9 1.23 3.1c.15.2 2.12 3.25 5.13 4.55.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.77-.72 2.02-1.41.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z" />
+      </svg>
+    </a>
+  )
+}
+
+/* ─────────────────── STICKY MOBILE CTA ─────────────────── */
+
+function MobileStickyBar({ onCtaClick }) {
+  const [visible, setVisible] = useState(false)
+  const [cookieGone, setCookieGone] = useState(false)
+
+  useEffect(() => {
+    setCookieGone(!!localStorage.getItem('classeapets_cookie_consent'))
+    const onScroll = () => {
+      setVisible(window.scrollY > 600)
+      if (!cookieGone && localStorage.getItem('classeapets_cookie_consent')) setCookieGone(true)
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [cookieGone])
+
+  if (!visible) return null
+
+  return (
+    <div className={`fixed left-0 right-0 z-[49] border-t border-emerald-400/20 bg-[#0B1120]/95 px-4 py-3 backdrop-blur-xl sm:hidden ${cookieGone ? 'bottom-0' : 'bottom-[88px]'}`}>
+      <button onClick={onCtaClick} className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-gradient-to-br from-emerald-500 to-emerald-400 py-3.5 text-[0.9rem] font-bold text-white shadow-[0_4px_16px_rgba(16,185,129,0.3)]">
+        <Heart className="h-4 w-4" aria-hidden />
+        Quero Mudar de Vida
+      </button>
+    </div>
+  )
+}
+
 /* ─────────────────── FOOTER ─────────────────── */
 
 function GuiaFooter() {
@@ -624,6 +788,9 @@ export default function LeadGuia() {
 
       <AutoPopup onSuccess={handleSuccess} />
       <ManualPopup open={manualPopup} onSuccess={handleSuccess} onDismiss={() => setManualPopup(false)} />
+      <ExitIntentPopup onSuccess={handleSuccess} leadCaptured={!!lead} />
+      <WhatsAppFloat />
+      <MobileStickyBar onCtaClick={openForm} />
     </div>
   )
 }
