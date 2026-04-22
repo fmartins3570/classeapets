@@ -590,7 +590,6 @@ function Comparativo() {
 
 const programaModulos = [
   {
-    modulo: 'Módulo 1',
     title: 'Comportamento Canino',
     items: [
       'Linguagem corporal e sinais de estresse',
@@ -600,7 +599,6 @@ const programaModulos = [
     ],
   },
   {
-    modulo: 'Módulo 2',
     title: 'Segurança e Emergências',
     items: [
       'Protocolo para brigas entre cães',
@@ -610,7 +608,6 @@ const programaModulos = [
     ],
   },
   {
-    modulo: 'Módulo 3',
     title: 'Negócio e Clientes',
     items: [
       'Apresentação profissional para seu cliente',
@@ -649,7 +646,7 @@ function Programa() {
 
         <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2 md:gap-6" data-reveal-stagger>
           {programaModulos.map((fase) => (
-            <OptionalGlow key={fase.modulo} className="rounded-2xl">
+            <OptionalGlow key={fase.title} className="rounded-2xl">
               <div className="card-dark group h-full p-5 hover:border-transparent sm:p-7">
                 <div className="mb-4 flex items-center gap-3">
                   <div
@@ -659,9 +656,6 @@ function Programa() {
                     <CheckCircle2 className="h-5 w-5 text-white" aria-hidden />
                   </div>
                   <div>
-                    <span className="block text-[0.72rem] font-bold uppercase tracking-widest text-[var(--color-cyan)]">
-                      {fase.modulo}
-                    </span>
                     <h3 className="!text-[1.05rem] !text-white sm:!text-[1.15rem]">{fase.title}</h3>
                   </div>
                 </div>
