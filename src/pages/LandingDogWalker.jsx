@@ -1016,7 +1016,7 @@ const faqItems = [
   {
     pergunta: 'O que acontece se um cão brigar durante o passeio?',
     resposta:
-      'Esse é exatamente o tipo de situação que cobrimos no módulo de Segurança e Emergências. Você aprende protocolos testados para prevenir e lidar com brigas, fugas, e qualquer emergência durante o passeio.',
+      'Esse é exatamente o tipo de situação que cobrimos na seção de Segurança e Emergências. Você aprende protocolos testados para prevenir e lidar com brigas, fugas, e qualquer emergência durante o passeio.',
   },
 ]
 
