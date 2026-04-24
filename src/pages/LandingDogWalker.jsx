@@ -917,36 +917,45 @@ function Investimento() {
             </span>
 
             <div className="px-5 pb-6 pt-8 sm:px-10 sm:pb-10 sm:pt-12">
-              <p className="mb-1 text-center text-[0.82rem] font-medium text-[var(--color-texto-muted)] sm:text-[0.88rem]">
-                ou em até
+              <p className="text-center">
+                <span className="text-[0.88rem] text-[var(--color-cinza-500)] line-through sm:text-[0.95rem]">
+                  R$ 490,00
+                </span>
+                <span className="ml-2 inline-flex items-center rounded-full bg-red-500/10 px-2.5 py-0.5 text-[0.72rem] font-bold text-red-500">
+                  -39% OFF
+                </span>
               </p>
 
               <p
-                className="mt-2 text-center text-[1.65rem] font-bold bg-clip-text text-transparent sm:mt-3 sm:text-3xl md:text-4xl"
+                className="mt-2 text-center text-[2rem] font-bold bg-clip-text text-transparent sm:mt-3 sm:text-[2.5rem] md:text-[2.8rem]"
                 style={{
                   backgroundImage: 'var(--gradient-cyan)',
                   fontFamily: "'DM Serif Display', Georgia, serif",
                 }}
               >
-                12x de R$ 37,65
+                R$ 300,00
               </p>
 
-              <div className="mx-auto my-4 h-px w-16 bg-[var(--color-cinza-200)] sm:my-5" />
-
-              <p className="text-center text-[0.95rem] font-semibold text-[var(--color-charcoal)] sm:text-[1.05rem]">
-                À vista:{' '}
-                <span
-                  className="text-[1.15rem] font-bold bg-clip-text text-transparent sm:text-[1.3rem]"
-                  style={{ backgroundImage: 'var(--gradient-cyan)' }}
-                >
-                  R$ 370,00
-                </span>
-                <span className="ml-2 inline-flex items-center rounded-full bg-[var(--color-success)]/10 px-2.5 py-0.5 text-[0.72rem] font-bold text-[var(--color-success)]">
-                  18% OFF
-                </span>
+              <p className="mt-1 text-center text-[0.82rem] font-medium text-[var(--color-texto-muted)] sm:text-[0.88rem]">
+                ou em até{' '}
+                <span className="font-bold text-[var(--color-charcoal)]">12x de R$ 32,13</span>
               </p>
 
-              <div className="mx-auto my-5 h-px w-full bg-[var(--color-cinza-200)] sm:my-6" />
+              <div className="mx-auto my-4 h-px w-full bg-[var(--color-cinza-200)] sm:my-5" />
+
+              <div className="mx-auto mb-4 flex items-center justify-center gap-2 rounded-xl border border-[var(--color-cyan-muted)]/30 bg-[var(--color-cyan-muted)]/5 px-4 py-3 sm:mb-5">
+                <Shield className="h-4 w-4 shrink-0 text-[var(--color-cyan)]" />
+                <p className="text-center text-[0.82rem] font-semibold text-[var(--color-charcoal)] sm:text-[0.88rem]">
+                  Matrícula de <span className="text-[var(--color-cyan)]">R$ 50,00</span> para garantir sua vaga
+                </p>
+              </div>
+
+              <div className="mx-auto mb-5 flex items-center justify-center gap-2 sm:mb-6">
+                <Users className="h-4 w-4 text-orange-500" />
+                <p className="text-[0.78rem] font-semibold text-[var(--color-charcoal)] sm:text-[0.82rem]">
+                  <span className="text-orange-500">7 de 15 vagas</span> preenchidas
+                </p>
+              </div>
 
               <button
                 type="button"
@@ -954,7 +963,7 @@ function Investimento() {
                 disabled={loading}
                 className="btn-primary inline-flex min-h-[50px] w-full items-center justify-center gap-2 !rounded-full !px-4 !py-3.5 !text-[0.88rem] !font-bold !no-underline hover:!no-underline sm:min-h-[56px] sm:!px-6 sm:!py-4 sm:!text-[0.95rem] disabled:opacity-60"
               >
-                {loading ? 'Redirecionando...' : 'Quero garantir minha vaga'}
+                {loading ? 'Redirecionando...' : 'Garantir minha vaga'}
               </button>
 
               <div className="mt-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 sm:mt-5 sm:gap-4">
