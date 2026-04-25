@@ -984,6 +984,63 @@ function Investimento() {
   )
 }
 
+/* ─────────────────── LOCALIZAÇÃO ─────────────────── */
+
+function Localizacao() {
+  useScrollReveal()
+
+  return (
+    <section
+      className="relative overflow-hidden px-4 py-14 sm:px-8 sm:py-20 md:py-28"
+      style={{ background: 'var(--gradient-section-dark)' }}
+    >
+      <div className="relative mx-auto max-w-[700px]">
+        <div className="mb-10 text-center sm:mb-14" data-reveal="up">
+          <span className="section-label section-label-light justify-center">Localização</span>
+          <h2 className="mx-auto max-w-[500px] !text-[1.5rem] !text-white sm:!text-[1.75rem] md:!text-[2.2rem]">
+            Onde acontecem as aulas
+          </h2>
+        </div>
+
+        <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:rounded-3xl sm:p-8 md:p-10" data-reveal="scale">
+          <div className="flex flex-col items-center gap-5 text-center sm:gap-6">
+            <div
+              className="flex h-14 w-14 items-center justify-center rounded-2xl sm:h-16 sm:w-16"
+              style={{ background: 'var(--gradient-cyan)' }}
+            >
+              <MapPin className="h-7 w-7 text-white sm:h-8 sm:w-8" />
+            </div>
+
+            <div>
+              <p className="mb-1 text-[1.05rem] font-bold text-white sm:text-[1.15rem]">
+                Rua das Artemísias, 71 — Vila Bela, São Paulo - SP
+              </p>
+              <p className="text-[0.88rem] leading-relaxed text-[var(--color-cinza-400)] sm:text-[0.95rem]">
+                Perto do Metrô Vila Prudente e Metrô Tamanduateí
+              </p>
+            </div>
+
+            <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-5">
+              {[
+                { label: 'Metrô Vila Prudente', emoji: '🚇' },
+                { label: 'Metrô Tamanduateí', emoji: '🚇' },
+              ].map((item) => (
+                <span
+                  key={item.label}
+                  className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[0.82rem] font-medium text-[var(--color-cinza-400)] sm:text-[0.88rem]"
+                >
+                  <span>{item.emoji}</span>
+                  {item.label}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 /* ─────────────────── FAQ ─────────────────── */
 
 const faqItems = [
@@ -1202,6 +1259,7 @@ export default function LandingDogWalker() {
       <Diferencial />
       <Incluso />
       <Investimento />
+      <Localizacao />
       <FAQ />
       <WhatsAppCta />
       <CtaFinal />
