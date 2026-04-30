@@ -14,24 +14,26 @@ function Hero() {
             transition={{ delay: 0.2, duration: 0.8, ease: 'easeOut' }}
             className="relative z-10 text-center lg:text-left"
           >
-            <span className="mb-4 inline-block rounded-full bg-red-50 px-3 py-1 text-xs font-semibold text-red-600 sm:mb-5 sm:text-sm">
-              Turma Presencial em São Paulo
+            <span className="mb-4 inline-block rounded-full bg-[var(--color-accent)]/10 px-3 py-1 text-xs font-semibold text-[var(--color-accent)] sm:mb-5 sm:text-sm">
+              Adestramento a Domicílio em São Paulo
             </span>
             <h1 className="mb-4 text-[1.6rem] font-extrabold leading-tight text-gray-900 sm:mb-5 sm:text-4xl md:text-5xl lg:text-6xl">
-              Transforme Sua Paixão por Cães em uma Nova Carreira
+              Adestramento de Cães a Domicílio — Resultados Reais
             </h1>
             <p className="mb-4 text-[0.95rem] leading-relaxed text-gray-600 sm:mb-5 sm:text-lg lg:max-w-[540px]">
-              Aprenda do zero como atuar profissionalmente no mercado pet com o método renovador. Seja você um apaixonado
-              por cães, tutor ou passeador, nossa formação presencial te dá o passo a passo, a prática
-              real e a confiança para iniciar sua nova carreira como adestrador.
+              Seu cão puxa na guia, late demais ou não obedece? Com o método renovador da Classe A Pets,
+              você aprende a adestrar seu próprio cão no conforto da sua casa, com acompanhamento
+              presencial e personalizado do adestrador Brenno.
             </p>
-            <p className="mb-6 flex items-center justify-center gap-2 text-xs font-semibold text-red-500 sm:mb-8 sm:text-sm lg:justify-start">
-              <svg className="h-4 w-4 shrink-0 sm:h-5 sm:w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4.5c-.77-.833-2.694-.833-3.464 0L3.34 16.5c-.77.833.192 2.5 1.732 2.5z" /></svg>
-              Apenas 15 vagas disponíveis para a próxima turma.
+            <p className="mb-6 flex items-center justify-center gap-2 text-xs font-semibold text-[var(--color-accent)] sm:mb-8 sm:text-sm lg:justify-start">
+              <svg className="h-4 w-4 shrink-0 sm:h-5 sm:w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+              São Paulo e ABC Paulista · Atendimento presencial
             </p>
             <InteractiveHoverButton
-              href="#cursos"
-              text="Ver Detalhes da Formação"
+              href="https://wa.me/5511934066866?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20adestramento%20a%20domic%C3%ADlio"
+              target="_blank"
+              rel="noopener noreferrer"
+              text="Agendar Avaliação Gratuita"
               className="relative z-20 w-full text-sm shadow-lg sm:w-fit sm:text-base"
             />
           </motion.div>

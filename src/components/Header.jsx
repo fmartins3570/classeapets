@@ -18,12 +18,12 @@ const tealGradient =
 
 const menuItems = [
   { icon: Home, label: 'Home', href: '#hero', gradient: tealGradient, iconColor: 'text-[var(--color-accent)]' },
-  { icon: Briefcase, label: 'Serviços', href: '#servicos', gradient: tealGradient, iconColor: 'text-[var(--color-accent)]' },
   { icon: UserCircle, label: 'Sobre', href: '#sobre', gradient: tealGradient, iconColor: 'text-[var(--color-accent)]' },
+  { icon: Images, label: 'Instagram', href: '#instagram', gradient: tealGradient, iconColor: 'text-[var(--color-accent)]' },
   { icon: MessageSquare, label: 'Depoimentos', href: '#depoimentos', gradient: tealGradient, iconColor: 'text-[var(--color-accent)]' },
+  { icon: Briefcase, label: 'Serviços', href: '#servicos', gradient: tealGradient, iconColor: 'text-[var(--color-accent)]' },
   { icon: GraduationCap, label: 'Cursos', href: '#cursos', gradient: tealGradient, iconColor: 'text-[var(--color-accent)]' },
   { icon: Lightbulb, label: 'Mentoria', href: '#mentoria', gradient: tealGradient, iconColor: 'text-[var(--color-accent)]' },
-  { icon: Images, label: 'Galeria', href: '#galeria', gradient: tealGradient, iconColor: 'text-[var(--color-accent)]' },
   { icon: Phone, label: 'Contato', href: '#contato', gradient: tealGradient, iconColor: 'text-[var(--color-accent)]' },
 ]
 

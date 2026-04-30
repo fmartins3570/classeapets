@@ -4,7 +4,7 @@ function Stats() {
   const items = [
     { number: '+250', label: 'Famílias Atendidas' },
     { number: '+500', label: 'Cães Transformados' },
-    { number: '+4', label: 'Anos de Experiência' },
+    { number: '+5', label: 'Anos de Experiência' },
     { number: '+10', label: 'Estados Atendidos' },
   ]
 

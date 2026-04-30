@@ -22,6 +22,7 @@ import CookieConsent from './components/CookieConsent'
 import { trackContact } from './utils/metaPixel'
 
 const Sobre = lazy(() => import('./components/Sobre'))
+const Instagram = lazy(() => import('./components/Instagram'))
 const Depoimentos = lazy(() => import('./components/Depoimentos'))
 const CursosDetalhe = lazy(() => import('./components/CursosDetalhe'))
 const Metodos = lazy(() => import('./components/Metodos'))
@@ -77,11 +78,14 @@ function App() {
       <Header />
       <main className="overflow-x-clip p-0 pb-24 md:pb-0">
         <Hero />
+        <Suspense fallback={null}>
+          <Sobre />
+          <Instagram />
+          <Depoimentos />
+        </Suspense>
         <Stats />
         <Servicos />
         <Suspense fallback={null}>
-          <Sobre />
-          <Depoimentos />
           <CursosDetalhe />
           <Mentoria />
           <Metodos />
